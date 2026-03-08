@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Forma Studio — CNC, 3D tisk, Laser · Šumperk</title>
+<meta name="description" content="Proměníme váš soubor v hotový výrobek. Velkoformátové CNC frézování, 100W laser, 3D tisková farma. Komplexní projekty vítány, série od 1 kusu.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#faf9f7; --white:#fff; --ink:#111110; --mid:#65635e;
+  --light:#ede9e1; --border:#e0dbd2;
+  --accent:#c94e1e; --soft:#e8824f; --abg:#fdf2ec; --abdr:#f0c4ae;
+  --serif:'Instrument Serif',Georgia,serif;
+  --sans:'Inter',system-ui,sans-serif;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-weight:400;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+
+/* ─── NAV ─── */
+nav{position:sticky;top:0;z-index:200;background:rgba(250,249,247,.97);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 3rem;height:64px}
+.logo{font-family:var(--serif);font-size:1.4rem;color:var(--ink);text-decoration:none;letter-spacing:-.02em}
+.logo b{color:var(--accent);font-weight:400}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{font-size:.78rem;color:var(--mid);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--ink)}
+.nav-r{display:flex;align-items:center;gap:1.2rem}
+.lsw{display:flex;align-items:center}
+.lbtn{background:none;border:none;cursor:pointer;font-family:var(--sans);font-size:.72rem;font-weight:500;color:var(--mid);padding:.2rem .45rem;letter-spacing:.05em;transition:color .2s}
+.lbtn.on{color:var(--accent)}
+.lsep{color:var(--border);font-size:.8rem;user-select:none}
+.cta-nav{background:var(--ink);color:white;font-size:.76rem;font-weight:500;padding:.55rem 1.35rem;text-decoration:none;border-radius:2px;transition:background .2s,transform .15s;white-space:nowrap}
+.cta-nav:hover{background:var(--accent);transform:translateY(-1px)}
+
+/* ─── HERO ─── */
+#hero{display:grid;grid-template-columns:1fr 1fr;min-height:calc(90vh - 64px)}
+.hl{display:flex;flex-direction:column;justify-content:center;padding:5rem 3.5rem 5rem 3rem}
+.hero-tag{display:inline-flex;align-items:center;gap:.45rem;background:var(--abg);border:1px solid var(--abdr);color:var(--accent);font-size:.69rem;font-weight:500;letter-spacing:.05em;padding:.28rem .8rem;border-radius:20px;margin-bottom:1.6rem;width:fit-content}
+.hero-tag::before{content:"✦";font-size:.55rem}
+h1{font-family:var(--serif);font-size:clamp(2.9rem,5vw,5.2rem);line-height:1.03;letter-spacing:-.035em;margin-bottom:1.4rem;font-weight:400}
+h1 em{font-style:italic;color:var(--accent)}
+.hero-sub{font-size:.97rem;color:var(--mid);line-height:1.85;max-width:440px;margin-bottom:.65rem;font-weight:300}
+.hero-sub strong{color:var(--ink);font-weight:500}
+.hero-proof{font-size:.78rem;color:var(--mid);margin-bottom:2.1rem;font-style:italic}
+.hero-proof strong{color:var(--ink);font-style:normal;font-weight:500}
+.hero-btns{display:flex;gap:.8rem;align-items:center;flex-wrap:wrap;margin-bottom:1.3rem}
+.btn{display:inline-flex;align-items:center;gap:.4rem;text-decoration:none;border-radius:2px;font-family:var(--sans);font-size:.8rem;font-weight:500;transition:background .2s,color .2s,border-color .2s,transform .15s;cursor:pointer;border:none;line-height:1}
+.btn:hover{transform:translateY(-1px)}
+.btn-ink{background:var(--ink);color:white;padding:.85rem 2rem}
+.btn-ink:hover{background:var(--accent)}
+.btn-ghost{background:none;color:var(--mid);padding:.85rem 1.5rem;border:1px solid var(--border)}
+.btn-ghost:hover{color:var(--ink);border-color:var(--ink)}
+.btn-white{background:white;color:var(--ink);padding:1rem 2.5rem;font-size:.8rem;font-weight:600}
+.btn-white:hover{background:var(--accent);color:white}
+.hero-nudge{font-size:.73rem;color:var(--mid);display:flex;align-items:center;gap:.4rem}
+.hero-nudge::before{content:"👋"}
+.hr{position:relative;overflow:hidden;background:var(--light)}
+.hr img{width:100%;height:100%;object-fit:cover;object-position:center 20%}
+.hbadges{position:absolute;top:1.75rem;right:1.75rem;display:flex;flex-direction:column;gap:.5rem}
+.hb{background:rgba(255,255,255,.93);backdrop-filter:blur(8px);padding:.5rem .9rem;font-size:.71rem;font-weight:500;color:var(--ink);display:flex;align-items:center;gap:.45rem;box-shadow:0 2px 12px rgba(0,0,0,.1)}
+.hb-dot{width:6px;height:6px;border-radius:50%;background:var(--accent);flex-shrink:0;animation:pulse 2.5s ease infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+.hbar{position:absolute;bottom:0;left:0;right:0;background:rgba(17,17,16,.9);backdrop-filter:blur(10px);display:flex}
+.hbs{flex:1;padding:.95rem 1.25rem;border-right:1px solid rgba(255,255,255,.06);text-align:center}
+.hbs:last-child{border-right:none}
+.hbs-n{font-family:var(--serif);font-size:1.5rem;color:white;line-height:1}
+.hbs-l{font-size:.57rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.38);margin-top:.2rem}
+
+/* ─── MARQUEE ─── */
+.mwrap{background:var(--ink);padding:.62rem 0;overflow:hidden}
+.mtrack{display:flex;white-space:nowrap;animation:mq 30s linear infinite;width:max-content}
+.mi{font-size:.67rem;letter-spacing:.16em;text-transform:uppercase;color:#555;padding:0 2rem;display:flex;align-items:center;gap:2rem}
+.md{width:3px;height:3px;border-radius:50%;background:var(--accent);flex-shrink:0}
+@keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ─── LOGOS ─── */
+.logos{background:var(--white);border-bottom:1px solid var(--border);padding:1.5rem 3rem}
+.logos-in{max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:2.5rem;flex-wrap:wrap}
+.logos-lbl{font-size:.65rem;letter-spacing:.13em;text-transform:uppercase;color:var(--mid);white-space:nowrap;flex-shrink:0}
+.logo-list{display:flex;gap:3rem;align-items:center;flex-wrap:wrap}
+.logo-item{font-family:var(--sans);font-size:.85rem;font-weight:600;letter-spacing:.04em;color:var(--mid);opacity:.5;transition:opacity .25s,color .25s}
+.logo-item:hover{opacity:1;color:var(--ink)}
+
+/* ─── SHARED ─── */
+.w{max-width:1200px;margin:0 auto}
+.stag{font-size:.65rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:.8rem}
+.sh{font-family:var(--serif);font-size:clamp(1.95rem,3.4vw,3rem);line-height:1.08;letter-spacing:-.025em;color:var(--ink);font-weight:400}
+.sh em{font-style:italic;color:var(--accent)}
+.sh.inv{color:white}
+.sh.inv em{color:var(--soft)}
+.sb{font-size:.9rem;color:var(--mid);line-height:1.82;margin-top:.85rem;font-weight:300;max-width:540px}
+
+/* ─── SERVICES ─── */
+#services{padding:6.5rem 3rem;background:var(--bg)}
+.svc-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);margin-top:4rem}
+.svc{background:var(--white);overflow:hidden;transition:background .25s}
+.svc:hover{background:var(--bg)}
+.svc-img{width:100%;height:420px;object-fit:cover;display:block;transition:transform .55s ease}
+.svc:hover .svc-img{transform:scale(1.04)}
+.svc-body{padding:2.25rem 2.25rem 2.5rem}
+.svc-n{font-family:var(--serif);font-size:.9rem;color:var(--accent);font-style:italic;margin-bottom:.8rem}
+.svc-title{font-family:var(--serif);font-size:1.4rem;color:var(--ink);margin-bottom:.85rem;line-height:1.18;font-weight:400}
+.svc-desc{font-size:.85rem;color:var(--mid);line-height:1.8;margin-bottom:1.1rem;font-weight:300}
+.svc-example{background:var(--bg);border-left:2px solid var(--border);padding:.65rem .95rem;font-size:.78rem;color:var(--mid);line-height:1.65;margin-bottom:1.1rem;font-style:italic}
+.svc-example strong{font-style:normal;color:var(--ink);font-weight:500}
+.svc-tags{display:flex;gap:.4rem;flex-wrap:wrap}
+.svc-tag{font-size:.67rem;letter-spacing:.04em;background:var(--abg);color:var(--accent);padding:.2rem .6rem;border-radius:20px;font-weight:500}
+
+/* ─── GALLERY ─── */
+#gallery{background:var(--white);border-top:1px solid var(--border);padding:6rem 3rem}
+.gal-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:280px;gap:4px;margin-top:3rem}
+.gi{overflow:hidden;background:var(--light);position:relative;cursor:pointer}
+.gi img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s cubic-bezier(.25,.1,.25,1)}
+.gi:hover img{transform:scale(1.15)}
+.gi.span2{grid-column:span 2;grid-row:span 2}
+.gi-cap{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,.7));padding:2.5rem .9rem .7rem;font-size:.69rem;color:rgba(255,255,255,.88);opacity:0;transition:opacity .3s;font-style:italic}
+.gi:hover .gi-cap{opacity:1}
+.lb-overlay{position:fixed;inset:0;z-index:9999;background:rgba(250,249,247,.35);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);display:none;align-items:center;justify-content:center;cursor:zoom-out;opacity:0;transition:opacity .35s ease}
+.lb-overlay.active{display:flex;opacity:1}
+.lb-overlay img{max-width:88vw;max-height:88vh;object-fit:contain;border-radius:8px;box-shadow:0 12px 80px rgba(0,0,0,.18),0 2px 16px rgba(0,0,0,.08);transform:scale(.95);transition:transform .35s cubic-bezier(.25,.1,.25,1)}
+.lb-overlay.active img{transform:scale(1)}
+.lb-close{position:fixed;top:1.2rem;right:1.5rem;color:var(--mid);font-size:1.8rem;cursor:pointer;z-index:10000;transition:color .2s;background:rgba(255,255,255,.6);border:1px solid var(--border);border-radius:50%;width:40px;height:40px;display:flex;align-items:center;justify-content:center;font-family:var(--sans)}
+.lb-close:hover{color:var(--ink);background:rgba(255,255,255,.9)}
+.lb-nav{position:fixed;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.6);border:1px solid var(--border);color:var(--mid);width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1.3rem;z-index:10000;transition:background .2s,color .2s;font-family:var(--sans);border:none}
+.lb-nav:hover{background:rgba(255,255,255,.9);color:var(--ink)}
+.lb-prev{left:1.2rem}
+.lb-next{right:1.2rem}
+.lb-counter{position:fixed;bottom:1.2rem;left:50%;transform:translateX(-50%);color:var(--mid);font-size:.75rem;z-index:10000;font-family:var(--sans)}
+.gi.a{grid-column:span 7;grid-row:span 2}
+.gi.b{grid-column:span 5}
+.gi.c{grid-column:span 5}
+.gi.d{grid-column:span 4}
+.gi.e{grid-column:span 4}
+.gi.f{grid-column:span 4}
+
+/* ─── FULLPRODUCT ─── */
+#fullproduct{background:var(--ink);padding:5rem 3rem;color:white}
+.fp-text{max-width:1200px;margin:0 auto;text-align:center;margin-bottom:3rem}
+.fp-tag{font-size:.65rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--soft);margin-bottom:.8rem}
+.fp-h{font-family:var(--serif);font-size:clamp(1.9rem,3.2vw,2.8rem);line-height:1.1;letter-spacing:-.025em;color:white;font-weight:400;margin-bottom:1rem}
+.fp-h em{font-style:italic;color:var(--soft)}
+.fp-body{font-size:.88rem;color:rgba(255,255,255,.65);line-height:1.85;font-weight:300;margin-bottom:1.6rem;max-width:620px;margin-left:auto;margin-right:auto}
+.fp-tags{display:flex;gap:.5rem;flex-wrap:wrap;justify-content:center;margin-bottom:3rem}
+.fp-pill{font-size:.67rem;letter-spacing:.04em;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.7);padding:.3rem .75rem;border-radius:20px;font-weight:500}
+.fp-photos{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:4px}
+.fp-photo{overflow:hidden;border-radius:4px;height:260px}
+.fp-photo img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .55s ease}
+.fp-photo:hover img{transform:scale(1.1)}
+.fp-label{font-size:.65rem;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.35);text-align:center;margin-top:.6rem}
+
+/* ─── ABOUT ─── */
+#about{border-top:1px solid var(--border)}
+.about-grid{max-width:1200px;margin:0 auto;padding:6rem 3rem;display:grid;grid-template-columns:1.05fr 1fr;gap:5rem;align-items:center}
+.about-img{width:100%;height:480px;object-fit:cover;object-position:center 20%;display:block}
+.about-caption{background:var(--ink);padding:1.1rem 1.5rem;font-size:.77rem;color:rgba(255,255,255,.6);line-height:1.6;font-style:italic}
+.about-q{font-family:var(--serif);font-size:clamp(1.45rem,2.6vw,2.4rem);line-height:1.2;letter-spacing:-.02em;color:var(--ink);font-weight:400}
+.about-q em{font-style:italic;color:var(--accent)}
+.about-body{font-size:.88rem;color:var(--mid);line-height:1.88;margin-top:1.4rem;font-weight:300}
+.about-body p+p{margin-top:.9rem}
+.about-nums{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--border);margin-top:2.25rem}
+.an{padding:1.35rem 1.5rem;border-right:1px solid var(--border);border-bottom:1px solid var(--border)}
+.an:nth-child(2n){border-right:none}
+.an:nth-child(3),.an:nth-child(4){border-bottom:none}
+.an-n{font-family:var(--serif);font-size:2.2rem;line-height:1;color:var(--ink)}
+.an-l{font-size:.63rem;letter-spacing:.1em;text-transform:uppercase;color:var(--mid);margin-top:.25rem}
+
+/* ─── DELIVERY HERO ─── */
+#delivery-hero{border-top:1px solid var(--border);display:grid;grid-template-columns:1fr 1fr}
+.dh-img{overflow:hidden;height:380px}
+.dh-img img{width:100%;height:100%;object-fit:cover;object-position:center 20%;display:block}
+.dh-text{background:var(--ink);padding:4rem 3.5rem;display:flex;flex-direction:column;justify-content:center}
+.dh-label{font-size:.65rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem}
+.dh-q{font-family:var(--serif);font-size:clamp(1.5rem,2.8vw,2.6rem);line-height:1.15;letter-spacing:-.02em;color:white;font-weight:400;margin-bottom:1.25rem}
+.dh-q em{font-style:italic;color:var(--soft)}
+.dh-body{font-size:.85rem;color:rgba(255,255,255,.55);line-height:1.8;font-weight:300}
+.dh-stats{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:2.25rem;border:1px solid #1e1e1c}
+.ds{padding:1.1rem 1.25rem;border-right:1px solid #1e1e1c;border-bottom:1px solid #1e1e1c}
+.ds:nth-child(2n){border-right:none}
+.ds:nth-child(3),.ds:nth-child(4){border-bottom:none}
+.ds-n{font-family:var(--serif);font-size:2rem;line-height:1;color:white}
+.ds-l{font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-top:.25rem}
+
+/* ─── COMPARISON ─── */
+#comparison{background:#0f0f0e;padding:6rem 3rem}
+.comp-head{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:end;margin-bottom:3.5rem}
+.comp-img{width:100%;height:260px;object-fit:cover;object-position:center 30%}
+.comp-table{display:grid;grid-template-columns:1fr 1fr;border:1px solid #1e1e1c}
+.comp-col{border-right:1px solid #1e1e1c}
+.comp-col:last-child{border-right:none}
+.comp-hd{padding:.9rem 1.75rem;border-bottom:1px solid #1e1e1c;font-size:.66rem;letter-spacing:.16em;text-transform:uppercase}
+.comp-hd.them{color:#2d2d2b}
+.comp-hd.us{color:var(--accent)}
+.comp-row{padding:.88rem 1.75rem;border-bottom:1px solid #191917;font-size:.84rem;display:flex;align-items:flex-start;gap:.7rem}
+.comp-row:last-child{border-bottom:none}
+.comp-col.them .comp-row{color:#2d2d2b}
+.comp-col.us .comp-row{color:#a0a09a}
+.comp-col.us .ci{color:var(--accent);font-weight:700;flex-shrink:0}
+.comp-col.them .ci{color:#222220;flex-shrink:0}
+
+/* ─── PROCESS ─── */
+#process{background:var(--bg);border-top:1px solid var(--border);padding:6.5rem 3rem}
+.psteps{margin-top:4rem;border-top:1px solid var(--border)}
+.ps{display:grid;grid-template-columns:54px 1fr;gap:2.5rem;padding:2rem 0;border-bottom:1px solid var(--border);align-items:start}
+.ps-n{font-family:var(--serif);font-size:1.8rem;color:var(--accent);font-style:italic;line-height:1;padding-top:.1rem}
+.ps-right{}
+.ps-title{font-size:.92rem;font-weight:600;color:var(--ink);line-height:1.3;margin-bottom:.3rem}
+.ps-fear{font-size:.76rem;color:var(--accent);font-style:italic;margin-bottom:.5rem}
+.ps-desc{font-size:.83rem;color:var(--mid);line-height:1.78;font-weight:300}
+
+/* ─── TESTIMONIALS ─── */
+#testimonials{background:var(--white);border-top:1px solid var(--border);padding:6rem 3rem}
+.tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3.5rem}
+.tcard{background:var(--bg);border:1px solid var(--border);padding:2rem 1.85rem;display:flex;flex-direction:column;gap:1.25rem;transition:border-color .25s,box-shadow .25s}
+.tcard:hover{border-color:var(--abdr);box-shadow:0 6px 24px rgba(0,0,0,.06)}
+.tcard-stars{color:var(--accent);font-size:.85rem;letter-spacing:.1em}
+.tcard-q{font-family:var(--serif);font-size:1rem;color:var(--ink);line-height:1.55;font-style:italic;font-weight:400}
+.tcard-q::before{content:'\'\'';}
+.tcard-q::after{content:'\'\'';}
+.tcard-author{display:flex;align-items:center;gap:.75rem;margin-top:auto}
+.tcard-av{width:38px;height:38px;border-radius:50%;background:var(--light);display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:600;color:var(--mid);flex-shrink:0}
+.tcard-name{font-size:.8rem;font-weight:600;color:var(--ink);line-height:1.2}
+.tcard-role{font-size:.72rem;color:var(--mid)}
+
+/* ─── FAQ ─── */
+#faq{background:var(--bg);border-top:1px solid var(--border);padding:6.5rem 3rem}
+.faq-in{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1.9fr;gap:6rem;align-items:start}
+.faq-left{position:sticky;top:80px}
+.faq-hint{font-size:.85rem;color:var(--mid);line-height:1.8;margin-top:1rem;font-weight:300}
+.faq-link{display:inline-flex;align-items:center;gap:.35rem;margin-top:1.4rem;font-size:.78rem;font-weight:500;color:var(--accent);text-decoration:none;border-bottom:1px solid var(--abdr);padding-bottom:1px;transition:color .2s,border-color .2s}
+.faq-link:hover{color:var(--ink);border-color:var(--ink)}
+.faq-list{border-top:1px solid var(--border)}
+.fi{border-bottom:1px solid var(--border)}
+.fq{width:100%;background:none;border:none;cursor:pointer;text-align:left;padding:1.1rem 0;font-family:var(--sans);font-size:.88rem;font-weight:500;color:var(--ink);display:flex;justify-content:space-between;align-items:center;gap:1rem;transition:color .2s}
+.fq:hover{color:var(--accent)}
+.fqicon{width:15px;height:15px;flex-shrink:0;transition:transform .3s;color:var(--mid)}
+.fi.open .fqicon{transform:rotate(45deg);color:var(--accent)}
+.fa{max-height:0;overflow:hidden;transition:max-height .38s ease}
+.fa p{font-size:.84rem;color:var(--mid);line-height:1.8;padding-bottom:1.1rem;font-weight:300}
+.fi.open .fa{max-height:500px}
+
+/* ─── CTA STRIP ─── */
+#cta{background:var(--accent);padding:4.5rem 3rem}
+.cta-in{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr auto;align-items:center;gap:3rem}
+.cta-title{font-family:var(--serif);font-size:clamp(1.8rem,3.2vw,3.2rem);color:white;line-height:1.08;letter-spacing:-.025em;font-weight:400}
+.cta-title em{font-style:italic}
+.cta-sub{font-size:.87rem;color:rgba(255,255,255,.7);margin-top:.65rem;font-weight:300}
+
+/* ─── CONTACT ─── */
+#contact{background:var(--bg);border-top:1px solid var(--border);padding:6.5rem 3rem}
+.contact-in{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1.4fr;gap:6.5rem;align-items:start}
+.ch2{font-family:var(--serif);font-size:clamp(1.85rem,3.2vw,3rem);line-height:1.08;letter-spacing:-.025em;margin-bottom:1.1rem;font-weight:400}
+.ch2 em{font-style:italic;color:var(--accent)}
+.contact-body{font-size:.87rem;color:var(--mid);line-height:1.82;margin-bottom:1.5rem;font-weight:300}
+.contact-callout{background:var(--abg);border:1px solid var(--abdr);padding:.95rem 1.15rem;font-size:.78rem;color:var(--accent);line-height:1.65;margin-bottom:2rem;display:flex;gap:.5rem;align-items:flex-start}
+.contact-callout::before{content:"💬";flex-shrink:0}
+.cd{margin-bottom:1rem}
+.cd-lbl{font-size:.59rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:.18rem}
+.cd-val{font-size:.87rem;color:var(--ink)}
+.cd-val a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--border);transition:border-color .2s}
+.cd-val a:hover{border-color:var(--accent)}
+.form-r{margin-bottom:.85rem}
+.form-r label{display:block;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--mid);margin-bottom:.35rem}
+.form-r input,.form-r select,.form-r textarea{width:100%;background:var(--white);border:1px solid var(--border);border-radius:2px;padding:.72rem 1rem;font-family:var(--sans);font-size:.87rem;color:var(--ink);outline:none;transition:border-color .2s,box-shadow .2s;appearance:none}
+.form-r input:focus,.form-r select:focus,.form-r textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(201,78,30,.07)}
+.form-r input::placeholder,.form-r textarea::placeholder{color:#c8c4bc}
+.form-r textarea{height:100px;resize:none}
+.form-r select{cursor:pointer}
+.fg2{display:grid;grid-template-columns:1fr 1fr;gap:.85rem}
+.fsub{width:100%;margin-top:.4rem;background:var(--ink);color:white;border:none;cursor:pointer;font-family:var(--sans);font-size:.82rem;font-weight:500;padding:.95rem;border-radius:2px;transition:background .2s,transform .15s;display:flex;align-items:center;justify-content:center;gap:.35rem}
+.fsub:hover{background:var(--accent);transform:translateY(-1px)}
+.form-note{font-size:.7rem;color:var(--mid);text-align:center;margin-top:.55rem;font-style:italic}
+.form-or{text-align:center;font-size:.75rem;color:var(--mid);margin:.9rem 0;position:relative}
+.form-or::before,.form-or::after{content:'';position:absolute;top:50%;width:42%;height:1px;background:var(--border)}
+.form-or::before{left:0}.form-or::after{right:0}
+
+/* ─── FOOTER ─── */
+footer{background:var(--ink);padding:2.25rem 3rem;display:flex;align-items:center;justify-content:space-between}
+.fl{font-family:var(--serif);font-size:1.2rem;color:white;letter-spacing:-.02em}
+.fl b{color:var(--accent);font-weight:400}
+.flinks{display:flex;gap:2rem;list-style:none}
+.flinks a{font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:#444;text-decoration:none;transition:color .2s}
+.flinks a:hover{color:white}
+.fcopy{font-size:.68rem;color:#333;letter-spacing:.03em}
+
+/* ─── REVEAL ─── */
+.rv{opacity:0;transform:translateY(16px);transition:opacity .65s ease,transform .65s ease}
+.rv.in{opacity:1;transform:none}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}
+
+/* ─── LANG ─── */
+[data-lang]{display:none}
+[data-lang].on{display:block}
+span[data-lang].on,em[data-lang].on,strong[data-lang].on{display:inline}
+
+/* ─── RESPONSIVE ─── */
+@media(max-width:980px){
+  nav{padding:0 1.5rem}.nav-links{display:none}
+  #hero{grid-template-columns:1fr}.hr{height:300px}.hl{padding:4rem 1.5rem 3rem}
+  .logos{padding:1.5rem 1.5rem}
+  #services,.about-grid,#comparison,#process,#testimonials,#faq,#cta,#contact{padding:4rem 1.5rem}
+  #gallery{padding:4rem 1.5rem}
+  .svc-grid{grid-template-columns:1fr}
+  .about-grid{grid-template-columns:1fr;gap:3rem}.about-img{height:320px}
+  #fullproduct{padding:4rem 1.5rem}.fp-photos{grid-template-columns:1fr 1fr}.fp-photo{height:200px}
+  #delivery-hero{grid-template-columns:1fr}.dh-img{height:260px}.dh-text{padding:3rem 1.5rem}
+  .comp-head{grid-template-columns:1fr;gap:2rem}.comp-img{height:200px}
+  .comp-table{grid-template-columns:1fr}.comp-col{border-right:none;border-bottom:1px solid #1e1e1c}
+  .tgrid{grid-template-columns:1fr}
+  .faq-in{grid-template-columns:1fr;gap:3rem}.faq-left{position:static}
+  .cta-in{grid-template-columns:1fr;gap:2rem}
+  .contact-in{grid-template-columns:1fr;gap:3rem}.fg2{grid-template-columns:1fr}
+  .gal-grid{grid-template-columns:1fr 1fr;grid-auto-rows:180px}
+  .gi.span2{grid-column:span 2;grid-row:span 1}
+  footer{flex-direction:column;gap:1.4rem;text-align:center;padding:2rem 1.5rem}
+  .flinks{justify-content:center;flex-wrap:wrap}
+}
+@media(max-width:540px){
+  .gal-grid{grid-template-columns:1fr}.gi.span2{grid-column:span 1}
+  .dh-stats{grid-template-columns:1fr}
+  .ds{border-right:none!important;border-bottom:1px solid #1e1e1c!important}
+  .ds:last-child{border-bottom:none!important}
+}
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <a class="logo" href="#">Forma<b>.</b></a>
+  <ul class="nav-links">
+    <li><a href="#services"><span data-lang="cs" class="on">Co umíme</span><span data-lang="sk">Čo vieme</span><span data-lang="en">What we do</span><span data-lang="de">Was wir tun</span><span data-lang="en">What we do</span><span data-lang="de">Was wir tun</span><span data-lang="en">What we do</span><span data-lang="de">Was wir tun</span></a></li>
+    <li><a href="#gallery"><span data-lang="cs" class="on">Ukázky</span><span data-lang="sk">Ukážky</span><span data-lang="en">Showcase</span><span data-lang="de">Galerie</span><span data-lang="en">Showcase</span><span data-lang="de">Galerie</span><span data-lang="en">Showcase</span><span data-lang="de">Galerie</span></a></li>
+    <li><a href="#about"><span data-lang="cs" class="on">O nás</span><span data-lang="sk">O nás</span><span data-lang="en">About us</span><span data-lang="de">Über uns</span><span data-lang="en">About us</span><span data-lang="de">Über uns</span><span data-lang="en">About us</span><span data-lang="de">Über uns</span></a></li>
+    <li><a href="#faq">FAQ</a></li>
+  </ul>
+  <div class="nav-r">
+    <div class="lsw">
+      <button class="lbtn on" onclick="setL('cs')">CZ</button>
+      <span class="lsep">·</span>
+      <button class="lbtn" onclick="setL('sk')">SK</button><span class="lsep">·</span><button class="lbtn" onclick="setL(\'en\')">EN</button><span class="lsep">·</span><button class="lbtn" onclick="setL(\'de\')">DE</button>
+    </div>
+    <a class="cta-nav" href="#contact">
+      <span data-lang="cs" class="on">Mám projekt →</span>
+      <span data-lang="sk">Mám projekt →</span>
+    </a>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<section id="hero">
+  <div class="hl">
+    <div class="hero-tag">
+      <span data-lang="cs" class="on">Výroba na zakázku · Šumperk, Morava</span>
+      <span data-lang="sk">Výroba na zákazku · Šumperk, Morava</span>
+    </div>
+    <h1>
+      <span data-lang="cs" class="on">Máte nápad.<br>My ho <em>vyrobíme.</em></span>
+      <span data-lang="sk">Máte nápad.<br>My ho <em>vyrobíme.</em></span>
+    </h1>
+    <p class="hero-sub">
+      <span data-lang="cs" class="on">CNC frézování, 3D tisk, laserové gravírování — <strong>od 1 kusu po tisíce.</strong> Pošlete nám soubor nebo jen nápad. Zbytek je na nás.</span>
+      <span data-lang="sk">CNC frézovanie, 3D tlač, laserové gravírovanie — <strong>od 1 kusu po tisíce.</strong> Pošlite nám súbor alebo len nápad. Zvyšok je na nás.</span>
+    </p>
+    <p class="hero-proof">
+      <span data-lang="cs" class="on">Vyrobili jsme pro <strong>Cloudflare, Mastercard, Bohemia Interactive</strong> a stovky dalších.</span>
+      <span data-lang="sk">Vyrobili sme pre <strong>Cloudflare, Mastercard, Bohemia Interactive</strong> a stovky ďalších.</span>
+    </p>
+    <div class="hero-btns">
+      <a class="btn btn-ink" href="#contact">
+        <span data-lang="cs" class="on">Pošlete nám projekt →</span>
+        <span data-lang="sk">Pošlite nám projekt →</span>
+      </a>
+      <a class="btn btn-ghost" href="#gallery">
+        <span data-lang="cs" class="on">Podívejte se na ukázky</span>
+        <span data-lang="sk">Pozrite sa na ukážky</span>
+      </a>
+    </div>
+    <p class="hero-nudge">
+      <span data-lang="cs" class="on">Odpovídáme do 24 hodin. Žádné závazky.</span>
+      <span data-lang="sk">Odpovedáme do 24 hodín. Žiadne záväzky.</span>
+    </p>
+  </div>
+  <div class="hr">
+    <img src="images/cnc-frzka-v-provozu.jpg" alt="CNC frézka v provozu">
+    <div class="hbadges">
+      <div class="hb"><span class="hb-dot"></span><span data-lang="cs" class="on">Komplexní projekty vítány</span><span data-lang="sk">Komplexné projekty vítané</span><span data-lang="en">Complex projects welcome</span><span data-lang="de">Komplexe Projekte willkommen</span><span data-lang="en">Complex projects welcome</span><span data-lang="de">Komplexe Projekte willkommen</span><span data-lang="en">Komplexní projekty vítány</span><span data-lang="de">Komplexní projekty vítány</span></div>
+      <div class="hb"><span class="hb-dot"></span><span data-lang="cs" class="on">Série od 1 kusu</span><span data-lang="sk">Série od 1 kusu</span><span data-lang="en">Series from 1 piece</span><span data-lang="de">Serie ab 1 Stück</span><span data-lang="en">Series from 1 piece</span><span data-lang="de">Serie ab 1 Stück</span><span data-lang="en">Série od 1 kusu</span><span data-lang="de">Série od 1 kusu</span></div>
+      <div class="hb"><span class="hb-dot"></span><span data-lang="cs" class="on">Nabídka do 48 hodin</span><span data-lang="sk">Ponuka do 48 hodín</span><span data-lang="en">Quote in 48 hours</span><span data-lang="de">Angebot in 48 Stunden</span><span data-lang="en">Quote in 48 hours</span><span data-lang="de">Angebot in 48 Stunden</span><span data-lang="en">Nabídka do 48 hodin</span><span data-lang="de">Nabídka do 48 hodin</span></div>
+    </div>
+    <div class="hbar">
+      <div class="hbs"><div class="hbs-n">500+</div><div class="hbs-l"><span data-lang="cs" class="on">Projektů</span><span data-lang="sk">Projektov</span><span data-lang="en">Projects</span><span data-lang="de">Projekte</span><span data-lang="en">Projects</span><span data-lang="de">Projekte</span><span data-lang="en">Projektů</span><span data-lang="de">Projektů</span></div></div>
+      <div class="hbs"><div class="hbs-n">5 let</div><div class="hbs-l"><span data-lang="cs" class="on">V oboru</span><span data-lang="sk">V odbore</span><span data-lang="en">Years in industry</span><span data-lang="de">Jahre in der Industrie</span><span data-lang="en">Years in industry</span><span data-lang="de">Jahre in der Industrie</span><span data-lang="en">V oboru</span><span data-lang="de">V oboru</span></div></div>
+      <div class="hbs"><div class="hbs-n">48 h</div><div class="hbs-l"><span data-lang="cs" class="on">Nabídka</span><span data-lang="sk">Ponuka</span><span data-lang="en">Quote</span><span data-lang="de">Angebot</span><span data-lang="en">Nabídka</span><span data-lang="de">Nabídka</span><span data-lang="en">Nabídka</span><span data-lang="de">Nabídka</span></div></div>
+      <div class="hbs"><div class="hbs-n">98 %</div><div class="hbs-l"><span data-lang="cs" class="on">V termínu</span><span data-lang="sk">V termíne</span><span data-lang="en">On time</span><span data-lang="de">Pünktlich</span><span data-lang="en">On time</span><span data-lang="de">Pünktlich</span><span data-lang="en">V termínu</span><span data-lang="de">V termínu</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── MARQUEE ── -->
+<div class="mwrap">
+  <div class="mtrack">
+    <span class="mi">CNC frézování dřeva <span class="md"></span></span>
+    <span class="mi">3D tisk — FDM &amp; resin <span class="md"></span></span>
+    <span class="mi">Laserové gravírování <span class="md"></span></span>
+    <span class="mi">Rapid prototyping <span class="md"></span></span>
+    <span class="mi">Série 1 – 10 000 ks <span class="md"></span></span>
+    <span class="mi">Dřevo · Plast · Kov · Akryl <span class="md"></span></span>
+    <span class="mi">5 let v oboru <span class="md"></span></span>
+    <span class="mi">Šumperk, Morava <span class="md"></span></span>
+    <span class="mi">CNC frézování dřeva <span class="md"></span></span>
+    <span class="mi">3D tisk — FDM &amp; resin <span class="md"></span></span>
+    <span class="mi">Laserové gravírování <span class="md"></span></span>
+    <span class="mi">Rapid prototyping <span class="md"></span></span>
+    <span class="mi">Série 1 – 10 000 ks <span class="md"></span></span>
+    <span class="mi">Dřevo · Plast · Kov · Akryl <span class="md"></span></span>
+    <span class="mi">5 let v oboru <span class="md"></span></span>
+    <span class="mi">Šumperk, Morava <span class="md"></span></span>
+  </div>
+</div>
+
+<!-- ── LOGOS ── -->
+<div class="logos rv">
+  <div class="logos-in">
+    <span class="logos-lbl"><span data-lang="cs" class="on">Pracujeme s firmami, které znáte</span><span data-lang="sk">Pracujeme s firmami, ktoré poznáte</span><span data-lang="en">We work with brands you know</span><span data-lang="de">Wir arbeiten mit Marken, die Sie kennen</span><span data-lang="en">We work with brands you know</span><span data-lang="de">Wir arbeiten mit Marken, die Sie kennen</span><span data-lang="en">Pracujeme s firmami, které znáte</span><span data-lang="de">Pracujeme s firmami, které znáte</span></span>
+    <div class="logo-list">
+      <span class="logo-item">Cloudflare</span>
+      <span class="logo-item">Bohemia Interactive</span>
+      <span class="logo-item">Mastercard</span>
+      <span class="logo-item">Lynk &amp; Co</span>
+      <span class="logo-item">Myco</span>
+    </div>
+  </div>
+</div>
+
+<!-- ── SERVICES ── -->
+<section id="services">
+  <div class="w rv">
+    <p class="stag"><span data-lang="cs" class="on">Co umíme</span><span data-lang="sk">Čo vieme</span><span data-lang="en">What we do</span><span data-lang="de">Was wir tun</span><span data-lang="en">What we do</span><span data-lang="de">Was wir tun</span><span data-lang="en">What we do</span><span data-lang="de">Was wir tun</span></p>
+    <h2 class="sh"><span data-lang="cs" class="on">Tři technologie. <em>Jeden partner.</em></span><span data-lang="sk">Tri technológie. <em>Jeden partner.</em></span></h2>
+    <p class="sb"><span data-lang="cs" class="on">Od prototypu po tisícové série — pod jednou střechou. Žádné předávání mezi dodavateli, žádné čekání. Vy pošlete soubor, my dodáme díly.</span><span data-lang="sk">Od prototypu po tisícové série — pod jednou strechou. Žiadne odovzdávanie medzi dodávateľmi, žiadne čakanie. Vy pošlete súbor, my dodáme diely.</span><span data-lang="en">From prototype to thousand-unit series — under one roof. No handoffs between suppliers, no waiting. You send the file, we deliver the parts.</span><span data-lang="de">Vom Prototyp zur tausendfach gefertigten Serie — unter einem Dach. Keine Weitergabe zwischen Lieferanten, kein Warten. Sie senden die Datei, wir liefern die Teile.</span><span data-lang="en">From prototype to thousand-unit series — under one roof. No handoffs between suppliers, no waiting. You send the file, we deliver the parts.</span><span data-lang="de">Vom Prototyp zur tausendfach gefertigten Serie — unter einem Dach. Keine Weitergabe zwischen Lieferanten, kein Warten. Sie senden die Datei, wir liefern die Teile.</span><span data-lang="en">Od prototypu po tisícové série — pod jednou střechou. Žádné předávání mezi dodavateli, žádné čekání. Vy pošlete soubor, my dodáme díly.</span><span data-lang="de">Od prototypu po tisícové série — pod jednou střechou. Žádné předávání mezi dodavateli, žádné čekání. Vy pošlete soubor, my dodáme díly.</span></p>
+  </div>
+  <div class="w">
+    <div class="svc-grid">
+
+      <div class="svc rv">
+        <img class="svc-img" src="images/cnc-frzovani-dreva.jpg" alt="CNC frézování dřeva">
+        <div class="svc-body">
+          <div class="svc-n">01</div>
+          <div class="svc-title"><span data-lang="cs" class="on">CNC frézování dřeva</span><span data-lang="sk">CNC frézovanie dreva</span><span data-lang="en">CNC woodworking</span><span data-lang="de">CNC-Holzbearbeitung</span><span data-lang="en">CNC woodworking</span><span data-lang="de">CNC-Holzbearbeitung</span><span data-lang="en">CNC woodworking</span><span data-lang="de">CNC-Holzbearbeitung</span></div>
+          <p class="svc-desc"><span data-lang="cs" class="on">Velkoformátové CNC se dvěma 2,2kW vřeteny. Dřevo, překližka, plast, kompozity — od jednoho kusu po série tisíců měsíčně. Složité tvary, hluboké kapsy, opakované řezy — vždy se stejným výsledkem. A co stroj nedodělá, dokončíme ručně.</span><span data-lang="sk">Veľkoformátové CNC s dvoma 2,2kW vretenami. Drevo, preglejka, plast, kompozity — od jedného kusu po série tisícov mesačne. Zložité tvary, hlboké kapsy, opakované rezy — vždy s rovnakým výsledkom. A čo stroj nedorobí, dokončíme ručne.</span><span data-lang="en">Large-format CNC with two 2.2kW spindles. Wood, plywood, plastic, composites — from one piece to thousands per month. Complex shapes, deep pockets, repeated cuts — always with the same result. What the machine doesn't finish, we do by hand.</span><span data-lang="de">CNC-Großflächenfräsmaschine mit zwei 2,2-kW-Spindeln. Holz, Sperrholz, Kunststoff, Verbundstoffe — von einem Stück bis zu Tausenden pro Monat. Komplexe Formen, tiefe Taschen, wiederholte Schnitte — immer mit gleichem Ergebnis. Was die Maschine nicht fertigstellt, erledigen wir von Hand.</span><span data-lang="en">Large-format CNC with two 2.2kW spindles. Wood, plywood, plastic, composites — from one piece to thousands per month. Complex shapes, deep pockets, repeated cuts — always with the same result. What the machine doesn't finish, we do by hand.</span><span data-lang="de">CNC-Großflächenfräsmaschine mit zwei 2,2-kW-Spindeln. Holz, Sperrholz, Kunststoff, Verbundstoffe — von einem Stück bis zu Tausenden pro Monat. Komplexe Formen, tiefe Taschen, wiederholte Schnitte — immer mit gleichem Ergebnis. Was die Maschine nicht fertigstellt, erledigen wir von Hand.</span><span data-lang="en">Velkoformátové CNC se dvěma 2,2kW vřeteny. Dřevo, překližka, plast, kompozity — od jednoho kusu po série tisíců měsíčně. Složité tvary, hluboké kapsy, opakované řezy — vždy se stejným výsledkem. A co stroj nedodělá, dokončíme ručně.</span><span data-lang="de">Velkoformátové CNC se dvěma 2,2kW vřeteny. Dřevo, překližka, plast, kompozity — od jednoho kusu po série tisíců měsíčně. Složité tvary, hluboké kapsy, opakované řezy — vždy se stejným výsledkem. A co stroj nedodělá, dokončíme ručně.</span></p>
+          <div class="svc-tags">
+            <span class="svc-tag"><span data-lang="cs" class="on">Nábytek &amp; interiér</span><span data-lang="sk">Nábytok &amp; interiér</span><span data-lang="en">Furniture & interior</span><span data-lang="de">Möbel & Innenausstattung</span><span data-lang="en">Furniture & interior</span><span data-lang="de">Möbel & Innenausstattung</span><span data-lang="en">Nábytek &amp; interiér</span><span data-lang="de">Nábytek &amp; interiér</span></span>
+            <span class="svc-tag"><span data-lang="cs" class="on">Firemní dárky</span><span data-lang="sk">Firemné darčeky</span><span data-lang="en">Firemní dárky</span><span data-lang="de">Firemní dárky</span><span data-lang="en">Firemní dárky</span><span data-lang="de">Firemní dárky</span><span data-lang="en">Firemní dárky</span><span data-lang="de">Firemní dárky</span></span>
+            <span class="svc-tag"><span data-lang="cs" class="on">Průmyslové díly</span><span data-lang="sk">Priemyselné diely</span><span data-lang="en">Industrial parts</span><span data-lang="de">Industrielle Teile</span><span data-lang="en">Industrial parts</span><span data-lang="de">Industrielle Teile</span><span data-lang="en">Průmyslové díly</span><span data-lang="de">Průmyslové díly</span></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="svc rv d1">
+        <img class="svc-img" src="images/laserov-gravirovani.jpg" alt="Laserové gravírování">
+        <div class="svc-body">
+          <div class="svc-n">02</div>
+          <div class="svc-title"><span data-lang="cs" class="on">Laserové gravírování a řezání</span><span data-lang="sk">Laserové gravírovanie a rezanie</span><span data-lang="en">Laser engraving and cutting</span><span data-lang="de">Lasergravur und Schneiden</span><span data-lang="en">Laser engraving and cutting</span><span data-lang="de">Lasergravur und Schneiden</span><span data-lang="en">Laserové gravírování a řezání</span><span data-lang="de">Laserové gravírování a řezání</span></div>
+          <p class="svc-desc"><span data-lang="cs" class="on">100W CO2 laser řeže a gravíruje dřevo, akryl, kůži, sklo i kov — od jemného loga po průřez 10mm akrylátu. Ať je zakázka na 10 nebo 10 000 kusů, každý vypadá jako první. Rychlost a opakovatelnost, kterou ruční práce nikdy nedohoní.</span><span data-lang="sk">100W CO2 laser reže a gravíruje drevo, akryl, kožu, sklo aj kov — od jemného loga po prerez 10mm akrylátu. Či je zákazka na 10 alebo 10 000 kusov, každý vyzerá ako prvý. Rýchlosť a opakovateľnosť, ktorú ručná práca nikdy nedobehne.</span><span data-lang="en">100W CO2 laser cuts and engraves wood, acrylic, leather, glass and metal — from delicate logos to 10mm acrylic cuts. Whether it's 10 or 10,000 pieces, each one looks like the first. Speed and repeatability that handwork never achieves.</span><span data-lang="de">100-W-CO2-Laser schneidet und graviert Holz, Acryl, Leder, Glas und Metall — von feinen Logos bis zu 10-mm-Acrylschnitten. Egal ob 10 oder 10.000 Stück, jedes sieht wie das erste aus. Geschwindigkeit und Wiederholbarkeit, die Handwerk nie erreicht.</span><span data-lang="en">100W CO2 laser cuts and engraves wood, acrylic, leather, glass and metal — from delicate logos to 10mm acrylic cuts. Whether it's 10 or 10,000 pieces, each one looks like the first. Speed and repeatability that handwork never achieves.</span><span data-lang="de">100-W-CO2-Laser schneidet und graviert Holz, Acryl, Leder, Glas und Metall — von feinen Logos bis zu 10-mm-Acrylschnitten. Egal ob 10 oder 10.000 Stück, jedes sieht wie das erste aus. Geschwindigkeit und Wiederholbarkeit, die Handwerk nie erreicht.</span><span data-lang="en">100W CO2 laser řeže a gravíruje dřevo, akryl, kůži, sklo i kov — od jemného loga po průřez 10mm akrylátu. Ať je zakázka na 10 nebo 10 000 kusů, každý vypadá jako první. Rychlost a opakovatelnost, kterou ruční práce nikdy nedohoní.</span><span data-lang="de">100W CO2 laser řeže a gravíruje dřevo, akryl, kůži, sklo i kov — od jemného loga po průřez 10mm akrylátu. Ať je zakázka na 10 nebo 10 000 kusů, každý vypadá jako první. Rychlost a opakovatelnost, kterou ruční práce nikdy nedohoní.</span></p>
+          <div class="svc-example">
+            <span data-lang="cs" class="on"><strong>Ukázka:</strong> 500 dřevěných bezdrátových nabíječek s laserem gravírovaným logem pro Mastercard event.</span>
+            <span data-lang="sk"><strong>Ukážka:</strong> 500 drevených bezdrôtových nabíjačiek s laserom gravírovaným logom pre Mastercard event.</span>
+          </div>
+          <div class="svc-tags">
+            <span class="svc-tag"><span data-lang="cs" class="on">Branded merch</span><span data-lang="sk">Branded merch</span><span data-lang="en">Branded merchandise</span><span data-lang="de">Markenbezogene Waren</span><span data-lang="en">Branded merchandise</span><span data-lang="de">Markenbezogene Waren</span><span data-lang="en">Branded merch</span><span data-lang="de">Branded merch</span></span>
+            <span class="svc-tag"><span data-lang="cs" class="on">Firemní dárky</span><span data-lang="sk">Firemné darčeky</span><span data-lang="en">Firemní dárky</span><span data-lang="de">Firemní dárky</span><span data-lang="en">Firemní dárky</span><span data-lang="de">Firemní dárky</span><span data-lang="en">Firemní dárky</span><span data-lang="de">Firemní dárky</span></span>
+            <span class="svc-tag"><span data-lang="cs" class="on">Označení produktů</span><span data-lang="sk">Označenie produktov</span><span data-lang="en">Product labeling</span><span data-lang="de">Produktkennzeichnung</span><span data-lang="en">Product labeling</span><span data-lang="de">Produktkennzeichnung</span><span data-lang="en">Označení produktů</span><span data-lang="de">Označení produktů</span></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="svc rv">
+        <img class="svc-img" src="images/3d-tisk.png" alt="3D tisková farma">
+        <div class="svc-body">
+          <div class="svc-n">03</div>
+          <div class="svc-title"><span data-lang="cs" class="on">3D tisková farma</span><span data-lang="sk">3D tlačová farma</span><span data-lang="en">3D printing farm</span><span data-lang="de">3D-Druck-Werk</span><span data-lang="en">3D printing farm</span><span data-lang="de">3D-Druck-Werk</span><span data-lang="en">3D tisková farma</span><span data-lang="de">3D tisková farma</span></div>
+          <p class="svc-desc"><span data-lang="cs" class="on">Ne jedna tiskárna, ale celá farma — desítky strojů běží paralelně. Od rychlých PLA vizualizací po pevné PETG a nylonové funkční díly. Potřebujete 200 kusů do pátku? Tiskneme přes noc. Nejlevnější způsob, jak ověřit design dřív, než investujete do formy.</span><span data-lang="sk">Nie jedna tlačiareň, ale celá farma — desiatky strojov bežia paralelne. Od rýchlych PLA vizualizácií po pevné PETG a nylonové funkčné diely. Potrebujete 200 kusov do piatku? Tlačíme cez noc. Najlacnejší spôsob, ako overiť dizajn skôr, než investujete do formy.</span><span data-lang="en">Not one printer, but a whole farm — dozens of machines running in parallel. From fast PLA visualizations to sturdy PETG and nylon functional parts. Need 200 pieces by Friday? We print overnight. The cheapest way to validate design before investing in tooling.</span><span data-lang="de">Nicht ein Drucker, sondern ein ganzes Werk — Dutzende von Maschinen laufen parallel. Von schnellen PLA-Visualisierungen bis zu robusten PETG- und Nylon-Funktionsteilen. Brauchen Sie 200 Stück bis Freitag? Wir drucken über Nacht. Der günstigste Weg, um Designunterschiede zu validieren, bevor Sie in Werkzeuge investieren.</span><span data-lang="en">Not one printer, but a whole farm — dozens of machines running in parallel. From fast PLA visualizations to sturdy PETG and nylon functional parts. Need 200 pieces by Friday? We print overnight. The cheapest way to validate design before investing in tooling.</span><span data-lang="de">Nicht ein Drucker, sondern ein ganzes Werk — Dutzende von Maschinen laufen parallel. Von schnellen PLA-Visualisierungen bis zu robusten PETG- und Nylon-Funktionsteilen. Brauchen Sie 200 Stück bis Freitag? Wir drucken über Nacht. Der günstigste Weg, um Designunterschiede zu validieren, bevor Sie in Werkzeuge investieren.</span><span data-lang="en">Ne jedna tiskárna, ale celá farma — desítky strojů běží paralelně. Od rychlých PLA vizualizací po pevné PETG a nylonové funkční díly. Potřebujete 200 kusů do pátku? Tiskneme přes noc. Nejlevnější způsob, jak ověřit design dřív, než investujete do formy.</span><span data-lang="de">Ne jedna tiskárna, ale celá farma — desítky strojů běží paralelně. Od rychlých PLA vizualizací po pevné PETG a nylonové funkční díly. Potřebujete 200 kusů do pátku? Tiskneme přes noc. Nejlevnější způsob, jak ověřit design dřív, než investujete do formy.</span></p>
+          <div class="svc-tags">
+            <span class="svc-tag"><span data-lang="cs" class="on">Prototypy</span><span data-lang="sk">Prototypy</span><span data-lang="en">Prototypes</span><span data-lang="de">Prototypen</span><span data-lang="en">Prototypes</span><span data-lang="de">Prototypen</span><span data-lang="en">Prototypy</span><span data-lang="de">Prototypy</span></span>
+            <span class="svc-tag"><span data-lang="cs" class="on">Funkční díly</span><span data-lang="sk">Funkčné diely</span><span data-lang="en">Functional parts</span><span data-lang="de">Funktionsteile</span><span data-lang="en">Functional parts</span><span data-lang="de">Funktionsteile</span><span data-lang="en">Funkční díly</span><span data-lang="de">Funkční díly</span></span>
+            <span class="svc-tag"><span data-lang="cs" class="on">Vizualizace</span><span data-lang="sk">Vizualizácie</span><span data-lang="en">Visualization</span><span data-lang="de">Visualisierung</span><span data-lang="en">Visualization</span><span data-lang="de">Visualisierung</span><span data-lang="en">Vizualizace</span><span data-lang="de">Vizualizace</span></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="svc rv d1">
+        <img class="svc-img" src="images/rapid-prototyping.jpg" alt="Rapid prototyping">
+        <div class="svc-body">
+          <div class="svc-n">04</div>
+          <div class="svc-title"><span data-lang="cs" class="on">Od prototypu k sérii</span><span data-lang="sk">Od prototypu k sérii</span><span data-lang="en">From prototype to series</span><span data-lang="de">Vom Prototyp zur Serie</span><span data-lang="en">From prototype to series</span><span data-lang="de">Vom Prototyp zur Serie</span><span data-lang="en">Od prototypu k sérii</span><span data-lang="de">Od prototypu k sérii</span></div>
+          <p class="svc-desc"><span data-lang="cs" class="on">Pošlete nám soubor a my vyrobíme prototyp. Otestujete, dáte zpětnou vazbu, upravíme. Až je návrh finální, najedeme sériovou výrobu — desítky, stovky i tisíce kusů měsíčně. Zabalíme, odešleme, vy se staráte o byznys.</span><span data-lang="sk">Pošlite nám súbor a my vyrobíme prototyp. Otestujete, dáte spätnú väzbu, upravíme. Keď je návrh finálny, najedeme sériovú výrobu — desiatky, stovky aj tisíce kusov mesačne. Zabalíme, odošleme, vy sa staráte o biznis.</span><span data-lang="en">Send us a file and we'll build a prototype. You test, give feedback, we adjust. Once the design is final, we ramp up series production — tens, hundreds, or thousands of pieces per month. We pack, ship, you run your business.</span><span data-lang="de">Senden Sie uns eine Datei und wir bauen einen Prototyp. Sie testen, geben Rückmeldung, wir passen an. Sobald das Design endgültig ist, fahren wir die Serienproduktion hoch — Dutzende, Hunderte oder Tausende von Stücken pro Monat. Wir packen, versenden, Sie kümmern sich ums Geschäft.</span><span data-lang="en">Send us a file and we'll build a prototype. You test, give feedback, we adjust. Once the design is final, we ramp up series production — tens, hundreds, or thousands of pieces per month. We pack, ship, you run your business.</span><span data-lang="de">Senden Sie uns eine Datei und wir bauen einen Prototyp. Sie testen, geben Rückmeldung, wir passen an. Sobald das Design endgültig ist, fahren wir die Serienproduktion hoch — Dutzende, Hunderte oder Tausende von Stücken pro Monat. Wir packen, versenden, Sie kümmern sich ums Geschäft.</span><span data-lang="en">Pošlete nám soubor a my vyrobíme prototyp. Otestujete, dáte zpětnou vazbu, upravíme. Až je návrh finální, najedeme sériovou výrobu — desítky, stovky i tisíce kusů měsíčně. Zabalíme, odešleme, vy se staráte o byznys.</span><span data-lang="de">Pošlete nám soubor a my vyrobíme prototyp. Otestujete, dáte zpětnou vazbu, upravíme. Až je návrh finální, najedeme sériovou výrobu — desítky, stovky i tisíce kusů měsíčně. Zabalíme, odešleme, vy se staráte o byznys.</span></p>
+          <div class="svc-tags">
+            <span class="svc-tag"><span data-lang="cs" class="on">Prototypy</span><span data-lang="sk">Prototypy</span><span data-lang="en">Prototypes</span><span data-lang="de">Prototypen</span><span data-lang="en">Prototypes</span><span data-lang="de">Prototypen</span><span data-lang="en">Prototypy</span><span data-lang="de">Prototypy</span></span>
+            <span class="svc-tag"><span data-lang="cs" class="on">Testovací série</span><span data-lang="sk">Testovacie série</span><span data-lang="en">Test series</span><span data-lang="de">Testserie</span><span data-lang="en">Test series</span><span data-lang="de">Testserie</span><span data-lang="en">Testovací série</span><span data-lang="de">Testovací série</span></span>
+            <span class="svc-tag"><span data-lang="cs" class="on">Tisícové série</span><span data-lang="sk">Tisícové série</span><span data-lang="en">Thousand-piece series</span><span data-lang="de">Serien von Tausenden</span><span data-lang="en">Thousand-piece series</span><span data-lang="de">Serien von Tausenden</span><span data-lang="en">Tisícové série</span><span data-lang="de">Tisícové série</span></span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── FULL PRODUCT ── -->
+<section id="fullproduct">
+  <div class="fp-text">
+    <p class="fp-tag"><span data-lang="cs" class="on">Kompletní vývoj</span><span data-lang="sk">Kompletný vývoj</span><span data-lang="en">Complete development</span><span data-lang="de">Vollständige Entwicklung</span><span data-lang="en">Kompletní vývoj</span><span data-lang="de">Kompletní vývoj</span><span data-lang="en">Kompletní vývoj</span><span data-lang="de">Kompletní vývoj</span></p>
+    <h2 class="fp-h"><span data-lang="cs" class="on">Neumíme jen díly. Umíme celé <em>produkty.</em></span><span data-lang="sk">Nevieme len diely. Vieme celé <em>produkty.</em></span></h2>
+    <p class="fp-body"><span data-lang="cs" class="on">Přijdete s nápadem, odejdete s hotovým produktem v krabici. Navrhneme design, zajistíme grafiku, obal i díly, které sami nevyrábíme — elektroniku, doplňky, materiály. Vyrobíme, smontujeme, zabalíme a doručíme. Vašim zákazníkům, kamkoliv.</span><span data-lang="sk">Prídete s nápadom, odídete s hotovým produktom v krabici. Navrhneme dizajn, zaistíme grafiku, obal aj diely, ktoré sami nevyrábame — elektroniku, doplnky, materiály. Vyrobíme, zmontujeme, zabalíme a doručíme. Vašim zákazníkom, kamkoľvek.</span><span data-lang="en">You come with an idea, you leave with a finished product in a box. We design, source graphics, packaging and parts we don't make ourselves — electronics, accessories, materials. We manufacture, assemble, pack and deliver. To your customers, anywhere.</span><span data-lang="de">Sie kommen mit einer Idee, Sie gehen mit einem fertigen Produkt in einer Schachtel. Wir designen, beschaffen Grafik, Verpackung und Teile, die wir nicht selbst herstellen — Elektronik, Zubehör, Materialien. Wir fertigen, montieren, packen und liefern. An Ihre Kunden, überall.</span><span data-lang="en">You come with an idea, you leave with a finished product in a box. We design, source graphics, packaging and parts we don't make ourselves — electronics, accessories, materials. We manufacture, assemble, pack and deliver. To your customers, anywhere.</span><span data-lang="de">Sie kommen mit einer Idee, Sie gehen mit einem fertigen Produkt in einer Schachtel. Wir designen, beschaffen Grafik, Verpackung und Teile, die wir nicht selbst herstellen — Elektronik, Zubehör, Materialien. Wir fertigen, montieren, packen und liefern. An Ihre Kunden, überall.</span><span data-lang="en">Přijdete s nápadem, odejdete s hotovým produktem v krabici. Navrhneme design, zajistíme grafiku, obal i díly, které sami nevyrábíme — elektroniku, doplňky, materiály. Vyrobíme, smontujeme, zabalíme a doručíme. Vašim zákazníkům, kamkoliv.</span><span data-lang="de">Přijdete s nápadem, odejdete s hotovým produktem v krabici. Navrhneme design, zajistíme grafiku, obal i díly, které sami nevyrábíme — elektroniku, doplňky, materiály. Vyrobíme, smontujeme, zabalíme a doručíme. Vašim zákazníkům, kamkoliv.</span></p>
+    <div class="fp-tags">
+      <span class="fp-pill"><span data-lang="cs" class="on">Produktový design</span><span data-lang="sk">Produktový dizajn</span><span data-lang="en">Product design</span><span data-lang="de">Produktdesign</span><span data-lang="en">Product design</span><span data-lang="de">Produktdesign</span><span data-lang="en">Produktový design</span><span data-lang="de">Produktový design</span></span>
+      <span class="fp-pill"><span data-lang="cs" class="on">Grafický návrh</span><span data-lang="sk">Grafický návrh</span><span data-lang="en">Graphic design</span><span data-lang="de">Grafikdesign</span><span data-lang="en">Graphic design</span><span data-lang="de">Grafikdesign</span><span data-lang="en">Grafický návrh</span><span data-lang="de">Grafický návrh</span></span>
+      <span class="fp-pill"><span data-lang="cs" class="on">Sourcing dílů</span><span data-lang="sk">Sourcing dielov</span><span data-lang="en">Parts sourcing</span><span data-lang="de">Teile-Sourcing</span><span data-lang="en">Parts sourcing</span><span data-lang="de">Teile-Sourcing</span><span data-lang="en">Sourcing dílů</span><span data-lang="de">Sourcing dílů</span></span>
+      <span class="fp-pill"><span data-lang="cs" class="on">Balení</span><span data-lang="sk">Balenie</span><span data-lang="en">Packaging</span><span data-lang="de">Verpackung</span><span data-lang="en">Packaging</span><span data-lang="de">Verpackung</span><span data-lang="en">Balení</span><span data-lang="de">Balení</span></span>
+      <span class="fp-pill">Fulfillment</span>
+    </div>
+  </div>
+  <div class="fp-photos">
+    <div class="fp-photo"><img src="gallery/honeycomb/drawing.jpg" alt="Technický výkres"><p class="fp-label"><span data-lang="cs" class="on">Návrh</span><span data-lang="sk">Návrh</span><span data-lang="en">Design</span><span data-lang="de">Design</span><span data-lang="en">Design</span><span data-lang="de">Design</span><span data-lang="en">Návrh</span><span data-lang="de">Návrh</span></p></div>
+    <div class="fp-photo"><img src="gallery/honeycomb/model.jpg" alt="3D model"><p class="fp-label">3D model</p></div>
+    <div class="fp-photo"><img src="gallery/honeycomb/gif.jpg" alt="Výroba"><p class="fp-label"><span data-lang="cs" class="on">Výroba</span><span data-lang="sk">Výroba</span><span data-lang="en">Production</span><span data-lang="de">Produktion</span><span data-lang="en">Production</span><span data-lang="de">Produktion</span><span data-lang="en">Production</span><span data-lang="de">Produktion</span></p></div>
+    <div class="fp-photo"><img src="gallery/honeycomb/complet.jpg" alt="Hotový produkt"><p class="fp-label"><span data-lang="cs" class="on">Hotový produkt</span><span data-lang="sk">Hotový produkt</span><span data-lang="en">Finished product</span><span data-lang="de">Fertiges Produkt</span><span data-lang="en">Finished product</span><span data-lang="de">Fertiges Produkt</span><span data-lang="en">Hotový produkt</span><span data-lang="de">Hotový produkt</span></p></div>
+  </div>
+</section>
+
+<!-- ── DAYZ SHOWCASE ── -->
+<section id="dayz-showcase" style="background:var(--ink);padding:0 3rem 5rem;color:white">
+  <div style="max-width:1200px;margin:0 auto;border-top:1px solid rgba(255,255,255,.08);padding-top:4rem">
+    <div class="fp-text">
+      <p class="fp-tag"><span data-lang="cs" class="on">Případová studie</span><span data-lang="sk">Prípadová štúdia</span><span data-lang="en">Case study</span><span data-lang="de">Fallstudie</span><span data-lang="en">Case study</span><span data-lang="de">Fallstudie</span><span data-lang="en">Případová studie</span><span data-lang="de">Případová studie</span></p>
+      <h2 class="fp-h"><span data-lang="cs" class="on">DayZ Tactical Supply Stand <em>pro Bohemia Interactive</em></span><span data-lang="sk">DayZ Tactical Supply Stand <em>pre Bohemia Interactive</em></span></h2>
+      <p class="fp-body"><span data-lang="cs" class="on">Kompletní vývoj produktu od návrhu po zabalený kus v krabici. Design, CNC frézování spáleného dubu, laserový řez měděné mřížky, sourcing elektroniky, grafický návrh obalu — a fulfillment po celém světě.</span><span data-lang="sk">Kompletný vývoj produktu od návrhu po zabalený kus v krabici. Dizajn, CNC frézovanie spáleného dubu, laserový rez medenej mriežky, sourcing elektroniky, grafický návrh obalu — a fulfillment po celom svete.</span><span data-lang="en">Complete product development from concept to packaged piece in a box. Design, CNC milling of charred oak, laser cutting of copper mesh, electronics sourcing, packaging design — and fulfillment worldwide.</span><span data-lang="de">Vollständige Produktentwicklung vom Konzept bis zum verpackten Stück in einer Schachtel. Design, CNC-Fräsen von verkoktem Eichenholz, Laserschneiden von Kupfergitter, Elektronik-Sourcing, Verpackungsdesign — und Fulfillment weltweit.</span><span data-lang="en">Complete product development from concept to packaged piece in a box. Design, CNC milling of charred oak, laser cutting of copper mesh, electronics sourcing, packaging design — and fulfillment worldwide.</span><span data-lang="de">Vollständige Produktentwicklung vom Konzept bis zum verpackten Stück in einer Schachtel. Design, CNC-Fräsen von verkoktem Eichenholz, Laserschneiden von Kupfergitter, Elektronik-Sourcing, Verpackungsdesign — und Fulfillment weltweit.</span><span data-lang="en">Kompletní vývoj produktu od návrhu po zabalený kus v krabici. Design, CNC frézování spáleného dubu, laserový řez měděné mřížky, sourcing elektroniky, grafický návrh obalu — a fulfillment po celém světě.</span><span data-lang="de">Kompletní vývoj produktu od návrhu po zabalený kus v krabici. Design, CNC frézování spáleného dubu, laserový řez měděné mřížky, sourcing elektroniky, grafický návrh obalu — a fulfillment po celém světě.</span></p>
+    </div>
+    <div class="fp-photos">
+      <div class="fp-photo"><img src="gallery/dayz/dayz1.jpg" alt="DayZ box"></div>
+      <div class="fp-photo"><img src="gallery/dayz/dayz4.jpg" alt="DayZ unboxing"></div>
+      <div class="fp-photo"><img src="gallery/dayz/dayz3.jpg" alt="DayZ detail"></div>
+      <div class="fp-photo"><img src="gallery/dayz/dayz2.jpg" alt="DayZ produkt"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── GALLERY ── -->
+<section id="gallery">
+  <div class="w rv">
+    <p class="stag"><span data-lang="cs" class="on">Z naší dílny</span><span data-lang="sk">Z našej dielne</span><span data-lang="en">From our workshop</span><span data-lang="de">Aus unserer Werkstatt</span><span data-lang="en">From our workshop</span><span data-lang="de">Aus unserer Werkstatt</span><span data-lang="en">Z naší dílny</span><span data-lang="de">Z naší dílny</span></p>
+    <h2 class="sh"><span data-lang="cs" class="on">Co jsme <em>vyrobili</em></span><span data-lang="sk">Čo sme <em>vyrobili</em></span></h2>
+  </div>
+  <div class="w">
+    <div class="gal-grid">
+      <div class="gi span2"><img src="gallery/g08.jpg" alt="Produkt s krabicí"></div>
+      <div class="gi"><img src="gallery/g06.jpg" alt="Bezdrátová nabíječka"></div>
+      <div class="gi"><img src="gallery/g09.jpg" alt="Difuzér dub"></div>
+      <div class="gi"><img src="gallery/g01.jpg" alt="Cloudflare nabíječka"></div>
+      <div class="gi"><img src="gallery/g13.jpg" alt="Stojánek dub"></div>
+      <div class="gi"><img src="gallery/g15.jpg" alt="Nabíječka s iPhone"></div>
+      <div class="gi span2"><img src="gallery/g12.jpg" alt="Set s brýlemi"></div>
+      <div class="gi"><img src="gallery/g10.jpg" alt="Difuzér ořech"></div>
+      <div class="gi"><img src="gallery/g14.jpg" alt="Stojánek ořech"></div>
+      <div class="gi"><img src="gallery/g02.jpg" alt="Cloudflare pokladnička"></div>
+      <div class="gi"><img src="gallery/g16.jpg" alt="Difuzér ořech velký"></div>
+      <div class="gi"><img src="gallery/g11.jpg" alt="Difuzér unboxing"></div>
+      <div class="gi"><img src="gallery/g07.jpg" alt="Produkt zezadu"></div>
+      <div class="gi"><img src="gallery/g03.jpg" alt="Výrobek detail"></div>
+      <div class="gi"><img src="gallery/g04.jpg" alt="Výrobek"></div>
+      <div class="gi"><img src="gallery/g05.jpg" alt="Výrobek detail"></div>
+      <div class="gi"><img src="gallery/g17.jpg" alt="Z dílny"></div>
+      <div class="gi"><img src="gallery/g18.jpg" alt="Z dílny"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── ABOUT / TEAM ── -->
+<section id="about">
+  <div class="about-grid">
+    <div class="rv">
+      <img class="about-img" src="images/image-8.jpg" alt="Tým Forma Studia v dílně">
+      <div class="about-caption">
+        <span data-lang="cs" class="on">Zleva: Ondra, Tomáš, Radek, Pavel a Jan — parta, která za 5 let vybudovala jak produktovou značku Treed, tak dílnu schopnou velké série. 👋</span>
+        <span data-lang="sk">Zľava: Ondra, Tomáš, Radek, Pavel a Jan — partia, ktorá za 5 rokov vybudovala ako produktovú značku Treed, tak dielňu schopnú veľkej série. 👋</span>
+      </div>
+    </div>
+    <div class="rv d1">
+      <p class="stag"><span data-lang="cs" class="on">Náš příběh</span><span data-lang="sk">Náš príbeh</span><span data-lang="en">Our story</span><span data-lang="de">Unsere Geschichte</span><span data-lang="en">Our story</span><span data-lang="de">Unsere Geschichte</span><span data-lang="en">Náš příběh</span><span data-lang="de">Náš příběh</span></p>
+      <blockquote class="about-q">
+        <span data-lang="cs" class="on">Nejdřív jsme vyráběli pro sebe. Pak nám to začaly chtít i ostatní firmy. <em>A tak vzniklo Forma Studio.</em></span>
+        <span data-lang="sk">Najskôr sme vyrábali pre seba. Potom to začali chcieť aj ostatné firmy. <em>A tak vzniklo Forma Studio.</em></span>
+      </blockquote>
+      <div class="about-body">
+        <p><span data-lang="cs" class="on">Začínali jsme jako Treed — malá značka dřevěných produktů, které jsme dělali sami, v dílně v Šumperku. Když jsme zjistili, že umíme vyrobit tisícovou sérii s přesností na desetiny milimetru, začali se nás ptát i ostatní. Designéři. Startupy. Velké firmy.</span><span data-lang="sk">Začínali sme ako Treed — malá značka drevených produktov, ktoré sme robili sami, v dielni v Šumperku. Keď sme zistili, že vieme vyrobiť tisícovú sériu s presnosťou na desatiny milimetra, začali sa nás pýtať aj ostatní. Dizajnéri. Startupy. Veľké firmy.</span><span data-lang="en">We started as Treed — a small wooden goods brand we made ourselves in a workshop in Šumperk. When we realized we could produce thousand-unit series with millimeter precision, others started asking. Designers. Startups. Big companies.</span><span data-lang="de">Wir begannen als Treed — eine kleine Holzwarenmarke, die wir selbst in einer Werkstatt in Šumperk herstellten. Als wir erkannten, dass wir tausend Einheiten mit Millimetergenauigkeit herstellen konnten, begannen andere zu fragen. Designer. Startups. Große Unternehmen.</span><span data-lang="en">We started as Treed — a small wooden goods brand we made ourselves in a workshop in Šumperk. When we realized we could produce thousand-unit series with millimeter precision, others started asking. Designers. Startups. Big companies.</span><span data-lang="de">Wir begannen als Treed — eine kleine Holzwarenmarke, die wir selbst in einer Werkstatt in Šumperk herstellten. Als wir erkannten, dass wir tausend Einheiten mit Millimetergenauigkeit herstellen konnten, begannen andere zu fragen. Designer. Startups. Große Unternehmen.</span><span data-lang="en">Začínali jsme jako Treed — malá značka dřevěných produktů, které jsme dělali sami, v dílně v Šumperku. Když jsme zjistili, že umíme vyrobit tisícovou sérii s přesností na desetiny milimetru, začali se nás ptát i ostatní. Designéři. Startupy. Velké firmy.</span><span data-lang="de">Začínali jsme jako Treed — malá značka dřevěných produktů, které jsme dělali sami, v dílně v Šumperku. Když jsme zjistili, že umíme vyrobit tisícovou sérii s přesností na desetiny milimetru, začali se nás ptát i ostatní. Designéři. Startupy. Velké firmy.</span></p>
+        <p><span data-lang="cs" class="on">Dnes jsme parta pěti — inženýrů, řemeslníků a lidí, kteří věří, že na kvalitě záleží víc, než se vyplatí. Každý projekt bereme jako svůj. A každý kus, který odejde z dílny, musí být takový, aby se za něj nestydět.</span><span data-lang="sk">Dnes sme partia piatich — inžinierov, remeselníkov a ľudí, ktorí veria, že na kvalite záleží viac, ako sa oplatí. Každý projekt berieme ako vlastný. A každý kus, ktorý odíde z dielne, musí byť taký, aby sme sa zaň nehanbili.</span><span data-lang="en">Today we're a team of five — engineers, craftspeople, and people who believe quality matters more than it pays. We take every project as our own. And every piece that leaves the workshop must be something we're proud of.</span><span data-lang="de">Heute sind wir ein Team von fünf — Ingenieuren, Handwerkern und Menschen, die glauben, dass Qualität wichtiger ist als Gewinn. Wir nehmen jedes Projekt als unser eigenes. Und jedes Stück, das die Werkstatt verlässt, muss etwas sein, auf das wir stolz sind.</span><span data-lang="en">Today we're a team of five — engineers, craftspeople, and people who believe quality matters more than it pays. We take every project as our own. And every piece that leaves the workshop must be something we're proud of.</span><span data-lang="de">Heute sind wir ein Team von fünf — Ingenieuren, Handwerkern und Menschen, die glauben, dass Qualität wichtiger ist als Gewinn. Wir nehmen jedes Projekt als unser eigenes. Und jedes Stück, das die Werkstatt verlässt, muss etwas sein, auf das wir stolz sind.</span><span data-lang="en">Dnes jsme parta pěti — inženýrů, řemeslníků a lidí, kteří věří, že na kvalitě záleží víc, než se vyplatí. Každý projekt bereme jako svůj. A každý kus, který odejde z dílny, musí být takový, aby se za něj nestydět.</span><span data-lang="de">Dnes jsme parta pěti — inženýrů, řemeslníků a lidí, kteří věří, že na kvalitě záleží víc, než se vyplatí. Každý projekt bereme jako svůj. A každý kus, který odejde z dílny, musí být takový, aby se za něj nestydět.</span></p>
+      </div>
+      <div class="about-nums">
+        <div class="an"><div class="an-n">500+</div><div class="an-l"><span data-lang="cs" class="on">Hotových projektů</span><span data-lang="sk">Hotových projektov</span><span data-lang="en">Finished projects</span><span data-lang="de">Abgeschlossene Projekte</span><span data-lang="en">Finished projects</span><span data-lang="de">Abgeschlossene Projekte</span><span data-lang="en">Hotových projektů</span><span data-lang="de">Hotových projektů</span></div></div>
+        <div class="an"><div class="an-n">48 h</div><div class="an-l"><span data-lang="cs" class="on">Nabídka v ruce</span><span data-lang="sk">Ponuka v ruke</span><span data-lang="en">Quote in hand</span><span data-lang="de">Angebot in Hand</span><span data-lang="en">Quote in hand</span><span data-lang="de">Angebot in Hand</span><span data-lang="en">Nabídka v ruce</span><span data-lang="de">Nabídka v ruce</span></div></div>
+        <div class="an"><div class="an-n">98 %</div><div class="an-l"><span data-lang="cs" class="on">V termínu</span><span data-lang="sk">V termíne</span><span data-lang="en">On time</span><span data-lang="de">Pünktlich</span><span data-lang="en">On time</span><span data-lang="de">Pünktlich</span><span data-lang="en">V termínu</span><span data-lang="de">V termínu</span></div></div>
+        <div class="an"><div class="an-n">5 let</div><div class="an-l"><span data-lang="cs" class="on">V oboru</span><span data-lang="sk">V odbore</span><span data-lang="en">Years in industry</span><span data-lang="de">Jahre in der Industrie</span><span data-lang="en">Years in industry</span><span data-lang="de">Jahre in der Industrie</span><span data-lang="en">V oboru</span><span data-lang="de">V oboru</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── DELIVERY PHOTO FEATURE ── -->
+<div id="delivery-hero">
+  <div class="dh-img">
+    <img src="images/image-9.jpg" alt="Dodávka zakázky">
+  </div>
+  <div class="dh-text">
+    <p class="dh-label">
+      <span data-lang="cs" class="on">Termíny bereme vážně</span>
+      <span data-lang="sk">Termíny berieme vážne</span>
+    </p>
+    <h2 class="dh-q">
+      <span data-lang="cs" class="on">98 % zakázek doručeno včas. <em>Na zbývající 2 % existuje Jan.</em></span>
+      <span data-lang="sk">98 % zákaziek doručených včas. <em>Na zvyšné 2 % existuje Ján.</em></span>
+    </h2>
+    <p class="dh-body">
+      <span data-lang="cs" class="on">Doručujeme na jednu adresu nebo na padesát. Kurýrem, spedičně — nebo osobně, pokud to situace vyžaduje. Termín pro nás není odhad. Je to závazek. A když se cokoliv zkomplikuje, jako první vám zavoláme.</span>
+      <span data-lang="sk">Doručujeme na jednu adresu alebo na päťdesiat. Kuriérom, špeditérsky — alebo osobne, ak to situácia vyžaduje. Termín pre nás nie je odhad. Je to záväzok. A keď sa čokoľvek skomplikuje, ako prví vám zavoláme.</span>
+    </p>
+    <div class="dh-stats">
+      <div class="ds"><div class="ds-n">98 %</div><div class="ds-l"><span data-lang="cs" class="on">V termínu nebo dříve</span><span data-lang="sk">V termíne alebo skôr</span><span data-lang="en">On time or early</span><span data-lang="de">Pünktlich oder früher</span><span data-lang="en">V termínu nebo dříve</span><span data-lang="de">V termínu nebo dříve</span><span data-lang="en">V termínu nebo dříve</span><span data-lang="de">V termínu nebo dříve</span></div></div>
+      <div class="ds"><div class="ds-n">48 h</div><div class="ds-l"><span data-lang="cs" class="on">Nejrychlejší prototyp</span><span data-lang="sk">Najrýchlejší prototyp</span><span data-lang="en">Fastest prototype</span><span data-lang="de">Schnellster Prototyp</span><span data-lang="en">Nejrychlejší prototyp</span><span data-lang="de">Nejrychlejší prototyp</span><span data-lang="en">Nejrychlejší prototyp</span><span data-lang="de">Nejrychlejší prototyp</span></div></div>
+      <div class="ds"><div class="ds-n">10k+</div><div class="ds-l"><span data-lang="cs" class="on">Max. série najednou</span><span data-lang="sk">Max. séria naraz</span><span data-lang="en">Max series at once</span><span data-lang="de">Max. Serie auf einmal</span><span data-lang="en">Max. série najednou</span><span data-lang="de">Max. série najednou</span><span data-lang="en">Max. série najednou</span><span data-lang="de">Max. série najednou</span></div></div>
+      <div class="ds"><div class="ds-n">1 ks</div><div class="ds-l"><span data-lang="cs" class="on">Minimální objednávka</span><span data-lang="sk">Minimálna objednávka</span><span data-lang="en">Minimum order</span><span data-lang="de">Mindestbestellung</span><span data-lang="en">Minimum order</span><span data-lang="de">Mindestbestellung</span><span data-lang="en">Minimální objednávka</span><span data-lang="de">Minimální objednávka</span></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ── COMPARISON ── -->
+<section id="comparison">
+  <div class="w">
+    <div class="comp-head rv">
+      <div>
+        <p class="stag" style="color:var(--accent)"><span data-lang="cs" class="on">V čem je rozdíl?</span><span data-lang="sk">V čom je rozdiel?</span><span data-lang="en">What's the difference?</span><span data-lang="de">Was ist der Unterschied?</span><span data-lang="en">What's the difference?</span><span data-lang="de">Was ist der Unterschied?</span><span data-lang="en">V čem je rozdíl?</span><span data-lang="de">V čem je rozdíl?</span></p>
+        <h2 class="sh inv"><span data-lang="cs" class="on">Forma Studio vs.<br><em>zbytek trhu</em></span><span data-lang="sk">Forma Studio vs.<br><em>zvyšok trhu</em></span></h2>
+        <p class="sb" style="color:#666;margin-top:.85rem"><span data-lang="cs" class="on">Velcí výrobci nechtějí malé zakázky. Malé dílny nezvládnou velké série. My fungujeme jinak — každou zakázku, od jednoho kusu po tisíce, bereme stejně vážně.</span><span data-lang="sk">Veľkí výrobcovia nechcú malé zákazky. Malé dielne nezvládnu veľké série. My fungujeme inak — každú zákazku, od jedného kusu po tisíce, berieme rovnako vážne.</span><span data-lang="en">Big manufacturers don't want small orders. Small shops can't handle big series. We work differently — every order, from one piece to thousands, we take equally seriously.</span><span data-lang="de">Große Hersteller wollen kleine Bestellungen nicht. Kleine Werkstätten schaffen große Serien nicht. Wir arbeiten anders — jede Bestellung, von einem Stück bis zu Tausenden, nehmen wir gleich ernst.</span><span data-lang="en">Big manufacturers don't want small orders. Small shops can't handle big series. We work differently — every order, from one piece to thousands, we take equally seriously.</span><span data-lang="de">Große Hersteller wollen kleine Bestellungen nicht. Kleine Werkstätten schaffen große Serien nicht. Wir arbeiten anders — jede Bestellung, von einem Stück bis zu Tausenden, nehmen wir gleich ernst.</span><span data-lang="en">Velcí výrobci nechtějí malé zakázky. Malé dílny nezvládnou velké série. My fungujeme jinak — každou zakázku, od jednoho kusu po tisíce, bereme stejně vážně.</span><span data-lang="de">Velcí výrobci nechtějí malé zakázky. Malé dílny nezvládnou velké série. My fungujeme jinak — každou zakázku, od jednoho kusu po tisíce, bereme stejně vážně.</span></p>
+      </div>
+      <img class="comp-img" src="images/image-8.jpg" alt="Tým v dílně">
+    </div>
+    <div class="comp-table rv">
+      <div class="comp-col them">
+        <div class="comp-hd them"><span data-lang="cs" class="on">Ostatní výrobci</span><span data-lang="sk">Ostatní výrobcovia</span><span data-lang="en">Other manufacturers</span><span data-lang="de">Andere Hersteller</span><span data-lang="en">Other manufacturers</span><span data-lang="de">Andere Hersteller</span><span data-lang="en">Ostatní výrobci</span><span data-lang="de">Ostatní výrobci</span></div>
+        <div class="comp-row"><span class="ci">✕</span><span data-lang="cs" class="on">Jedna technologie — musíte koordinovat víc firem</span><span data-lang="sk">Jedna technológia — musíte koordinovať viac firiem</span><span data-lang="en">One technology — you coordinate multiple firms</span><span data-lang="de">Eine Technologie — Sie koordinieren mehrere Firmen</span><span data-lang="en">One technology — you coordinate multiple firms</span><span data-lang="de">Eine Technologie — Sie koordinieren mehrere Firmen</span><span data-lang="en">Jedna technologie — musíte koordinovat víc firem</span><span data-lang="de">Jedna technologie — musíte koordinovat víc firem</span></div>
+        <div class="comp-row"><span class="ci">✕</span><span data-lang="cs" class="on">Minimální objednávka 100+ kusů</span><span data-lang="sk">Minimálna objednávka 100+ kusov</span><span data-lang="en">Minimum order 100+ pieces</span><span data-lang="de">Mindestbestellung 100+ Stück</span><span data-lang="en">Minimum order 100+ pieces</span><span data-lang="de">Mindestbestellung 100+ Stück</span><span data-lang="en">Minimální objednávka 100+ kusů</span><span data-lang="de">Minimální objednávka 100+ kusů</span></div>
+        <div class="comp-row"><span class="ci">✕</span><span data-lang="cs" class="on">Prototyp trvá týdny</span><span data-lang="sk">Prototyp trvá týždne</span><span data-lang="en">Prototype takes weeks</span><span data-lang="de">Prototyp dauert Wochen</span><span data-lang="en">Prototype takes weeks</span><span data-lang="de">Prototyp dauert Wochen</span><span data-lang="en">Prototyp trvá týdny</span><span data-lang="de">Prototyp trvá týdny</span></div>
+        <div class="comp-row"><span class="ci">✕</span><span data-lang="cs" class="on">E-mail, který přijde za 3 dny — nebo vůbec</span><span data-lang="sk">E-mail, ktorý príde za 3 dni — alebo vôbec</span><span data-lang="en">Email that comes in 3 days — or never</span><span data-lang="de">E-Mail, die in 3 Tagen kommt — oder nie</span><span data-lang="en">Email that comes in 3 days — or never</span><span data-lang="de">E-Mail, die in 3 Tagen kommt — oder nie</span><span data-lang="en">E-mail, který přijde za 3 dny — nebo vůbec</span><span data-lang="de">E-mail, který přijde za 3 dny — nebo vůbec</span></div>
+        <div class="comp-row"><span class="ci">✕</span><span data-lang="cs" class="on">Cena se mění — překvapení při fakturaci</span><span data-lang="sk">Cena sa mení — prekvapenie pri fakturácii</span><span data-lang="en">Price changes — surprise at invoice</span><span data-lang="de">Preis ändert sich — Überraschung bei Fakturierung</span><span data-lang="en">Price changes — surprise at invoice</span><span data-lang="de">Preis ändert sich — Überraschung bei Fakturierung</span><span data-lang="en">Cena se mění — překvapení při fakturaci</span><span data-lang="de">Cena se mění — překvapení při fakturaci</span></div>
+      </div>
+      <div class="comp-col us">
+        <div class="comp-hd us">Forma Studio</div>
+        <div class="comp-row"><span class="ci">✓</span><span data-lang="cs" class="on">CNC, 3D tisk, laser, prototyping — jeden partner</span><span data-lang="sk">CNC, 3D tlač, laser, prototyping — jeden partner</span><span data-lang="en">CNC, 3D print, laser, prototyping — one partner</span><span data-lang="de">CNC, 3D-Druck, Laser, Prototyping — ein Partner</span><span data-lang="en">CNC, 3D print, laser, prototyping — one partner</span><span data-lang="de">CNC, 3D-Druck, Laser, Prototyping — ein Partner</span><span data-lang="en">CNC, 3D tisk, laser, prototyping — jeden partner</span><span data-lang="de">CNC, 3D tisk, laser, prototyping — jeden partner</span></div>
+        <div class="comp-row"><span class="ci">✓</span><span data-lang="cs" class="on">Série od 1 kusu, bez minima</span><span data-lang="sk">Série od 1 kusu, bez minima</span><span data-lang="en">Series from 1 piece, no minimum</span><span data-lang="de">Serie ab 1 Stück, kein Minimum</span><span data-lang="en">Series from 1 piece, no minimum</span><span data-lang="de">Serie ab 1 Stück, kein Minimum</span><span data-lang="en">Série od 1 kusu, bez minima</span><span data-lang="de">Série od 1 kusu, bez minima</span></div>
+        <div class="comp-row"><span class="ci">✓</span><span data-lang="cs" class="on">Nabídka do 48 hodin</span><span data-lang="sk">Ponuka do 48 hodín</span><span data-lang="en">Quote in 48 hours</span><span data-lang="de">Angebot in 48 Stunden</span><span data-lang="en">Quote in 48 hours</span><span data-lang="de">Angebot in 48 Stunden</span><span data-lang="en">Nabídka do 48 hodin</span><span data-lang="de">Nabídka do 48 hodin</span></div>
+        <div class="comp-row"><span class="ci">✓</span><span data-lang="cs" class="on">Odpovídáme do 24 h, voláme osobně</span><span data-lang="sk">Odpovedáme do 24 h, voláme osobne</span><span data-lang="en">We respond in 24h, call personally</span><span data-lang="de">Wir antworten in 24h, rufen persönlich an</span><span data-lang="en">We respond in 24h, call personally</span><span data-lang="de">Wir antworten in 24h, rufen persönlich an</span><span data-lang="en">Odpovídáme do 24 h, voláme osobně</span><span data-lang="de">Odpovídáme do 24 h, voláme osobně</span></div>
+        <div class="comp-row"><span class="ci">✓</span><span data-lang="cs" class="on">Jasná cena, bez skrytých poplatků</span><span data-lang="sk">Jasná cena, bez skrytých poplatkov</span><span data-lang="en">Clear price, no hidden fees</span><span data-lang="de">Klarer Preis, keine versteckten Gebühren</span><span data-lang="en">Clear price, no hidden fees</span><span data-lang="de">Klarer Preis, keine versteckten Gebühren</span><span data-lang="en">Jasná cena, bez skrytých poplatků</span><span data-lang="de">Jasná cena, bez skrytých poplatků</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PROCESS ── -->
+<section id="process">
+  <div class="w rv">
+    <p class="stag"><span data-lang="cs" class="on">Jak to funguje</span><span data-lang="sk">Ako to funguje</span><span data-lang="en">How it works</span><span data-lang="de">So funktioniert es</span><span data-lang="en">How it works</span><span data-lang="de">So funktioniert es</span><span data-lang="en">How it works</span><span data-lang="de">So funktioniert es</span></p>
+    <h2 class="sh"><span data-lang="cs" class="on">Od poptávky k výrobku — <em>pět kroků.</em></span><span data-lang="sk">Od dopytu k výrobku — <em>päť krokov.</em></span></h2>
+    <p class="sb"><span data-lang="cs" class="on">Snažíme se, aby byl celý proces co nejjednodušší. Soubor nemusí být perfektní. Nápad stačí.</span><span data-lang="sk">Snažíme sa, aby bol celý proces čo najjednoduchší. Súbor nemusí byť perfektný. Nápad stačí.</span><span data-lang="en">We try to make the whole process as simple as possible. The file doesn't have to be perfect. The idea is what matters.</span><span data-lang="de">Wir versuchen, den gesamten Prozess so einfach wie möglich zu gestalten. Die Datei muss nicht perfekt sein. Die Idee ist das Wichtigste.</span><span data-lang="en">We try to make the whole process as simple as possible. The file doesn't have to be perfect. The idea is what matters.</span><span data-lang="de">Wir versuchen, den gesamten Prozess so einfach wie möglich zu gestalten. Die Datei muss nicht perfekt sein. Die Idee ist das Wichtigste.</span><span data-lang="en">Snažíme se, aby byl celý proces co nejjednodušší. Soubor nemusí být perfektní. Nápad stačí.</span><span data-lang="de">Snažíme se, aby byl celý proces co nejjednodušší. Soubor nemusí být perfektní. Nápad stačí.</span></p>
+  </div>
+  <div class="w">
+    <div class="psteps">
+      <div class="ps rv">
+        <div class="ps-n">1</div>
+        <div class="ps-right">
+          <div class="ps-title"><span data-lang="cs" class="on">Pošlete poptávku nebo soubor</span><span data-lang="sk">Pošlite dopyt alebo súbor</span><span data-lang="en">Send a request or file</span><span data-lang="de">Eine Anfrage oder Datei senden</span><span data-lang="en">Send a request or file</span><span data-lang="de">Eine Anfrage oder Datei senden</span><span data-lang="en">Pošlete poptávku nebo soubor</span><span data-lang="de">Pošlete poptávku nebo soubor</span></div>
+          <div class="ps-fear"><span data-lang="cs" class="on">Soubor nemusí být dokonalý — klidně pošlete PDF, náčrt, nebo jen pár vět.</span><span data-lang="sk">Súbor nemusí byť dokonalý — pokojne pošlite PDF, náčrt, alebo len pár viet.</span><span data-lang="en">The file doesn't have to be perfect — feel free to send a PDF, sketch, or just a few lines.</span><span data-lang="de">Die Datei muss nicht perfekt sein — senden Sie gerne ein PDF, eine Skizze oder nur ein paar Zeilen.</span><span data-lang="en">The file doesn't have to be perfect — feel free to send a PDF, sketch, or just a few lines.</span><span data-lang="de">Die Datei muss nicht perfekt sein — senden Sie gerne ein PDF, eine Skizze oder nur ein paar Zeilen.</span><span data-lang="en">Soubor nemusí být dokonalý — klidně pošlete PDF, náčrt, nebo jen pár vět.</span><span data-lang="de">Soubor nemusí být dokonalý — klidně pošlete PDF, náčrt, nebo jen pár vět.</span></div>
+          <p class="ps-desc"><span data-lang="cs" class="on">Vyplňte formulář níže nebo napište e-mail. K ničemu se nezavazujete. Přijmeme DXF, STL, STEP, PDF, SolidWorks, Fusion 360 i obyčejné fotky náčrtu.</span><span data-lang="sk">Vyplňte formulár nižšie alebo napíšte e-mail. K ničomu sa nezaväzujete. Prijmeme DXF, STL, STEP, PDF, SolidWorks, Fusion 360 aj obyčajné fotky náčrtu.</span><span data-lang="en">Fill out the form below or send an email. No obligation. We accept DXF, STL, STEP, PDF, SolidWorks, Fusion 360 and even ordinary sketch photos.</span><span data-lang="de">Füllen Sie das folgende Formular aus oder senden Sie eine E-Mail. Keine Verpflichtung. Wir akzeptieren DXF, STL, STEP, PDF, SolidWorks, Fusion 360 und sogar einfache Skizzenfoto.</span><span data-lang="en">Fill out the form below or send an email. No obligation. We accept DXF, STL, STEP, PDF, SolidWorks, Fusion 360 and even ordinary sketch photos.</span><span data-lang="de">Füllen Sie das folgende Formular aus oder senden Sie eine E-Mail. Keine Verpflichtung. Wir akzeptieren DXF, STL, STEP, PDF, SolidWorks, Fusion 360 und sogar einfache Skizzenfoto.</span><span data-lang="en">Vyplňte formulář níže nebo napište e-mail. K ničemu se nezavazujete. Přijmeme DXF, STL, STEP, PDF, SolidWorks, Fusion 360 i obyčejné fotky náčrtu.</span><span data-lang="de">Vyplňte formulář níže nebo napište e-mail. K ničemu se nezavazujete. Přijmeme DXF, STL, STEP, PDF, SolidWorks, Fusion 360 i obyčejné fotky náčrtu.</span></p>
+        </div>
+      </div>
+      <div class="ps rv">
+        <div class="ps-n">2</div>
+        <div class="ps-right">
+          <div class="ps-title"><span data-lang="cs" class="on">Zavoláme si — do 24 hodin</span><span data-lang="sk">Zavoláme si — do 24 hodín</span><span data-lang="en">We'll call — within 24 hours</span><span data-lang="de">Wir rufen an — innerhalb von 24 Stunden</span><span data-lang="en">We'll call — within 24 hours</span><span data-lang="de">Wir rufen an — innerhalb von 24 Stunden</span><span data-lang="en">Zavoláme si — do 24 hodin</span><span data-lang="de">Zavoláme si — do 24 hodin</span></div>
+          <div class="ps-fear"><span data-lang="cs" class="on">Nevíte, jakou technologii zvolit? Poradíme — bez žargonu, bez obchodních tlaků.</span><span data-lang="sk">Neviete, akú technológiu zvoliť? Poradíme — bez žargónu, bez obchodných tlakov.</span><span data-lang="en">Not sure which technology to choose? We'll advise — no jargon, no sales pressure.</span><span data-lang="de">Nicht sicher, welche Technologie Sie wählen sollen? Wir beraten — kein Jargon, kein Verkaufsdruck.</span><span data-lang="en">Not sure which technology to choose? We'll advise — no jargon, no sales pressure.</span><span data-lang="de">Nicht sicher, welche Technologie Sie wählen sollen? Wir beraten — kein Jargon, kein Verkaufsdruck.</span><span data-lang="en">Nevíte, jakou technologii zvolit? Poradíme — bez žargonu, bez obchodních tlaků.</span><span data-lang="de">Nevíte, jakou technologii zvolit? Poradíme — bez žargonu, bez obchodních tlaků.</span></div>
+          <p class="ps-desc"><span data-lang="cs" class="on">Ozveme se osobně, prodiskutujeme projekt a zodpovíme všechny otázky. Krátký hovor, který ušetří hodiny e-mailování.</span><span data-lang="sk">Ozveme sa osobne, prediskutujeme projekt a zodpovieme všetky otázky. Krátky hovor, ktorý ušetrí hodiny e-mailovania.</span><span data-lang="en">We'll get back to you personally, discuss the project and answer all questions. A short call that saves hours of email.</span><span data-lang="de">Wir melden uns persönlich, besprechen das Projekt und beantworten alle Fragen. Ein kurzes Gespräch, das Stunden E-Mail spart.</span><span data-lang="en">We'll get back to you personally, discuss the project and answer all questions. A short call that saves hours of email.</span><span data-lang="de">Wir melden uns persönlich, besprechen das Projekt und beantworten alle Fragen. Ein kurzes Gespräch, das Stunden E-Mail spart.</span><span data-lang="en">Ozveme se osobně, prodiskutujeme projekt a zodpovíme všechny otázky. Krátký hovor, který ušetří hodiny e-mailování.</span><span data-lang="de">Ozveme se osobně, prodiskutujeme projekt a zodpovíme všechny otázky. Krátký hovor, který ušetří hodiny e-mailování.</span></p>
+        </div>
+      </div>
+      <div class="ps rv">
+        <div class="ps-n">3</div>
+        <div class="ps-right">
+          <div class="ps-title"><span data-lang="cs" class="on">Jasná cena — žádná překvapení</span><span data-lang="sk">Jasná cena — žiadne prekvapenia</span><span data-lang="en">Clear price — no surprises</span><span data-lang="de">Klarer Preis — keine Überraschungen</span><span data-lang="en">Clear price — no surprises</span><span data-lang="de">Klarer Preis — keine Überraschungen</span><span data-lang="en">Jasná cena — žádná překvapení</span><span data-lang="de">Jasná cena — žádná překvapení</span></div>
+          <div class="ps-fear"><span data-lang="cs" class="on">U větších zakázek nabídneme fyzický vzorek ještě před potvrzením.</span><span data-lang="sk">Pri väčších zákazkách ponúkneme fyzickú vzorku ešte pred potvrdením.</span><span data-lang="en">For larger orders we'll offer a physical sample before confirmation.</span><span data-lang="de">Für größere Bestellungen bieten wir vor der Bestätigung ein physisches Muster an.</span><span data-lang="en">For larger orders we'll offer a physical sample before confirmation.</span><span data-lang="de">Für größere Bestellungen bieten wir vor der Bestätigung ein physisches Muster an.</span><span data-lang="en">U větších zakázek nabídneme fyzický vzorek ještě před potvrzením.</span><span data-lang="de">U větších zakázek nabídneme fyzický vzorek ještě před potvrzením.</span></div>
+          <p class="ps-desc"><span data-lang="cs" class="on">Dostanete jasnou kalkulaci bez skrytých poplatků. Pokud se cokoliv změní, okamžitě vám dáme vědět.</span><span data-lang="sk">Dostanete jasnú kalkuláciu bez skrytých poplatkov. Ak sa čokoľvek zmení, okamžite vám dáme vedieť.</span><span data-lang="en">You'll get a clear quote with no hidden fees. If anything changes, we let you know right away.</span><span data-lang="de">Sie erhalten ein klares Angebot ohne versteckte Gebühren. Wenn sich etwas ändert, teilen wir es Ihnen sofort mit.</span><span data-lang="en">You'll get a clear quote with no hidden fees. If anything changes, we let you know right away.</span><span data-lang="de">Sie erhalten ein klares Angebot ohne versteckte Gebühren. Wenn sich etwas ändert, teilen wir es Ihnen sofort mit.</span><span data-lang="en">Dostanete jasnou kalkulaci bez skrytých poplatků. Pokud se cokoliv změní, okamžitě vám dáme vědět.</span><span data-lang="de">Dostanete jasnou kalkulaci bez skrytých poplatků. Pokud se cokoliv změní, okamžitě vám dáme vědět.</span></p>
+        </div>
+      </div>
+      <div class="ps rv">
+        <div class="ps-n">4</div>
+        <div class="ps-right">
+          <div class="ps-title"><span data-lang="cs" class="on">Výroba — s průběžnou kontrolou</span><span data-lang="sk">Výroba — s priebežnou kontrolou</span><span data-lang="en">Production — with ongoing control</span><span data-lang="de">Produktion — mit laufender Kontrolle</span><span data-lang="en">Production — with ongoing control</span><span data-lang="de">Produktion — mit laufender Kontrolle</span><span data-lang="en">Výroba — s průběžnou kontrolou</span><span data-lang="de">Výroba — s průběžnou kontrolou</span></div>
+          <div class="ps-fear"><span data-lang="cs" class="on">U větších sérií posíláme průběžné fotky — abyste měli přehled.</span><span data-lang="sk">Pri väčších sériách posielame priebežné fotky — aby ste mali prehľad.</span><span data-lang="en">For larger series we send progress photos — so you stay informed.</span><span data-lang="de">Für größere Serien senden wir Fortschrittsfotos — damit Sie informiert bleiben.</span><span data-lang="en">For larger series we send progress photos — so you stay informed.</span><span data-lang="de">Für größere Serien senden wir Fortschrittsfotos — damit Sie informiert bleiben.</span><span data-lang="en">U větších sérií posíláme průběžné fotky — abyste měli přehled.</span><span data-lang="de">U větších sérií posíláme průběžné fotky — abyste měli přehled.</span></div>
+          <p class="ps-desc"><span data-lang="cs" class="on">Potvrdíte design a my se pustíme do práce. Každý kus prochází interní QC kontrolou. Na vyžádání dostanete protokol s naměřenými hodnotami.</span><span data-lang="sk">Potvrdíte dizajn a my sa pustíme do práce. Každý kus prechádza internou QC kontrolou. Na vyžiadanie dostanete protokol s nameranými hodnotami.</span><span data-lang="en">You confirm the design and we get to work. Every piece goes through internal QC. On request, you get a report with measured values.</span><span data-lang="de">Sie bestätigen das Design und wir machen uns an die Arbeit. Jedes Stück durchläuft eine interne Qualitätskontrolle. Auf Anfrage erhalten Sie einen Bericht mit gemessenen Werten.</span><span data-lang="en">You confirm the design and we get to work. Every piece goes through internal QC. On request, you get a report with measured values.</span><span data-lang="de">Sie bestätigen das Design und wir machen uns an die Arbeit. Jedes Stück durchläuft eine interne Qualitätskontrolle. Auf Anfrage erhalten Sie einen Bericht mit gemessenen Werten.</span><span data-lang="en">Potvrdíte design a my se pustíme do práce. Každý kus prochází interní QC kontrolou. Na vyžádání dostanete protokol s naměřenými hodnotami.</span><span data-lang="de">Potvrdíte design a my se pustíme do práce. Každý kus prochází interní QC kontrolou. Na vyžádání dostanete protokol s naměřenými hodnotami.</span></p>
+        </div>
+      </div>
+      <div class="ps rv">
+        <div class="ps-n">5</div>
+        <div class="ps-right">
+          <div class="ps-title"><span data-lang="cs" class="on">Doručíme — přesně a včas</span><span data-lang="sk">Doručíme — presne a včas</span><span data-lang="en">Shipping — precisely and on time</span><span data-lang="de">Versand — präzise und pünktlich</span><span data-lang="en">Shipping — precisely and on time</span><span data-lang="de">Versand — präzise und pünktlich</span><span data-lang="en">Doručíme — přesně a včas</span><span data-lang="de">Doručíme — přesně a včas</span></div>
+          <div class="ps-fear"><span data-lang="cs" class="on">Pokud se cokoliv zkomplikuje — jako první vám zavoláme.</span><span data-lang="sk">Ak sa čokoľvek skomplikuje — ako prví vám zavoláme.</span><span data-lang="en">If anything gets complicated — we call you first.</span><span data-lang="de">Wenn sich etwas kompliziert — wir rufen Sie zuerst an.</span><span data-lang="en">If anything gets complicated — we call you first.</span><span data-lang="de">Wenn sich etwas kompliziert — wir rufen Sie zuerst an.</span><span data-lang="en">Pokud se cokoliv zkomplikuje — jako první vám zavoláme.</span><span data-lang="de">Pokud se cokoliv zkomplikuje — jako první vám zavoláme.</span></div>
+          <p class="ps-desc"><span data-lang="cs" class="on">Na jednu adresu nebo na padesát. Kurýrem, spedičně nebo osobně. 98 % zakázek dodáváme v dohodnutém termínu nebo dříve.</span><span data-lang="sk">Na jednu adresu alebo na päťdesiat. Kuriérom, špeditérsky alebo osobne. 98 % zákaziek dodávame v dohodnutom termíne alebo skôr.</span><span data-lang="en">To one address or fifty. By courier, freight or in person. We deliver 98% of orders on schedule or early.</span><span data-lang="de">An eine Adresse oder fünfzig. Per Kurier, Spedition oder persönlich. Wir liefern 98 % der Bestellungen pünktlich oder früher ab.</span><span data-lang="en">To one address or fifty. By courier, freight or in person. We deliver 98% of orders on schedule or early.</span><span data-lang="de">An eine Adresse oder fünfzig. Per Kurier, Spedition oder persönlich. Wir liefern 98 % der Bestellungen pünktlich oder früher ab.</span><span data-lang="en">Na jednu adresu nebo na padesát. Kurýrem, spedičně nebo osobně. 98 % zakázek dodáváme v dohodnutém termínu nebo dříve.</span><span data-lang="de">Na jednu adresu nebo na padesát. Kurýrem, spedičně nebo osobně. 98 % zakázek dodáváme v dohodnutém termínu nebo dříve.</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TESTIMONIALS ── -->
+<section id="testimonials">
+  <div class="w rv">
+    <p class="stag"><span data-lang="cs" class="on">Co říkají zákazníci</span><span data-lang="sk">Čo hovoria zákazníci</span><span data-lang="en">What customers say</span><span data-lang="de">Was Kunden sagen</span><span data-lang="en">What customers say</span><span data-lang="de">Was Kunden sagen</span><span data-lang="en">Co říkají zákazníci</span><span data-lang="de">Co říkají zákazníci</span></p>
+    <h2 class="sh"><span data-lang="cs" class="on">Neříkejte to za nás — <em>říkají to oni.</em></span><span data-lang="sk">Nehovorte to za nás — <em>hovoria to oni.</em></span></h2>
+  </div>
+  <div class="w">
+    <div class="tgrid">
+      <div class="tcard rv">
+        <div class="tcard-stars">★★★★★</div>
+        <p class="tcard-q"><span data-lang="cs" class="on">Potřebovali jsme 300 dřevěných podtácků s logem za týden. Forma to zvládla s přehledem — každý kus identický, dodáno dva dny předem. Napřesrok jdeme znovu.</span><span data-lang="sk">Potrebovali sme 300 drevených podtácok s logom za týždeň. Forma to zvládla s prehľadom — každý kus identický, dodané dva dni vopred. O rok ideme znovu.</span><span data-lang="en">We needed 300 wooden coasters with logo in a week. Forma handled it easily — every piece identical, delivered two days early. We're back next year.</span><span data-lang="de">Wir brauchten 300 Holzuntersetzer mit Logo in einer Woche. Forma schaffte es locker — jedes Stück identisch, zwei Tage früher geliefert. Nächstes Jahr gehen wir wieder.</span><span data-lang="en">We needed 300 wooden coasters with logo in a week. Forma handled it easily — every piece identical, delivered two days early. We're back next year.</span><span data-lang="de">Wir brauchten 300 Holzuntersetzer mit Logo in einer Woche. Forma schaffte es locker — jedes Stück identisch, zwei Tage früher geliefert. Nächstes Jahr gehen wir wieder.</span><span data-lang="en">Potřebovali jsme 300 dřevěných podtácků s logem za týden. Forma to zvládla s přehledem — každý kus identický, dodáno dva dny předem. Napřesrok jdeme znovu.</span><span data-lang="de">Potřebovali jsme 300 dřevěných podtácků s logem za týden. Forma to zvládla s přehledem — každý kus identický, dodáno dva dny předem. Napřesrok jdeme znovu.</span></p>
+        <div class="tcard-author">
+          <div class="tcard-av">MK</div>
+          <div>
+            <div class="tcard-name">Markéta Kovářová</div>
+            <div class="tcard-role"><span data-lang="cs" class="on">Marketing Manager · Myco</span><span data-lang="sk">Marketing Manager · Myco</span><span data-lang="en">Marketing Manager · Myco</span><span data-lang="de">Marketing Manager · Myco</span><span data-lang="en">Marketing Manager · Myco</span><span data-lang="de">Marketing Manager · Myco</span><span data-lang="en">Marketing Manager · Myco</span><span data-lang="de">Marketing Manager · Myco</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="tcard rv d1">
+        <div class="tcard-stars">★★★★★</div>
+        <p class="tcard-q"><span data-lang="cs" class="on">Pět iterací prototypu za dva týdny. Jiní výrobci mi říkali, že to za měsíc nestihnou. Forma to vzala jako výzvu. Výsledek byl přesně to, co jsem potřeboval na pitch.</span><span data-lang="sk">Päť iterácií prototypu za dva týždne. Iní výrobcovia mi hovorili, že to za mesiac nestihnú. Forma to vzala ako výzvu. Výsledok bol presne to, čo som potreboval na pitch.</span><span data-lang="en">Five prototype iterations in two weeks. Other manufacturers said they couldn't do it in a month. Forma took it as a challenge. The result was exactly what I needed for the pitch.</span><span data-lang="de">Fünf Prototyp-Iterationen in zwei Wochen. Andere Hersteller sagten mir, dass sie es in einem Monat nicht schaffen. Forma nahm es als Herausforderung an. Das Ergebnis war genau das, was ich für meine Präsentation brauchte.</span><span data-lang="en">Five prototype iterations in two weeks. Other manufacturers said they couldn't do it in a month. Forma took it as a challenge. The result was exactly what I needed for the pitch.</span><span data-lang="de">Fünf Prototyp-Iterationen in zwei Wochen. Andere Hersteller sagten mir, dass sie es in einem Monat nicht schaffen. Forma nahm es als Herausforderung an. Das Ergebnis war genau das, was ich für meine Präsentation brauchte.</span><span data-lang="en">Pět iterací prototypu za dva týdny. Jiní výrobci mi říkali, že to za měsíc nestihnou. Forma to vzala jako výzvu. Výsledek byl přesně to, co jsem potřeboval na pitch.</span><span data-lang="de">Pět iterací prototypu za dva týdny. Jiní výrobci mi říkali, že to za měsíc nestihnou. Forma to vzala jako výzvu. Výsledek byl přesně to, co jsem potřeboval na pitch.</span></p>
+        <div class="tcard-author">
+          <div class="tcard-av">TN</div>
+          <div>
+            <div class="tcard-name">Tomáš Novotný</div>
+            <div class="tcard-role"><span data-lang="cs" class="on">Founder · Hardwear Labs</span><span data-lang="sk">Founder · Hardwear Labs</span><span data-lang="en">Founder · Hardwear Labs</span><span data-lang="de">Founder · Hardwear Labs</span><span data-lang="en">Founder · Hardwear Labs</span><span data-lang="de">Founder · Hardwear Labs</span><span data-lang="en">Founder · Hardwear Labs</span><span data-lang="de">Founder · Hardwear Labs</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="tcard rv d2">
+        <div class="tcard-stars">★★★★★</div>
+        <p class="tcard-q"><span data-lang="cs" class="on">Konečně výrobce, který si přečte brief a ještě zavolá, aby se ujistil, že správně rozumí. Žádný žargon, žádné překvapení na faktuře. Takového partnera hledáme.</span><span data-lang="sk">Konečne výrobca, ktorý si prečíta brief a ešte zavolá, aby sa uistil, že správne rozumie. Žiadny žargón, žiadne prekvapenie na faktúre. Takého partnera hľadáme.</span><span data-lang="en">Finally a manufacturer who reads the brief and calls to make sure they understand correctly. No jargon, no surprises on the invoice. That's the partner we're looking for.</span><span data-lang="de">Endlich ein Hersteller, der das Brief liest und anruft, um sicherzustellen, dass er richtig versteht. Kein Jargon, keine Überraschungen auf der Rechnung. Das ist der Partner, den wir suchen.</span><span data-lang="en">Finally a manufacturer who reads the brief and calls to make sure they understand correctly. No jargon, no surprises on the invoice. That's the partner we're looking for.</span><span data-lang="de">Endlich ein Hersteller, der das Brief liest und anruft, um sicherzustellen, dass er richtig versteht. Kein Jargon, keine Überraschungen auf der Rechnung. Das ist der Partner, den wir suchen.</span><span data-lang="en">Konečně výrobce, který si přečte brief a ještě zavolá, aby se ujistil, že správně rozumí. Žádný žargon, žádné překvapení na faktuře. Takového partnera hledáme.</span><span data-lang="de">Konečně výrobce, který si přečte brief a ještě zavolá, aby se ujistil, že správně rozumí. Žádný žargon, žádné překvapení na faktuře. Takového partnera hledáme.</span></p>
+        <div class="tcard-author">
+          <div class="tcard-av">LP</div>
+          <div>
+            <div class="tcard-name">Lucie Procházková</div>
+            <div class="tcard-role"><span data-lang="cs" class="on">Produktová designérka · Studio Arch+</span><span data-lang="sk">Produktová dizajnérka · Studio Arch+</span><span data-lang="en">Product Designer · Studio Arch+</span><span data-lang="de">Produktdesigner · Studio Arch+</span><span data-lang="en">Product Designer · Studio Arch+</span><span data-lang="de">Produktdesigner · Studio Arch+</span><span data-lang="en">Produktová designérka · Studio Arch+</span><span data-lang="de">Produktová designérka · Studio Arch+</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FAQ ── -->
+<section id="faq">
+  <div class="faq-in">
+    <div class="faq-left rv">
+      <p class="stag">FAQ</p>
+      <h2 class="sh"><span data-lang="cs" class="on">Otázky, které vás <em>právě napadají</em></span><span data-lang="sk">Otázky, ktoré vás <em>práve napadajú</em></span></h2>
+      <p class="faq-hint"><span data-lang="cs" class="on">Tady jsou nejčastější věci, na které se nás lidé ptají. Nenašli jste odpověď? Napište nám — rádi poradíme.</span><span data-lang="sk">Tu sú najčastejšie veci, na ktoré sa nás ľudia pýtajú. Nenašli ste odpoveď? Napíšte nám — radi poradíme.</span><span data-lang="en">Here are the most common things people ask us. Didn't find an answer? Write to us — we're happy to help.</span><span data-lang="de">Hier sind die häufigsten Dinge, die uns Menschen fragen. Keine Antwort gefunden? Schreiben Sie uns — wir helfen gerne.</span><span data-lang="en">Here are the most common things people ask us. Didn't find an answer? Write to us — we're happy to help.</span><span data-lang="de">Hier sind die häufigsten Dinge, die uns Menschen fragen. Keine Antwort gefunden? Schreiben Sie uns — wir helfen gerne.</span><span data-lang="en">Tady jsou nejčastější věci, na které se nás lidé ptají. Nenašli jste odpověď? Napište nám — rádi poradíme.</span><span data-lang="de">Tady jsou nejčastější věci, na které se nás lidé ptají. Nenašli jste odpověď? Napište nám — rádi poradíme.</span></p>
+      <a class="faq-link" href="#contact"><span data-lang="cs" class="on">Napsat dotaz →</span><span data-lang="sk">Napísať dotaz →</span><span data-lang="en">Ask a question →</span><span data-lang="de">Eine Frage stellen →</span><span data-lang="en">Ask a question →</span><span data-lang="de">Eine Frage stellen →</span><span data-lang="en">Napsat dotaz →</span><span data-lang="de">Napsat dotaz →</span></a>
+    </div>
+    <div class="faq-list rv d1">
+      <div class="fi">
+        <button class="fq" onclick="tog(this)">
+          <span data-lang="cs" class="on">Nevím, jakou technologii zvolit. Pomůžete mi?</span><span data-lang="sk">Neviem, akú technológiu zvoliť. Pomôžete mi?</span><span data-lang="en">I don't know which technology to choose. Can you help?</span><span data-lang="de">Ich weiß nicht, welche Technologie ich wählen soll. Können Sie mir helfen?</span><span data-lang="en">I don't know which technology to choose. Can you help?</span><span data-lang="de">Ich weiß nicht, welche Technologie ich wählen soll. Können Sie mir helfen?</span><span data-lang="en">Nevím, jakou technologii zvolit. Pomůžete mi?</span><span data-lang="de">Nevím, jakou technologii zvolit. Pomůžete mi?</span>
+          <svg class="fqicon" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="9" y1="2" x2="9" y2="16"/><line x1="2" y1="9" x2="16" y2="9"/></svg>
+        </button>
+        <div class="fa"><p><span data-lang="cs" class="on">Samozřejmě — to je jedna z věcí, které děláme nejraději. Pošlete nám popis nebo náčrt a zavoláme si. Vysvětlíme rozdíly, navrhneme nejlepší řešení a poradíme s materiálem. Bez závazků, bez žargonu.</span><span data-lang="sk">Samozrejme — to je jedna z vecí, ktoré robíme najradšej. Pošlite nám popis alebo náčrt a zavoláme si. Vysvetlíme rozdiely, navrhneme najlepšie riešenie a poradíme s materiálom. Bez záväzkov, bez žargónu.</span><span data-lang="en">Of course — that's one of the things we love to do. Send us a description or sketch and let's call. We'll explain the differences, suggest the best solution, and advise on materials. No obligations, no jargon.</span><span data-lang="de">Natürlich — das ist eine der Dinge, die wir am liebsten tun. Senden Sie uns eine Beschreibung oder Skizze und lassen Sie uns anrufen. Wir erklären die Unterschiede, schlagen die beste Lösung vor und beraten zum Material. Keine Verpflichtungen, kein Jargon.</span><span data-lang="en">Of course — that's one of the things we love to do. Send us a description or sketch and let's call. We'll explain the differences, suggest the best solution, and advise on materials. No obligations, no jargon.</span><span data-lang="de">Natürlich — das ist eine der Dinge, die wir am liebsten tun. Senden Sie uns eine Beschreibung oder Skizze und lassen Sie uns anrufen. Wir erklären die Unterschiede, schlagen die beste Lösung vor und beraten zum Material. Keine Verpflichtungen, kein Jargon.</span><span data-lang="en">Samozřejmě — to je jedna z věcí, které děláme nejraději. Pošlete nám popis nebo náčrt a zavoláme si. Vysvětlíme rozdíly, navrhneme nejlepší řešení a poradíme s materiálem. Bez závazků, bez žargonu.</span><span data-lang="de">Samozřejmě — to je jedna z věcí, které děláme nejraději. Pošlete nám popis nebo náčrt a zavoláme si. Vysvětlíme rozdíly, navrhneme nejlepší řešení a poradíme s materiálem. Bez závazků, bez žargonu.</span></p></div>
+      </div>
+      <div class="fi">
+        <button class="fq" onclick="tog(this)">
+          <span data-lang="cs" class="on">Jaké je minimální množství objednávky?</span><span data-lang="sk">Aké je minimálne množstvo objednávky?</span><span data-lang="en">What's the minimum order quantity?</span><span data-lang="de">Was ist die Mindestbestellmenge?</span><span data-lang="en">What's the minimum order quantity?</span><span data-lang="de">Was ist die Mindestbestellmenge?</span><span data-lang="en">Jaké je minimální množství objednávky?</span><span data-lang="de">Jaké je minimální množství objednávky?</span>
+          <svg class="fqicon" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="9" y1="2" x2="9" y2="16"/><line x1="2" y1="9" x2="16" y2="9"/></svg>
+        </button>
+        <div class="fa"><p><span data-lang="cs" class="on">Žádné minimum. Vyrábíme od 1 kusu — prototyp, unikátní výstavu nebo tisícovou sérii. Ke každé zakázce přistupujeme se stejnou péčí. Cena se samozřejmě s množstvím škáluje, ale malá zakázka u nás není druhá kategorie.</span><span data-lang="sk">Žiadne minimum. Vyrábame od 1 kusu — prototyp, unikátnu výstavu alebo tisícovú sériu. Ku každej zákazke pristupujeme s rovnakou starostlivosťou. Cena sa samozrejme s množstvom škáluje, ale malá zákazka u nás nie je druhá kategória.</span><span data-lang="en">No minimum. We produce from 1 piece — prototype, unique exhibition or thousand-piece series. We approach every order with the same care. Price scales with volume, of course, but a small order is not second-class with us.</span><span data-lang="de">Kein Minimum. Wir produzieren ab 1 Stück — Prototyp, einzigartige Ausstellung oder tausendfach gefertigte Serie. Wir gehen mit jeder Bestellung gleich sorgfältig um. Der Preis skaliert natürlich mit dem Volumen, aber eine kleine Bestellung ist bei uns nicht zweite Wahl.</span><span data-lang="en">No minimum. We produce from 1 piece — prototype, unique exhibition or thousand-piece series. We approach every order with the same care. Price scales with volume, of course, but a small order is not second-class with us.</span><span data-lang="de">Kein Minimum. Wir produzieren ab 1 Stück — Prototyp, einzigartige Ausstellung oder tausendfach gefertigte Serie. Wir gehen mit jeder Bestellung gleich sorgfältig um. Der Preis skaliert natürlich mit dem Volumen, aber eine kleine Bestellung ist bei uns nicht zweite Wahl.</span><span data-lang="en">Žádné minimum. Vyrábíme od 1 kusu — prototyp, unikátní výstavu nebo tisícovou sérii. Ke každé zakázce přistupujeme se stejnou péčí. Cena se samozřejmě s množstvím škáluje, ale malá zakázka u nás není druhá kategorie.</span><span data-lang="de">Žádné minimum. Vyrábíme od 1 kusu — prototyp, unikátní výstavu nebo tisícovou sérii. Ke každé zakázce přistupujeme se stejnou péčí. Cena se samozřejmě s množstvím škáluje, ale malá zakázka u nás není druhá kategorie.</span></p></div>
+      </div>
+      <div class="fi">
+        <button class="fq" onclick="tog(this)">
+          <span data-lang="cs" class="on">Jaké formáty souborů přijímáte?</span><span data-lang="sk">Aké formáty súborov prijímate?</span><span data-lang="en">What file formats do you accept?</span><span data-lang="de">Welche Dateiformate akzeptieren Sie?</span><span data-lang="en">What file formats do you accept?</span><span data-lang="de">Welche Dateiformate akzeptieren Sie?</span><span data-lang="en">Jaké formáty souborů přijímáte?</span><span data-lang="de">Jaké formáty souborů přijímáte?</span>
+          <svg class="fqicon" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="9" y1="2" x2="9" y2="16"/><line x1="2" y1="9" x2="16" y2="9"/></svg>
+        </button>
+        <div class="fa"><p><span data-lang="cs" class="on">DXF, STL, STEP, IGES, SolidWorks, Fusion 360, PDF — a zvládneme i technický výkres nebo fotografii náčrtu. Ještě nikdo nás nepřekvapil souborem, se kterým bychom si neporadili. Pokud si nejste jistí — prostě pošlete, co máte.</span><span data-lang="sk">DXF, STL, STEP, IGES, SolidWorks, Fusion 360, PDF — a zvládneme aj technický výkres alebo fotografiu náčrtu. Ešte nikto nás neprekvapil súborom, s ktorým by sme si neporadili. Ak si nie ste istí — jednoducho pošlite, čo máte.</span><span data-lang="en">DXF, STL, STEP, IGES, SolidWorks, Fusion 360, PDF — and we can handle technical drawings or photos of sketches. No one has surprised us with a file we couldn't handle. If you're not sure — just send what you have.</span><span data-lang="de">DXF, STL, STEP, IGES, SolidWorks, Fusion 360, PDF — und wir können technische Zeichnungen oder Fotos von Skizzen verarbeiten. Niemand hat uns mit einer Datei überrascht, mit der wir nicht umgehen konnten. Wenn Sie sich nicht sicher sind — senden Sie einfach, was Sie haben.</span><span data-lang="en">DXF, STL, STEP, IGES, SolidWorks, Fusion 360, PDF — and we can handle technical drawings or photos of sketches. No one has surprised us with a file we couldn't handle. If you're not sure — just send what you have.</span><span data-lang="de">DXF, STL, STEP, IGES, SolidWorks, Fusion 360, PDF — und wir können technische Zeichnungen oder Fotos von Skizzen verarbeiten. Niemand hat uns mit einer Datei überrascht, mit der wir nicht umgehen konnten. Wenn Sie sich nicht sicher sind — senden Sie einfach, was Sie haben.</span><span data-lang="en">DXF, STL, STEP, IGES, SolidWorks, Fusion 360, PDF — a zvládneme i technický výkres nebo fotografii náčrtu. Ještě nikdo nás nepřekvapil souborem, se kterým bychom si neporadili. Pokud si nejste jistí — prostě pošlete, co máte.</span><span data-lang="de">DXF, STL, STEP, IGES, SolidWorks, Fusion 360, PDF — a zvládneme i technický výkres nebo fotografii náčrtu. Ještě nikdo nás nepřekvapil souborem, se kterým bychom si neporadili. Pokud si nejste jistí — prostě pošlete, co máte.</span></p></div>
+      </div>
+      <div class="fi">
+        <button class="fq" onclick="tog(this)">
+          <span data-lang="cs" class="on">Jak dlouho výroba trvá?</span><span data-lang="sk">Ako dlho výroba trvá?</span><span data-lang="en">How long does production take?</span><span data-lang="de">Wie lange dauert die Herstellung?</span><span data-lang="en">How long does production take?</span><span data-lang="de">Wie lange dauert die Herstellung?</span><span data-lang="en">How long does production take?</span><span data-lang="de">Wie lange dauert die Herstellung?</span>
+          <svg class="fqicon" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="9" y1="2" x2="9" y2="16"/><line x1="2" y1="9" x2="16" y2="9"/></svg>
+        </button>
+        <div class="fa"><p><span data-lang="cs" class="on">Prototypy standardně do 48 hodin. Malosériová výroba (10–200 ks): 1–2 týdny. Větší série: 2–4 týdny podle složitosti. Máte šibeniční termín? Zavolejte nám — uděláme vše pro to, aby to vyšlo.</span><span data-lang="sk">Prototypy štandardne do 48 hodín. Malosériová výroba (10–200 ks): 1–2 týždne. Väčšie série: 2–4 týždne podľa zložitosti. Máte šibeničný termín? Zavolajte nám — urobíme všetko pre to, aby to vyšlo.</span><span data-lang="en">Prototypes usually in 48 hours. Small series (10-200 pcs): 1-2 weeks. Larger series: 2-4 weeks depending on complexity. Need it ASAP? Call us — we'll do everything we can to make it work.</span><span data-lang="de">Prototypen normalerweise in 48 Stunden. Kleine Serien (10-200 Stk.): 1-2 Wochen. Größere Serien: 2-4 Wochen je nach Komplexität. Brauchen Sie es dringend? Rufen Sie uns an — wir tun alles, um es funktionieren zu lassen.</span><span data-lang="en">Prototypes usually in 48 hours. Small series (10-200 pcs): 1-2 weeks. Larger series: 2-4 weeks depending on complexity. Need it ASAP? Call us — we'll do everything we can to make it work.</span><span data-lang="de">Prototypen normalerweise in 48 Stunden. Kleine Serien (10-200 Stk.): 1-2 Wochen. Größere Serien: 2-4 Wochen je nach Komplexität. Brauchen Sie es dringend? Rufen Sie uns an — wir tun alles, um es funktionieren zu lassen.</span><span data-lang="en">Prototypes usually in 48 hours. Small series (10-200 pcs): 1-2 weeks. Larger series: 2-4 weeks depending on complexity. Need it ASAP? Call us — we'll do everything we can to make it work.</span><span data-lang="de">Prototypen normalerweise in 48 Stunden. Kleine Serien (10-200 Stk.): 1-2 Wochen. Größere Serien: 2-4 Wochen je nach Komplexität. Brauchen Sie es dringend? Rufen Sie uns an — wir tun alles, um es funktionieren zu lassen.</span></p></div>
+      </div>
+      <div class="fi">
+        <button class="fq" onclick="tog(this)">
+          <span data-lang="cs" class="on">Mohu si nejdřív objednat vzorek?</span><span data-lang="sk">Môžem si najskôr objednať vzorku?</span><span data-lang="en">Can I order a sample first?</span><span data-lang="de">Kann ich zuerst ein Muster bestellen?</span><span data-lang="en">Can I order a sample first?</span><span data-lang="de">Kann ich zuerst ein Muster bestellen?</span><span data-lang="en">Can I order a sample first?</span><span data-lang="de">Kann ich zuerst ein Muster bestellen?</span>
+          <svg class="fqicon" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="9" y1="2" x2="9" y2="16"/><line x1="2" y1="9" x2="16" y2="9"/></svg>
+        </button>
+        <div class="fa"><p><span data-lang="cs" class="on">Ano — a u větších zakázek to sami doporučujeme. Vzorek vám umožní ověřit materiál, rozměry i povrchovou úpravu ještě před schválením série. Je to nejlepší způsob, jak předejít zklamání na obou stranách.</span><span data-lang="sk">Áno — a pri väčších zákazkách to sami odporúčame. Vzorka vám umožní overiť materiál, rozmery aj povrchovú úpravu ešte pred schválením série. Je to najlepší spôsob, ako predísť sklamaniu na oboch stranách.</span><span data-lang="en">Yes — and we recommend it for larger orders. A sample lets you verify the material, size, and finish before approving the series. It's the best way to avoid disappointment on both sides.</span><span data-lang="de">Ja — und wir empfehlen es für größere Bestellungen. Ein Muster lässt Sie Material, Größe und Oberflächenbehandlung überprüfen, bevor Sie die Serie genehmigen. Es ist die beste Methode, um Enttäuschungen auf beiden Seiten zu vermeiden.</span><span data-lang="en">Yes — and we recommend it for larger orders. A sample lets you verify the material, size, and finish before approving the series. It's the best way to avoid disappointment on both sides.</span><span data-lang="de">Ja — und wir empfehlen es für größere Bestellungen. Ein Muster lässt Sie Material, Größe und Oberflächenbehandlung überprüfen, bevor Sie die Serie genehmigen. Es ist die beste Methode, um Enttäuschungen auf beiden Seiten zu vermeiden.</span><span data-lang="en">Yes — and we recommend it for larger orders. A sample lets you verify the material, size, and finish before approving the series. It's the best way to avoid disappointment on both sides.</span><span data-lang="de">Ja — und wir empfehlen es für größere Bestellungen. Ein Muster lässt Sie Material, Größe und Oberflächenbehandlung überprüfen, bevor Sie die Serie genehmigen. Es ist die beste Methode, um Enttäuschungen auf beiden Seiten zu vermeiden.</span></p></div>
+      </div>
+      <div class="fi">
+        <button class="fq" onclick="tog(this)">
+          <span data-lang="cs" class="on">Dostanu cenu předem, nebo mě překvapíte fakturou?</span><span data-lang="sk">Dostanem cenu vopred, alebo ma prekvapíte faktúrou?</span><span data-lang="en">Will I get a price upfront or will the invoice surprise me?</span><span data-lang="de">Bekomme ich einen Preis im Voraus oder überrascht mich die Rechnung?</span><span data-lang="en">Will I get a price upfront or will the invoice surprise me?</span><span data-lang="de">Bekomme ich einen Preis im Voraus oder überrascht mich die Rechnung?</span><span data-lang="en">Will I get a price upfront or will the invoice surprise me?</span><span data-lang="de">Bekomme ich einen Preis im Voraus oder überrascht mich die Rechnung?</span>
+          <svg class="fqicon" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="9" y1="2" x2="9" y2="16"/><line x1="2" y1="9" x2="16" y2="9"/></svg>
+        </button>
+        <div class="fa"><p><span data-lang="cs" class="on">Vždy dostanete jasnou kalkulaci ještě před zahájením výroby. Žádné skryté poplatky, žádné záludné příplatky po dodání. A pokud se cokoliv v průběhu změní — první to víte vy.</span><span data-lang="sk">Vždy dostanete jasnú kalkuláciu ešte pred zahájením výroby. Žiadne skryté poplatky, žiadne záludné príplatky po dodaní. A ak sa čokoľvek v priebehu zmení — prví to viete vy.</span><span data-lang="en">You'll always get a clear quote before production starts. No hidden fees, no sneaky surcharges after delivery. And if anything changes along the way — you'll be the first to know.</span><span data-lang="de">Sie erhalten immer ein klares Angebot, bevor die Produktion beginnt. Keine versteckten Gebühren, keine hinterlistigen Zuschläge nach der Lieferung. Und wenn sich während des Prozesses etwas ändert — Sie sind die erste, die es erfährt.</span><span data-lang="en">You'll always get a clear quote before production starts. No hidden fees, no sneaky surcharges after delivery. And if anything changes along the way — you'll be the first to know.</span><span data-lang="de">Sie erhalten immer ein klares Angebot, bevor die Produktion beginnt. Keine versteckten Gebühren, keine hinterlistigen Zuschläge nach der Lieferung. Und wenn sich während des Prozesses etwas ändert — Sie sind die erste, die es erfährt.</span><span data-lang="en">You'll always get a clear quote before production starts. No hidden fees, no sneaky surcharges after delivery. And if anything changes along the way — you'll be the first to know.</span><span data-lang="de">Sie erhalten immer ein klares Angebot, bevor die Produktion beginnt. Keine versteckten Gebühren, keine hinterlistigen Zuschläge nach der Lieferung. Und wenn sich während des Prozesses etwas ändert — Sie sind die erste, die es erfährt.</span></p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA STRIP ── -->
+<section id="cta">
+  <div class="cta-in rv">
+    <div>
+      <h2 class="cta-title">
+        <span data-lang="cs" class="on">Máte projekt? <em>Pošlete nám soubor.</em></span>
+        <span data-lang="sk">Máte projekt? <em>Pošlite nám súbor.</em></span>
+      </h2>
+      <p class="cta-sub"><span data-lang="cs" class="on">Odpovídáme do 24 hodin. Nabídka do 48 hodin. Žádné závazky, žádné složitosti.</span><span data-lang="sk">Odpovedáme do 24 hodín. Ponuka do 48 hodín. Žiadne záväzky, žiadne komplikácie.</span><span data-lang="en">We respond in 24 hours. Quote in 48 hours. No obligations, no complications.</span><span data-lang="de">Wir antworten innerhalb von 24 Stunden. Angebot innerhalb von 48 Stunden. Keine Verpflichtungen, keine Komplikationen.</span><span data-lang="en">We respond in 24 hours. Quote in 48 hours. No obligations, no complications.</span><span data-lang="de">Wir antworten innerhalb von 24 Stunden. Angebot innerhalb von 48 Stunden. Keine Verpflichtungen, keine Komplikationen.</span><span data-lang="en">We respond in 24 hours. Quote in 48 hours. No obligations, no complications.</span><span data-lang="de">Wir antworten innerhalb von 24 Stunden. Angebot innerhalb von 48 Stunden. Keine Verpflichtungen, keine Komplikationen.</span></p>
+    </div>
+    <a class="btn btn-white" href="#contact">
+      <span data-lang="cs" class="on">Poptat zdarma →</span>
+      <span data-lang="sk">Dopytovať zadarmo →</span>
+    </a>
+  </div>
+</section>
+
+<!-- ── CONTACT ── -->
+<section id="contact">
+  <div class="contact-in">
+    <div class="rv">
+      <p class="stag">Kontakt</p>
+      <h2 class="ch2"><span data-lang="cs" class="on">Pojďme na to <em>společně.</em></span><span data-lang="sk">Poďme na to <em>spoločne.</em></span></h2>
+      <p class="contact-body"><span data-lang="cs" class="on">Napište nám nebo přiložte soubor — ozveme se do 24 hodin s konkrétní nabídkou. Přátelský rozhovor, žádné obchodní nátlaky. Prostě to dáme dohromady.</span><span data-lang="sk">Napíšte nám alebo priložte súbor — ozveme sa do 24 hodín s konkrétnou ponukou. Priateľský rozhovor, žiadne obchodné nátlaky. Jednoducho to dáme dokopy.</span><span data-lang="en">Write to us or attach a file — we'll get back to you in 24 hours with a specific offer. Friendly conversation, no sales pressure. Let's just make it happen.</span><span data-lang="de">Schreiben Sie uns oder fügen Sie eine Datei an — wir antworten Ihnen innerhalb von 24 Stunden mit einem spezifischen Angebot. Freundliches Gespräch, keine Verkaufsdrucke. Lassen Sie uns das einfach umsetzen.</span><span data-lang="en">Write to us or attach a file — we'll get back to you in 24 hours with a specific offer. Friendly conversation, no sales pressure. Let's just make it happen.</span><span data-lang="de">Schreiben Sie uns oder fügen Sie eine Datei an — wir antworten Ihnen innerhalb von 24 Stunden mit einem spezifischen Angebot. Freundliches Gespräch, keine Verkaufsdrucke. Lassen Sie uns das einfach umsetzen.</span><span data-lang="en">Write to us or attach a file — we'll get back to you in 24 hours with a specific offer. Friendly conversation, no sales pressure. Let's just make it happen.</span><span data-lang="de">Schreiben Sie uns oder fügen Sie eine Datei an — wir antworten Ihnen innerhalb von 24 Stunden mit einem spezifischen Angebot. Freundliches Gespräch, keine Verkaufsdrucke. Lassen Sie uns das einfach umsetzen.</span></p>
+      <div class="contact-callout"><span data-lang="cs" class="on">Nevíte si rady? Klidně napište jen pár vět o tom, co potřebujete — my se zeptáme na zbytek.</span><span data-lang="sk">Neviete si rady? Pokojne napíšte len pár viet o tom, čo potrebujete — my sa spýtame na zvyšok.</span><span data-lang="en">Not sure what you need? Just write a few lines about what you're looking for — we'll ask for the rest.</span><span data-lang="de">Nicht sicher, was Sie brauchen? Schreiben Sie einfach ein paar Zeilen über das, was Sie suchen — wir fragen nach dem Rest.</span><span data-lang="en">Not sure what you need? Just write a few lines about what you're looking for — we'll ask for the rest.</span><span data-lang="de">Nicht sicher, was Sie brauchen? Schreiben Sie einfach ein paar Zeilen über das, was Sie suchen — wir fragen nach dem Rest.</span><span data-lang="en">Not sure what you need? Just write a few lines about what you're looking for — we'll ask for the rest.</span><span data-lang="de">Nicht sicher, was Sie brauchen? Schreiben Sie einfach ein paar Zeilen über das, was Sie suchen — wir fragen nach dem Rest.</span></div>
+      <div class="cd"><p class="cd-lbl">Email</p><p class="cd-val"><a href="mailto:plant@wearetreed.com">plant@wearetreed.com</a></p></div>
+      <div class="cd"><p class="cd-lbl"><span data-lang="cs" class="on">Telefon</span><span data-lang="sk">Telefón</span><span data-lang="en">Phone</span><span data-lang="de">Telefon</span><span data-lang="en">Phone</span><span data-lang="de">Telefon</span><span data-lang="en">Phone</span><span data-lang="de">Telefon</span></p><p class="cd-val"><a href="tel:+420601366516">+420 601 366 516</a></p></div>
+      <div class="cd"><p class="cd-lbl"><span data-lang="cs" class="on">Provozní doba</span><span data-lang="sk">Prevádzkové hodiny</span><span data-lang="en">Hours</span><span data-lang="de">Öffnungszeiten</span><span data-lang="en">Hours</span><span data-lang="de">Öffnungszeiten</span><span data-lang="en">Hours</span><span data-lang="de">Öffnungszeiten</span></p><p class="cd-val"><span data-lang="cs" class="on">Po–Pá, 8:00–17:00</span><span data-lang="sk">Po–Pi, 8:00–17:00</span><span data-lang="en">Mon–Fri, 8:00–17:00</span><span data-lang="de">Mo–Fr, 8:00–17:00</span><span data-lang="en">Mon–Fri, 8:00–17:00</span><span data-lang="de">Mo–Fr, 8:00–17:00</span><span data-lang="en">Mon–Fri, 8:00–17:00</span><span data-lang="de">Mo–Fr, 8:00–17:00</span></p></div>
+      <div class="cd"><p class="cd-lbl"><span data-lang="cs" class="on">Kde jsme</span><span data-lang="sk">Kde sme</span><span data-lang="en">Location</span><span data-lang="de">Ort</span><span data-lang="en">Location</span><span data-lang="de">Ort</span><span data-lang="en">Location</span><span data-lang="de">Ort</span></p><p class="cd-val">Šumperk, Česká republika</p></div>
+    </div>
+    <div class="rv d1">
+      <div class="fg2">
+        <div class="form-r"><label><span data-lang="cs" class="on">Jméno</span><span data-lang="sk">Meno</span><span data-lang="en">Name</span><span data-lang="de">Name</span><span data-lang="en">Name</span><span data-lang="de">Name</span><span data-lang="en">Name</span><span data-lang="de">Name</span></label><input type="text" placeholder="Jan Novák"></div>
+        <div class="form-r"><label>Email</label><input type="email" placeholder="jan@firma.cz"></div>
+      </div>
+      <div class="form-r">
+        <label><span data-lang="cs" class="on">O co jde? (volitelné)</span><span data-lang="sk">O čo ide? (voliteľné)</span><span data-lang="en">What's it about? (optional)</span><span data-lang="de">Worum geht es? (optional)</span><span data-lang="en">What's it about? (optional)</span><span data-lang="de">Worum geht es? (optional)</span><span data-lang="en">What's it about? (optional)</span><span data-lang="de">Worum geht es? (optional)</span></label>
+        <select id="svc-sel">
+          <option value="" disabled selected></option>
+          <option id="s1">CNC frézování dřeva</option>
+          <option id="s2">3D tisk</option>
+          <option id="s3">Laserové gravírování / řezání</option>
+          <option id="s4">Rapid prototyping</option>
+          <option id="s5">Více technologií najednou</option>
+          <option id="s6">Nevím — poraďte mi</option>
+        </select>
+      </div>
+      <div class="form-r">
+        <label><span data-lang="cs" class="on">Řekněte nám víc</span><span data-lang="sk">Povedzte nám viac</span><span data-lang="en">Tell us more</span><span data-lang="de">Erzählen Sie uns mehr</span><span data-lang="en">Tell us more</span><span data-lang="de">Erzählen Sie uns mehr</span><span data-lang="en">Tell us more</span><span data-lang="de">Erzählen Sie uns mehr</span></label>
+        <textarea id="msg" placeholder="Popište projekt, materiál, rozměry, termín... nebo prostě napište, co potřebujete. Nic nemusí být dokonalé — zbytek dořešíme spolu."></textarea>
+      </div>
+      <button class="fsub" id="fsub">
+        <span data-lang="cs" class="on" id="fcs">Odeslat poptávku →</span>
+        <span data-lang="sk" id="fsk">Odoslať dopyt →</span>
+      </button>
+      <p class="form-note"><span data-lang="cs" class="on">Odpovídáme do 24 hodin. Žádné závazky.</span><span data-lang="sk">Odpovedáme do 24 hodín. Žiadne záväzky.</span><span data-lang="en">We respond in 24 hours. No obligations.</span><span data-lang="de">Wir antworten innerhalb von 24 Stunden. Keine Verpflichtungen.</span><span data-lang="en">We respond in 24 hours. No obligations.</span><span data-lang="de">Wir antworten innerhalb von 24 Stunden. Keine Verpflichtungen.</span><span data-lang="en">We respond in 24 hours. No obligations.</span><span data-lang="de">Wir antworten innerhalb von 24 Stunden. Keine Verpflichtungen.</span></p>
+      <div class="form-or"><span data-lang="cs" class="on">nebo nám napište přímo</span><span data-lang="sk">alebo nám napíšte priamo</span><span data-lang="en">or write us directly</span><span data-lang="de">oder schreiben Sie uns direkt</span><span data-lang="en">or write us directly</span><span data-lang="de">oder schreiben Sie uns direkt</span><span data-lang="en">or write us directly</span><span data-lang="de">oder schreiben Sie uns direkt</span></div>
+      <p style="text-align:center;font-size:.87rem"><a href="mailto:plant@wearetreed.com" style="color:var(--accent);text-decoration:none;font-weight:500">plant@wearetreed.com</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <span class="fl">Forma<b>.</b></span>
+  <ul class="flinks">
+    <li><a href="#services"><span data-lang="cs" class="on">Služby</span><span data-lang="sk">Služby</span><span data-lang="en">Services</span><span data-lang="de">Leistungen</span><span data-lang="en">Services</span><span data-lang="de">Leistungen</span><span data-lang="en">Services</span><span data-lang="de">Leistungen</span></a></li>
+    <li><a href="#gallery"><span data-lang="cs" class="on">Ukázky</span><span data-lang="sk">Ukážky</span><span data-lang="en">Showcase</span><span data-lang="de">Galerie</span><span data-lang="en">Showcase</span><span data-lang="de">Galerie</span><span data-lang="en">Showcase</span><span data-lang="de">Galerie</span></a></li>
+    <li><a href="#about"><span data-lang="cs" class="on">O nás</span><span data-lang="sk">O nás</span><span data-lang="en">About us</span><span data-lang="de">Über uns</span><span data-lang="en">About us</span><span data-lang="de">Über uns</span><span data-lang="en">About us</span><span data-lang="de">Über uns</span></a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#contact">Kontakt</a></li>
+  </ul>
+  <span class="fcopy">© 2026 Forma Studio · Šumperk · CNC · 3D · Laser</span>
+</footer>
+
+<script>
+// ── LANG ──
+let L='cs';
+const TR={
+  s1:{cs:'CNC frézování dřeva',sk:'CNC frézovanie dreva',en:'CNC milling',de:'CNC-Fräsen'},
+  s2:{cs:'3D tisk',sk:'3D tlač',en:'3D printing',de:'3D-Druck'},
+  s3:{cs:'Laserové gravírování / řezání',sk:'Laserové gravírovanie / rezanie',en:'Laser engraving / cutting',de:'Lasergravur / Schneiden'},
+  s4:{cs:'Rapid prototyping',sk:'Rapid prototyping',en:'Rapid prototyping',de:'Schnellprototyping'},
+  s5:{cs:'Více technologií najednou',sk:'Viac technológií naraz',en:'Combining technologies',de:'Mehrere Technologien auf einmal'},
+  s6:{cs:'Nevím — poraďte mi',sk:'Neviem — poraďte mi',en:'Not sure — advise me',de:'Nicht sicher — beraten Sie mich'},
+};
+function setL(l){
+  L=l;
+  document.documentElement.lang=l;
+  document.querySelectorAll('.lbtn').forEach(b=>b.classList.remove('on'));
+  document.querySelector(`.lbtn[onclick="setL('${l}')"]`).classList.add('on');
+  document.querySelectorAll('[data-lang]').forEach(el=>el.classList.toggle('on',el.dataset.lang===l));
+  Object.entries(TR).forEach(([id,t])=>{const el=document.getElementById(id);if(el)el.textContent=t[l];});
+  const ta=document.getElementById('msg');
+  if(ta)ta.placeholder=
+        l==='sk'?'Opíšte projekt, materiál, rozmery, termín... alebo jednoducho napíšte, čo potrebujete. Nič nemusí byť dokonalé — zvyšok doriešime spolu.'
+        :l==='en'?'Describe the project, material, dimensions, deadline... or just write what you need. It doesn't have to be perfect — we'll figure out the rest together.'
+        :l==='de'?'Beschreiben Sie das Projekt, Material, Abmessungen, Frist... oder schreiben Sie einfach, was Sie brauchen. Es muss nicht perfekt sein — wir lösen den Rest gemeinsam.'
+        :'Popište projekt, materiál, rozměry, termín... nebo prostě napište, co potřebujete. Nic nemusí být dokonalé — zbytek dořešíme spolu.';
+}
+// ── FAQ ──
+function tog(btn){
+  const fi=btn.closest('.fi');
+  const was=fi.classList.contains('open');
+  document.querySelectorAll('.fi.open').forEach(f=>f.classList.remove('open'));
+  if(!was)fi.classList.add('open');
+}
+// ── REVEAL ──
+const obs=new IntersectionObserver(es=>{
+  es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);}});
+},{threshold:0.05,rootMargin:'0px 0px -20px 0px'});
+document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
+// ── FORM ──
+document.getElementById('fsub').addEventListener('click',function(){
+  const fields=document.querySelectorAll('#contact input[type=text],#contact input[type=email],#contact textarea');
+  let ok=true;
+  fields.forEach(f=>{if(!f.value.trim())ok=false;});
+  const cs=document.getElementById('fcs'),sk=document.getElementById('fsk');
+  if(ok){
+    cs.textContent='Odesláno! Ozveme se do 24 h ✓';
+        sk.textContent='Odoslané! Ozveme sa do 24 h ✓';
+        const en=document.getElementById('fen'),de=document.getElementById('fde');
+        if(en)en.textContent='Sent! We'll be in touch within 24h ✓';
+        if(de)de.textContent='Gesendet! Wir melden uns in 24h ✓';
+    this.style.background='#2a5a2a';
+    setTimeout(()=>{cs.textContent='Odeslat poptávku →';
+        sk.textContent='Odoslať dopyt →';
+        if(en)en.textContent='Send request →';
+        if(de)de.textContent='Anfrage senden →';this.style.background='';},4000);
+  }else{
+    cs.textContent='Vyplňte jméno, e-mail a zprávu';
+        sk.textContent='Vyplňte meno, e-mail a správu';
+        if(en)en.textContent='Please fill in name, email and message';
+        if(de)de.textContent='Bitte füllen Sie Name, E-Mail und Nachricht aus';
+    this.style.background='#7a2020';
+    setTimeout(()=>{cs.textContent='Odeslat poptávku →';
+        sk.textContent='Odoslať dopyt →';
+        if(en)en.textContent='Send request →';
+        if(de)de.textContent='Anfrage senden →';this.style.background='';},2800);
+  }
+});
+
+/* Lightbox */
+const lbOverlay=document.createElement('div');
+lbOverlay.className='lb-overlay';
+lbOverlay.innerHTML='<button class="lb-close">&times;</button><button class="lb-nav lb-prev">&#8249;</button><button class="lb-nav lb-next">&#8250;</button><img src="" alt=""><span class="lb-counter"></span>';
+document.body.appendChild(lbOverlay);
+const lbImg=lbOverlay.querySelector('img');
+const lbClose=lbOverlay.querySelector('.lb-close');
+const lbPrev=lbOverlay.querySelector('.lb-prev');
+const lbNext=lbOverlay.querySelector('.lb-next');
+const lbCounter=lbOverlay.querySelector('.lb-counter');
+const lbAll=[...document.querySelectorAll('.gi img, .fp-photo img')];
+let lbIdx=0;
+function showLb(i){lbIdx=i;lbImg.src=lbAll[i].src;lbCounter.textContent=(i+1)+' / '+lbAll.length;}
+lbAll.forEach((img,i)=>{
+  img.style.cursor='zoom-in';
+  img.addEventListener('click',()=>{
+    showLb(i);
+    lbOverlay.classList.add('active');
+    document.body.style.overflow='hidden';
+  });
+});
+function closeLb(){lbOverlay.classList.remove('active');document.body.style.overflow='';}
+function navLb(dir){showLb((lbIdx+dir+lbAll.length)%lbAll.length);}
+lbPrev.addEventListener('click',e=>{e.stopPropagation();navLb(-1);});
+lbNext.addEventListener('click',e=>{e.stopPropagation();navLb(1);});
+lbImg.addEventListener('click',e=>{e.stopPropagation();});
+lbOverlay.addEventListener('click',closeLb);
+lbClose.addEventListener('click',closeLb);
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape')closeLb();
+  if(e.key==='ArrowLeft')navLb(-1);
+  if(e.key==='ArrowRight')navLb(1);
+});
+</script>
+</body>
+</html>
