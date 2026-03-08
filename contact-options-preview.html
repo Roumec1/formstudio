@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Contact CTA Options Preview — Forma Studio</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#faf9f7;--white:#fff;--ink:#111110;--mid:#65635e;
+  --light:#ede9e1;--border:#e0dbd2;
+  --accent:#c94e1e;--soft:#e8824f;--abg:#fdf2ec;--abdr:#f0c4ae;
+  --serif:'Instrument Serif',Georgia,serif;
+  --sans:'Inter',system-ui,sans-serif;
+}
+body{background:#f0ede8;font-family:var(--sans);padding:2rem;color:var(--ink)}
+h1{font-family:var(--serif);font-size:2rem;margin-bottom:.5rem;text-align:center}
+.subtitle{text-align:center;color:var(--mid);font-size:.9rem;margin-bottom:3rem}
+
+.options-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;max-width:1300px;margin:0 auto}
+.option-card{background:var(--bg);border:2px solid var(--border);border-radius:6px;overflow:hidden;display:flex;flex-direction:column}
+.option-card h2{font-family:var(--serif);font-size:1.2rem;padding:1.2rem 1.5rem .4rem;color:var(--ink)}
+.option-card .desc{font-size:.8rem;color:var(--mid);padding:0 1.5rem 1.2rem;line-height:1.6;border-bottom:1px solid var(--border)}
+.option-card .pros{padding:.8rem 1.5rem;font-size:.78rem;color:#3a7a3a;background:#f3faf3;border-bottom:1px solid var(--border)}
+.option-card .cons{padding:.8rem 1.5rem;font-size:.78rem;color:#8a4a20;background:#fdf2ec}
+.option-card .preview-area{flex:1;position:relative;min-height:340px;background:#e8e4de;overflow:hidden}
+
+/* Shared fake page content */
+.fake-page{position:absolute;inset:0;display:flex;flex-direction:column}
+.fake-nav{background:rgba(250,249,247,.97);border-bottom:1px solid var(--border);height:44px;display:flex;align-items:center;justify-content:space-between;padding:0 1.2rem;font-size:.7rem;flex-shrink:0}
+.fake-logo{font-family:var(--serif);color:var(--ink);font-size:.95rem}
+.fake-logo b{color:var(--accent);font-weight:400}
+.fake-content{flex:1;overflow-y:auto;padding:1.2rem;display:flex;flex-direction:column;gap:.8rem}
+.fake-block{background:var(--bg);border:1px solid var(--border);border-radius:3px;padding:.8rem;font-size:.72rem;color:var(--mid);line-height:1.5}
+.fake-block strong{color:var(--ink);font-size:.8rem;display:block;margin-bottom:.3rem;font-family:var(--serif)}
+.label{background:var(--accent);color:white;font-size:.6rem;font-weight:600;padding:.15rem .5rem;border-radius:2px;display:inline-block;margin-bottom:.4rem;letter-spacing:.05em;text-transform:uppercase}
+
+/* ── OPTION 1: Floating Button ── */
+.float-btn{
+  position:absolute;bottom:1rem;right:1rem;
+  background:var(--accent);color:white;
+  font-family:var(--sans);font-size:.72rem;font-weight:500;
+  padding:.6rem 1.1rem;border-radius:25px;
+  box-shadow:0 4px 16px rgba(201,78,30,.35);
+  white-space:nowrap;cursor:pointer;
+  display:flex;align-items:center;gap:.35rem;
+  transition:transform .2s,box-shadow .2s;
+  z-index:50;border:none;
+  animation:pulse 2.5s ease-in-out infinite;
+}
+@keyframes pulse{0%,100%{box-shadow:0 4px 16px rgba(201,78,30,.35)}50%{box-shadow:0 4px 24px rgba(201,78,30,.55)}}
+.float-btn::before{content:"✉";font-size:.8rem}
+.float-btn-note{position:absolute;bottom:3.2rem;right:1rem;font-size:.62rem;color:var(--mid);background:white;border:1px solid var(--border);border-radius:3px;padding:.3rem .6rem;white-space:nowrap;z-index:50}
+
+/* ── OPTION 2: Floating Mini-Form ── */
+.float-toggle{
+  position:absolute;bottom:1rem;right:1rem;
+  background:var(--ink);color:white;
+  font-family:var(--sans);font-size:.7rem;font-weight:500;
+  padding:.55rem 1rem;border-radius:25px;
+  box-shadow:0 4px 14px rgba(17,17,16,.25);
+  cursor:pointer;display:flex;align-items:center;gap:.3rem;
+  z-index:50;border:none;
+}
+.float-toggle::before{content:"✉";font-size:.75rem}
+.mini-form{
+  position:absolute;bottom:3.5rem;right:1rem;
+  background:white;border:1px solid var(--border);
+  border-radius:6px;box-shadow:0 8px 32px rgba(0,0,0,.12);
+  padding:1.1rem;width:220px;z-index:51;
+}
+.mini-form h4{font-family:var(--serif);font-size:.95rem;margin-bottom:.8rem;color:var(--ink)}
+.mini-form label{font-size:.65rem;color:var(--mid);display:block;margin-bottom:.15rem;margin-top:.5rem}
+.mini-form input,.mini-form textarea{
+  width:100%;border:1px solid var(--border);border-radius:2px;
+  padding:.4rem .5rem;font-size:.7rem;font-family:var(--sans);
+  background:var(--bg);color:var(--ink);
+}
+.mini-form textarea{resize:none;height:50px}
+.mini-form button{
+  background:var(--accent);color:white;border:none;
+  padding:.5rem 1rem;border-radius:2px;font-size:.7rem;
+  font-weight:500;cursor:pointer;width:100%;margin-top:.7rem;
+  font-family:var(--sans);
+}
+.mini-close{
+  position:absolute;top:.6rem;right:.7rem;
+  background:none;border:none;color:var(--mid);
+  font-size:.9rem;cursor:pointer;line-height:1;
+}
+
+/* ── OPTION 3: Enhanced Nav CTA ── */
+.nav-cta-enhanced{
+  background:var(--accent);color:white;
+  font-size:.68rem;font-weight:500;
+  padding:.45rem 1rem;border-radius:2px;
+  white-space:nowrap;text-decoration:none;
+  display:flex;align-items:center;gap:.3rem;
+  transition:background .2s;
+}
+.nav-cta-enhanced::before{content:"✉";font-size:.7rem}
+.nav-cta-plain{
+  background:var(--ink);color:white;
+  font-size:.68rem;font-weight:500;
+  padding:.45rem 1rem;border-radius:2px;
+  white-space:nowrap;
+}
+.badge{
+  background:var(--accent);color:white;
+  font-size:.55rem;border-radius:20px;
+  padding:.1rem .35rem;line-height:1;margin-left:.2rem;
+  animation:badgePop .3s ease;
+}
+
+/* Comparison footer */
+.comparison{max-width:1300px;margin:2.5rem auto 0;background:white;border:1px solid var(--border);border-radius:6px;padding:1.5rem 2rem}
+.comparison h3{font-family:var(--serif);font-size:1.2rem;margin-bottom:1rem}
+.cmp-table{width:100%;border-collapse:collapse;font-size:.82rem}
+.cmp-table th{text-align:left;padding:.5rem .8rem;background:var(--bg);border-bottom:2px solid var(--border);color:var(--mid);font-weight:500;font-size:.75rem}
+.cmp-table td{padding:.55rem .8rem;border-bottom:1px solid var(--border);color:var(--ink)}
+.cmp-table tr:last-child td{border-bottom:none}
+.cmp-table td:first-child{font-weight:500}
+.yes{color:#3a7a3a}✓
+.no{color:#c94e1e}
+.ok{color:#8a6000}
+</style>
+</head>
+<body>
+
+<h1>Contact CTA — Option Preview</h1>
+<p class="subtitle">Scroll inside each preview panel to see how each approach behaves as a visitor moves down the page.</p>
+
+<div class="options-grid">
+
+  <!-- OPTION 1: Floating Button -->
+  <div class="option-card">
+    <div class="label" style="margin:1.2rem 1.5rem .4rem;width:fit-content">Option A</div>
+    <h2>Floating "Write to us" Button</h2>
+    <p class="desc">A small pill button fixed in the bottom-right corner. Always visible, clicks scroll to the contact form at the bottom.</p>
+    <div class="pros">✓ Very unobtrusive &nbsp;·&nbsp; ✓ No extra UI complexity &nbsp;·&nbsp; ✓ Works on mobile</div>
+    <div class="cons">△ Still requires scrolling to fill the form &nbsp;·&nbsp; △ Easy to miss on mobile</div>
+    <div class="preview-area">
+      <div class="fake-page">
+        <div class="fake-nav">
+          <span class="fake-logo">Forma <b>Studio</b></span>
+          <span class="nav-cta-plain">Kontakt</span>
+        </div>
+        <div class="fake-content">
+          <div class="fake-block"><strong>CNC Frézování</strong>Velkoformátové frézování dřeva, hliníku a kompozitů. Série od 1 kusu.</div>
+          <div class="fake-block"><strong>3D Tisk</strong>Tisková farma s 18 stroji — rychlé prototypy i malé série.</div>
+          <div class="fake-block"><strong>Laserové řezání</strong>100W CO₂ laser pro řezání a gravírování — precizní výsledky.</div>
+          <div class="fake-block"><strong>O nás</strong>Jsme malý tým se sídlem v Šumperku. Pracujeme pro designéry, firmy i jednotlivce.</div>
+          <div class="fake-block" style="opacity:.6;font-size:.67rem;text-align:center">↓ visitor is here — form is further down ↓</div>
+        </div>
+      </div>
+      <!-- Floating button -->
+      <button class="float-btn" onclick="this.style.background='#a03a14'">Napsat poptávku</button>
+    </div>
+  </div>
+
+  <!-- OPTION 2: Mini-Form Popup -->
+  <div class="option-card">
+    <div class="label" style="margin:1.2rem 1.5rem .4rem;width:fit-content">Option B</div>
+    <h2>Floating Mini-Form Popup</h2>
+    <p class="desc">A button in the corner opens a compact form overlay. Visitors can submit without scrolling to the bottom at all.</p>
+    <div class="pros">✓ Zero scrolling needed &nbsp;·&nbsp; ✓ Highest conversion potential &nbsp;·&nbsp; ✓ Feels modern</div>
+    <div class="cons">△ Duplicates the full form &nbsp;·&nbsp; △ Slightly more code to maintain</div>
+    <div class="preview-area" id="opt2-area">
+      <div class="fake-page">
+        <div class="fake-nav">
+          <span class="fake-logo">Forma <b>Studio</b></span>
+          <span class="nav-cta-plain">Kontakt</span>
+        </div>
+        <div class="fake-content">
+          <div class="fake-block"><strong>CNC Frézování</strong>Velkoformátové frézování dřeva, hliníku a kompozitů. Série od 1 kusu.</div>
+          <div class="fake-block"><strong>3D Tisk</strong>Tisková farma s 18 stroji — rychlé prototypy i malé série.</div>
+          <div class="fake-block"><strong>Laserové řezání</strong>100W CO₂ laser pro řezání a gravírování — precizní výsledky.</div>
+          <div class="fake-block"><strong>O nás</strong>Jsme malý tým se sídlem v Šumperku. Pracujeme pro designéry, firmy i jednotlivce.</div>
+          <div class="fake-block" style="opacity:.6;font-size:.67rem;text-align:center">↓ visitor is here — form is further down ↓</div>
+        </div>
+      </div>
+      <!-- Mini form (shown by default for preview) -->
+      <div class="mini-form" id="mini-form">
+        <button class="mini-close" onclick="document.getElementById('mini-form').style.display='none';document.getElementById('float-toggle-2').style.display='flex'">✕</button>
+        <h4>Napsat poptávku</h4>
+        <label>Jméno</label>
+        <input type="text" placeholder="Jan Novák">
+        <label>Email</label>
+        <input type="email" placeholder="jan@firma.cz">
+        <label>Zpráva</label>
+        <textarea placeholder="Popište co potřebujete…"></textarea>
+        <button>Odeslat →</button>
+      </div>
+      <button class="float-toggle" id="float-toggle-2" style="display:none" onclick="document.getElementById('mini-form').style.display='block';this.style.display='none'">✉ Napsat poptávku</button>
+    </div>
+  </div>
+
+  <!-- OPTION 3: Enhanced Nav -->
+  <div class="option-card">
+    <div class="label" style="margin:1.2rem 1.5rem .4rem;width:fit-content">Option C</div>
+    <h2>Bolder Nav CTA Button</h2>
+    <p class="desc">Keep the existing nav layout but make the "Kontakt" button orange/accent coloured and more prominent — it's already sticky so always in view.</p>
+    <div class="pros">✓ Simplest change &nbsp;·&nbsp; ✓ No new UI elements &nbsp;·&nbsp; ✓ Clean, professional</div>
+    <div class="cons">△ Nav button can be overlooked &nbsp;·&nbsp; △ Lowest standalone conversion boost</div>
+    <div class="preview-area">
+      <div class="fake-page">
+        <div class="fake-nav">
+          <span class="fake-logo">Forma <b>Studio</b></span>
+          <a class="nav-cta-enhanced">Napsat poptávku</a>
+        </div>
+        <div class="fake-content">
+          <div class="fake-block"><strong>CNC Frézování</strong>Velkoformátové frézování dřeva, hliníku a kompozitů. Série od 1 kusu.</div>
+          <div class="fake-block"><strong>3D Tisk</strong>Tisková farma s 18 stroji — rychlé prototypy i malé série.</div>
+          <div class="fake-block"><strong>Laserové řezání</strong>100W CO₂ laser pro řezání a gravírování — precizní výsledky.</div>
+          <div class="fake-block"><strong>O nás</strong>Jsme malý tým se sídlem v Šumperku. Pracujeme pro designéry, firmy i jednotlivce.</div>
+          <div class="fake-block" style="opacity:.6;font-size:.67rem;text-align:center">↓ nav button stays visible as you scroll ↓</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- Comparison table -->
+<div class="comparison">
+  <h3>Quick Comparison</h3>
+  <table class="cmp-table">
+    <thead>
+      <tr>
+        <th>Criteria</th>
+        <th>A — Floating Button</th>
+        <th>B — Mini-Form Popup</th>
+        <th>C — Bold Nav CTA</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Conversion potential</td>
+        <td class="ok">Medium</td>
+        <td class="yes">High</td>
+        <td class="ok">Medium-low</td>
+      </tr>
+      <tr>
+        <td>Visual intrusiveness</td>
+        <td class="yes">Low</td>
+        <td class="ok">Medium</td>
+        <td class="yes">Very low</td>
+      </tr>
+      <tr>
+        <td>Mobile friendliness</td>
+        <td class="yes">Good</td>
+        <td class="ok">Needs care</td>
+        <td class="yes">Good</td>
+      </tr>
+      <tr>
+        <td>Code complexity</td>
+        <td class="yes">Simple</td>
+        <td class="ok">Moderate</td>
+        <td class="yes">Minimal</td>
+      </tr>
+      <tr>
+        <td>Fits Forma Studio brand</td>
+        <td class="yes">Yes</td>
+        <td class="yes">Yes</td>
+        <td class="yes">Yes</td>
+      </tr>
+      <tr>
+        <td>Best for</td>
+        <td>Subtle nudge without disrupting browsing</td>
+        <td>Max convenience for ready-to-buy visitors</td>
+        <td>Minimal change, brand consistency</td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="margin-top:1rem;font-size:.78rem;color:var(--mid)">💡 <strong>Recommendation:</strong> Option A (floating button) or combining A + C gives the best balance — always visible, unobtrusive, on-brand. Option B is worth considering if analytics show visitors drop off before the form.</p>
+</div>
+
+</body>
+</html>
