@@ -170,14 +170,14 @@ h1 em{font-style:italic;color:var(--accent)}
 .comp-col{border-right:1px solid #1e1e1c}
 .comp-col:last-child{border-right:none}
 .comp-hd{padding:.9rem 1.75rem;border-bottom:1px solid #1e1e1c;font-size:.66rem;letter-spacing:.16em;text-transform:uppercase}
-.comp-hd.them{color:#2d2d2b}
+.comp-hd.them{color:#807e78}
 .comp-hd.us{color:var(--accent)}
 .comp-row{padding:.88rem 1.75rem;border-bottom:1px solid #191917;font-size:.84rem;display:flex;align-items:flex-start;gap:.7rem}
 .comp-row:last-child{border-bottom:none}
-.comp-col.them .comp-row{color:#2d2d2b}
-.comp-col.us .comp-row{color:#a0a09a}
+.comp-col.them .comp-row{color:#6b6963}
+.comp-col.us .comp-row{color:#d0cfca}
 .comp-col.us .ci{color:var(--accent);font-weight:700;flex-shrink:0}
-.comp-col.them .ci{color:#222220;flex-shrink:0}
+.comp-col.them .ci{color:#6b6963;flex-shrink:0}
 
 /* ─── PROCESS ─── */
 #process{background:var(--bg);border-top:1px solid var(--border);padding:6.5rem 3rem}
@@ -194,14 +194,12 @@ h1 em{font-style:italic;color:var(--accent)}
 .tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3.5rem}
 .tcard{background:var(--bg);border:1px solid var(--border);padding:2rem 1.85rem;display:flex;flex-direction:column;gap:1.25rem;transition:border-color .25s,box-shadow .25s}
 .tcard:hover{border-color:var(--abdr);box-shadow:0 6px 24px rgba(0,0,0,.06)}
-.tcard-stars{color:var(--accent);font-size:.85rem;letter-spacing:.1em}
-.tcard-q{font-family:var(--serif);font-size:1rem;color:var(--ink);line-height:1.55;font-style:italic;font-weight:400}
-.tcard-q::before{content:'\'\'';}
-.tcard-q::after{content:'\'\'';}
+.tcard-n{width:36px;height:36px;border-radius:8px;background:var(--light);display:flex;align-items:center;justify-content:center;font-size:.9rem;font-weight:600;color:var(--mid);flex-shrink:0}
+.tcard-title{font-family:var(--serif);font-size:1.15rem;color:var(--ink);line-height:1.35;font-weight:400}
+.tcard-q{font-size:.88rem;color:var(--mid);line-height:1.7;font-weight:300}
 .tcard-author{display:flex;align-items:center;gap:.75rem;margin-top:auto}
-.tcard-av{width:38px;height:38px;border-radius:50%;background:var(--light);display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:600;color:var(--mid);flex-shrink:0}
-.tcard-name{font-size:.8rem;font-weight:600;color:var(--ink);line-height:1.2}
-.tcard-role{font-size:.72rem;color:var(--mid)}
+.tcard-name{font-size:.85rem;font-weight:600;color:var(--accent);line-height:1.2}
+.tcard-role{font-size:.78rem;color:var(--ink);font-weight:500}
 
 /* ─── FAQ ─── */
 #faq{background:var(--bg);border-top:1px solid var(--border);padding:6.5rem 3rem}
@@ -270,9 +268,7 @@ footer{background:var(--ink);padding:2.25rem 3rem;display:flex;align-items:cente
 .d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}
 
 /* ─── LANG ─── */
-[data-lang]{display:none}
-[data-lang].on{display:block}
-span[data-lang].on,em[data-lang].on,strong[data-lang].on{display:inline}
+[data-lang]{display:none!important}[data-lang].on{display:inline!important}
 
 /* ─── RESPONSIVE ─── */
 @media(max-width:980px){
@@ -309,20 +305,19 @@ span[data-lang].on,em[data-lang].on,strong[data-lang].on{display:inline}
 <nav>
   <a class="logo" href="#">Forma<b>.</b></a>
   <ul class="nav-links">
-    <li><a href="#services"><span data-lang="cs" class="on">Co umíme</span><span data-lang="sk">Čo vieme</span></a></li>
-    <li><a href="#gallery"><span data-lang="cs" class="on">Ukázky</span><span data-lang="sk">Ukážky</span></a></li>
-    <li><a href="#about"><span data-lang="cs" class="on">O nás</span><span data-lang="sk">O nás</span></a></li>
+    <li><a href="#services"><span data-lang="cs" class="on">Co umíme</span><span data-lang="sk">Čo vieme</span><span data-lang="en">What we do</span></a></li>
+    <li><a href="#gallery"><span data-lang="cs" class="on">Ukázky</span><span data-lang="sk">Ukážky</span><span data-lang="en">Showcase</span></a></li>
+    <li><a href="#about"><span data-lang="cs" class="on">O nás</span><span data-lang="sk">O nás</span><span data-lang="en">About us</span></a></li>
     <li><a href="#faq">FAQ</a></li>
   </ul>
   <div class="nav-r">
     <div class="lsw">
       <button class="lbtn on" onclick="setL('cs')">CZ</button>
       <span class="lsep">·</span>
-      <button class="lbtn" onclick="setL('sk')">SK</button>
+      <button class="lbtn" onclick="setL('sk')">SK</button><span class="lsep">·</span><button class="lbtn" onclick="setL('en')">EN</button>
     </div>
     <a class="cta-nav" href="#contact">
-      <span data-lang="cs" class="on">Mám projekt →</span>
-      <span data-lang="sk">Mám projekt →</span>
+      <span data-lang="cs" class="on">Mám projekt →</span><span data-lang="sk">Mám projekt →</span><span data-lang="en">I have a project →</span>
     </a>
   </div>
 </nav>
@@ -331,48 +326,41 @@ span[data-lang].on,em[data-lang].on,strong[data-lang].on{display:inline}
 <section id="hero">
   <div class="hl">
     <div class="hero-tag">
-      <span data-lang="cs" class="on">Výroba na zakázku · Šumperk, Morava</span>
-      <span data-lang="sk">Výroba na zákazku · Šumperk, Morava</span>
+      <span data-lang="cs" class="on">Výroba na zakázku · Šumperk, Morava</span><span data-lang="sk">Zákazková výroba · Šumperk, Morava</span><span data-lang="en">Custom manufacturing · Šumperk, Moravia</span>
     </div>
     <h1>
-      <span data-lang="cs" class="on">Máte nápad.<br>My ho <em>vyrobíme.</em></span>
-      <span data-lang="sk">Máte nápad.<br>My ho <em>vyrobíme.</em></span>
+      <span data-lang="cs" class="on">Máte nápad.<br>My ho <em>vyrobíme.</em></span><span data-lang="sk">Máte nápad.<br>My ho <em>vyrobíme.</em></span><span data-lang="en">You have an idea.<br>We <em>make it.</em></span>
     </h1>
     <p class="hero-sub">
-      <span data-lang="cs" class="on">CNC frézování, 3D tisk, laserové gravírování — <strong>od 1 kusu po tisíce.</strong> Pošlete nám soubor nebo jen nápad. Zbytek je na nás.</span>
-      <span data-lang="sk">CNC frézovanie, 3D tlač, laserové gravírovanie — <strong>od 1 kusu po tisíce.</strong> Pošlite nám súbor alebo len nápad. Zvyšok je na nás.</span>
+      <span data-lang="cs" class="on">CNC frézování, 3D tisk, laserové gravírování — <strong>od 1 kusu po tisíce.</strong> Pošlete nám soubor nebo jen nápad. Zbytek je na nás.</span><span data-lang="sk">CNC frézovanie, 3D tlač, laserové gravírovanie — <strong>od 1 kusu po tisíce.</strong> Pošlite nám súbor a my sa ozveme do 24 hodín.</span><span data-lang="en">CNC milling, 3D printing, laser engraving — <strong>from 1 piece to thousands.</strong> Send us a file and we'll get back to you within 24 hours.</span>
     </p>
     <p class="hero-proof">
-      <span data-lang="cs" class="on">Vyrobili jsme pro <strong>Cloudflare, Mastercard, Bohemia Interactive</strong> a stovky dalších.</span>
-      <span data-lang="sk">Vyrobili sme pre <strong>Cloudflare, Mastercard, Bohemia Interactive</strong> a stovky ďalších.</span>
+      <span data-lang="cs" class="on">Vyrobili jsme pro <strong>Cloudflare, Mastercard, Bohemia Interactive</strong> a stovky dalších.</span><span data-lang="sk">Vyrobili sme pre <strong>Cloudflare, Mastercard, Bohemia Interactive</strong> a stovky ďalších firiem.</span><span data-lang="en">We've produced for <strong>Cloudflare, Mastercard, Bohemia Interactive</strong> and hundreds of other companies.</span>
     </p>
     <div class="hero-btns">
       <a class="btn btn-ink" href="#contact">
-        <span data-lang="cs" class="on">Pošlete nám projekt →</span>
-        <span data-lang="sk">Pošlite nám projekt →</span>
+        <span data-lang="cs" class="on">Pošlete nám projekt →</span><span data-lang="sk">Pošlite nám projekt →</span><span data-lang="en">Send us your project →</span>
       </a>
       <a class="btn btn-ghost" href="#gallery">
-        <span data-lang="cs" class="on">Podívejte se na ukázky</span>
-        <span data-lang="sk">Pozrite sa na ukážky</span>
+        <span data-lang="cs" class="on">Podívejte se na ukázky</span><span data-lang="sk">Pozrite sa na ukážky</span><span data-lang="en">See our work</span>
       </a>
     </div>
     <p class="hero-nudge">
-      <span data-lang="cs" class="on">Odpovídáme do 24 hodin. Žádné závazky.</span>
-      <span data-lang="sk">Odpovedáme do 24 hodín. Žiadne záväzky.</span>
+      <span data-lang="cs" class="on">Odpovídáme do 24 hodin. Žádné závazky.</span><span data-lang="sk">Odpovieme do 24 hodín. Žiadne záväzky.</span><span data-lang="en">We respond within 24 hours. No obligations.</span>
     </p>
   </div>
   <div class="hr">
     <img src="images/cnc-frzka-v-provozu.jpg" alt="CNC frézka v provozu">
     <div class="hbadges">
-      <div class="hb"><span class="hb-dot"></span><span data-lang="cs" class="on">Komplexní projekty vítány</span><span data-lang="sk">Komplexné projekty vítané</span></div>
-      <div class="hb"><span class="hb-dot"></span><span data-lang="cs" class="on">Série od 1 kusu</span><span data-lang="sk">Série od 1 kusu</span></div>
-      <div class="hb"><span class="hb-dot"></span><span data-lang="cs" class="on">Nabídka do 48 hodin</span><span data-lang="sk">Ponuka do 48 hodín</span></div>
+      <div class="hb"><span class="hb-dot"></span><span data-lang="cs" class="on">Komplexní projekty vítány</span><span data-lang="sk">Komplexné projekty vítané</span><span data-lang="en">Complex projects welcome</span></div>
+      <div class="hb"><span class="hb-dot"></span><span data-lang="cs" class="on">Série od 1 kusu</span><span data-lang="sk">Série od 1 kusu</span><span data-lang="en">Runs from 1 piece</span></div>
+      <div class="hb"><span class="hb-dot"></span><span data-lang="cs" class="on">Nabídka do 48 hodin</span><span data-lang="sk">Ponuka do 48 hodín</span><span data-lang="en">Quote within 48 hours</span></div>
     </div>
     <div class="hbar">
-      <div class="hbs"><div class="hbs-n">500+</div><div class="hbs-l"><span data-lang="cs" class="on">Projektů</span><span data-lang="sk">Projektov</span></div></div>
-      <div class="hbs"><div class="hbs-n">5 let</div><div class="hbs-l"><span data-lang="cs" class="on">V oboru</span><span data-lang="sk">V odbore</span></div></div>
-      <div class="hbs"><div class="hbs-n">48 h</div><div class="hbs-l"><span data-lang="cs" class="on">Nabídka</span><span data-lang="sk">Ponuka</span></div></div>
-      <div class="hbs"><div class="hbs-n">98 %</div><div class="hbs-l"><span data-lang="cs" class="on">V termínu</span><span data-lang="sk">V termíne</span></div></div>
+      <div class="hbs"><div class="hbs-n">500+</div><div class="hbs-l"><span data-lang="cs" class="on">Projektů</span><span data-lang="sk">Projektov</span><span data-lang="en">Projects</span></div></div>
+      <div class="hbs"><div class="hbs-n">5 let</div><div class="hbs-l"><span data-lang="cs" class="on">V oboru</span><span data-lang="sk">V odbore</span><span data-lang="en">In the industry</span></div></div>
+      <div class="hbs"><div class="hbs-n">48 h</div><div class="hbs-l"><span data-lang="cs" class="on">Nabídka</span><span data-lang="sk">Ponuka</span><span data-lang="en">Quote</span></div></div>
+      <div class="hbs"><div class="hbs-n">98 %</div><div class="hbs-l"><span data-lang="cs" class="on">V termínu</span><span data-lang="sk">V termíne</span><span data-lang="en">On time</span></div></div>
     </div>
   </div>
 </section>
@@ -402,7 +390,7 @@ span[data-lang].on,em[data-lang].on,strong[data-lang].on{display:inline}
 <!-- ── LOGOS ── -->
 <div class="logos rv">
   <div class="logos-in">
-    <span class="logos-lbl"><span data-lang="cs" class="on">Pracujeme s firmami, které znáte</span><span data-lang="sk">Pracujeme s firmami, ktoré poznáte</span></span>
+    <span class="logos-lbl"><span data-lang="cs" class="on">Pracujeme s firmami, které znáte</span><span data-lang="sk">Pracujeme s firmami, ktoré poznáte</span><span data-lang="en">We work with brands you know</span></span>
     <div class="logo-list">
       <span class="logo-item">Cloudflare</span>
       <span class="logo-item">Bohemia Interactive</span>
@@ -416,9 +404,9 @@ span[data-lang].on,em[data-lang].on,strong[data-lang].on{display:inline}
 <!-- ── SERVICES ── -->
 <section id="services">
   <div class="w rv">
-    <p class="stag"><span data-lang="cs" class="on">Co umíme</span><span data-lang="sk">Čo vieme</span></p>
-    <h2 class="sh"><span data-lang="cs" class="on">Tři technologie. <em>Jeden partner.</em></span><span data-lang="sk">Tri technológie. <em>Jeden partner.</em></span></h2>
-    <p class="sb"><span data-lang="cs" class="on">Od prototypu po tisícové série — pod jednou střechou. Žádné předávání mezi dodavateli, žádné čekání. Vy pošlete soubor, my dodáme díly.</span><span data-lang="sk">Od prototypu po tisícové série — pod jednou strechou. Žiadne odovzdávanie medzi dodávateľmi, žiadne čakanie. Vy pošlete súbor, my dodáme diely.</span></p>
+    <p class="stag"><span data-lang="cs" class="on">Co umíme</span><span data-lang="sk">Čo vieme</span><span data-lang="en">What we do</span></p>
+    <h2 class="sh"><span data-lang="cs" class="on">Tři technologie. <em>Jeden partner.</em></span><span data-lang="sk">Tri technológie. <em>Jeden partner.</em></span><span data-lang="en">Three technologies. <em>One partner.</em></span></h2>
+    <p class="sb"><span data-lang="cs" class="on">Od prototypu po tisícové série — pod jednou střechou. Žádné předávání mezi dodavateli, žádné čekání. Vy pošlete soubor, my dodáme díly.</span><span data-lang="sk">Od prototypu po tisícové série — pod jednou strechou. Žiadne odovzdávanie medzi dodávateľmi, žiadne čakanie. Vy pošlete súbor, my dodáme diely.</span><span data-lang="en">From prototype to thousands — under one roof. No handoffs between suppliers, no waiting. You send a file, we deliver parts.</span></p>
   </div>
   <div class="w">
     <div class="svc-grid">
@@ -427,12 +415,12 @@ span[data-lang].on,em[data-lang].on,strong[data-lang].on{display:inline}
         <img class="svc-img" src="images/cnc-frzovani-dreva.jpg" alt="CNC frézování dřeva">
         <div class="svc-body">
           <div class="svc-n">01</div>
-          <div class="svc-title"><span data-lang="cs" class="on">CNC frézování dřeva</span><span data-lang="sk">CNC frézovanie dreva</span></div>
-          <p class="svc-desc"><span data-lang="cs" class="on">Velkoformátové CNC se dvěma 2,2kW vřeteny. Dřevo, překližka, plast, kompozity — od jednoho kusu po série tisíců měsíčně. Složité tvary, hluboké kapsy, opakované řezy — vždy se stejným výsledkem. A co stroj nedodělá, dokončíme ručně.</span><span data-lang="sk">Veľkoformátové CNC s dvoma 2,2kW vretenami. Drevo, preglejka, plast, kompozity — od jedného kusu po série tisícov mesačne. Zložité tvary, hlboké kapsy, opakované rezy — vždy s rovnakým výsledkom. A čo stroj nedorobí, dokončíme ručne.</span></p>
+          <div class="svc-title"><span data-lang="cs" class="on">CNC frézování dřeva</span><span data-lang="sk">CNC frézovanie dreva</span><span data-lang="en">CNC wood milling</span></div>
+          <p class="svc-desc"><span data-lang="cs" class="on">Velkoformátové CNC se dvěma 2,2kW vřeteny. Dřevo, překližka, plast, kompozity — od jednoho kusu po série tisíců měsíčně. Složité tvary, hluboké kapsy, opakované řezy — vždy se stejným výsledkem. A co stroj nedodělá, dokončíme ručně.</span><span data-lang="sk">Veľkoformátové CNC s dvoma 2,2kW vretenami. Drevo, preglejka, plast, kompozity — od jedného kusu po série tisícov mesačne. Zložité tvary, hlboké kapsy, opakované rezy — vždy s rovnakým výsledkom. A čo stroj nedorobí, dokončíme ručne.</span><span data-lang="en">Large-format CNC with dual 2.2kW spindles. Wood, plywood, plastic, composites — from one piece to thousands per month. Complex shapes, deep pockets, repeated cuts — always the same result. What the machine cannot finish, we do by hand.</span></p>
           <div class="svc-tags">
-            <span class="svc-tag"><span data-lang="cs" class="on">Nábytek &amp; interiér</span><span data-lang="sk">Nábytok &amp; interiér</span></span>
-            <span class="svc-tag"><span data-lang="cs" class="on">Firemní dárky</span><span data-lang="sk">Firemné darčeky</span></span>
-            <span class="svc-tag"><span data-lang="cs" class="on">Průmyslové díly</span><span data-lang="sk">Priemyselné diely</span></span>
+            <span class="svc-tag"><span data-lang="cs" class="on">Nábytek &amp; interiér</span><span data-lang="sk">Nábytok &amp; interiér</span><span data-lang="en">Furniture &amp; interiors</span></span>
+            <span class="svc-tag"><span data-lang="cs" class="on">Firemní dárky</span><span data-lang="sk">Firemné darčeky</span><span data-lang="en">Corporate gifts</span></span>
+            <span class="svc-tag"><span data-lang="cs" class="on">Průmyslové díly</span><span data-lang="sk">Priemyselné diely</span><span data-lang="en">Industrial parts</span></span>
           </div>
         </div>
       </div>
@@ -441,16 +429,15 @@ span[data-lang].on,em[data-lang].on,strong[data-lang].on{display:inline}
         <img class="svc-img" src="images/laserov-gravirovani.jpg" alt="Laserové gravírování">
         <div class="svc-body">
           <div class="svc-n">02</div>
-          <div class="svc-title"><span data-lang="cs" class="on">Laserové gravírování a řezání</span><span data-lang="sk">Laserové gravírovanie a rezanie</span></div>
-          <p class="svc-desc"><span data-lang="cs" class="on">100W CO2 laser řeže a gravíruje dřevo, akryl, kůži, sklo i kov — od jemného loga po průřez 10mm akrylátu. Ať je zakázka na 10 nebo 10 000 kusů, každý vypadá jako první. Rychlost a opakovatelnost, kterou ruční práce nikdy nedohoní.</span><span data-lang="sk">100W CO2 laser reže a gravíruje drevo, akryl, kožu, sklo aj kov — od jemného loga po prerez 10mm akrylátu. Či je zákazka na 10 alebo 10 000 kusov, každý vyzerá ako prvý. Rýchlosť a opakovateľnosť, ktorú ručná práca nikdy nedobehne.</span></p>
+          <div class="svc-title"><span data-lang="cs" class="on">Laserové gravírování a řezání</span><span data-lang="sk">Laserové gravírovanie a rezanie</span><span data-lang="en">Laser engraving &amp; cutting</span></div>
+          <p class="svc-desc"><span data-lang="cs" class="on">100W CO2 laser řeže a gravíruje dřevo, akryl, kůži, sklo i kov — od jemného loga po průřez 10mm akrylátu. Ať je zakázka na 10 nebo 10 000 kusů, každý vypadá jako první. Rychlost a opakovatelnost, kterou ruční práce nikdy nedohoní.</span><span data-lang="sk">100W CO2 laser reže a gravíruje drevo, akryl, kožu, sklo aj kov — od jemného loga po prerez 10mm akrylátu. Či je zákazka na 10 alebo 10 000 kusov, každý vyzerá ako prvý. Rýchlosť a opakovateľnosť, ktorú ručná práca nikdy nedobehne.</span><span data-lang="en">100W CO2 laser cuts and engraves wood, acrylic, leather, glass and metal — from delicate logos to 10mm acrylic cuts. Whether 10 or 10,000 pieces, each one looks like the first. Speed and repeatability that handwork cannot match.</span></p>
           <div class="svc-example">
-            <span data-lang="cs" class="on"><strong>Ukázka:</strong> 500 dřevěných bezdrátových nabíječek s laserem gravírovaným logem pro Mastercard event.</span>
-            <span data-lang="sk"><strong>Ukážka:</strong> 500 drevených bezdrôtových nabíjačiek s laserom gravírovaným logom pre Mastercard event.</span>
+            <span data-lang="cs" class="on"><strong>Ukázka:</strong> 500 dřevěných bezdrátových nabíječek s laserem gravírovaným logem pro Mastercard event.</span><span data-lang="sk"><strong>Ukážka:</strong> 500 drevených bezdrôtových nabíjačiek s laserom gravírovaným logom klienta.</span><span data-lang="en"><strong>Example:</strong> 500 wooden wireless chargers with laser-engraved client logos.</span>
           </div>
           <div class="svc-tags">
-            <span class="svc-tag"><span data-lang="cs" class="on">Branded merch</span><span data-lang="sk">Branded merch</span></span>
-            <span class="svc-tag"><span data-lang="cs" class="on">Firemní dárky</span><span data-lang="sk">Firemné darčeky</span></span>
-            <span class="svc-tag"><span data-lang="cs" class="on">Označení produktů</span><span data-lang="sk">Označenie produktov</span></span>
+            <span class="svc-tag"><span data-lang="cs" class="on">Branded merch</span><span data-lang="sk">Branded merch</span><span data-lang="en">Branded merch</span></span>
+            <span class="svc-tag"><span data-lang="cs" class="on">Firemní dárky</span><span data-lang="sk">Firemné darčeky</span><span data-lang="en">Corporate gifts</span></span>
+            <span class="svc-tag"><span data-lang="cs" class="on">Označení produktů</span><span data-lang="sk">Označenie produktov</span><span data-lang="en">Product labeling</span></span>
           </div>
         </div>
       </div>
@@ -459,12 +446,12 @@ span[data-lang].on,em[data-lang].on,strong[data-lang].on{display:inline}
         <img class="svc-img" src="images/3d-tisk.png" alt="3D tisková farma">
         <div class="svc-body">
           <div class="svc-n">03</div>
-          <div class="svc-title"><span data-lang="cs" class="on">3D tisková farma</span><span data-lang="sk">3D tlačová farma</span></div>
-          <p class="svc-desc"><span data-lang="cs" class="on">Ne jedna tiskárna, ale celá farma — desítky strojů běží paralelně. Od rychlých PLA vizualizací po pevné PETG a nylonové funkční díly. Potřebujete 200 kusů do pátku? Tiskneme přes noc. Nejlevnější způsob, jak ověřit design dřív, než investujete do formy.</span><span data-lang="sk">Nie jedna tlačiareň, ale celá farma — desiatky strojov bežia paralelne. Od rýchlych PLA vizualizácií po pevné PETG a nylonové funkčné diely. Potrebujete 200 kusov do piatku? Tlačíme cez noc. Najlacnejší spôsob, ako overiť dizajn skôr, než investujete do formy.</span></p>
+          <div class="svc-title"><span data-lang="cs" class="on">3D tisková farma</span><span data-lang="sk">3D tlačová farma</span><span data-lang="en">3D print farm</span></div>
+          <p class="svc-desc"><span data-lang="cs" class="on">Ne jedna tiskárna, ale celá farma — desítky strojů běží paralelně. Od rychlých PLA vizualizací po pevné PETG a nylonové funkční díly. Potřebujete 200 kusů do pátku? Tiskneme přes noc. Nejlevnější způsob, jak ověřit design dřív, než investujete do formy.</span><span data-lang="sk">Nie jedna tlačiareň, ale celá farma — desiatky strojov bežia paralelne. Od rýchlych PLA vizualizácií po pevné PETG a nylonové funkčné diely. Potrebujete 200 kusov do piatku? Tlačíme cez noc. Najlacnejší spôsob, ako overiť dizajn skôr, než investujete do formy.</span><span data-lang="en">Not one printer but an entire farm — dozens of machines running in parallel. From quick PLA mockups to tough PETG and nylon functional parts. Need 200 pieces by Friday? We print overnight. The cheapest way to validate a design before investing in tooling.</span></p>
           <div class="svc-tags">
-            <span class="svc-tag"><span data-lang="cs" class="on">Prototypy</span><span data-lang="sk">Prototypy</span></span>
-            <span class="svc-tag"><span data-lang="cs" class="on">Funkční díly</span><span data-lang="sk">Funkčné diely</span></span>
-            <span class="svc-tag"><span data-lang="cs" class="on">Vizualizace</span><span data-lang="sk">Vizualizácie</span></span>
+            <span class="svc-tag"><span data-lang="cs" class="on">Prototypy</span><span data-lang="sk">Prototypy</span><span data-lang="en">Prototypes</span></span>
+            <span class="svc-tag"><span data-lang="cs" class="on">Funkční díly</span><span data-lang="sk">Funkčné diely</span><span data-lang="en">Functional parts</span></span>
+            <span class="svc-tag"><span data-lang="cs" class="on">Vizualizace</span><span data-lang="sk">Vizualizácie</span><span data-lang="en">Visualizations</span></span>
           </div>
         </div>
       </div>
@@ -473,12 +460,12 @@ span[data-lang].on,em[data-lang].on,strong[data-lang].on{display:inline}
         <img class="svc-img" src="images/rapid-prototyping.jpg" alt="Rapid prototyping">
         <div class="svc-body">
           <div class="svc-n">04</div>
-          <div class="svc-title"><span data-lang="cs" class="on">Od prototypu k sérii</span><span data-lang="sk">Od prototypu k sérii</span></div>
-          <p class="svc-desc"><span data-lang="cs" class="on">Pošlete nám soubor a my vyrobíme prototyp. Otestujete, dáte zpětnou vazbu, upravíme. Až je návrh finální, najedeme sériovou výrobu — desítky, stovky i tisíce kusů měsíčně. Zabalíme, odešleme, vy se staráte o byznys.</span><span data-lang="sk">Pošlite nám súbor a my vyrobíme prototyp. Otestujete, dáte spätnú väzbu, upravíme. Keď je návrh finálny, najedeme sériovú výrobu — desiatky, stovky aj tisíce kusov mesačne. Zabalíme, odošleme, vy sa staráte o biznis.</span></p>
+          <div class="svc-title"><span data-lang="cs" class="on">Od prototypu k sérii</span><span data-lang="sk">Od prototypu k sérii</span><span data-lang="en">From prototype to series</span></div>
+          <p class="svc-desc"><span data-lang="cs" class="on">Pošlete nám soubor a my vyrobíme prototyp. Otestujete, dáte zpětnou vazbu, upravíme. Až je návrh finální, najedeme sériovou výrobu — desítky, stovky i tisíce kusů měsíčně. Zabalíme, odešleme, vy se staráte o byznys.</span><span data-lang="sk">Pošlite nám súbor a my vyrobíme prototyp. Otestujete, dáte spätnú väzbu, upravíme. Keď je návrh finálny, najedeme sériovú výrobu — desiatky, stovky aj tisíce kusov mesačne. Zabalíme, odošleme, vy sa staráte o biznis.</span><span data-lang="en">Send us a file and we'll make a prototype. You test, give feedback, we adjust. Once the design is final, we ramp up production — tens, hundreds, even thousands of pieces per month. We pack, ship — you focus on business.</span></p>
           <div class="svc-tags">
-            <span class="svc-tag"><span data-lang="cs" class="on">Prototypy</span><span data-lang="sk">Prototypy</span></span>
-            <span class="svc-tag"><span data-lang="cs" class="on">Testovací série</span><span data-lang="sk">Testovacie série</span></span>
-            <span class="svc-tag"><span data-lang="cs" class="on">Tisícové série</span><span data-lang="sk">Tisícové série</span></span>
+            <span class="svc-tag"><span data-lang="cs" class="on">Prototypy</span><span data-lang="sk">Prototypy</span><span data-lang="en">Prototypes</span></span>
+            <span class="svc-tag"><span data-lang="cs" class="on">Testovací série</span><span data-lang="sk">Testovacie série</span><span data-lang="en">Test series</span></span>
+            <span class="svc-tag"><span data-lang="cs" class="on">Tisícové série</span><span data-lang="sk">Tisícové série</span><span data-lang="en">Thousand-piece runs</span></span>
           </div>
         </div>
       </div>
@@ -490,8 +477,8 @@ span[data-lang].on,em[data-lang].on,strong[data-lang].on{display:inline}
 <!-- ── GALLERY ── -->
 <section id="gallery">
   <div class="w rv">
-    <p class="stag"><span data-lang="cs" class="on">Z naší dílny</span><span data-lang="sk">Z našej dielne</span></p>
-    <h2 class="sh"><span data-lang="cs" class="on">Co jsme <em>vyrobili</em></span><span data-lang="sk">Čo sme <em>vyrobili</em></span></h2>
+    <p class="stag"><span data-lang="cs" class="on">Z naší dílny</span><span data-lang="sk">Z našej dielne</span><span data-lang="en">From our workshop</span></p>
+    <h2 class="sh"><span data-lang="cs" class="on">Co jsme <em>vyrobili</em></span><span data-lang="sk">Čo sme <em>vyrobili</em></span><span data-lang="en">What we've <em>made</em></span></h2>
   </div>
   <div class="w">
     <div class="gal-grid">
@@ -523,25 +510,23 @@ span[data-lang].on,em[data-lang].on,strong[data-lang].on{display:inline}
     <div class="rv">
       <img class="about-img" src="images/image-8.jpg" alt="Tým Forma Studia v dílně">
       <div class="about-caption">
-        <span data-lang="cs" class="on">Zleva: Ondra, Tomáš, Radek, Pavel a Jan — parta, která za 5 let vybudovala jak produktovou značku Treed, tak dílnu schopnou velké série. 👋</span>
-        <span data-lang="sk">Zľava: Ondra, Tomáš, Radek, Pavel a Jan — partia, ktorá za 5 rokov vybudovala ako produktovú značku Treed, tak dielňu schopnú veľkej série. 👋</span>
+        <span data-lang="cs" class="on">Zleva: Ondra, Tomáš, Radek, Pavel a Jan — parta, která za 5 let vybudovala jak produktovou značku Treed, tak dílnu schopnou velké série. 👋</span><span data-lang="sk">Zľava: Ondra, Tomáš, Radek, Pavel a Jan — partia, čo radšej vyrába, než rozpráva.</span><span data-lang="en">From left: Ondra, Tomáš, Radek, Pavel and Jan — a crew that would rather build than talk.</span>
       </div>
     </div>
     <div class="rv d1">
-      <p class="stag"><span data-lang="cs" class="on">Náš příběh</span><span data-lang="sk">Náš príbeh</span></p>
+      <p class="stag"><span data-lang="cs" class="on">Náš příběh</span><span data-lang="sk">Náš príbeh</span><span data-lang="en">Our story</span></p>
       <blockquote class="about-q">
-        <span data-lang="cs" class="on">Nejdřív jsme vyráběli pro sebe. Pak nám to začaly chtít i ostatní firmy. <em>A tak vzniklo Forma Studio.</em></span>
-        <span data-lang="sk">Najskôr sme vyrábali pre seba. Potom to začali chcieť aj ostatné firmy. <em>A tak vzniklo Forma Studio.</em></span>
+        <span data-lang="cs" class="on">Nejdřív jsme vyráběli pro sebe. Pak nám to začaly chtít i ostatní firmy. <em>A tak vzniklo Forma Studio.</em></span><span data-lang="sk">Najskôr sme vyrábali pre seba. Potom nám to začali závidieť ostatní. <em>A tak vzniklo Forma Studio.</em></span><span data-lang="en">First we made things for ourselves. Then others started wanting them too. <em>And so Forma Studio was born.</em></span>
       </blockquote>
       <div class="about-body">
-        <p><span data-lang="cs" class="on">Začínali jsme jako Treed — malá značka dřevěných produktů, které jsme dělali sami, v dílně v Šumperku. Když jsme zjistili, že umíme vyrobit tisícovou sérii s přesností na desetiny milimetru, začali se nás ptát i ostatní. Designéři. Startupy. Velké firmy.</span><span data-lang="sk">Začínali sme ako Treed — malá značka drevených produktov, ktoré sme robili sami, v dielni v Šumperku. Keď sme zistili, že vieme vyrobiť tisícovú sériu s presnosťou na desatiny milimetra, začali sa nás pýtať aj ostatní. Dizajnéri. Startupy. Veľké firmy.</span></p>
-        <p><span data-lang="cs" class="on">Dnes jsme parta pěti — inženýrů, řemeslníků a lidí, kteří věří, že na kvalitě záleží víc, než se vyplatí. Každý projekt bereme jako svůj. A každý kus, který odejde z dílny, musí být takový, aby se za něj nestydět.</span><span data-lang="sk">Dnes sme partia piatich — inžinierov, remeselníkov a ľudí, ktorí veria, že na kvalite záleží viac, ako sa oplatí. Každý projekt berieme ako vlastný. A každý kus, ktorý odíde z dielne, musí byť taký, aby sme sa zaň nehanbili.</span></p>
+        <p><span data-lang="cs" class="on">Začínali jsme jako Treed — malá značka dřevěných produktů, které jsme dělali sami, v dílně v Šumperku. Když jsme zjistili, že umíme vyrobit tisícovou sérii s přesností na desetiny milimetru, začali se nás ptát i ostatní. Designéři. Startupy. Velké firmy.</span><span data-lang="sk">Začínali sme ako Treed — malá značka drevených produktov, ktoré sme robili sami, v dielni v Šumperku. Keď sme zistili, že vieme vyrobiť tisícovú sériu s presnosťou na desatiny milimetra, začali sa nás pýtať aj ostatní. Dizajnéri. Startupy. Veľké firmy.</span><span data-lang="en">First we made things for ourselves. Then other companies started asking. <em>And so Forma Studio was born.</em></span></p>
+        <p><span data-lang="cs" class="on">Dnes jsme parta pěti — inženýrů, řemeslníků a lidí, kteří věří, že na kvalitě záleží víc, než se vyplatí. Každý projekt bereme jako svůj. A každý kus, který odejde z dílny, musí být takový, aby se za něj nestydět.</span><span data-lang="sk">Dnes sme partia piatich — inžinierov, remeselníkov a ľudí, ktorí veria, že na kvalite záleží viac, ako sa oplatí. Každý projekt berieme ako vlastný. A každý kus, ktorý odíde z dielne, musí byť taký, aby sme sa zaň nehanbili.</span><span data-lang="en">We started as Treed — a small wooden products brand we built ourselves, in a workshop in Šumperk. When we realized we could produce thousand-piece runs with sub-millimeter precision, others started asking too. Designers. Startups. Big companies.</span></p>
       </div>
       <div class="about-nums">
-        <div class="an"><div class="an-n">500+</div><div class="an-l"><span data-lang="cs" class="on">Hotových projektů</span><span data-lang="sk">Hotových projektov</span></div></div>
-        <div class="an"><div class="an-n">48 h</div><div class="an-l"><span data-lang="cs" class="on">Nabídka v ruce</span><span data-lang="sk">Ponuka v ruke</span></div></div>
-        <div class="an"><div class="an-n">98 %</div><div class="an-l"><span data-lang="cs" class="on">V termínu</span><span data-lang="sk">V termíne</span></div></div>
-        <div class="an"><div class="an-n">5 let</div><div class="an-l"><span data-lang="cs" class="on">V oboru</span><span data-lang="sk">V odbore</span></div></div>
+        <div class="an"><div class="an-n">500+</div><div class="an-l"><span data-lang="cs" class="on">Hotových projektů</span><span data-lang="sk">Hotových projektov</span><span data-lang="en">Completed projects</span></div></div>
+        <div class="an"><div class="an-n">48 h</div><div class="an-l"><span data-lang="cs" class="on">Nabídka v ruce</span><span data-lang="sk">Ponuka v ruke</span><span data-lang="en">Quote in hand</span></div></div>
+        <div class="an"><div class="an-n">98 %</div><div class="an-l"><span data-lang="cs" class="on">V termínu</span><span data-lang="sk">V termíne</span><span data-lang="en">On time</span></div></div>
+        <div class="an"><div class="an-n">5 let</div><div class="an-l"><span data-lang="cs" class="on">V oboru</span><span data-lang="sk">V odbore</span><span data-lang="en">In the industry</span></div></div>
       </div>
     </div>
   </div>
@@ -554,22 +539,19 @@ span[data-lang].on,em[data-lang].on,strong[data-lang].on{display:inline}
   </div>
   <div class="dh-text">
     <p class="dh-label">
-      <span data-lang="cs" class="on">Termíny bereme vážně</span>
-      <span data-lang="sk">Termíny berieme vážne</span>
+      <span data-lang="cs" class="on">Termíny bereme vážně</span><span data-lang="sk">Termíny berieme vážne</span><span data-lang="en">We take deadlines seriously</span>
     </p>
     <h2 class="dh-q">
-      <span data-lang="cs" class="on">98 % zakázek doručeno včas. <em>Na zbývající 2 % existuje Jan.</em></span>
-      <span data-lang="sk">98 % zákaziek doručených včas. <em>Na zvyšné 2 % existuje Ján.</em></span>
+      <span data-lang="cs" class="on">98 % zakázek doručeno včas. <em>Na zbývající 2 % existuje Honza.</em></span><span data-lang="sk">98 % zákaziek doručených včas. <em>Na zvyšné 2 % je tu Honza.</em></span><span data-lang="en">98% of orders delivered on time. <em>Honza handles the other 2%.</em></span>
     </h2>
     <p class="dh-body">
-      <span data-lang="cs" class="on">Doručujeme na jednu adresu nebo na padesát. Kurýrem, spedičně — nebo osobně, pokud to situace vyžaduje. Termín pro nás není odhad. Je to závazek. A když se cokoliv zkomplikuje, jako první vám zavoláme.</span>
-      <span data-lang="sk">Doručujeme na jednu adresu alebo na päťdesiat. Kuriérom, špeditérsky — alebo osobne, ak to situácia vyžaduje. Termín pre nás nie je odhad. Je to záväzok. A keď sa čokoľvek skomplikuje, ako prví vám zavoláme.</span>
+      <span data-lang="cs" class="on">Doručujeme na jednu adresu nebo na padesát. Kurýrem, spedičně — nebo osobně, pokud to situace vyžaduje. Termín pro nás není odhad. Je to závazek. A když se cokoliv zkomplikuje, jako první vám zavoláme.</span><span data-lang="sk">Doručujeme na jednu adresu alebo na päťdesiat. Kuriérom, špedične — alebo osobne, ak to situácia vyžaduje.</span><span data-lang="en">We deliver to one address or fifty. By courier, freight — or in person if the situation calls for it.</span>
     </p>
     <div class="dh-stats">
-      <div class="ds"><div class="ds-n">98 %</div><div class="ds-l"><span data-lang="cs" class="on">V termínu nebo dříve</span><span data-lang="sk">V termíne alebo skôr</span></div></div>
-      <div class="ds"><div class="ds-n">48 h</div><div class="ds-l"><span data-lang="cs" class="on">Nejrychlejší prototyp</span><span data-lang="sk">Najrýchlejší prototyp</span></div></div>
-      <div class="ds"><div class="ds-n">10k+</div><div class="ds-l"><span data-lang="cs" class="on">Max. série najednou</span><span data-lang="sk">Max. séria naraz</span></div></div>
-      <div class="ds"><div class="ds-n">1 ks</div><div class="ds-l"><span data-lang="cs" class="on">Minimální objednávka</span><span data-lang="sk">Minimálna objednávka</span></div></div>
+      <div class="ds"><div class="ds-n">98 %</div><div class="ds-l"><span data-lang="cs" class="on">V termínu nebo dříve</span><span data-lang="sk">V termíne alebo skôr</span><span data-lang="en">On time or sooner</span></div></div>
+      <div class="ds"><div class="ds-n">48 h</div><div class="ds-l"><span data-lang="cs" class="on">Nejrychlejší prototyp</span><span data-lang="sk">Najrýchlejší prototyp</span><span data-lang="en">On time or early</span></div></div>
+      <div class="ds"><div class="ds-n">10k+</div><div class="ds-l"><span data-lang="cs" class="on">Max. série najednou</span><span data-lang="sk">Max. séria naraz</span><span data-lang="en">Fastest prototype</span></div></div>
+      <div class="ds"><div class="ds-n">1 ks</div><div class="ds-l"><span data-lang="cs" class="on">Minimální objednávka</span><span data-lang="sk">Minimálna objednávka</span><span data-lang="en">Minimum order</span></div></div>
     </div>
   </div>
 </div>
@@ -579,28 +561,28 @@ span[data-lang].on,em[data-lang].on,strong[data-lang].on{display:inline}
   <div class="w">
     <div class="comp-head rv">
       <div>
-        <p class="stag" style="color:var(--accent)"><span data-lang="cs" class="on">V čem je rozdíl?</span><span data-lang="sk">V čom je rozdiel?</span></p>
-        <h2 class="sh inv"><span data-lang="cs" class="on">Forma Studio vs.<br><em>zbytek trhu</em></span><span data-lang="sk">Forma Studio vs.<br><em>zvyšok trhu</em></span></h2>
-        <p class="sb" style="color:#666;margin-top:.85rem"><span data-lang="cs" class="on">Velcí výrobci nechtějí malé zakázky. Malé dílny nezvládnou velké série. My fungujeme jinak — každou zakázku, od jednoho kusu po tisíce, bereme stejně vážně.</span><span data-lang="sk">Veľkí výrobcovia nechcú malé zákazky. Malé dielne nezvládnu veľké série. My fungujeme inak — každú zákazku, od jedného kusu po tisíce, berieme rovnako vážne.</span></p>
+        <p class="stag" style="color:var(--accent)"><span data-lang="cs" class="on">V čem je rozdíl?</span><span data-lang="sk">V čom je rozdiel?</span><span data-lang="en">What's the difference?</span></p>
+        <h2 class="sh inv"><span data-lang="cs" class="on">Forma Studio vs.<br><em>zbytek trhu</em></span><span data-lang="sk">Forma Studio vs.<br><em>zvyšok trhu</em></span><span data-lang="en">Forma Studio vs.<br><em>the rest of the market</em></span></h2>
+        <p class="sb" style="color:#666;margin-top:.85rem"><span data-lang="cs" class="on">Velcí výrobci nechtějí malé zakázky. Malé dílny nezvládnou velké série. My fungujeme jinak — každou zakázku, od jednoho kusu po tisíce, bereme stejně vážně.</span><span data-lang="sk">Veľkí výrobcovia nechcú malé zákazky. Malé dielne nezvládnu veľké série. My fungujeme inak — každú zákazku, od jedného kusu po tisíce, berieme rovnako vážne.</span><span data-lang="en">Big manufacturers don't want small orders. Small shops can't handle large runs. We work differently — every order, from one piece to thousands, gets the same attention.</span></p>
       </div>
       <img class="comp-img" src="images/image-8.jpg" alt="Tým v dílně">
     </div>
     <div class="comp-table rv">
       <div class="comp-col them">
-        <div class="comp-hd them"><span data-lang="cs" class="on">Ostatní výrobci</span><span data-lang="sk">Ostatní výrobcovia</span></div>
-        <div class="comp-row"><span class="ci">✕</span><span data-lang="cs" class="on">Jedna technologie — musíte koordinovat víc firem</span><span data-lang="sk">Jedna technológia — musíte koordinovať viac firiem</span></div>
-        <div class="comp-row"><span class="ci">✕</span><span data-lang="cs" class="on">Minimální objednávka 100+ kusů</span><span data-lang="sk">Minimálna objednávka 100+ kusov</span></div>
-        <div class="comp-row"><span class="ci">✕</span><span data-lang="cs" class="on">Prototyp trvá týdny</span><span data-lang="sk">Prototyp trvá týždne</span></div>
-        <div class="comp-row"><span class="ci">✕</span><span data-lang="cs" class="on">E-mail, který přijde za 3 dny — nebo vůbec</span><span data-lang="sk">E-mail, ktorý príde za 3 dni — alebo vôbec</span></div>
-        <div class="comp-row"><span class="ci">✕</span><span data-lang="cs" class="on">Cena se mění — překvapení při fakturaci</span><span data-lang="sk">Cena sa mení — prekvapenie pri fakturácii</span></div>
+        <div class="comp-hd them"><span data-lang="cs" class="on">Ostatní výrobci</span><span data-lang="sk">Ostatní výrobcovia</span><span data-lang="en">Other manufacturers</span></div>
+        <div class="comp-row"><span class="ci">✕</span><span data-lang="cs" class="on">Jedna technologie — musíte koordinovat víc firem</span><span data-lang="sk">Jedna technológia — musíte koordinovať viac firiem</span><span data-lang="en">One technology — you have to coordinate multiple suppliers</span></div>
+        <div class="comp-row"><span class="ci">✕</span><span data-lang="cs" class="on">Minimální objednávka 100+ kusů</span><span data-lang="sk">Minimálna objednávka 100+ kusov</span><span data-lang="en">Minimum order 100+ pieces</span></div>
+        <div class="comp-row"><span class="ci">✕</span><span data-lang="cs" class="on">Prototyp trvá týdny</span><span data-lang="sk">Prototyp trvá týždne</span><span data-lang="en">Prototype takes weeks</span></div>
+        <div class="comp-row"><span class="ci">✕</span><span data-lang="cs" class="on">E-mail, který přijde za 3 dny — nebo vůbec</span><span data-lang="sk">E-mail, ktorý príde za 3 dni — alebo vôbec</span><span data-lang="en">Email reply in 3 days — or never</span></div>
+        <div class="comp-row"><span class="ci">✕</span><span data-lang="cs" class="on">Cena se mění — překvapení při fakturaci</span><span data-lang="sk">Cena sa mení — prekvapenie pri fakturácii</span><span data-lang="en">Price changes — surprise on the invoice</span></div>
       </div>
       <div class="comp-col us">
         <div class="comp-hd us">Forma Studio</div>
-        <div class="comp-row"><span class="ci">✓</span><span data-lang="cs" class="on">CNC, 3D tisk, laser, prototyping — jeden partner</span><span data-lang="sk">CNC, 3D tlač, laser, prototyping — jeden partner</span></div>
-        <div class="comp-row"><span class="ci">✓</span><span data-lang="cs" class="on">Série od 1 kusu, bez minima</span><span data-lang="sk">Série od 1 kusu, bez minima</span></div>
-        <div class="comp-row"><span class="ci">✓</span><span data-lang="cs" class="on">Nabídka do 48 hodin</span><span data-lang="sk">Ponuka do 48 hodín</span></div>
-        <div class="comp-row"><span class="ci">✓</span><span data-lang="cs" class="on">Odpovídáme do 24 h, voláme osobně</span><span data-lang="sk">Odpovedáme do 24 h, voláme osobne</span></div>
-        <div class="comp-row"><span class="ci">✓</span><span data-lang="cs" class="on">Jasná cena, bez skrytých poplatků</span><span data-lang="sk">Jasná cena, bez skrytých poplatkov</span></div>
+        <div class="comp-row"><span class="ci">✓</span><span data-lang="cs" class="on">CNC, 3D tisk, laser, prototyping — jeden partner</span><span data-lang="sk">CNC, 3D tlač, laser, prototyping — jeden partner</span><span data-lang="en">CNC, 3D print, laser, prototyping — one partner</span></div>
+        <div class="comp-row"><span class="ci">✓</span><span data-lang="cs" class="on">Série od 1 kusu, bez minima</span><span data-lang="sk">Série od 1 kusu, bez minima</span><span data-lang="en">Series from 1 piece, no minimum</span></div>
+        <div class="comp-row"><span class="ci">✓</span><span data-lang="cs" class="on">Nabídka do 48 hodin</span><span data-lang="sk">Ponuka do 48 hodín</span><span data-lang="en">Quote within 48 hours</span></div>
+        <div class="comp-row"><span class="ci">✓</span><span data-lang="cs" class="on">Odpovídáme do 24 h, voláme osobně</span><span data-lang="sk">Odpovedáme do 24 h, voláme osobne</span><span data-lang="en">We respond in 24h, call personally</span></div>
+        <div class="comp-row"><span class="ci">✓</span><span data-lang="cs" class="on">Jasná cena, bez skrytých poplatků</span><span data-lang="sk">Jasná cena, bez skrytých poplatkov</span><span data-lang="en">Clear pricing, no hidden fees</span></div>
       </div>
     </div>
   </div>
@@ -609,50 +591,50 @@ span[data-lang].on,em[data-lang].on,strong[data-lang].on{display:inline}
 <!-- ── PROCESS ── -->
 <section id="process">
   <div class="w rv">
-    <p class="stag"><span data-lang="cs" class="on">Jak to funguje</span><span data-lang="sk">Ako to funguje</span></p>
-    <h2 class="sh"><span data-lang="cs" class="on">Od poptávky k výrobku — <em>pět kroků.</em></span><span data-lang="sk">Od dopytu k výrobku — <em>päť krokov.</em></span></h2>
-    <p class="sb"><span data-lang="cs" class="on">Snažíme se, aby byl celý proces co nejjednodušší. Soubor nemusí být perfektní. Nápad stačí.</span><span data-lang="sk">Snažíme sa, aby bol celý proces čo najjednoduchší. Súbor nemusí byť perfektný. Nápad stačí.</span></p>
+    <p class="stag"><span data-lang="cs" class="on">Jak to funguje</span><span data-lang="sk">Ako to funguje</span><span data-lang="en">How it works</span></p>
+    <h2 class="sh"><span data-lang="cs" class="on">Od poptávky k výrobku — <em>pět kroků.</em></span><span data-lang="sk">Od dopytu k výrobku — <em>päť krokov.</em></span><span data-lang="en">From inquiry to product — <em>five steps.</em></span></h2>
+    <p class="sb"><span data-lang="cs" class="on">Snažíme se, aby byl celý proces co nejjednodušší. Soubor nemusí být perfektní. Nápad stačí.</span><span data-lang="sk">Snažíme sa, aby bol celý proces čo najjednoduchší. Súbor nemusí byť perfektný. Nápad stačí.</span><span data-lang="en">We try to make the whole process as simple as possible. The file doesn't have to be perfect. An idea is enough.</span></p>
   </div>
   <div class="w">
     <div class="psteps">
       <div class="ps rv">
         <div class="ps-n">1</div>
         <div class="ps-right">
-          <div class="ps-title"><span data-lang="cs" class="on">Pošlete poptávku nebo soubor</span><span data-lang="sk">Pošlite dopyt alebo súbor</span></div>
-          <div class="ps-fear"><span data-lang="cs" class="on">Soubor nemusí být dokonalý — klidně pošlete PDF, náčrt, nebo jen pár vět.</span><span data-lang="sk">Súbor nemusí byť dokonalý — pokojne pošlite PDF, náčrt, alebo len pár viet.</span></div>
-          <p class="ps-desc"><span data-lang="cs" class="on">Vyplňte formulář níže nebo napište e-mail. K ničemu se nezavazujete. Přijmeme DXF, STL, STEP, PDF, SolidWorks, Fusion 360 i obyčejné fotky náčrtu.</span><span data-lang="sk">Vyplňte formulár nižšie alebo napíšte e-mail. K ničomu sa nezaväzujete. Prijmeme DXF, STL, STEP, PDF, SolidWorks, Fusion 360 aj obyčajné fotky náčrtu.</span></p>
+          <div class="ps-title"><span data-lang="cs" class="on">Pošlete poptávku nebo soubor</span><span data-lang="sk">Pošlite dopyt alebo súbor</span><span data-lang="en">Send a request or file</span></div>
+          <div class="ps-fear"><span data-lang="cs" class="on">Soubor nemusí být dokonalý — klidně pošlete PDF, náčrt, nebo jen pár vět.</span><span data-lang="sk">Súbor nemusí byť dokonalý — pokojne pošlite PDF, náčrt, alebo len pár viet.</span><span data-lang="en">The file doesn't have to be perfect — feel free to send a PDF, sketch, or just a few sentences.</span></div>
+          <p class="ps-desc"><span data-lang="cs" class="on">Vyplňte formulář níže nebo napište e-mail. K ničemu se nezavazujete. Přijmeme DXF, STL, STEP, PDF, SolidWorks, Fusion 360 i obyčejné fotky náčrtu.</span><span data-lang="sk">Vyplňte formulár nižšie alebo napíšte e-mail. K ničomu sa nezaväzujete. Prijmeme DXF, STL, STEP, PDF, SolidWorks, Fusion 360 aj obyčajné fotky náčrtu.</span><span data-lang="en">The file doesn't have to be perfect — send a PDF, a sketch, or just a few sentences.</span></p>
         </div>
       </div>
       <div class="ps rv">
         <div class="ps-n">2</div>
         <div class="ps-right">
-          <div class="ps-title"><span data-lang="cs" class="on">Zavoláme si — do 24 hodin</span><span data-lang="sk">Zavoláme si — do 24 hodín</span></div>
-          <div class="ps-fear"><span data-lang="cs" class="on">Nevíte, jakou technologii zvolit? Poradíme — bez žargonu, bez obchodních tlaků.</span><span data-lang="sk">Neviete, akú technológiu zvoliť? Poradíme — bez žargónu, bez obchodných tlakov.</span></div>
-          <p class="ps-desc"><span data-lang="cs" class="on">Ozveme se osobně, prodiskutujeme projekt a zodpovíme všechny otázky. Krátký hovor, který ušetří hodiny e-mailování.</span><span data-lang="sk">Ozveme sa osobne, prediskutujeme projekt a zodpovieme všetky otázky. Krátky hovor, ktorý ušetrí hodiny e-mailovania.</span></p>
+          <div class="ps-title"><span data-lang="cs" class="on">Zavoláme si — do 24 hodin</span><span data-lang="sk">Zavoláme si — do 24 hodín</span><span data-lang="en">We'll call — within 24 hours</span></div>
+          <div class="ps-fear"><span data-lang="cs" class="on">Nevíte, jakou technologii zvolit? Poradíme — bez žargonu, bez obchodních tlaků.</span><span data-lang="sk">Neviete, akú technológiu zvoliť? Poradíme — bez žargónu, bez obchodných tlakov.</span><span data-lang="en">Not sure which technology to choose? We'll advise — no jargon, no sales pressure.</span></div>
+          <p class="ps-desc"><span data-lang="cs" class="on">Ozveme se osobně, prodiskutujeme projekt a zodpovíme všechny otázky. Krátký hovor, který ušetří hodiny e-mailování.</span><span data-lang="sk">Ozveme sa osobne, prediskutujeme projekt a zodpovieme všetky otázky. Krátky hovor, ktorý ušetrí hodiny e-mailovania.</span><span data-lang="en">Not sure which technology to pick? We'll advise — no jargon, no sales pressure.</span></p>
         </div>
       </div>
       <div class="ps rv">
         <div class="ps-n">3</div>
         <div class="ps-right">
-          <div class="ps-title"><span data-lang="cs" class="on">Jasná cena — žádná překvapení</span><span data-lang="sk">Jasná cena — žiadne prekvapenia</span></div>
-          <div class="ps-fear"><span data-lang="cs" class="on">U větších zakázek nabídneme fyzický vzorek ještě před potvrzením.</span><span data-lang="sk">Pri väčších zákazkách ponúkneme fyzickú vzorku ešte pred potvrdením.</span></div>
-          <p class="ps-desc"><span data-lang="cs" class="on">Dostanete jasnou kalkulaci bez skrytých poplatků. Pokud se cokoliv změní, okamžitě vám dáme vědět.</span><span data-lang="sk">Dostanete jasnú kalkuláciu bez skrytých poplatkov. Ak sa čokoľvek zmení, okamžite vám dáme vedieť.</span></p>
+          <div class="ps-title"><span data-lang="cs" class="on">Jasná cena — žádná překvapení</span><span data-lang="sk">Jasná cena — žiadne prekvapenia</span><span data-lang="en">Clear pricing — no surprises</span></div>
+          <div class="ps-fear"><span data-lang="cs" class="on">U větších zakázek nabídneme fyzický vzorek ještě před potvrzením.</span><span data-lang="sk">Pri väčších zákazkách ponúkneme fyzickú vzorku ešte pred potvrdením.</span><span data-lang="en">For larger orders, we'll offer a physical sample before confirmation.</span></div>
+          <p class="ps-desc"><span data-lang="cs" class="on">Dostanete jasnou kalkulaci bez skrytých poplatků. Pokud se cokoliv změní, okamžitě vám dáme vědět.</span><span data-lang="sk">Dostanete jasnú kalkuláciu bez skrytých poplatkov. Ak sa čokoľvek zmení, okamžite vám dáme vedieť.</span><span data-lang="en">For larger orders we offer a physical sample before confirmation.</span></p>
         </div>
       </div>
       <div class="ps rv">
         <div class="ps-n">4</div>
         <div class="ps-right">
-          <div class="ps-title"><span data-lang="cs" class="on">Výroba — s průběžnou kontrolou</span><span data-lang="sk">Výroba — s priebežnou kontrolou</span></div>
-          <div class="ps-fear"><span data-lang="cs" class="on">U větších sérií posíláme průběžné fotky — abyste měli přehled.</span><span data-lang="sk">Pri väčších sériách posielame priebežné fotky — aby ste mali prehľad.</span></div>
-          <p class="ps-desc"><span data-lang="cs" class="on">Potvrdíte design a my se pustíme do práce. Každý kus prochází interní QC kontrolou. Na vyžádání dostanete protokol s naměřenými hodnotami.</span><span data-lang="sk">Potvrdíte dizajn a my sa pustíme do práce. Každý kus prechádza internou QC kontrolou. Na vyžiadanie dostanete protokol s nameranými hodnotami.</span></p>
+          <div class="ps-title"><span data-lang="cs" class="on">Výroba — s průběžnou kontrolou</span><span data-lang="sk">Výroba — s priebežnou kontrolou</span><span data-lang="en">Production — with ongoing QC</span></div>
+          <div class="ps-fear"><span data-lang="cs" class="on">U větších sérií posíláme průběžné fotky — abyste měli přehled.</span><span data-lang="sk">Pri väčších sériách posielame priebežné fotky — aby ste mali prehľad.</span><span data-lang="en">For larger runs, we send progress photos — so you stay in the loop.</span></div>
+          <p class="ps-desc"><span data-lang="cs" class="on">Potvrdíte design a my se pustíme do práce. Každý kus prochází interní QC kontrolou. Na vyžádání dostanete protokol s naměřenými hodnotami.</span><span data-lang="sk">Potvrdíte dizajn a my sa pustíme do práce. Každý kus prechádza internou QC kontrolou. Na vyžiadanie dostanete protokol s nameranými hodnotami.</span><span data-lang="en">For larger runs we send progress photos — so you stay in the loop.</span></p>
         </div>
       </div>
       <div class="ps rv">
         <div class="ps-n">5</div>
         <div class="ps-right">
-          <div class="ps-title"><span data-lang="cs" class="on">Doručíme — přesně a včas</span><span data-lang="sk">Doručíme — presne a včas</span></div>
-          <div class="ps-fear"><span data-lang="cs" class="on">Pokud se cokoliv zkomplikuje — jako první vám zavoláme.</span><span data-lang="sk">Ak sa čokoľvek skomplikuje — ako prví vám zavoláme.</span></div>
-          <p class="ps-desc"><span data-lang="cs" class="on">Na jednu adresu nebo na padesát. Kurýrem, spedičně nebo osobně. 98 % zakázek dodáváme v dohodnutém termínu nebo dříve.</span><span data-lang="sk">Na jednu adresu alebo na päťdesiat. Kuriérom, špeditérsky alebo osobne. 98 % zákaziek dodávame v dohodnutom termíne alebo skôr.</span></p>
+          <div class="ps-title"><span data-lang="cs" class="on">Doručíme — přesně a včas</span><span data-lang="sk">Doručíme — presne a včas</span><span data-lang="en">Delivery — precise and on time</span></div>
+          <div class="ps-fear"><span data-lang="cs" class="on">Pokud se cokoliv zkomplikuje — jako první vám zavoláme.</span><span data-lang="sk">Ak sa čokoľvek skomplikuje — ako prví vám zavoláme.</span><span data-lang="en">If anything gets complicated — we'll be the first to call you.</span></div>
+          <p class="ps-desc"><span data-lang="cs" class="on">Na jednu adresu nebo na padesát. Kurýrem, spedičně nebo osobně. 98 % zakázek dodáváme v dohodnutém termínu nebo dříve.</span><span data-lang="sk">Na jednu adresu alebo na päťdesiat. Kuriérom, špeditérsky alebo osobne. 98 % zákaziek dodávame v dohodnutom termíne alebo skôr.</span><span data-lang="en">If anything gets complicated — we call you first.</span></p>
         </div>
       </div>
     </div>
@@ -662,41 +644,41 @@ span[data-lang].on,em[data-lang].on,strong[data-lang].on{display:inline}
 <!-- ── TESTIMONIALS ── -->
 <section id="testimonials">
   <div class="w rv">
-    <p class="stag"><span data-lang="cs" class="on">Co říkají zákazníci</span><span data-lang="sk">Čo hovoria zákazníci</span></p>
-    <h2 class="sh"><span data-lang="cs" class="on">Neříkejte to za nás — <em>říkají to oni.</em></span><span data-lang="sk">Nehovorte to za nás — <em>hovoria to oni.</em></span></h2>
+    <p class="stag"><span data-lang="cs" class="on">Co říkají zákazníci</span><span data-lang="sk">Čo hovoria zákazníci</span><span data-lang="en">What customers say</span></p>
+    <h2 class="sh"><span data-lang="cs" class="on">Neříkejte to za nás — <em>říkají to oni.</em></span><span data-lang="sk">Nehovorte to za nás — <em>hovoria to oni.</em></span><span data-lang="en">Don't take our word for it — <em>they say it themselves.</em></span></h2>
   </div>
   <div class="w">
     <div class="tgrid">
       <div class="tcard rv">
-        <div class="tcard-stars">★★★★★</div>
-        <p class="tcard-q"><span data-lang="cs" class="on">Potřebovali jsme 300 dřevěných podtácků s logem za týden. Forma to zvládla s přehledem — každý kus identický, dodáno dva dny předem. Napřesrok jdeme znovu.</span><span data-lang="sk">Potrebovali sme 300 drevených podtácok s logom za týždeň. Forma to zvládla s prehľadom — každý kus identický, dodané dva dni vopred. O rok ideme znovu.</span></p>
+        <div class="tcard-n">1</div>
+        <h3 class="tcard-title"><span data-lang="cs" class="on">Skvělá komunikace a hlavně ochota vymyslet produkt na míru</span><span data-lang="sk">Skvelá komunikácia a hlavne ochota vymyslieť produkt na mieru</span><span data-lang="en">Great communication and a willingness to design a custom product</span></h3>
+        <p class="tcard-q"><span data-lang="cs" class="on">Spolupráce s wearetreed je radost - rychlá domluva, skvělá komunikace a hlavně ochota vymyslet produkt na míru našim potřebám. Výsledek krásně zapadl do konceptu našich myceliových difuzerů a celé to díky nim dostalo přírodní šmrnc. Díky, že do toho jdete srdcem (a udržitelně)!</span><span data-lang="sk">Spolupráca s wearetreed je radosť - rýchla dohoda, skvelá komunikácia a hlavne ochota vymyslieť produkt na mieru našim potrebám. Výsledok krásne zapadol do konceptu našich myceliových difúzerov a celé to vďaka nim dostalo prírodný šmrnc. Vďaka, že do toho idete srdcom (a udržiteľne)!</span><span data-lang="en">Working with wearetreed is a joy - quick coordination, great communication and above all a willingness to design a product tailored to our needs. The result fit beautifully into the concept of our mycelium diffusers and gave the whole thing a natural flair. Thanks for putting your heart into it (and sustainably)!</span></p>
         <div class="tcard-author">
-          <div class="tcard-av">MK</div>
           <div>
-            <div class="tcard-name">Markéta Kovářová</div>
-            <div class="tcard-role"><span data-lang="cs" class="on">Marketing Manager · Myco</span><span data-lang="sk">Marketing Manager · Myco</span></div>
+            <div class="tcard-name">Eva Minčíková</div>
+            <div class="tcard-role">Myco s.r.o.</div>
           </div>
         </div>
       </div>
       <div class="tcard rv d1">
-        <div class="tcard-stars">★★★★★</div>
-        <p class="tcard-q"><span data-lang="cs" class="on">Pět iterací prototypu za dva týdny. Jiní výrobci mi říkali, že to za měsíc nestihnou. Forma to vzala jako výzvu. Výsledek byl přesně to, co jsem potřeboval na pitch.</span><span data-lang="sk">Päť iterácií prototypu za dva týždne. Iní výrobcovia mi hovorili, že to za mesiac nestihnú. Forma to vzala ako výzvu. Výsledok bol presne to, čo som potreboval na pitch.</span></p>
+        <div class="tcard-n">2</div>
+        <h3 class="tcard-title"><span data-lang="cs" class="on">U Wearetreed jsme našli kombinaci nejen udržitelnosti</span><span data-lang="sk">U Wearetreed sme našli kombináciu nielen udržateľnosti</span><span data-lang="en">At Wearetreed we found a combination of sustainability and more</span></h3>
+        <p class="tcard-q"><span data-lang="cs" class="on">Jako malá firma se zaměřením na úsporu energie v průmyslu je smyslem naší práce přispívat k zelenější planetě. Když jsme hledali dárky pro naše kolegy, u Wearetreed jsme našli kombinaci nejen udržitelnosti, ale i elegantních doplňků pro každodenní použití doma i v kanceláři.</span><span data-lang="sk">Ako malá firma so zameraním na úsporu energie v priemysle je zmyslom našej práce prispievať k zelenšej planéte. Keď sme hľadali darčeky pre našich kolegov, u Wearetreed sme našli kombináciu nielen udržateľnosti, ale aj elegantných doplnkov pre každodenné použitie doma aj v kancelárii.</span><span data-lang="en">As a small company focused on energy savings in industry, our mission is to contribute to a greener planet. When looking for gifts for our colleagues, at Wearetreed we found a combination of not only sustainability, but also elegant accessories for everyday use at home and in the office.</span></p>
         <div class="tcard-author">
-          <div class="tcard-av">TN</div>
           <div>
-            <div class="tcard-name">Tomáš Novotný</div>
-            <div class="tcard-role"><span data-lang="cs" class="on">Founder · Hardwear Labs</span><span data-lang="sk">Founder · Hardwear Labs</span></div>
+            <div class="tcard-name">David Hořava</div>
+            <div class="tcard-role">HE Consulting s.r.o.</div>
           </div>
         </div>
       </div>
       <div class="tcard rv d2">
-        <div class="tcard-stars">★★★★★</div>
-        <p class="tcard-q"><span data-lang="cs" class="on">Konečně výrobce, který si přečte brief a ještě zavolá, aby se ujistil, že správně rozumí. Žádný žargon, žádné překvapení na faktuře. Takového partnera hledáme.</span><span data-lang="sk">Konečne výrobca, ktorý si prečíta brief a ešte zavolá, aby sa uistil, že správne rozumie. Žiadny žargón, žiadne prekvapenie na faktúre. Takého partnera hľadáme.</span></p>
+        <div class="tcard-n">3</div>
+        <h3 class="tcard-title"><span data-lang="cs" class="on">Šibeniční termín jsme zvládli</span><span data-lang="sk">Šibeničný termín sme zvládli</span><span data-lang="en">We nailed a tight deadline</span></h3>
+        <p class="tcard-q"><span data-lang="cs" class="on">S Wearetreed rádi spolupracujeme. Naše poslední zakázka proběhla na jedničku a vše bylo v naprostém pořádku. Vlastně nadstandardně. Zboží nám dokonce dovezli osobně a díky tomu jsme zvládli i šibeniční termín. Své práci rozumí a vždy ochotně pomůžou a poradí.</span><span data-lang="sk">S Wearetreed radi spolupracujeme. Naša posledná zákazka prebehla na jednotku a všetko bolo v úplnom poriadku. Vlastne nadštandardne. Tovar nám dokonca doviezli osobne a vďaka tomu sme zvládli aj šibeničný termín. Svojej práci rozumejú a vždy ochotne pomôžu a poradia.</span><span data-lang="en">We love working with Wearetreed. Our last order went perfectly and everything was in perfect shape. Actually, above and beyond. They even delivered the goods in person, which helped us meet a tight deadline. They know their craft and are always happy to help and advise.</span></p>
         <div class="tcard-author">
-          <div class="tcard-av">LP</div>
           <div>
-            <div class="tcard-name">Lucie Procházková</div>
-            <div class="tcard-role"><span data-lang="cs" class="on">Produktová designérka · Studio Arch+</span><span data-lang="sk">Produktová dizajnérka · Studio Arch+</span></div>
+            <div class="tcard-name">Kateřina Pečená</div>
+            <div class="tcard-role"><span data-lang="cs" class="on">Marketing Manager · Green Cat</span><span data-lang="sk">Marketing Manager · Green Cat</span><span data-lang="en">Marketing Manager · Green Cat</span></div>
           </div>
         </div>
       </div>
@@ -709,52 +691,52 @@ span[data-lang].on,em[data-lang].on,strong[data-lang].on{display:inline}
   <div class="faq-in">
     <div class="faq-left rv">
       <p class="stag">FAQ</p>
-      <h2 class="sh"><span data-lang="cs" class="on">Otázky, které vás <em>právě napadají</em></span><span data-lang="sk">Otázky, ktoré vás <em>práve napadajú</em></span></h2>
-      <p class="faq-hint"><span data-lang="cs" class="on">Tady jsou nejčastější věci, na které se nás lidé ptají. Nenašli jste odpověď? Napište nám — rádi poradíme.</span><span data-lang="sk">Tu sú najčastejšie veci, na ktoré sa nás ľudia pýtajú. Nenašli ste odpoveď? Napíšte nám — radi poradíme.</span></p>
-      <a class="faq-link" href="#contact"><span data-lang="cs" class="on">Napsat dotaz →</span><span data-lang="sk">Napísať dotaz →</span></a>
+      <h2 class="sh"><span data-lang="cs" class="on">Otázky, které vás <em>právě napadají</em></span><span data-lang="sk">Otázky, ktoré vás <em>práve napadajú</em></span><span data-lang="en">Questions you're <em>probably asking</em></span></h2>
+      <p class="faq-hint"><span data-lang="cs" class="on">Tady jsou nejčastější věci, na které se nás lidé ptají. Nenašli jste odpověď? Napište nám — rádi poradíme.</span><span data-lang="sk">Tu sú najčastejšie veci, na ktoré sa nás ľudia pýtajú. Nenašli ste odpoveď? Napíšte nám — radi poradíme.</span><span data-lang="en">Here are the most common things people ask us. Didn't find your answer? Write to us — we're happy to help.</span></p>
+      <a class="faq-link" href="#contact"><span data-lang="cs" class="on">Napsat dotaz →</span><span data-lang="sk">Napísať dotaz →</span><span data-lang="en">Write a question →</span></a>
     </div>
     <div class="faq-list rv d1">
       <div class="fi">
         <button class="fq" onclick="tog(this)">
-          <span data-lang="cs" class="on">Nevím, jakou technologii zvolit. Pomůžete mi?</span><span data-lang="sk">Neviem, akú technológiu zvoliť. Pomôžete mi?</span>
+          <span data-lang="cs" class="on">Nevím, jakou technologii zvolit. Pomůžete mi?</span><span data-lang="sk">Neviem, akú technológiu zvoliť. Pomôžete mi?</span><span data-lang="en">I don't know which technology to choose. Can you help?</span>
           <svg class="fqicon" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="9" y1="2" x2="9" y2="16"/><line x1="2" y1="9" x2="16" y2="9"/></svg>
         </button>
-        <div class="fa"><p><span data-lang="cs" class="on">Samozřejmě — to je jedna z věcí, které děláme nejraději. Pošlete nám popis nebo náčrt a zavoláme si. Vysvětlíme rozdíly, navrhneme nejlepší řešení a poradíme s materiálem. Bez závazků, bez žargonu.</span><span data-lang="sk">Samozrejme — to je jedna z vecí, ktoré robíme najradšej. Pošlite nám popis alebo náčrt a zavoláme si. Vysvetlíme rozdiely, navrhneme najlepšie riešenie a poradíme s materiálom. Bez záväzkov, bez žargónu.</span></p></div>
+        <div class="fa"><p><span data-lang="cs" class="on">Samozřejmě — to je jedna z věcí, které děláme nejraději. Pošlete nám popis nebo náčrt a zavoláme si. Vysvětlíme rozdíly, navrhneme nejlepší řešení a poradíme s materiálem. Bez závazků, bez žargonu.</span><span data-lang="sk">Samozrejme — to je jedna z vecí, ktoré robíme najradšej. Pošlite nám popis alebo náčrt a zavoláme si. Vysvetlíme rozdiely, navrhneme najlepšie riešenie a poradíme s materiálom. Bez záväzkov, bez žargónu.</span><span data-lang="en">Of course — that's one of the things we love doing most. Send us a description or sketch and we'll hop on a call. We'll explain the differences, suggest the best solution, and advise on materials. No obligations, no jargon.</span></p></div>
       </div>
       <div class="fi">
         <button class="fq" onclick="tog(this)">
-          <span data-lang="cs" class="on">Jaké je minimální množství objednávky?</span><span data-lang="sk">Aké je minimálne množstvo objednávky?</span>
+          <span data-lang="cs" class="on">Jaké je minimální množství objednávky?</span><span data-lang="sk">Aké je minimálne množstvo objednávky?</span><span data-lang="en">What's the minimum order quantity?</span>
           <svg class="fqicon" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="9" y1="2" x2="9" y2="16"/><line x1="2" y1="9" x2="16" y2="9"/></svg>
         </button>
-        <div class="fa"><p><span data-lang="cs" class="on">Žádné minimum. Vyrábíme od 1 kusu — prototyp, unikátní výstavu nebo tisícovou sérii. Ke každé zakázce přistupujeme se stejnou péčí. Cena se samozřejmě s množstvím škáluje, ale malá zakázka u nás není druhá kategorie.</span><span data-lang="sk">Žiadne minimum. Vyrábame od 1 kusu — prototyp, unikátnu výstavu alebo tisícovú sériu. Ku každej zákazke pristupujeme s rovnakou starostlivosťou. Cena sa samozrejme s množstvom škáluje, ale malá zákazka u nás nie je druhá kategória.</span></p></div>
+        <div class="fa"><p><span data-lang="cs" class="on">Žádné minimum. Vyrábíme od 1 kusu — prototyp, unikátní výstavu nebo tisícovou sérii. Ke každé zakázce přistupujeme se stejnou péčí. Cena se samozřejmě s množstvím škáluje, ale malá zakázka u nás není druhá kategorie.</span><span data-lang="sk">Žiadne minimum. Vyrábame od 1 kusu — prototyp, unikátnu výstavu alebo tisícovú sériu. Ku každej zákazke pristupujeme s rovnakou starostlivosťou. Cena sa samozrejme s množstvom škáluje, ale malá zákazka u nás nie je druhá kategória.</span><span data-lang="en">No minimum. We produce from 1 piece — a prototype, a unique exhibit, or a thousand-piece run. You decide.</span></p></div>
       </div>
       <div class="fi">
         <button class="fq" onclick="tog(this)">
-          <span data-lang="cs" class="on">Jaké formáty souborů přijímáte?</span><span data-lang="sk">Aké formáty súborov prijímate?</span>
+          <span data-lang="cs" class="on">Jaké formáty souborů přijímáte?</span><span data-lang="sk">Aké formáty súborov prijímate?</span><span data-lang="en">What file formats do you accept?</span>
           <svg class="fqicon" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="9" y1="2" x2="9" y2="16"/><line x1="2" y1="9" x2="16" y2="9"/></svg>
         </button>
-        <div class="fa"><p><span data-lang="cs" class="on">DXF, STL, STEP, IGES, SolidWorks, Fusion 360, PDF — a zvládneme i technický výkres nebo fotografii náčrtu. Ještě nikdo nás nepřekvapil souborem, se kterým bychom si neporadili. Pokud si nejste jistí — prostě pošlete, co máte.</span><span data-lang="sk">DXF, STL, STEP, IGES, SolidWorks, Fusion 360, PDF — a zvládneme aj technický výkres alebo fotografiu náčrtu. Ešte nikto nás neprekvapil súborom, s ktorým by sme si neporadili. Ak si nie ste istí — jednoducho pošlite, čo máte.</span></p></div>
+        <div class="fa"><p><span data-lang="cs" class="on">DXF, STL, STEP, IGES, SolidWorks, Fusion 360, PDF — a zvládneme i technický výkres nebo fotografii náčrtu. Ještě nikdo nás nepřekvapil souborem, se kterým bychom si neporadili. Pokud si nejste jistí — prostě pošlete, co máte.</span><span data-lang="sk">DXF, STL, STEP, IGES, SolidWorks, Fusion 360, PDF — a zvládneme aj technický výkres alebo fotografiu náčrtu. Ešte nikto nás neprekvapil súborom, s ktorým by sme si neporadili. Ak si nie ste istí — jednoducho pošlite, čo máte.</span><span data-lang="en">DXF, STL, STEP, IGES, SolidWorks, Fusion 360, PDF — and we can handle technical drawings or even a hand sketch. Don't worry about the format — we'll figure it out.</span></p></div>
       </div>
       <div class="fi">
         <button class="fq" onclick="tog(this)">
-          <span data-lang="cs" class="on">Jak dlouho výroba trvá?</span><span data-lang="sk">Ako dlho výroba trvá?</span>
+          <span data-lang="cs" class="on">Jak dlouho výroba trvá?</span><span data-lang="sk">Ako dlho výroba trvá?</span><span data-lang="en">How long does production take?</span>
           <svg class="fqicon" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="9" y1="2" x2="9" y2="16"/><line x1="2" y1="9" x2="16" y2="9"/></svg>
         </button>
-        <div class="fa"><p><span data-lang="cs" class="on">Prototypy standardně do 48 hodin. Malosériová výroba (10–200 ks): 1–2 týdny. Větší série: 2–4 týdny podle složitosti. Máte šibeniční termín? Zavolejte nám — uděláme vše pro to, aby to vyšlo.</span><span data-lang="sk">Prototypy štandardne do 48 hodín. Malosériová výroba (10–200 ks): 1–2 týždne. Väčšie série: 2–4 týždne podľa zložitosti. Máte šibeničný termín? Zavolajte nám — urobíme všetko pre to, aby to vyšlo.</span></p></div>
+        <div class="fa"><p><span data-lang="cs" class="on">Prototypy standardně do 48 hodin. Malosériová výroba (10–200 ks): 1–2 týdny. Větší série: 2–4 týdny podle složitosti. Máte šibeniční termín? Zavolejte nám — uděláme vše pro to, aby to vyšlo.</span><span data-lang="sk">Prototypy štandardne do 48 hodín. Malosériová výroba (10–200 ks): 1–2 týždne. Väčšie série: 2–4 týždne podľa zložitosti. Máte šibeničný termín? Zavolajte nám — urobíme všetko pre to, aby to vyšlo.</span><span data-lang="en">Prototypes typically within 48 hours. Small series (10–200 pcs): 1–2 weeks. Larger runs: we'll set a specific schedule. We always confirm the deadline before starting.</span></p></div>
       </div>
       <div class="fi">
         <button class="fq" onclick="tog(this)">
-          <span data-lang="cs" class="on">Mohu si nejdřív objednat vzorek?</span><span data-lang="sk">Môžem si najskôr objednať vzorku?</span>
+          <span data-lang="cs" class="on">Mohu si nejdřív objednat vzorek?</span><span data-lang="sk">Môžem si najskôr objednať vzorku?</span><span data-lang="en">Can I order a sample first?</span>
           <svg class="fqicon" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="9" y1="2" x2="9" y2="16"/><line x1="2" y1="9" x2="16" y2="9"/></svg>
         </button>
-        <div class="fa"><p><span data-lang="cs" class="on">Ano — a u větších zakázek to sami doporučujeme. Vzorek vám umožní ověřit materiál, rozměry i povrchovou úpravu ještě před schválením série. Je to nejlepší způsob, jak předejít zklamání na obou stranách.</span><span data-lang="sk">Áno — a pri väčších zákazkách to sami odporúčame. Vzorka vám umožní overiť materiál, rozmery aj povrchovú úpravu ešte pred schválením série. Je to najlepší spôsob, ako predísť sklamaniu na oboch stranách.</span></p></div>
+        <div class="fa"><p><span data-lang="cs" class="on">Ano — a u větších zakázek to sami doporučujeme. Vzorek vám umožní ověřit materiál, rozměry i povrchovou úpravu ještě před schválením série. Je to nejlepší způsob, jak předejít zklamání na obou stranách.</span><span data-lang="sk">Áno — a pri väčších zákazkách to sami odporúčame. Vzorka vám umožní overiť materiál, rozmery aj povrchovú úpravu ešte pred schválením série. Je to najlepší spôsob, ako predísť sklamaniu na oboch stranách.</span><span data-lang="en">Yes — and for larger orders, we actively recommend it. A sample lets you verify material, finish, and dimensions before committing to full production.</span></p></div>
       </div>
       <div class="fi">
         <button class="fq" onclick="tog(this)">
-          <span data-lang="cs" class="on">Dostanu cenu předem, nebo mě překvapíte fakturou?</span><span data-lang="sk">Dostanem cenu vopred, alebo ma prekvapíte faktúrou?</span>
+          <span data-lang="cs" class="on">Dostanu cenu předem, nebo mě překvapíte fakturou?</span><span data-lang="sk">Dostanem cenu vopred, alebo ma prekvapíte faktúrou?</span><span data-lang="en">Will I get the price upfront, or a surprise invoice?</span>
           <svg class="fqicon" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="9" y1="2" x2="9" y2="16"/><line x1="2" y1="9" x2="16" y2="9"/></svg>
         </button>
-        <div class="fa"><p><span data-lang="cs" class="on">Vždy dostanete jasnou kalkulaci ještě před zahájením výroby. Žádné skryté poplatky, žádné záludné příplatky po dodání. A pokud se cokoliv v průběhu změní — první to víte vy.</span><span data-lang="sk">Vždy dostanete jasnú kalkuláciu ešte pred zahájením výroby. Žiadne skryté poplatky, žiadne záludné príplatky po dodaní. A ak sa čokoľvek v priebehu zmení — prví to viete vy.</span></p></div>
+        <div class="fa"><p><span data-lang="cs" class="on">Vždy dostanete jasnou kalkulaci ještě před zahájením výroby. Žádné skryté poplatky, žádné záludné příplatky po dodání. A pokud se cokoliv v průběhu změní — první to víte vy.</span><span data-lang="sk">Vždy dostanete jasnú kalkuláciu ešte pred zahájením výroby. Žiadne skryté poplatky, žiadne záludné príplatky po dodaní. A ak sa čokoľvek v priebehu zmení — prví to viete vy.</span><span data-lang="en">You always get a clear quote before production starts. No hidden fees, no surprises. If anything changes during production, we'll call you first.</span></p></div>
       </div>
     </div>
   </div>
@@ -765,14 +747,12 @@ span[data-lang].on,em[data-lang].on,strong[data-lang].on{display:inline}
   <div class="cta-in rv">
     <div>
       <h2 class="cta-title">
-        <span data-lang="cs" class="on">Máte projekt? <em>Pošlete nám soubor.</em></span>
-        <span data-lang="sk">Máte projekt? <em>Pošlite nám súbor.</em></span>
+        <span data-lang="cs" class="on">Máte projekt? <em>Pošlete nám soubor.</em></span><span data-lang="sk">Máte projekt? <em>Pošlite nám súbor.</em></span><span data-lang="en">Have a project? <em>Send us a file.</em></span>
       </h2>
-      <p class="cta-sub"><span data-lang="cs" class="on">Odpovídáme do 24 hodin. Nabídka do 48 hodin. Žádné závazky, žádné složitosti.</span><span data-lang="sk">Odpovedáme do 24 hodín. Ponuka do 48 hodín. Žiadne záväzky, žiadne komplikácie.</span></p>
+      <p class="cta-sub"><span data-lang="cs" class="on">Odpovídáme do 24 hodin. Nabídka do 48 hodin. Žádné závazky, žádné složitosti.</span><span data-lang="sk">Odpovedáme do 24 hodín. Ponuka do 48 hodín. Žiadne záväzky, žiadne komplikácie.</span><span data-lang="en">We respond within 24 hours. Quote within 48 hours. No obligations, no hassle.</span></p>
     </div>
     <a class="btn btn-white" href="#contact">
-      <span data-lang="cs" class="on">Poptat zdarma →</span>
-      <span data-lang="sk">Dopytovať zadarmo →</span>
+      <span data-lang="cs" class="on">Poptat zdarma →</span><span data-lang="sk">Popýtať zadarmo →</span><span data-lang="en">Get a free quote →</span>
     </a>
   </div>
 </section>
@@ -782,21 +762,21 @@ span[data-lang].on,em[data-lang].on,strong[data-lang].on{display:inline}
   <div class="contact-in">
     <div class="rv">
       <p class="stag">Kontakt</p>
-      <h2 class="ch2"><span data-lang="cs" class="on">Pojďme na to <em>společně.</em></span><span data-lang="sk">Poďme na to <em>spoločne.</em></span></h2>
-      <p class="contact-body"><span data-lang="cs" class="on">Napište nám nebo přiložte soubor — ozveme se do 24 hodin s konkrétní nabídkou. Přátelský rozhovor, žádné obchodní nátlaky. Prostě to dáme dohromady.</span><span data-lang="sk">Napíšte nám alebo priložte súbor — ozveme sa do 24 hodín s konkrétnou ponukou. Priateľský rozhovor, žiadne obchodné nátlaky. Jednoducho to dáme dokopy.</span></p>
-      <div class="contact-callout"><span data-lang="cs" class="on">Nevíte si rady? Klidně napište jen pár vět o tom, co potřebujete — my se zeptáme na zbytek.</span><span data-lang="sk">Neviete si rady? Pokojne napíšte len pár viet o tom, čo potrebujete — my sa spýtame na zvyšok.</span></div>
+      <h2 class="ch2"><span data-lang="cs" class="on">Pojďme na to <em>společně.</em></span><span data-lang="sk">Poďme na to <em>spoločne.</em></span><span data-lang="en">Let's do this <em>together.</em></span></h2>
+      <p class="contact-body"><span data-lang="cs" class="on">Napište nám nebo přiložte soubor — ozveme se do 24 hodin s konkrétní nabídkou. Přátelský rozhovor, žádné obchodní nátlaky. Prostě to dáme dohromady.</span><span data-lang="sk">Napíšte nám alebo priložte súbor — ozveme sa do 24 hodín s konkrétnou ponukou. Priateľský rozhovor, žiadne obchodné nátlaky. Jednoducho to dáme dokopy.</span><span data-lang="en">Write to us or attach a file — we'll get back within 24 hours with a concrete offer. Friendly conversation, no sales pressure. Let's just get it done.</span></p>
+      <div class="contact-callout"><span data-lang="cs" class="on">Nevíte si rady? Klidně napište jen pár vět o tom, co potřebujete — my se zeptáme na zbytek.</span><span data-lang="sk">Neviete si rady? Pokojne napíšte len pár viet o tom, čo potrebujete — my sa spýtame na zvyšok.</span><span data-lang="en">Write to us or attach a file — we'll get back within 24 hours with a specific offer. Friendly conversation, no sales pressure. Let's just make it happen.</span></div>
       <div class="cd"><p class="cd-lbl">Email</p><p class="cd-val"><a href="mailto:plant@wearetreed.com">plant@wearetreed.com</a></p></div>
-      <div class="cd"><p class="cd-lbl"><span data-lang="cs" class="on">Telefon</span><span data-lang="sk">Telefón</span></p><p class="cd-val"><a href="tel:+420601366516">+420 601 366 516</a></p></div>
-      <div class="cd"><p class="cd-lbl"><span data-lang="cs" class="on">Provozní doba</span><span data-lang="sk">Prevádzkové hodiny</span></p><p class="cd-val"><span data-lang="cs" class="on">Po–Pá, 8:00–17:00</span><span data-lang="sk">Po–Pi, 8:00–17:00</span></p></div>
-      <div class="cd"><p class="cd-lbl"><span data-lang="cs" class="on">Kde jsme</span><span data-lang="sk">Kde sme</span></p><p class="cd-val">Šumperk, Česká republika</p></div>
+      <div class="cd"><p class="cd-lbl"><span data-lang="cs" class="on">Telefon</span><span data-lang="sk">Telefón</span><span data-lang="en">Phone</span></p><p class="cd-val"><a href="tel:+420601366516">+420 601 366 516</a></p></div>
+      <div class="cd"><p class="cd-lbl"><span data-lang="cs" class="on">Provozní doba</span><span data-lang="sk">Prevádzkové hodiny</span><span data-lang="en">Hours</span></p><p class="cd-val"><span data-lang="cs" class="on">Po–Pá, 8:00–17:00</span><span data-lang="sk">Po–Pi, 8:00–17:00</span><span data-lang="en">Mon–Fri, 8:00–17:00</span></p></div>
+      <div class="cd"><p class="cd-lbl"><span data-lang="cs" class="on">Kde jsme</span><span data-lang="sk">Kde sme</span><span data-lang="en">Location</span></p><p class="cd-val">Šumperk, Česká republika</p></div>
     </div>
     <div class="rv d1">
       <div class="fg2">
-        <div class="form-r"><label><span data-lang="cs" class="on">Jméno</span><span data-lang="sk">Meno</span></label><input type="text" placeholder="Jan Novák"></div>
-        <div class="form-r"><label>Email</label><input type="email" placeholder="jan@firma.cz"></div>
+        <div class="form-r"><label><span data-lang="cs" class="on">Jméno</span><span data-lang="sk">Meno</span><span data-lang="en">Name</span></label><input type="text" name="name" id="f-name" placeholder="Jan Novák"></div>
+        <div class="form-r"><label>Email</label><input type="email" name="email" id="f-email" placeholder="jan@firma.cz"></div>
       </div>
       <div class="form-r">
-        <label><span data-lang="cs" class="on">O co jde? (volitelné)</span><span data-lang="sk">O čo ide? (voliteľné)</span></label>
+        <label><span data-lang="cs" class="on">O co jde? (volitelné)</span><span data-lang="sk">O čo ide? (voliteľné)</span><span data-lang="en">What's it about? (optional)</span></label>
         <select id="svc-sel">
           <option value="" disabled selected></option>
           <option id="s1">CNC frézování dřeva</option>
@@ -808,15 +788,14 @@ span[data-lang].on,em[data-lang].on,strong[data-lang].on{display:inline}
         </select>
       </div>
       <div class="form-r">
-        <label><span data-lang="cs" class="on">Řekněte nám víc</span><span data-lang="sk">Povedzte nám viac</span></label>
+        <label><span data-lang="cs" class="on">Řekněte nám víc</span><span data-lang="sk">Povedzte nám viac</span><span data-lang="en">Tell us more</span></label>
         <textarea id="msg" placeholder="Popište projekt, materiál, rozměry, termín... nebo prostě napište, co potřebujete. Nic nemusí být dokonalé — zbytek dořešíme spolu."></textarea>
       </div>
       <button class="fsub" id="fsub">
-        <span data-lang="cs" class="on" id="fcs">Odeslat poptávku →</span>
-        <span data-lang="sk" id="fsk">Odoslať dopyt →</span>
+        <span data-lang="cs" class="on" id="fcs">Odeslat poptávku →</span><span data-lang="sk" id="fsk">Odoslať dopyt →</span><span data-lang="en" id="fen">Send inquiry →</span>
       </button>
-      <p class="form-note"><span data-lang="cs" class="on">Odpovídáme do 24 hodin. Žádné závazky.</span><span data-lang="sk">Odpovedáme do 24 hodín. Žiadne záväzky.</span></p>
-      <div class="form-or"><span data-lang="cs" class="on">nebo nám napište přímo</span><span data-lang="sk">alebo nám napíšte priamo</span></div>
+      <p class="form-note"><span data-lang="cs" class="on">Odpovídáme do 24 hodin. Žádné závazky.</span><span data-lang="sk">Odpovedáme do 24 hodín. Žiadne záväzky.</span><span data-lang="en">We respond within 24 hours. No obligations.</span></p>
+      <div class="form-or"><span data-lang="cs" class="on">nebo nám napište přímo</span><span data-lang="sk">alebo nám napíšte priamo</span><span data-lang="en">or write to us directly</span></div>
       <p style="text-align:center;font-size:.87rem"><a href="mailto:plant@wearetreed.com" style="color:var(--accent);text-decoration:none;font-weight:500">plant@wearetreed.com</a></p>
     </div>
   </div>
@@ -826,9 +805,9 @@ span[data-lang].on,em[data-lang].on,strong[data-lang].on{display:inline}
 <footer>
   <span class="fl">Forma<b>.</b></span>
   <ul class="flinks">
-    <li><a href="#services"><span data-lang="cs" class="on">Služby</span><span data-lang="sk">Služby</span></a></li>
-    <li><a href="#gallery"><span data-lang="cs" class="on">Ukázky</span><span data-lang="sk">Ukážky</span></a></li>
-    <li><a href="#about"><span data-lang="cs" class="on">O nás</span><span data-lang="sk">O nás</span></a></li>
+    <li><a href="#services"><span data-lang="cs" class="on">Služby</span><span data-lang="sk">Služby</span><span data-lang="en">Services</span></a></li>
+    <li><a href="#gallery"><span data-lang="cs" class="on">Ukázky</span><span data-lang="sk">Ukážky</span><span data-lang="en">Showcase</span></a></li>
+    <li><a href="#about"><span data-lang="cs" class="on">O nás</span><span data-lang="sk">O nás</span><span data-lang="en">About us</span></a></li>
     <li><a href="#faq">FAQ</a></li>
     <li><a href="#contact">Kontakt</a></li>
   </ul>
@@ -839,23 +818,25 @@ span[data-lang].on,em[data-lang].on,strong[data-lang].on{display:inline}
 // ── LANG ──
 let L='cs';
 const TR={
-  s1:{cs:'CNC frézování dřeva',sk:'CNC frézovanie dreva'},
-  s2:{cs:'3D tisk',sk:'3D tlač'},
-  s3:{cs:'Laserové gravírování / řezání',sk:'Laserové gravírovanie / rezanie'},
-  s4:{cs:'Rapid prototyping',sk:'Rapid prototyping'},
-  s5:{cs:'Více technologií najednou',sk:'Viac technológií naraz'},
-  s6:{cs:'Nevím — poraďte mi',sk:'Neviem — poraďte mi'},
+  s1:{cs:'CNC frézování dřeva',sk:'CNC frézovanie dreva',en:'CNC wood milling'},
+  s2:{cs:'3D tisk',sk:'3D tlač',en:'3D printing'},
+  s3:{cs:'Laserové gravírování / řezání',sk:'Laserové gravírovanie / rezanie',en:'Laser engraving / cutting'},
+  s4:{cs:'Rapid prototyping',sk:'Rapid prototyping',en:'Rapid prototyping'},
+  s5:{cs:'Více technologií najednou',sk:'Viac technológií naraz',en:'Multiple technologies'},
+  s6:{cs:'Nevím — poraďte mi',sk:'Neviem — poraďte mi',en:'Not sure — advise me'},
 };
 function setL(l){
   L=l;
   document.documentElement.lang=l;
-  document.querySelectorAll('.lbtn').forEach(b=>b.classList.remove('on'));
-  document.querySelector(`.lbtn[onclick="setL('${l}')"]`).classList.add('on');
-  document.querySelectorAll('[data-lang]').forEach(el=>el.classList.toggle('on',el.dataset.lang===l));
-  Object.entries(TR).forEach(([id,t])=>{const el=document.getElementById(id);if(el)el.textContent=t[l];});
-  const ta=document.getElementById('msg');
+  document.querySelectorAll('.lbtn').forEach(function(b){b.classList.remove('on');});
+  try{document.querySelector('.lbtn[onclick="setL(\''+l+'\')"]').classList.add('on');}catch(e){}
+  document.querySelectorAll('[data-lang]').forEach(function(el){el.classList.toggle('on',el.getAttribute('data-lang')===l);});
+  Object.entries(TR).forEach(function(pair){var id=pair[0],t=pair[1];var el=document.getElementById(id);if(el)el.textContent=t[l];});
+  var ta=document.getElementById('msg');
   if(ta)ta.placeholder=l==='sk'
     ?'Opíšte projekt, materiál, rozmery, termín... alebo jednoducho napíšte, čo potrebujete. Nič nemusí byť dokonalé — zvyšok doriešime spolu.'
+    :l==='en'
+    ?'Describe your project, material, dimensions, deadline... or just write what you need. Nothing has to be perfect — we\'ll work out the rest together.'
     :'Popište projekt, materiál, rozměry, termín... nebo prostě napište, co potřebujete. Nic nemusí být dokonalé — zbytek dořešíme spolu.';
 }
 // ── FAQ ──
@@ -872,21 +853,54 @@ const obs=new IntersectionObserver(es=>{
 document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
 // ── FORM ──
 document.getElementById('fsub').addEventListener('click',function(){
-  const fields=document.querySelectorAll('#contact input[type=text],#contact input[type=email],#contact textarea');
-  let ok=true;
-  fields.forEach(f=>{if(!f.value.trim())ok=false;});
-  const cs=document.getElementById('fcs'),sk=document.getElementById('fsk');
-  if(ok){
-    cs.textContent='Odesláno! Ozveme se do 24 h ✓';
-    sk.textContent='Odoslané! Ozveme sa do 24 h ✓';
-    this.style.background='#2a5a2a';
-    setTimeout(()=>{cs.textContent='Odeslat poptávku →';sk.textContent='Odoslať dopyt →';this.style.background='';},4000);
-  }else{
-    cs.textContent='Vyplňte jméno, e-mail a zprávu';
-    sk.textContent='Vyplňte meno, e-mail a správu';
-    this.style.background='#7a2020';
-    setTimeout(()=>{cs.textContent='Odeslat poptávku →';sk.textContent='Odoslať dopyt →';this.style.background='';},2800);
+  var nameEl=document.getElementById('f-name');
+  var emailEl=document.getElementById('f-email');
+  var msgEl=document.getElementById('msg');
+  var svcEl=document.getElementById('svc-sel');
+  var cs=document.getElementById('fcs'),sk=document.getElementById('fsk'),en=document.getElementById('fen');
+  var btn=this;
+
+  // Validate
+  if(!nameEl.value.trim()||!emailEl.value.trim()||!msgEl.value.trim()){
+    if(cs)cs.textContent='Vypl\u0148te jm\u00e9no, e-mail a zpr\u00e1vu';
+    if(sk)sk.textContent='Vypl\u0148te meno, e-mail a spr\u00e1vu';
+    if(en)en.textContent='Please fill in name, email and message';
+    btn.style.background='#7a2020';
+    setTimeout(function(){if(cs)cs.textContent='Odeslat popt\u00e1vku \u2192';if(sk)sk.textContent='Odosla\u0165 dopyt \u2192';if(en)en.textContent='Send inquiry \u2192';btn.style.background='';},2800);
+    return;
   }
+
+  // Show sending state
+  if(cs)cs.textContent='Odes\u00edl\u00e1m...';
+  if(sk)sk.textContent='Odosielam...';
+  if(en)en.textContent='Sending...';
+  btn.disabled=true;
+
+  fetch('/api/contact',{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({
+      name:nameEl.value.trim(),
+      email:emailEl.value.trim(),
+      service:svcEl.options[svcEl.selectedIndex]?svcEl.options[svcEl.selectedIndex].text:'',
+      message:msgEl.value.trim()
+    })
+  }).then(function(r){return r.json();}).then(function(data){
+    if(data.success){
+      if(cs)cs.textContent='Odesl\u00e1no! Ozveme se do 24 h \u2713';
+      if(sk)sk.textContent='Odoslan\u00e9! Ozveme sa do 24 h \u2713';
+      if(en)en.textContent='Sent! We\u2019ll get back within 24 h \u2713';
+      btn.style.background='#2a5a2a';
+      nameEl.value='';emailEl.value='';msgEl.value='';svcEl.selectedIndex=0;
+      setTimeout(function(){if(cs)cs.textContent='Odeslat popt\u00e1vku \u2192';if(sk)sk.textContent='Odosla\u0165 dopyt \u2192';if(en)en.textContent='Send inquiry \u2192';btn.style.background='';btn.disabled=false;},4000);
+    }else{throw new Error(data.error);}
+  }).catch(function(){
+    if(cs)cs.textContent='Chyba \u2014 zkuste to znovu';
+    if(sk)sk.textContent='Chyba \u2014 sk\u00FAste to znova';
+    if(en)en.textContent='Error \u2014 please try again';
+    btn.style.background='#7a2020';
+    setTimeout(function(){if(cs)cs.textContent='Odeslat popt\u00e1vku \u2192';if(sk)sk.textContent='Odosla\u0165 dopyt \u2192';if(en)en.textContent='Send inquiry \u2192';btn.style.background='';btn.disabled=false;},3000);
+  });
 });
 
 /* Lightbox */
