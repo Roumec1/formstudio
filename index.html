@@ -7,9 +7,9 @@
 <meta name="description" content="Proměníme váš soubor v hotový výrobek. Velkoformátové CNC frézování, 100W laser, 3D tisková farma. Komplexní projekty vítány, série od 1 kusu. Šumperk, Česká republika.">
 <link rel="canonical" href="https://formastudio.cz/">
 <link rel="alternate" hreflang="cs" href="https://formastudio.cz/">
-<link rel="alternate" hreflang="sk" href="https://formastudio.cz/">
-<link rel="alternate" hreflang="en" href="https://formastudio.cz/">
-<link rel="alternate" hreflang="de" href="https://formastudio.cz/">
+<link rel="alternate" hreflang="sk" href="https://formastudio.cz/sk">
+<link rel="alternate" hreflang="en" href="https://formastudio.cz/en">
+<link rel="alternate" hreflang="de" href="https://formastudio.cz/de">
 <link rel="alternate" hreflang="x-default" href="https://formastudio.cz/">
 <meta property="og:title" content="Forma Studio — CNC, 3D tisk, Laser · Šumperk">
 <meta property="og:description" content="Výroba na zakázku. Velkoformátové CNC frézování, 100W laser, 3D tisková farma. Od prototypu po tisícové série. Šumperk.">
@@ -108,7 +108,7 @@ nav{position:sticky;top:0;z-index:200;background:rgba(250,249,247,.97);backdrop-
 .nav-links a:hover{color:var(--ink)}
 .nav-r{display:flex;align-items:center;gap:1.2rem}
 .lsw{display:flex;align-items:center}
-.lbtn{background:none;border:none;cursor:pointer;font-family:var(--sans);font-size:.72rem;font-weight:500;color:var(--mid);padding:.2rem .45rem;letter-spacing:.05em;transition:color .2s}
+.lbtn{background:none;border:none;cursor:pointer;font-family:var(--sans);font-size:.72rem;font-weight:500;color:var(--mid);padding:.2rem .45rem;letter-spacing:.05em;transition:color .2s;text-decoration:none;display:inline-block}
 .lbtn.on{color:var(--accent)}
 .lsep{color:var(--border);font-size:.8rem;user-select:none}
 .cta-nav{background:var(--ink);color:white;font-size:.76rem;font-weight:500;padding:.55rem 1.35rem;text-decoration:none;border-radius:2px;transition:background .2s,transform .15s;white-space:nowrap}
@@ -450,9 +450,9 @@ footer{background:var(--ink);padding:2.25rem 3rem;display:flex;align-items:cente
   </ul>
   <div class="nav-r">
     <div class="lsw">
-      <button class="lbtn on" onclick="setL('cs')">CZ</button>
+      <a class="lbtn on" data-l="cs" href="/">CZ</a>
       <span class="lsep">·</span>
-      <button class="lbtn" onclick="setL('sk')">SK</button><span class="lsep">·</span><button class="lbtn" onclick="setL('en')">EN</button><span class="lsep">·</span><button class="lbtn" onclick="setL('de')">DE</button>
+      <a class="lbtn" data-l="sk" href="/sk">SK</a><span class="lsep">·</span><a class="lbtn" data-l="en" href="/en">EN</a><span class="lsep">·</span><a class="lbtn" data-l="de" href="/de">DE</a>
     </div>
     <a class="cta-nav" href="#contact">
       <span data-lang="cs" class="on">Mám projekt →</span><span data-lang="sk">Mám projekt →</span><span data-lang="en">I have a project →</span><span data-lang="de">Ich habe ein Projekt →</span>
@@ -930,7 +930,7 @@ footer{background:var(--ink);padding:2.25rem 3rem;display:flex;align-items:cente
         <textarea id="msg" placeholder="Popište projekt, materiál, rozměry, termín... nebo prostě napište, co potřebujete. Nic nemusí být dokonalé — zbytek dořešíme spolu."></textarea>
       </div>
       <button class="fsub" id="fsub">
-        <span data-lang="cs" class="on" id="fcs">Odeslat poptávku →</span><span data-lang="sk" id="fsk">Odoslať dopyt →</span><span data-lang="en" id="fen">Send inquiry →</span><span data-lang="de" id="fde">Anfrage senden →</span>
+        <span data-lang="cs" id="fcs" class="on">Odeslat poptávku →</span><span data-lang="sk" id="fsk">Odoslať dopyt →</span><span data-lang="en" id="fen">Send inquiry →</span><span data-lang="de" id="fde">Anfrage senden →</span>
       </button>
       <p class="form-note"><span data-lang="cs" class="on">Odpovídáme do 24 hodin. Žádné závazky.</span><span data-lang="sk">Odpovedáme do 24 hodín. Žiadne záväzky.</span><span data-lang="en">We respond within 24 hours. No obligations.</span><span data-lang="de">Wir antworten innerhalb von 24 Stunden. Keine Verpflichtungen.</span></p>
       <div class="form-or"><span data-lang="cs" class="on">nebo nám napište přímo</span><span data-lang="sk">alebo nám napíšte priamo</span><span data-lang="en">or write to us directly</span><span data-lang="de">oder schreiben Sie uns direkt</span></div>
@@ -985,8 +985,7 @@ const TR={
 function setL(l){
   L=l;
   document.documentElement.lang=l;
-  document.querySelectorAll('.lbtn').forEach(function(b){b.classList.remove('on');});
-  try{document.querySelector('.lbtn[onclick="setL(\''+l+'\')"]').classList.add('on');}catch(e){}
+  document.querySelectorAll('.lbtn').forEach(function(b){b.classList.toggle('on',b.getAttribute('data-l')===l);});
   document.querySelectorAll('[data-lang]').forEach(function(el){el.classList.toggle('on',el.getAttribute('data-lang')===l);});
   Object.entries(TR).forEach(function(pair){var id=pair[0],t=pair[1];var el=document.getElementById(id);if(el)el.textContent=t[l];});
   patchMiniFormPlaceholder();
@@ -1151,6 +1150,8 @@ function closeLb(){lbOverlay.classList.remove('active');document.body.style.over
 lbOverlay.addEventListener('click',closeLb);
 lbClose.addEventListener('click',closeLb);
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLb();});
+// Sync JS state to the language this page was server-rendered in
+setL(document.documentElement.lang||'cs');
 </script>
 </body>
 </html>
