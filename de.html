@@ -14,10 +14,10 @@
 <link rel="alternate" hreflang="en" href="https://formastudio.cz/en">
 <link rel="alternate" hreflang="de" href="https://formastudio.cz/de">
 <link rel="alternate" hreflang="x-default" href="https://formastudio.cz/">
-<meta property="og:title" content="Forma Studio — CNC, 3D tisk, Laser · Šumperk">
-<meta property="og:description" content="Výroba na zakázku. Velkoformátové CNC frézování, 100W laser, 3D tisková farma. Od prototypu po tisícové série. Šumperk.">
+<meta property="og:title" content="Forma Studio — CNC-Fräsen, 3D-Druck, Lasergravur · Tschechien">
+<meta property="og:description" content="Fertigung auf Bestellung aus der EU. Großformatiges CNC-Fräsen, 100-W-Laser, 3D-Druckfarm. Vom Prototyp bis zu Tausenden.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://formastudio.cz/">
+<meta property="og:url" content="https://formastudio.cz/de">
 <meta property="og:image" content="https://formastudio.cz/images/cnc-frzka-v-provozu.jpg">
 <meta property="og:site_name" content="Forma Studio">
 <meta property="og:locale" content="de_DE">
@@ -25,8 +25,8 @@
 <meta property="og:locale:alternate" content="sk_SK">
 <meta property="og:locale:alternate" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Forma Studio — CNC, 3D tisk, Laser · Šumperk">
-<meta name="twitter:description" content="Výroba na zakázku. CNC frézování, 3D tisk, laser. Od 1 kusu po tisíce.">
+<meta name="twitter:title" content="Forma Studio — CNC-Fräsen, 3D-Druck, Lasergravur · Tschechien">
+<meta name="twitter:description" content="Fertigung auf Bestellung aus der EU. Großformatiges CNC-Fräsen, 100-W-Laser, 3D-Druckfarm. Vom Prototyp bis zu Tausenden.">
 <meta name="twitter:image" content="https://formastudio.cz/images/cnc-frzka-v-provozu.jpg">
 <link rel="preload" href="/fonts/inter-400-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/instrumentserif-400-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -1201,6 +1201,17 @@ document.addEventListener('click',function(e){
   var a=e.target.closest&&e.target.closest('a[href^="https://wa.me"]');
   if(a&&window.va)va('event',{name:'whatsapp_click',data:{lang:L}});
 });
+// ── LANGUAGE PREFERENCE (for the homepage geo-redirect) ──
+// Remember the visitor's language so middleware.js respects a manual choice.
+function setLangCookie(l){document.cookie='floc='+l+';path=/;max-age=31536000;SameSite=Lax';}
+// 1) Clicking a switcher link records the DESTINATION language *before* navigating,
+//    so going to "/" (Czech) is never overridden by a stale cookie.
+document.querySelectorAll('.lbtn').forEach(function(b){
+  b.addEventListener('click',function(){setLangCookie(b.getAttribute('data-l'));});
+});
+// 2) Landing directly on a language page (e.g. an ad to /de) persists that choice.
+setLangCookie(document.documentElement.lang||'cs');
+
 // Sync JS state to the language this page was server-rendered in
 setL(document.documentElement.lang||'cs');
 </script>

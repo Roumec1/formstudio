@@ -13,22 +13,26 @@ const META = {
   cs: {
     file: 'index.html', loc: 'cs_CZ', url: BASE + '/',
     title: 'Forma Studio — CNC, 3D tisk, Laser · Šumperk',
-    desc: 'Proměníme váš soubor v hotový výrobek. Velkoformátové CNC frézování, 100W laser, 3D tisková farma. Komplexní projekty vítány, série od 1 kusu. Šumperk, Česká republika.'
+    desc: 'Proměníme váš soubor v hotový výrobek. Velkoformátové CNC frézování, 100W laser, 3D tisková farma. Komplexní projekty vítány, série od 1 kusu. Šumperk, Česká republika.',
+    social: 'Výroba na zakázku. Velkoformátové CNC frézování, 100W laser, 3D tisková farma. Od prototypu po tisícové série. Šumperk.'
   },
   sk: {
     file: 'sk.html', loc: 'sk_SK', url: BASE + '/sk',
     title: 'Forma Studio — CNC, 3D tlač, Laser · Šumperk',
-    desc: 'Premeníme váš súbor na hotový výrobok. Veľkoformátové CNC frézovanie, 100W laser, 3D tlačová farma. Komplexné projekty vítané, série od 1 kusu. Šumperk, Česká republika.'
+    desc: 'Premeníme váš súbor na hotový výrobok. Veľkoformátové CNC frézovanie, 100W laser, 3D tlačová farma. Komplexné projekty vítané, série od 1 kusu. Šumperk, Česká republika.',
+    social: 'Výroba na zákazku. Veľkoformátové CNC frézovanie, 100W laser, 3D tlačová farma. Od prototypu po tisícové série. Šumperk.'
   },
   en: {
     file: 'en.html', loc: 'en_US', url: BASE + '/en',
     title: 'Forma Studio — CNC, 3D Printing, Laser · Czech Republic',
-    desc: 'We turn your file into a finished product. Large-format CNC milling, 100W laser, 3D printing farm. Complex projects welcome, batches from a single piece. Šumperk, Czech Republic.'
+    desc: 'We turn your file into a finished product. Large-format CNC milling, 100W laser, 3D printing farm. Complex projects welcome, batches from a single piece. Šumperk, Czech Republic.',
+    social: 'Custom manufacturing in the EU. Large-format CNC milling, 100W laser, 3D printing farm. From a single prototype to thousands.'
   },
   de: {
     file: 'de.html', loc: 'de_DE', url: BASE + '/de',
     title: 'Forma Studio — CNC-Fräsen, 3D-Druck, Lasergravur · Tschechien',
-    desc: 'Wir verwandeln Ihre Datei in ein fertiges Produkt. Großformatiges CNC-Fräsen, 100-W-Laser, 3D-Druckfarm. Komplexe Projekte willkommen, Serien ab 1 Stück. Šumperk, Tschechien.'
+    desc: 'Wir verwandeln Ihre Datei in ein fertiges Produkt. Großformatiges CNC-Fräsen, 100-W-Laser, 3D-Druckfarm. Komplexe Projekte willkommen, Serien ab 1 Stück. Šumperk, Tschechien.',
+    social: 'Fertigung auf Bestellung aus der EU. Großformatiges CNC-Fräsen, 100-W-Laser, 3D-Druckfarm. Vom Prototyp bis zu Tausenden.'
   }
 };
 
@@ -50,6 +54,12 @@ Object.keys(META).forEach(function (lang) {
   h = h.replace('<link rel="canonical" href="https://formastudio.cz/">', '<link rel="canonical" href="' + m.url + '">');
   h = h.replace(/<title>[\s\S]*?<\/title>/, '<title>' + m.title + '</title>');
   h = h.replace(/<meta name="description" content="[\s\S]*?">/, '<meta name="description" content="' + m.desc + '">');
+  // Social-share cards (WhatsApp / Facebook / LinkedIn / X) read these — localize them
+  h = h.replace(/<meta property="og:title" content="[\s\S]*?">/, '<meta property="og:title" content="' + m.title + '">');
+  h = h.replace(/<meta property="og:description" content="[\s\S]*?">/, '<meta property="og:description" content="' + m.social + '">');
+  h = h.replace('<meta property="og:url" content="https://formastudio.cz/">', '<meta property="og:url" content="' + m.url + '">');
+  h = h.replace(/<meta name="twitter:title" content="[\s\S]*?">/, '<meta name="twitter:title" content="' + m.title + '">');
+  h = h.replace(/<meta name="twitter:description" content="[\s\S]*?">/, '<meta name="twitter:description" content="' + m.social + '">');
   h = h.replace(/<meta property="og:locale"[\s\S]*?<meta property="og:locale:alternate" content="de_DE">/, ogBlock(m.loc));
 
   // Activate this language's spans, deactivate the rest (attribute-order tolerant)
