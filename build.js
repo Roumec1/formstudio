@@ -14,27 +14,35 @@ const META = {
     file: 'index.html', loc: 'cs_CZ', url: BASE + '/',
     title: 'Forma Studio — CNC, 3D tisk, Laser · Šumperk',
     desc: 'Proměníme váš soubor v hotový výrobek. Velkoformátové CNC frézování, 100W laser, 3D tisková farma. Komplexní projekty vítány, série od 1 kusu. Šumperk, Česká republika.',
-    social: 'Výroba na zakázku. Velkoformátové CNC frézování, 100W laser, 3D tisková farma. Od prototypu po tisícové série. Šumperk.'
+    social: 'Výroba na zakázku. Velkoformátové CNC frézování, 100W laser, 3D tisková farma. Od prototypu po tisícové série. Šumperk.',
+    wa: 'Dobrý den, mám dotaz na Forma Studio.'
   },
   sk: {
     file: 'sk.html', loc: 'sk_SK', url: BASE + '/sk',
     title: 'Forma Studio — CNC, 3D tlač, Laser · Šumperk',
     desc: 'Premeníme váš súbor na hotový výrobok. Veľkoformátové CNC frézovanie, 100W laser, 3D tlačová farma. Komplexné projekty vítané, série od 1 kusu. Šumperk, Česká republika.',
-    social: 'Výroba na zákazku. Veľkoformátové CNC frézovanie, 100W laser, 3D tlačová farma. Od prototypu po tisícové série. Šumperk.'
+    social: 'Výroba na zákazku. Veľkoformátové CNC frézovanie, 100W laser, 3D tlačová farma. Od prototypu po tisícové série. Šumperk.',
+    wa: 'Dobrý deň, mám otázku pre Forma Studio.'
   },
   en: {
     file: 'en.html', loc: 'en_US', url: BASE + '/en',
     title: 'Forma Studio — CNC, 3D Printing, Laser · Czech Republic',
     desc: 'We turn your file into a finished product. Large-format CNC milling, 100W laser, 3D printing farm. Complex projects welcome, batches from a single piece. Šumperk, Czech Republic.',
-    social: 'Custom manufacturing in the EU. Large-format CNC milling, 100W laser, 3D printing farm. From a single prototype to thousands.'
+    social: 'Custom manufacturing in the EU. Large-format CNC milling, 100W laser, 3D printing farm. From a single prototype to thousands.',
+    wa: 'Hello, I have an inquiry for Forma Studio.'
   },
   de: {
     file: 'de.html', loc: 'de_DE', url: BASE + '/de',
     title: 'Forma Studio — CNC-Fräsen, 3D-Druck, Lasergravur · Tschechien',
     desc: 'Wir verwandeln Ihre Datei in ein fertiges Produkt. Großformatiges CNC-Fräsen, 100-W-Laser, 3D-Druckfarm. Komplexe Projekte willkommen, Serien ab 1 Stück. Šumperk, Tschechien.',
-    social: 'Fertigung auf Bestellung aus der EU. Großformatiges CNC-Fräsen, 100-W-Laser, 3D-Druckfarm. Vom Prototyp bis zu Tausenden.'
+    social: 'Fertigung auf Bestellung aus der EU. Großformatiges CNC-Fräsen, 100-W-Laser, 3D-Druckfarm. Vom Prototyp bis zu Tausenden.',
+    wa: 'Guten Tag, ich habe eine Anfrage an Forma Studio.'
   }
 };
+
+// Matches the prefill text on any wa.me link, whatever its current value
+// (index.html doubles as the cs output, so this must be idempotent across rebuilds).
+const WA_RE = /(wa\.me\/4917622791055\?text=)[^"]*/g;
 
 const SRC = fs.readFileSync('index.html', 'utf8');
 
@@ -61,6 +69,9 @@ Object.keys(META).forEach(function (lang) {
   h = h.replace(/<meta name="twitter:title" content="[\s\S]*?">/, '<meta name="twitter:title" content="' + m.title + '">');
   h = h.replace(/<meta name="twitter:description" content="[\s\S]*?">/, '<meta name="twitter:description" content="' + m.social + '">');
   h = h.replace(/<meta property="og:locale"[\s\S]*?<meta property="og:locale:alternate" content="de_DE">/, ogBlock(m.loc));
+
+  // Localize the WhatsApp click-to-chat prefill text on every wa.me link
+  h = h.replace(WA_RE, '$1' + encodeURIComponent(m.wa));
 
   // Activate this language's spans, deactivate the rest (attribute-order tolerant)
   h = h.replace(/<span\b([^>]*?)\bdata-lang="(cs|sk|en|de)"([^>]*?)>/g, function (_m, pre, l, post) {
