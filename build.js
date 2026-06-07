@@ -105,6 +105,9 @@ Object.keys(META).forEach(function (lang) {
   h = h.replace('<meta property="og:url" content="https://formastudio.cz/">', '<meta property="og:url" content="' + m.url + '">');
   h = h.replace(/<meta name="twitter:title" content="[\s\S]*?">/, '<meta name="twitter:title" content="' + m.title + '">');
   h = h.replace(/<meta name="twitter:description" content="[\s\S]*?">/, '<meta name="twitter:description" content="' + m.social + '">');
+  // Localized social-share image (og:image + twitter:image both point at og-cs.jpg in the source)
+  h = h.split('/images/og-cs.jpg').join('/images/og-' + lang + '.jpg');
+  h = h.replace(/<meta property="og:image:alt" content="[\s\S]*?">/, '<meta property="og:image:alt" content="' + m.title + '">');
   h = h.replace(/<meta property="og:locale"[\s\S]*?<meta property="og:locale:alternate" content="de_DE">/, ogBlock(m.loc));
 
   // Localize the WhatsApp click-to-chat prefill text on every wa.me link
