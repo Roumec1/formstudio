@@ -44,6 +44,20 @@ const META = {
 // (index.html doubles as the cs output, so this must be idempotent across rebuilds).
 const WA_RE = /(wa\.me\/4917622791055\?text=)[^"]*/g;
 
+// Scrolling marquee items per language (regenerated each build).
+const MARQUEE = {
+  cs: ['CNC frézování dřeva', '3D tisk — FDM & resin', 'Laserové gravírování', 'Rapid prototyping', 'Série 1 – 10 000 ks', 'Dřevo · Plast · Kov · Akryl', '5 let v oboru', 'Šumperk, Morava'],
+  sk: ['CNC frézovanie dreva', '3D tlač — FDM & resin', 'Laserové gravírovanie', 'Rapid prototyping', 'Séria 1 – 10 000 ks', 'Drevo · Plast · Kov · Akryl', '5 rokov v odbore', 'Šumperk, Morava'],
+  en: ['CNC wood milling', '3D printing — FDM & resin', 'Laser engraving', 'Rapid prototyping', 'Batches 1 – 10,000 pcs', 'Wood · Plastic · Metal · Acrylic', '5 years in the field', 'Šumperk, Moravia'],
+  de: ['CNC-Holzfräsen', '3D-Druck — FDM & Resin', 'Lasergravur', 'Rapid Prototyping', 'Serien 1 – 10.000 Stück', 'Holz · Kunststoff · Metall · Acryl', '5 Jahre Erfahrung', 'Šumperk, Mähren'],
+};
+function marqueeTrack(items) {
+  const one = items.map(function (t) {
+    return '    <span class="mi">' + t.replace(/&/g, '&amp;') + ' <span class="md"></span></span>';
+  }).join('\n');
+  return '<div class="mtrack">\n' + one + '\n' + one + '\n  </div>';
+}
+
 const SRC = fs.readFileSync('index.html', 'utf8');
 
 function ogBlock(primaryLoc) {
@@ -112,6 +126,9 @@ Object.keys(META).forEach(function (lang) {
 
   // Localize the WhatsApp click-to-chat prefill text on every wa.me link
   h = h.replace(WA_RE, '$1' + encodeURIComponent(m.wa));
+
+  // Localize the scrolling marquee
+  h = h.replace(/<div class="mtrack">[\s\S]*?<\/div>/, marqueeTrack(MARQUEE[lang]));
 
   // FAQ rich-results structured data — strip any previously generated block, re-inject for this language
   h = h.replace(/\s*<script type="application\/ld\+json" data-faq>[\s\S]*?<\/script>/, '');
