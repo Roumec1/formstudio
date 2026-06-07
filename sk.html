@@ -31,6 +31,9 @@
 <link rel="preload" href="/fonts/inter-400-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/instrumentserif-400-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/fonts/fonts.css">
+<!-- Vercel Web Analytics (cookieless) -->
+<script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments);};</script>
+<script defer src="/_vercel/insights/script.js"></script>
 <script type="application/ld+json">
 {
   "@context":"https://schema.org",
@@ -396,6 +399,25 @@ footer{background:var(--ink);padding:2.25rem 3rem;display:flex;align-items:cente
 #flt-toggle:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(201,78,30,.48)}
 #flt-toggle.hidden{opacity:0;pointer-events:none;transform:translateY(8px)}
 #flt-toggle svg{width:15px;height:15px;flex-shrink:0}
+
+/* Honeypot anti-spam field — hidden from humans, visible to bots */
+.hp{position:absolute!important;left:-9999px!important;width:1px;height:1px;overflow:hidden;opacity:0;pointer-events:none}
+
+/* WhatsApp floating action button (bottom-left) */
+#wa-fab{
+  position:fixed;bottom:1.5rem;left:1.5rem;z-index:400;
+  width:52px;height:52px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  background:#25d366;color:#fff;
+  box-shadow:0 4px 18px rgba(37,211,102,.4);
+  transition:transform .2s,box-shadow .2s;
+}
+#wa-fab:hover{transform:translateY(-2px) scale(1.05);box-shadow:0 6px 24px rgba(37,211,102,.5)}
+#wa-fab svg{width:28px;height:28px}
+@media(max-width:600px){
+  #wa-fab{width:48px;height:48px;bottom:1rem;left:1rem}
+  #wa-fab svg{width:25px;height:25px}
+}
 
 #flt-panel{
   position:fixed;bottom:4.8rem;right:1.5rem;z-index:401;
@@ -934,6 +956,7 @@ footer{background:var(--ink);padding:2.25rem 3rem;display:flex;align-items:cente
         <label><span data-lang="cs">Řekněte nám víc</span><span data-lang="sk" class="on">Povedzte nám viac</span><span data-lang="en">Tell us more</span><span data-lang="de">Erzählen Sie uns mehr</span></label>
         <textarea id="msg" placeholder="Popište projekt, materiál, rozměry, termín... nebo prostě napište, co potřebujete. Nic nemusí být dokonalé — zbytek dořešíme spolu."></textarea>
       </div>
+      <div class="hp" aria-hidden="true"><label>Company<input type="text" id="f-company" name="company" tabindex="-1" autocomplete="off"></label></div>
       <button class="fsub" id="fsub">
         <span data-lang="cs" id="fcs">Odeslat poptávku →</span><span data-lang="sk" id="fsk" class="on">Odoslať dopyt →</span><span data-lang="en" id="fen">Send inquiry →</span><span data-lang="de" id="fde">Anfrage senden →</span>
       </button>
@@ -959,6 +982,11 @@ footer{background:var(--ink);padding:2.25rem 3rem;display:flex;align-items:cente
   <span class="fcopy">© 2026 Forma Studio · Šumperk · CNC · 3D · Laser</span>
 </footer>
 
+<!-- ── WHATSAPP FAB ── -->
+<a id="wa-fab" href="https://wa.me/4917622791055?text=Guten%20Tag%2C%20ich%20habe%20eine%20Anfrage%20an%20Forma%20Studio." target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 0 1 8.413 3.488 11.824 11.824 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.51 5.26l-.999 3.648 3.978-1.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.017-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z"/></svg>
+</a>
+
 <!-- ── FLOATING MINI-FORM ── -->
 <button id="flt-toggle" aria-label="Napsat poptávku" onclick="fltOpen()">
   <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -974,6 +1002,7 @@ footer{background:var(--ink);padding:2.25rem 3rem;display:flex;align-items:cente
   <div class="fpr"><label><span data-lang="cs">Jméno</span><span data-lang="sk" class="on">Meno</span><span data-lang="en">Name</span><span data-lang="de">Name</span></label><input type="text" id="fp-name" placeholder="Jan Novák" autocomplete="name"></div>
   <div class="fpr"><label>Email</label><input type="email" id="fp-email" placeholder="jan@firma.cz" autocomplete="email"></div>
   <div class="fpr"><label><span data-lang="cs">Zpráva</span><span data-lang="sk" class="on">Správa</span><span data-lang="en">Message</span><span data-lang="de">Nachricht</span></label><textarea id="fp-msg" placeholder="Co potřebujete vyrobit?"></textarea></div>
+  <div class="hp" aria-hidden="true"><label>Company<input type="text" id="fp-company" name="company" tabindex="-1" autocomplete="off"></label></div>
   <button id="flt-send" onclick="fltSend()"><span data-lang="cs">Odeslat →</span><span data-lang="sk" class="on">Odoslať →</span><span data-lang="en">Send →</span><span data-lang="de">Senden →</span></button>
   <p class="fp-note"><span data-lang="cs">Žádné závazky. Odpovídáme do 24 h.</span><span data-lang="sk" class="on">Žiadne záväzky. Odpovedáme do 24 h.</span><span data-lang="en">No obligations. We reply within 24 h.</span><span data-lang="de">Keine Verpflichtungen. Wir antworten innerhalb von 24 h.</span></p>
 </div>
@@ -1024,7 +1053,11 @@ document.getElementById('fsub').addEventListener('click',function(){
   var msgEl=document.getElementById('msg');
   var svcEl=document.getElementById('svc-sel');
   var cs=document.getElementById('fcs'),sk=document.getElementById('fsk'),en=document.getElementById('fen'),de=document.getElementById('fde');
+  var hp=document.getElementById('f-company');
   var btn=this;
+
+  // Honeypot: bots fill the hidden field — silently drop
+  if(hp&&hp.value){return;}
 
   // Validate
   if(!nameEl.value.trim()||!emailEl.value.trim()||!msgEl.value.trim()){
@@ -1055,6 +1088,7 @@ document.getElementById('fsub').addEventListener('click',function(){
     })
   }).then(function(r){return r.json();}).then(function(data){
     if(data.success){
+      if(window.va)va('event',{name:'lead_form',data:{lang:L}});
       if(cs)cs.textContent='Odesl\u00e1no! Ozveme se do 24 h \u2713';
       if(sk)sk.textContent='Odoslan\u00e9! Ozveme sa do 24 h \u2713';
       if(en)en.textContent='Sent! We\u2019ll get back within 24 h \u2713';
@@ -1107,7 +1141,11 @@ function fltSend(){
   var nameEl=document.getElementById('fp-name');
   var emailEl=document.getElementById('fp-email');
   var msgEl=document.getElementById('fp-msg');
+  var hp=document.getElementById('fp-company');
   var sendBtn=document.getElementById('flt-send');
+
+  // Honeypot: bots fill the hidden field — silently drop
+  if(hp&&hp.value){return;}
 
   if(!nameEl.value.trim()||!emailEl.value.trim()||!msgEl.value.trim()){
     sendBtn.style.background='#7a2020';
@@ -1126,6 +1164,7 @@ function fltSend(){
     body:JSON.stringify({name:nameEl.value.trim(),email:emailEl.value.trim(),service:'',message:msgEl.value.trim()})
   }).then(function(r){return r.json();}).then(function(d){
     if(d.success){
+      if(window.va)va('event',{name:'lead_form_floating',data:{lang:L}});
       spans.forEach(function(s){if(s.classList.contains('on'))s.textContent=L==='sk'?'Odoslané ✓':L==='en'?'Sent ✓':L==='de'?'Gesendet ✓':'Odesláno ✓';});
       sendBtn.style.background='#2a5a2a';
       nameEl.value='';emailEl.value='';msgEl.value='';
@@ -1157,6 +1196,11 @@ function closeLb(){lbOverlay.classList.remove('active');document.body.style.over
 lbOverlay.addEventListener('click',closeLb);
 lbClose.addEventListener('click',closeLb);
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLb();});
+// Track WhatsApp clicks (FAB + contact link)
+document.addEventListener('click',function(e){
+  var a=e.target.closest&&e.target.closest('a[href^="https://wa.me"]');
+  if(a&&window.va)va('event',{name:'whatsapp_click',data:{lang:L}});
+});
 // Sync JS state to the language this page was server-rendered in
 setL(document.documentElement.lang||'cs');
 </script>
