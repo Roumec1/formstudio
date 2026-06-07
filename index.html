@@ -1260,10 +1260,16 @@ document.addEventListener('click',function(e){
 });
 document.addEventListener('keydown',function(e){if(e.key==='Escape')navClose();});
 
-// Track WhatsApp clicks (FAB + contact link)
+// Track conversion clicks (WhatsApp, phone, email, primary CTAs)
 document.addEventListener('click',function(e){
-  var a=e.target.closest&&e.target.closest('a[href^="https://wa.me"]');
-  if(a&&window.va)va('event',{name:'whatsapp_click',data:{lang:L}});
+  if(!e.target.closest||!window.va)return;
+  var a=e.target.closest('a');
+  if(!a)return;
+  var href=a.getAttribute('href')||'';
+  if(href.indexOf('https://wa.me')===0)va('event',{name:'whatsapp_click',data:{lang:L}});
+  else if(href.indexOf('tel:')===0)va('event',{name:'phone_click',data:{lang:L}});
+  else if(href.indexOf('mailto:')===0)va('event',{name:'email_click',data:{lang:L}});
+  else if(a.classList.contains('cta-nav')||a.classList.contains('btn-ink')||a.classList.contains('btn-white'))va('event',{name:'cta_click',data:{lang:L}});
 });
 // ── LANGUAGE PREFERENCE (for the homepage geo-redirect) ──
 // Remember the visitor's language so middleware.js respects a manual choice.
