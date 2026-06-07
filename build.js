@@ -58,6 +58,36 @@ function marqueeTrack(items) {
   return '<div class="mtrack">\n' + one + '\n' + one + '\n  </div>';
 }
 
+// Image alt text, keyed by the Czech alt in index.html. Localized for image SEO.
+const ALT = {
+  'CNC frézka v provozu': { sk: 'CNC frézka v prevádzke', en: 'CNC router in operation', de: 'CNC-Fräse im Betrieb' },
+  'CNC frézování dřeva — velkoformátová fréza Forma Studio': { sk: 'CNC frézovanie dreva — veľkoformátová fréza Forma Studio', en: 'CNC wood milling — large-format router at Forma Studio', de: 'CNC-Holzfräsen — Großformatfräse von Forma Studio' },
+  'Laserové gravírování a řezání — 100W CO2 laser Forma Studio': { sk: 'Laserové gravírovanie a rezanie — 100W CO2 laser Forma Studio', en: 'Laser engraving and cutting — 100W CO2 laser at Forma Studio', de: 'Lasergravur und -schnitt — 100-W-CO2-Laser von Forma Studio' },
+  '3D tisková farma — desítky tiskáren Forma Studio Šumperk': { sk: '3D tlačová farma — desiatky tlačiarní Forma Studio Šumperk', en: '3D printing farm — dozens of printers at Forma Studio, Šumperk', de: '3D-Druckfarm — Dutzende Drucker bei Forma Studio, Šumperk' },
+  'Rapid prototyping — od prototypu k sériové výrobě': { sk: 'Rapid prototyping — od prototypu k sériovej výrobe', en: 'Rapid prototyping — from prototype to series production', de: 'Rapid Prototyping — vom Prototyp zur Serienfertigung' },
+  'Dřevěný produkt s brandovaným balením vyrobený CNC frézováním': { sk: 'Drevený produkt s brandovaným balením vyrobený CNC frézovaním', en: 'Wooden product with branded packaging made by CNC milling', de: 'Holzprodukt mit gebrandeter Verpackung, gefertigt per CNC-Fräsen' },
+  'Dřevěná bezdrátová nabíječka vyrobená CNC frézováním': { sk: 'Drevená bezdrôtová nabíjačka vyrobená CNC frézovaním', en: 'Wooden wireless charger made by CNC milling', de: 'Kabelloses Ladegerät aus Holz, gefertigt per CNC-Fräsen' },
+  'Dřevěný aroma difuzér z dubového dřeva — CNC výroba': { sk: 'Drevený aroma difuzér z dubového dreva — CNC výroba', en: 'Oak wood aroma diffuser — CNC manufacturing', de: 'Aroma-Diffuser aus Eichenholz — CNC-Fertigung' },
+  'Bezdrátová nabíječka s laser gravírovaným logem Cloudflare': { sk: 'Bezdrôtová nabíjačka s laserovo gravírovaným logom Cloudflare', en: 'Wireless charger with a laser-engraved Cloudflare logo', de: 'Kabelloses Ladegerät mit lasergraviertem Cloudflare-Logo' },
+  'Dřevěný stojánek z dubu vyrobený CNC frézováním': { sk: 'Drevený stojanček z dubu vyrobený CNC frézovaním', en: 'Oak wood stand made by CNC milling', de: 'Ständer aus Eichenholz, gefertigt per CNC-Fräsen' },
+  'Dřevěná bezdrátová nabíječka s iPhonem — ukázka produktu': { sk: 'Drevená bezdrôtová nabíjačka s iPhonom — ukážka produktu', en: 'Wooden wireless charger with an iPhone — product showcase', de: 'Kabelloses Ladegerät aus Holz mit iPhone — Produktbeispiel' },
+  'Sada dřevěných doplňků — CNC frézování a laserové gravírování': { sk: 'Sada drevených doplnkov — CNC frézovanie a laserové gravírovanie', en: 'Set of wooden accessories — CNC milling and laser engraving', de: 'Set aus Holzaccessoires — CNC-Fräsen und Lasergravur' },
+  'Aroma difuzér z ořechového dřeva — CNC výroba na zakázku': { sk: 'Aroma difuzér z orechového dreva — CNC výroba na zákazku', en: 'Walnut wood aroma diffuser — custom CNC manufacturing', de: 'Aroma-Diffuser aus Nussholz — CNC-Auftragsfertigung' },
+  'Dřevěný stojánek z ořechu — zakázková CNC výroba': { sk: 'Drevený stojanček z orecha — zákazková CNC výroba', en: 'Walnut wood stand — custom CNC manufacturing', de: 'Ständer aus Nussholz — CNC-Auftragsfertigung' },
+  'Dřevěná pokladnička s laser gravírovaným logem pro Cloudflare event': { sk: 'Drevená pokladnička s laserovo gravírovaným logom pre Cloudflare event', en: 'Wooden money box with a laser-engraved logo for a Cloudflare event', de: 'Spardose aus Holz mit lasergraviertem Logo für ein Cloudflare-Event' },
+  'Velký aroma difuzér z ořechového dřeva — sériová výroba': { sk: 'Veľký aroma difuzér z orechového dreva — sériová výroba', en: 'Large walnut wood aroma diffuser — series production', de: 'Großer Aroma-Diffuser aus Nussholz — Serienfertigung' },
+  'Unboxing dřevěného aroma difuzéru — balení a prezentace produktu': { sk: 'Unboxing dreveného aroma difuzéra — balenie a prezentácia produktu', en: 'Unboxing a wooden aroma diffuser — packaging and presentation', de: 'Unboxing eines Aroma-Diffusers aus Holz — Verpackung und Präsentation' },
+  'Detail zadní strany dřevěného produktu — kvalita CNC opracování': { sk: 'Detail zadnej strany dreveného produktu — kvalita CNC opracovania', en: 'Close-up of the back of a wooden product — CNC finishing quality', de: 'Detail der Rückseite eines Holzprodukts — Qualität der CNC-Bearbeitung' },
+  'Detail povrchové úpravy dřevěného výrobku z Forma Studia': { sk: 'Detail povrchovej úpravy dreveného výrobku z Forma Studia', en: 'Close-up of the surface finish of a wooden product by Forma Studio', de: 'Detail der Oberflächenbearbeitung eines Holzprodukts von Forma Studio' },
+  'Dřevěný výrobek na zakázku — CNC frézování Šumperk': { sk: 'Drevený výrobok na zákazku — CNC frézovanie Šumperk', en: 'Custom wooden product — CNC milling, Šumperk', de: 'Holzprodukt nach Maß — CNC-Fräsen, Šumperk' },
+  'Detail řemeslného zpracování — CNC a laserová výroba': { sk: 'Detail remeselného spracovania — CNC a laserová výroba', en: 'Close-up of craftsmanship — CNC and laser manufacturing', de: 'Detail der handwerklichen Verarbeitung — CNC- und Laserfertigung' },
+  'Pohled do dílny Forma Studia — CNC stroje v provozu': { sk: 'Pohľad do dielne Forma Studia — CNC stroje v prevádzke', en: 'Inside the Forma Studio workshop — CNC machines in operation', de: 'Blick in die Werkstatt von Forma Studio — CNC-Maschinen im Betrieb' },
+  'Výrobní prostory Forma Studia v Šumperku': { sk: 'Výrobné priestory Forma Studia v Šumperku', en: 'Forma Studio production facilities in Šumperk', de: 'Produktionsräume von Forma Studio in Šumperk' },
+  'Tým Forma Studia v dílně — CNC a 3D tisk Šumperk': { sk: 'Tím Forma Studia v dielni — CNC a 3D tlač Šumperk', en: 'The Forma Studio team in the workshop — CNC and 3D printing, Šumperk', de: 'Das Forma-Studio-Team in der Werkstatt — CNC und 3D-Druck, Šumperk' },
+  'Dodávka zakázky — spolehlivý výrobní partner Forma Studio': { sk: 'Dodávka zákazky — spoľahlivý výrobný partner Forma Studio', en: 'Order delivery — Forma Studio, a reliable manufacturing partner', de: 'Auftragslieferung — Forma Studio, zuverlässiger Fertigungspartner' },
+  'Tým Forma Studia — výrobní dílna CNC a laser Šumperk': { sk: 'Tím Forma Studia — výrobná dielňa CNC a laser Šumperk', en: 'The Forma Studio team — CNC and laser workshop, Šumperk', de: 'Das Forma-Studio-Team — CNC- und Laserwerkstatt, Šumperk' },
+};
+
 const SRC = fs.readFileSync('index.html', 'utf8');
 
 function ogBlock(primaryLoc) {
@@ -129,6 +159,13 @@ Object.keys(META).forEach(function (lang) {
 
   // Localize the scrolling marquee
   h = h.replace(/<div class="mtrack">[\s\S]*?<\/div>/, marqueeTrack(MARQUEE[lang]));
+
+  // Localize image alt text (cs keeps the originals)
+  if (lang !== 'cs') {
+    Object.keys(ALT).forEach(function (cs) {
+      h = h.split('alt="' + cs + '"').join('alt="' + ALT[cs][lang] + '"');
+    });
+  }
 
   // FAQ rich-results structured data — strip any previously generated block, re-inject for this language
   h = h.replace(/\s*<script type="application\/ld\+json" data-faq>[\s\S]*?<\/script>/, '');
