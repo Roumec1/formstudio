@@ -555,7 +555,7 @@ nav.open .nav-toggle .ic-close{display:block}
 </section>
 
 <!-- ── MARQUEE ── -->
-<div class="mwrap">
+<div class="mwrap" aria-hidden="true">
   <div class="mtrack">
     <span class="mi">CNC-Holzfräsen <span class="md"></span></span>
     <span class="mi">3D-Druck — FDM &amp; Resin <span class="md"></span></span>
@@ -886,42 +886,42 @@ nav.open .nav-toggle .ic-close{display:block}
     </div>
     <div class="faq-list rv d1">
       <div class="fi">
-        <button class="fq" onclick="tog(this)">
+        <button class="fq" aria-expanded="false" onclick="tog(this)">
           <span data-lang="cs">Nevím, jakou technologii zvolit. Pomůžete mi?</span><span data-lang="sk">Neviem, akú technológiu zvoliť. Pomôžete mi?</span><span data-lang="en">I don't know which technology to choose. Can you help?</span><span data-lang="de" class="on">Ich weiß nicht, welche Technologie ich wählen soll. Können Sie mir helfen?</span>
           <svg class="fqicon" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="9" y1="2" x2="9" y2="16"/><line x1="2" y1="9" x2="16" y2="9"/></svg>
         </button>
         <div class="fa"><p><span data-lang="cs">Samozřejmě — to je jedna z věcí, které děláme nejraději. Pošlete nám popis nebo náčrt a zavoláme si. Vysvětlíme rozdíly, navrhneme nejlepší řešení a poradíme s materiálem. Bez závazků, bez žargonu.</span><span data-lang="sk">Samozrejme — to je jedna z vecí, ktoré robíme najradšej. Pošlite nám popis alebo náčrt a zavoláme si. Vysvetlíme rozdiely, navrhneme najlepšie riešenie a poradíme s materiálom. Bez záväzkov, bez žargónu.</span><span data-lang="en">Of course — that's one of the things we love doing most. Send us a description or sketch and we'll hop on a call. We'll explain the differences, suggest the best solution, and advise on materials. No obligations, no jargon.</span><span data-lang="de" class="on">Selbstverständlich — das ist eine der Sachen, die wir am liebsten machen. Schicken Sie uns eine Beschreibung oder Skizze und wir telefonieren. Wir erklären die Unterschiede, schlagen die beste Lösung vor und beraten Sie zum Material. Ohne Verpflichtungen, ohne Fachjargon.</span></p></div>
       </div>
       <div class="fi">
-        <button class="fq" onclick="tog(this)">
+        <button class="fq" aria-expanded="false" onclick="tog(this)">
           <span data-lang="cs">Jaké je minimální množství objednávky?</span><span data-lang="sk">Aké je minimálne množstvo objednávky?</span><span data-lang="en">What's the minimum order quantity?</span><span data-lang="de" class="on">Wie hoch ist die Mindestbestellmenge?</span>
           <svg class="fqicon" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="9" y1="2" x2="9" y2="16"/><line x1="2" y1="9" x2="16" y2="9"/></svg>
         </button>
         <div class="fa"><p><span data-lang="cs">Žádné minimum. Vyrábíme od 1 kusu — prototyp, unikátní výstavu nebo tisícovou sérii. Ke každé zakázce přistupujeme se stejnou péčí. Cena se samozřejmě s množstvím škáluje, ale malá zakázka u nás není druhá kategorie.</span><span data-lang="sk">Žiadne minimum. Vyrábame od 1 kusu — prototyp, unikátnu výstavu alebo tisícovú sériu. Ku každej zákazke pristupujeme s rovnakou starostlivosťou. Cena sa samozrejme s množstvom škáluje, ale malá zákazka u nás nie je druhá kategória.</span><span data-lang="en">No minimum. We produce from 1 piece — a prototype, a unique exhibit, or a thousand-piece run. You decide.</span><span data-lang="de" class="on">Keine Mindestmenge. Wir fertigen ab 1 Stück — einen Prototyp, ein einzigartiges Ausstellungsstück oder eine Tausenderserie. Jeden Auftrag behandeln wir mit derselben Sorgfalt. Der Preis skaliert natürlich mit der Menge, aber ein kleiner Auftrag ist bei uns nicht zweite Klasse.</span></p></div>
       </div>
       <div class="fi">
-        <button class="fq" onclick="tog(this)">
+        <button class="fq" aria-expanded="false" onclick="tog(this)">
           <span data-lang="cs">Jaké formáty souborů přijímáte?</span><span data-lang="sk">Aké formáty súborov prijímate?</span><span data-lang="en">What file formats do you accept?</span><span data-lang="de" class="on">Welche Dateiformate akzeptieren Sie?</span>
           <svg class="fqicon" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="9" y1="2" x2="9" y2="16"/><line x1="2" y1="9" x2="16" y2="9"/></svg>
         </button>
         <div class="fa"><p><span data-lang="cs">DXF, STL, STEP, IGES, SolidWorks, Fusion 360, PDF — a zvládneme i technický výkres nebo fotografii náčrtu. Ještě nikdo nás nepřekvapil souborem, se kterým bychom si neporadili. Pokud si nejste jistí — prostě pošlete, co máte.</span><span data-lang="sk">DXF, STL, STEP, IGES, SolidWorks, Fusion 360, PDF — a zvládneme aj technický výkres alebo fotografiu náčrtu. Ešte nikto nás neprekvapil súborom, s ktorým by sme si neporadili. Ak si nie ste istí — jednoducho pošlite, čo máte.</span><span data-lang="en">DXF, STL, STEP, IGES, SolidWorks, Fusion 360, PDF — and we can handle technical drawings or even a hand sketch. Don't worry about the format — we'll figure it out.</span><span data-lang="de" class="on">DXF, STL, STEP, IGES, SolidWorks, Fusion 360, PDF — und wir kommen auch mit einer technischen Zeichnung oder dem Foto einer Skizze zurecht. Noch niemand hat uns mit einer Datei überrascht, mit der wir nicht zurechtgekommen wären. Wenn Sie unsicher sind — schicken Sie einfach, was Sie haben.</span></p></div>
       </div>
       <div class="fi">
-        <button class="fq" onclick="tog(this)">
+        <button class="fq" aria-expanded="false" onclick="tog(this)">
           <span data-lang="cs">Jak dlouho výroba trvá?</span><span data-lang="sk">Ako dlho výroba trvá?</span><span data-lang="en">How long does production take?</span><span data-lang="de" class="on">Wie lange dauert die Produktion?</span>
           <svg class="fqicon" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="9" y1="2" x2="9" y2="16"/><line x1="2" y1="9" x2="16" y2="9"/></svg>
         </button>
         <div class="fa"><p><span data-lang="cs">Prototypy standardně do 48 hodin. Malosériová výroba (10–200 ks): 1–2 týdny. Větší série: 2–4 týdny podle složitosti. Máte šibeniční termín? Zavolejte nám — uděláme vše pro to, aby to vyšlo.</span><span data-lang="sk">Prototypy štandardne do 48 hodín. Malosériová výroba (10–200 ks): 1–2 týždne. Väčšie série: 2–4 týždne podľa zložitosti. Máte šibeničný termín? Zavolajte nám — urobíme všetko pre to, aby to vyšlo.</span><span data-lang="en">Prototypes typically within 48 hours. Small series (10–200 pcs): 1–2 weeks. Larger runs: we'll set a specific schedule. We always confirm the deadline before starting.</span><span data-lang="de" class="on">Prototypen in der Regel innerhalb von 48 Stunden. Kleinserien (10–200 Stück): 1–2 Wochen. Größere Serien: 2–4 Wochen je nach Komplexität. Haben Sie einen knappen Termin? Rufen Sie uns an — wir tun alles, damit es klappt.</span></p></div>
       </div>
       <div class="fi">
-        <button class="fq" onclick="tog(this)">
+        <button class="fq" aria-expanded="false" onclick="tog(this)">
           <span data-lang="cs">Mohu si nejdřív objednat vzorek?</span><span data-lang="sk">Môžem si najskôr objednať vzorku?</span><span data-lang="en">Can I order a sample first?</span><span data-lang="de" class="on">Kann ich zuerst ein Muster bestellen?</span>
           <svg class="fqicon" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="9" y1="2" x2="9" y2="16"/><line x1="2" y1="9" x2="16" y2="9"/></svg>
         </button>
         <div class="fa"><p><span data-lang="cs">Ano — a u větších zakázek to sami doporučujeme. Vzorek vám umožní ověřit materiál, rozměry i povrchovou úpravu ještě před schválením série. Je to nejlepší způsob, jak předejít zklamání na obou stranách.</span><span data-lang="sk">Áno — a pri väčších zákazkách to sami odporúčame. Vzorka vám umožní overiť materiál, rozmery aj povrchovú úpravu ešte pred schválením série. Je to najlepší spôsob, ako predísť sklamaniu na oboch stranách.</span><span data-lang="en">Yes — and for larger orders, we actively recommend it. A sample lets you verify material, finish, and dimensions before committing to full production.</span><span data-lang="de" class="on">Ja — und bei größeren Aufträgen empfehlen wir es sogar. Ein Muster ermöglicht es Ihnen, Material, Maße und Oberflächenbearbeitung zu prüfen, bevor Sie die Serie freigeben. Das ist der beste Weg, um Enttäuschungen auf beiden Seiten zu vermeiden.</span></p></div>
       </div>
       <div class="fi">
-        <button class="fq" onclick="tog(this)">
+        <button class="fq" aria-expanded="false" onclick="tog(this)">
           <span data-lang="cs">Dostanu cenu předem, nebo mě překvapíte fakturou?</span><span data-lang="sk">Dostanem cenu vopred, alebo ma prekvapíte faktúrou?</span><span data-lang="en">Will I get the price upfront, or a surprise invoice?</span><span data-lang="de" class="on">Bekomme ich den Preis im Voraus oder eine Überraschungsrechnung?</span>
           <svg class="fqicon" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="9" y1="2" x2="9" y2="16"/><line x1="2" y1="9" x2="16" y2="9"/></svg>
         </button>
@@ -960,7 +960,7 @@ nav.open .nav-toggle .ic-close{display:block}
       <div class="cd"><p class="cd-lbl"><span data-lang="cs">Provozní doba</span><span data-lang="sk">Prevádzkové hodiny</span><span data-lang="en">Hours</span><span data-lang="de" class="on">Öffnungszeiten</span></p><p class="cd-val"><span data-lang="cs">Po–Pá, 8:00–17:00</span><span data-lang="sk">Po–Pi, 8:00–17:00</span><span data-lang="en">Mon–Fri, 8:00–17:00</span><span data-lang="de" class="on">Mo–Fr, 8:00–17:00</span></p></div>
       <div class="cd"><p class="cd-lbl"><span data-lang="cs">Kde jsme</span><span data-lang="sk">Kde sme</span><span data-lang="en">Location</span><span data-lang="de" class="on">Standort</span></p><p class="cd-val"><span data-lang="cs">Šumperk, Česká republika</span><span data-lang="sk">Šumperk, Česká republika</span><span data-lang="en">Šumperk, Czech Republic</span><span data-lang="de" class="on">Šumperk, Tschechien</span></p></div>
     </div>
-    <div class="rv d1">
+    <form class="rv d1" id="cform" novalidate>
       <div class="fg2">
         <div class="form-r"><label for="f-name"><span data-lang="cs">Jméno</span><span data-lang="sk">Meno</span><span data-lang="en">Name</span><span data-lang="de" class="on">Name</span></label><input type="text" name="name" id="f-name" autocomplete="name" placeholder="Jan Novák"></div>
         <div class="form-r"><label for="f-email">Email</label><input type="email" name="email" id="f-email" autocomplete="email" placeholder="jan@firma.cz"></div>
@@ -988,7 +988,7 @@ nav.open .nav-toggle .ic-close{display:block}
       <p class="form-note"><span data-lang="cs">Odpovídáme do 24 hodin. Žádné závazky.</span><span data-lang="sk">Odpovedáme do 24 hodín. Žiadne záväzky.</span><span data-lang="en">We respond within 24 hours. No obligations.</span><span data-lang="de" class="on">Wir antworten innerhalb von 24 Stunden. Keine Verpflichtungen.</span></p>
       <div class="form-or"><span data-lang="cs">nebo nám napište přímo</span><span data-lang="sk">alebo nám napíšte priamo</span><span data-lang="en">or write to us directly</span><span data-lang="de" class="on">oder schreiben Sie uns direkt</span></div>
       <p style="text-align:center;font-size:.87rem"><a href="mailto:plant@wearetreed.com" style="color:var(--accent);text-decoration:none;font-weight:500">plant@wearetreed.com</a></p>
-    </div>
+    </form>
   </div>
 </section>
 
@@ -1065,8 +1065,8 @@ function setL(l){
 function tog(btn){
   const fi=btn.closest('.fi');
   const was=fi.classList.contains('open');
-  document.querySelectorAll('.fi.open').forEach(f=>f.classList.remove('open'));
-  if(!was)fi.classList.add('open');
+  document.querySelectorAll('.fi.open').forEach(function(f){f.classList.remove('open');var b=f.querySelector('.fq');if(b)b.setAttribute('aria-expanded','false');});
+  if(!was){fi.classList.add('open');btn.setAttribute('aria-expanded','true');}
 }
 // ── REVEAL ──
 const obs=new IntersectionObserver(es=>{
@@ -1074,14 +1074,15 @@ const obs=new IntersectionObserver(es=>{
 },{threshold:0.05,rootMargin:'0px 0px -20px 0px'});
 document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
 // ── FORM ──
-document.getElementById('fsub').addEventListener('click',function(){
+document.getElementById('cform').addEventListener('submit',function(e){
+  e.preventDefault();
   var nameEl=document.getElementById('f-name');
   var emailEl=document.getElementById('f-email');
   var msgEl=document.getElementById('msg');
   var svcEl=document.getElementById('svc-sel');
   var cs=document.getElementById('fcs'),sk=document.getElementById('fsk'),en=document.getElementById('fen'),de=document.getElementById('fde');
   var hp=document.getElementById('f-company');
-  var btn=this;
+  var btn=document.getElementById('fsub');
 
   // Honeypot: bots fill the hidden field — silently drop
   if(hp&&hp.value){return;}
