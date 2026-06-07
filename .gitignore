@@ -5,6 +5,11 @@ index.html.current
 *.bak
 contact-options-preview.html
 
+# Build/optimization tooling deps (sharp installed transiently)
+node_modules/
+package.json
+package-lock.json
+
 # OS / editor cruft
 .DS_Store
 Thumbs.db
