@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>404 — Forma Studio</title>
+<meta name="robots" content="noindex,follow">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" type="image/png" href="/logo-firmy.png">
+<link rel="stylesheet" href="/fonts/fonts.css">
+<style>
+:root{--bg:#111110;--ink:#faf9f7;--mid:#a8a39b;--accent:#c94e1e;--serif:'Instrument Serif',Georgia,serif;--sans:'Inter',system-ui,sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-weight:300;-webkit-font-smoothing:antialiased;display:flex;align-items:center;justify-content:center;min-height:100vh;padding:1.5rem;text-align:center}
+.wrap{max-width:520px}
+.code{font-family:var(--serif);font-weight:400;font-size:7rem;line-height:1;color:var(--accent)}
+.code b{color:var(--ink)}
+h1{font-family:var(--serif);font-weight:400;font-size:2rem;margin:.6rem 0 1rem;line-height:1.15}
+p{color:var(--mid);font-size:1rem;line-height:1.6;margin-bottom:2rem}
+.btn{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;font-size:.9rem;font-weight:500;padding:.85rem 1.7rem;border-radius:6px;transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(201,78,30,.4)}
+.alt{margin-top:1.6rem;font-size:.8rem;color:var(--mid)}
+.alt a{color:var(--mid);text-decoration:none;border-bottom:1px solid #3a3936;padding-bottom:1px}
+.alt a:hover{color:var(--ink)}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="code">4<b>0</b>4</div>
+    <h1 id="t-title">Tahle stránka neexistuje</h1>
+    <p id="t-body">Možná byla přesunuta nebo odkaz není správný. Vraťme se na začátek.</p>
+    <a class="btn" id="t-btn" href="/">← Zpět na úvod</a>
+    <p class="alt">
+      <a href="/">CZ</a> · <a href="/sk">SK</a> · <a href="/en">EN</a> · <a href="/de">DE</a>
+    </p>
+  </div>
+<script>
+(function(){
+  var T={
+    cs:{title:'Tahle stránka neexistuje',body:'Možná byla přesunuta nebo odkaz není správný. Vraťme se na začátek.',btn:'← Zpět na úvod',home:'/'},
+    sk:{title:'Táto stránka neexistuje',body:'Možno bola presunutá alebo odkaz nie je správny. Vráťme sa na začiatok.',btn:'← Späť na úvod',home:'/sk'},
+    en:{title:'This page doesn’t exist',body:'It may have moved or the link is wrong. Let’s get you back on track.',btn:'← Back to home',home:'/en'},
+    de:{title:'Diese Seite existiert nicht',body:'Sie wurde vielleicht verschoben oder der Link stimmt nicht. Zurück zum Anfang.',btn:'← Zurück zur Startseite',home:'/de'}
+  };
+  var l=(navigator.language||'cs').slice(0,2).toLowerCase();
+  if(!T[l])l='cs';
+  document.documentElement.lang=l;
+  document.getElementById('t-title').textContent=T[l].title;
+  document.getElementById('t-body').textContent=T[l].body;
+  var b=document.getElementById('t-btn');
+  b.textContent=T[l].btn;b.setAttribute('href',T[l].home);
+})();
+</script>
+</body>
+</html>

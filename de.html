@@ -462,6 +462,7 @@ footer{background:var(--ink);padding:2.25rem 3rem;display:flex;align-items:cente
   #flt-toggle{right:1rem;bottom:1rem}
 }
 </style>
+<script type="application/ld+json" data-faq>{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Ich weiß nicht, welche Technologie ich wählen soll. Können Sie mir helfen?","acceptedAnswer":{"@type":"Answer","text":"Selbstverständlich — das ist eine der Sachen, die wir am liebsten machen. Schicken Sie uns eine Beschreibung oder Skizze und wir telefonieren. Wir erklären die Unterschiede, schlagen die beste Lösung vor und beraten Sie zum Material. Ohne Verpflichtungen, ohne Fachjargon."}},{"@type":"Question","name":"Wie hoch ist die Mindestbestellmenge?","acceptedAnswer":{"@type":"Answer","text":"Keine Mindestmenge. Wir fertigen ab 1 Stück — einen Prototyp, ein einzigartiges Ausstellungsstück oder eine Tausenderserie. Jeden Auftrag behandeln wir mit derselben Sorgfalt. Der Preis skaliert natürlich mit der Menge, aber ein kleiner Auftrag ist bei uns nicht zweite Klasse."}},{"@type":"Question","name":"Welche Dateiformate akzeptieren Sie?","acceptedAnswer":{"@type":"Answer","text":"DXF, STL, STEP, IGES, SolidWorks, Fusion 360, PDF — und wir kommen auch mit einer technischen Zeichnung oder dem Foto einer Skizze zurecht. Noch niemand hat uns mit einer Datei überrascht, mit der wir nicht zurechtgekommen wären. Wenn Sie unsicher sind — schicken Sie einfach, was Sie haben."}},{"@type":"Question","name":"Wie lange dauert die Produktion?","acceptedAnswer":{"@type":"Answer","text":"Prototypen in der Regel innerhalb von 48 Stunden. Kleinserien (10–200 Stück): 1–2 Wochen. Größere Serien: 2–4 Wochen je nach Komplexität. Haben Sie einen knappen Termin? Rufen Sie uns an — wir tun alles, damit es klappt."}},{"@type":"Question","name":"Kann ich zuerst ein Muster bestellen?","acceptedAnswer":{"@type":"Answer","text":"Ja — und bei größeren Aufträgen empfehlen wir es sogar. Ein Muster ermöglicht es Ihnen, Material, Maße und Oberflächenbearbeitung zu prüfen, bevor Sie die Serie freigeben. Das ist der beste Weg, um Enttäuschungen auf beiden Seiten zu vermeiden."}},{"@type":"Question","name":"Bekomme ich den Preis im Voraus oder eine Überraschungsrechnung?","acceptedAnswer":{"@type":"Answer","text":"Sie erhalten immer eine klare Kalkulation, bevor die Produktion beginnt. Keine versteckten Gebühren, keine bösen Aufschläge nach der Lieferung. Und sollte sich während des Prozesses etwas ändern — erfahren Sie es als Erste."}}]}</script>
 </head>
 <body>
 
@@ -1084,7 +1085,8 @@ document.getElementById('fsub').addEventListener('click',function(){
       name:nameEl.value.trim(),
       email:emailEl.value.trim(),
       service:svcEl.options[svcEl.selectedIndex]?svcEl.options[svcEl.selectedIndex].text:'',
-      message:msgEl.value.trim()
+      message:msgEl.value.trim(),
+      company:hp?hp.value:''
     })
   }).then(function(r){return r.json();}).then(function(data){
     if(data.success){
@@ -1161,7 +1163,7 @@ function fltSend(){
   fetch('/api/contact',{
     method:'POST',
     headers:{'Content-Type':'application/json'},
-    body:JSON.stringify({name:nameEl.value.trim(),email:emailEl.value.trim(),service:'',message:msgEl.value.trim()})
+    body:JSON.stringify({name:nameEl.value.trim(),email:emailEl.value.trim(),service:'',message:msgEl.value.trim(),company:hp?hp.value:''})
   }).then(function(r){return r.json();}).then(function(d){
     if(d.success){
       if(window.va)va('event',{name:'lead_form_floating',data:{lang:L}});

@@ -462,6 +462,7 @@ footer{background:var(--ink);padding:2.25rem 3rem;display:flex;align-items:cente
   #flt-toggle{right:1rem;bottom:1rem}
 }
 </style>
+<script type="application/ld+json" data-faq>{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Neviem, akú technológiu zvoliť. Pomôžete mi?","acceptedAnswer":{"@type":"Answer","text":"Samozrejme — to je jedna z vecí, ktoré robíme najradšej. Pošlite nám popis alebo náčrt a zavoláme si. Vysvetlíme rozdiely, navrhneme najlepšie riešenie a poradíme s materiálom. Bez záväzkov, bez žargónu."}},{"@type":"Question","name":"Aké je minimálne množstvo objednávky?","acceptedAnswer":{"@type":"Answer","text":"Žiadne minimum. Vyrábame od 1 kusu — prototyp, unikátnu výstavu alebo tisícovú sériu. Ku každej zákazke pristupujeme s rovnakou starostlivosťou. Cena sa samozrejme s množstvom škáluje, ale malá zákazka u nás nie je druhá kategória."}},{"@type":"Question","name":"Aké formáty súborov prijímate?","acceptedAnswer":{"@type":"Answer","text":"DXF, STL, STEP, IGES, SolidWorks, Fusion 360, PDF — a zvládneme aj technický výkres alebo fotografiu náčrtu. Ešte nikto nás neprekvapil súborom, s ktorým by sme si neporadili. Ak si nie ste istí — jednoducho pošlite, čo máte."}},{"@type":"Question","name":"Ako dlho výroba trvá?","acceptedAnswer":{"@type":"Answer","text":"Prototypy štandardne do 48 hodín. Malosériová výroba (10–200 ks): 1–2 týždne. Väčšie série: 2–4 týždne podľa zložitosti. Máte šibeničný termín? Zavolajte nám — urobíme všetko pre to, aby to vyšlo."}},{"@type":"Question","name":"Môžem si najskôr objednať vzorku?","acceptedAnswer":{"@type":"Answer","text":"Áno — a pri väčších zákazkách to sami odporúčame. Vzorka vám umožní overiť materiál, rozmery aj povrchovú úpravu ešte pred schválením série. Je to najlepší spôsob, ako predísť sklamaniu na oboch stranách."}},{"@type":"Question","name":"Dostanem cenu vopred, alebo ma prekvapíte faktúrou?","acceptedAnswer":{"@type":"Answer","text":"Vždy dostanete jasnú kalkuláciu ešte pred zahájením výroby. Žiadne skryté poplatky, žiadne záludné príplatky po dodaní. A ak sa čokoľvek v priebehu zmení — prví to viete vy."}}]}</script>
 </head>
 <body>
 
@@ -1084,7 +1085,8 @@ document.getElementById('fsub').addEventListener('click',function(){
       name:nameEl.value.trim(),
       email:emailEl.value.trim(),
       service:svcEl.options[svcEl.selectedIndex]?svcEl.options[svcEl.selectedIndex].text:'',
-      message:msgEl.value.trim()
+      message:msgEl.value.trim(),
+      company:hp?hp.value:''
     })
   }).then(function(r){return r.json();}).then(function(data){
     if(data.success){
@@ -1161,7 +1163,7 @@ function fltSend(){
   fetch('/api/contact',{
     method:'POST',
     headers:{'Content-Type':'application/json'},
-    body:JSON.stringify({name:nameEl.value.trim(),email:emailEl.value.trim(),service:'',message:msgEl.value.trim()})
+    body:JSON.stringify({name:nameEl.value.trim(),email:emailEl.value.trim(),service:'',message:msgEl.value.trim(),company:hp?hp.value:''})
   }).then(function(r){return r.json();}).then(function(d){
     if(d.success){
       if(window.va)va('event',{name:'lead_form_floating',data:{lang:L}});

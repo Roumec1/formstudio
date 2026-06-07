@@ -54,6 +54,43 @@ function ogBlock(primaryLoc) {
   return lines.join('\n');
 }
 
+// ── FAQ structured data (rich results in Google) ──
+function decodeText(s) {
+  return s.replace(/<[^>]+>/g, '')
+    .replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&').replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&#39;/g, "'")
+    .replace(/\s+/g, ' ').trim();
+}
+function pickLang(group, lang) {
+  const re = new RegExp('<span data-lang="' + lang + '"[^>]*>([\\s\\S]*?)<\\/span>');
+  const mm = group.match(re);
+  return mm ? decodeText(mm[1]) : '';
+}
+function extractFaq(src, lang) {
+  const questions = [], answers = [];
+  let m;
+  const qRe = /<button class="fq"[^>]*>([\s\S]*?)<svg/g;
+  while ((m = qRe.exec(src))) questions.push(m[1]);
+  const aRe = /<div class="fa"><p>([\s\S]*?)<\/p>/g;
+  while ((m = aRe.exec(src))) answers.push(m[1]);
+  const out = [];
+  const n = Math.min(questions.length, answers.length);
+  for (let i = 0; i < n; i++) {
+    const q = pickLang(questions[i], lang), a = pickLang(answers[i], lang);
+    if (q && a) out.push({ q, a });
+  }
+  return out;
+}
+function faqSchema(pairs) {
+  return JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: pairs.map(function (p) {
+      return { '@type': 'Question', name: p.q, acceptedAnswer: { '@type': 'Answer', text: p.a } };
+    })
+  });
+}
+
 Object.keys(META).forEach(function (lang) {
   const m = META[lang];
   let h = SRC;
@@ -72,6 +109,13 @@ Object.keys(META).forEach(function (lang) {
 
   // Localize the WhatsApp click-to-chat prefill text on every wa.me link
   h = h.replace(WA_RE, '$1' + encodeURIComponent(m.wa));
+
+  // FAQ rich-results structured data — strip any previously generated block, re-inject for this language
+  h = h.replace(/\s*<script type="application\/ld\+json" data-faq>[\s\S]*?<\/script>/, '');
+  const faq = extractFaq(SRC, lang);
+  if (faq.length) {
+    h = h.replace('</head>', '<script type="application/ld+json" data-faq>' + faqSchema(faq) + '</script>\n</head>');
+  }
 
   // Activate this language's spans, deactivate the rest (attribute-order tolerant)
   h = h.replace(/<span\b([^>]*?)\bdata-lang="(cs|sk|en|de)"([^>]*?)>/g, function (_m, pre, l, post) {

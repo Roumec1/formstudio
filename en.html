@@ -462,6 +462,7 @@ footer{background:var(--ink);padding:2.25rem 3rem;display:flex;align-items:cente
   #flt-toggle{right:1rem;bottom:1rem}
 }
 </style>
+<script type="application/ld+json" data-faq>{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"I don't know which technology to choose. Can you help?","acceptedAnswer":{"@type":"Answer","text":"Of course — that's one of the things we love doing most. Send us a description or sketch and we'll hop on a call. We'll explain the differences, suggest the best solution, and advise on materials. No obligations, no jargon."}},{"@type":"Question","name":"What's the minimum order quantity?","acceptedAnswer":{"@type":"Answer","text":"No minimum. We produce from 1 piece — a prototype, a unique exhibit, or a thousand-piece run. You decide."}},{"@type":"Question","name":"What file formats do you accept?","acceptedAnswer":{"@type":"Answer","text":"DXF, STL, STEP, IGES, SolidWorks, Fusion 360, PDF — and we can handle technical drawings or even a hand sketch. Don't worry about the format — we'll figure it out."}},{"@type":"Question","name":"How long does production take?","acceptedAnswer":{"@type":"Answer","text":"Prototypes typically within 48 hours. Small series (10–200 pcs): 1–2 weeks. Larger runs: we'll set a specific schedule. We always confirm the deadline before starting."}},{"@type":"Question","name":"Can I order a sample first?","acceptedAnswer":{"@type":"Answer","text":"Yes — and for larger orders, we actively recommend it. A sample lets you verify material, finish, and dimensions before committing to full production."}},{"@type":"Question","name":"Will I get the price upfront, or a surprise invoice?","acceptedAnswer":{"@type":"Answer","text":"You always get a clear quote before production starts. No hidden fees, no surprises. If anything changes during production, we'll call you first."}}]}</script>
 </head>
 <body>
 
@@ -1084,7 +1085,8 @@ document.getElementById('fsub').addEventListener('click',function(){
       name:nameEl.value.trim(),
       email:emailEl.value.trim(),
       service:svcEl.options[svcEl.selectedIndex]?svcEl.options[svcEl.selectedIndex].text:'',
-      message:msgEl.value.trim()
+      message:msgEl.value.trim(),
+      company:hp?hp.value:''
     })
   }).then(function(r){return r.json();}).then(function(data){
     if(data.success){
@@ -1161,7 +1163,7 @@ function fltSend(){
   fetch('/api/contact',{
     method:'POST',
     headers:{'Content-Type':'application/json'},
-    body:JSON.stringify({name:nameEl.value.trim(),email:emailEl.value.trim(),service:'',message:msgEl.value.trim()})
+    body:JSON.stringify({name:nameEl.value.trim(),email:emailEl.value.trim(),service:'',message:msgEl.value.trim(),company:hp?hp.value:''})
   }).then(function(r){return r.json();}).then(function(d){
     if(d.success){
       if(window.va)va('event',{name:'lead_form_floating',data:{lang:L}});
