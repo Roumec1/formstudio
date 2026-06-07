@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="500" height="500">
+  <rect width="500" height="500" rx="12" fill="#111110"/>
+  <text x="250" y="275" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="120" font-weight="400" fill="#ffffff" letter-spacing="-3">Forma<tspan fill="#c94e1e" font-weight="400">.</tspan></text>
+  <text x="250" y="340" text-anchor="middle" font-family="'Inter', 'Helvetica Neue', Arial, sans-serif" font-size="26" font-weight="300" fill="#65635e" letter-spacing="6">STUDIO</text>
+</svg>

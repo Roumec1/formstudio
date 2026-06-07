@@ -1,0 +1,10 @@
+# Local backups / scratch — never deploy
+index.html.backup
+index.html.broken
+index.html.current
+*.bak
+contact-options-preview.html
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
