@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#faf9f7">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" type="image/png" href="/logo-firmy.png">
 <link rel="apple-touch-icon" href="/logo-firmy.png">
@@ -30,6 +31,7 @@
 <meta name="twitter:image" content="https://formastudio.cz/images/cnc-frzka-v-provozu.jpg">
 <link rel="preload" href="/fonts/inter-400-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/instrumentserif-400-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" as="image" href="/images/cnc-frzka-v-provozu.jpg" fetchpriority="high">
 <link rel="stylesheet" href="/fonts/fonts.css">
 <!-- Vercel Web Analytics (cookieless) -->
 <script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments);};</script>
@@ -78,20 +80,6 @@
       {"@type":"Offer","itemOffered":{"@type":"Service","name":"Rapid prototyping a sériová výroba","description":"Od prototypu k sérii — desítky, stovky i tisíce kusů měsíčně."}}
     ]
   }
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"FAQPage",
-  "mainEntity":[
-    {"@type":"Question","name":"Nevím, jakou technologii zvolit. Pomůžete mi?","acceptedAnswer":{"@type":"Answer","text":"Samozřejmě — pošlete nám popis nebo náčrt a zavoláme si. Vysvětlíme rozdíly, navrhneme nejlepší řešení a poradíme s materiálem. Bez závazků, bez žargonu."}},
-    {"@type":"Question","name":"Jaké je minimální množství objednávky?","acceptedAnswer":{"@type":"Answer","text":"Žádné minimum. Vyrábíme od 1 kusu — prototyp, unikátní výstavu nebo tisícovou sérii. Ke každé zakázce přistupujeme se stejnou péčí."}},
-    {"@type":"Question","name":"Jaké formáty souborů přijímáte?","acceptedAnswer":{"@type":"Answer","text":"DXF, STL, STEP, IGES, SolidWorks, Fusion 360, PDF — a zvládneme i technický výkres nebo fotografii náčrtu."}},
-    {"@type":"Question","name":"Jak dlouho výroba trvá?","acceptedAnswer":{"@type":"Answer","text":"Prototypy standardně do 48 hodin. Malosériová výroba (10–200 ks): 1–2 týdny. Větší série: 2–4 týdny podle složitosti."}},
-    {"@type":"Question","name":"Mohu si nejdřív objednat vzorek?","acceptedAnswer":{"@type":"Answer","text":"Ano — a u větších zakázek to sami doporučujeme. Vzorek vám umožní ověřit materiál, rozměry i povrchovou úpravu ještě před schválením série."}},
-    {"@type":"Question","name":"Dostanu cenu předem?","acceptedAnswer":{"@type":"Answer","text":"Vždy dostanete jasnou kalkulaci ještě před zahájením výroby. Žádné skryté poplatky, žádné záludné příplatky po dodání."}}
-  ]
 }
 </script>
 <style>
@@ -345,9 +333,9 @@ footer{background:var(--ink);padding:2.25rem 3rem;display:flex;align-items:cente
 .fl{font-family:var(--serif);font-size:1.2rem;color:white;letter-spacing:-.02em}
 .fl b{color:var(--accent);font-weight:400}
 .flinks{display:flex;gap:2rem;list-style:none}
-.flinks a{font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:#444;text-decoration:none;transition:color .2s}
+.flinks a{font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:#b8b4ab;text-decoration:none;transition:color .2s}
 .flinks a:hover{color:white}
-.fcopy{font-size:.68rem;color:#333;letter-spacing:.03em}
+.fcopy{font-size:.68rem;color:#8f8c84;letter-spacing:.03em}
 
 /* ─── REVEAL ─── */
 .rv{opacity:0;transform:translateY(16px);transition:opacity .65s ease,transform .65s ease}
@@ -357,9 +345,34 @@ footer{background:var(--ink);padding:2.25rem 3rem;display:flex;align-items:cente
 /* ─── LANG ─── */
 [data-lang]{display:none!important}[data-lang].on{display:inline!important}
 
+/* ─── ACCESSIBILITY ─── */
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:2px}
+.skip-link{position:absolute;left:.5rem;top:-3rem;z-index:1000;background:var(--ink);color:#fff;padding:.6rem 1.1rem;font-size:.8rem;border-radius:0 0 4px 4px;text-decoration:none;transition:top .2s}
+.skip-link:focus{top:0}
+
+/* ─── MOBILE NAV TOGGLE ─── */
+.nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:.4rem;color:var(--ink);align-items:center}
+.nav-toggle svg{width:22px;height:22px}
+.nav-toggle .ic-close{display:none}
+nav.open .nav-toggle .ic-open{display:none}
+nav.open .nav-toggle .ic-close{display:block}
+
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+  .mtrack{animation:none!important}
+  .rv{opacity:1!important;transform:none!important}
+}
+
 /* ─── RESPONSIVE ─── */
 @media(max-width:980px){
-  nav{padding:0 1.5rem}.nav-links{display:none}
+  nav{padding:0 1.5rem}
+  .nav-toggle{display:flex}
+  .nav-links{position:absolute;top:64px;left:0;right:0;flex-direction:column;gap:0;background:var(--white);border-bottom:1px solid var(--border);box-shadow:0 14px 28px rgba(0,0,0,.07);padding:.25rem 1.5rem;transform:translateY(-10px);opacity:0;pointer-events:none;transition:opacity .22s ease,transform .22s ease}
+  nav.open .nav-links{transform:none;opacity:1;pointer-events:auto}
+  .nav-links li{width:100%}
+  .nav-links a{display:block;padding:.95rem .15rem;font-size:.92rem;border-bottom:1px solid var(--border)}
+  .nav-links li:last-child a{border-bottom:none}
   #hero{grid-template-columns:1fr}.hr{height:300px}.hl{padding:4rem 1.5rem 3rem}
   .logos{padding:1.5rem 1.5rem}
   #services,.about-grid,#comparison,#process,#testimonials,#faq,#cta,#contact{padding:4rem 1.5rem}
@@ -466,10 +479,16 @@ footer{background:var(--ink);padding:2.25rem 3rem;display:flex;align-items:cente
 </head>
 <body>
 
+<a class="skip-link" href="#main"><span data-lang="cs" class="on">Přeskočit na obsah</span><span data-lang="sk">Preskočiť na obsah</span><span data-lang="en">Skip to content</span><span data-lang="de">Zum Inhalt springen</span></a>
+
 <!-- ── NAV ── -->
 <nav>
   <a class="logo" href="#">Forma<b>.</b></a>
-  <ul class="nav-links">
+  <button class="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="nav-menu" onclick="navToggle()">
+    <svg class="ic-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg>
+    <svg class="ic-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></svg>
+  </button>
+  <ul class="nav-links" id="nav-menu">
     <li><a href="#services"><span data-lang="cs" class="on">Co umíme</span><span data-lang="sk">Čo vieme</span><span data-lang="en">What we do</span><span data-lang="de">Was wir können</span></a></li>
     <li><a href="#gallery"><span data-lang="cs" class="on">Ukázky</span><span data-lang="sk">Ukážky</span><span data-lang="en">Showcase</span><span data-lang="de">Referenzen</span></a></li>
     <li><a href="#about"><span data-lang="cs" class="on">O nás</span><span data-lang="sk">O nás</span><span data-lang="en">About us</span><span data-lang="de">Über uns</span></a></li>
@@ -486,6 +505,8 @@ footer{background:var(--ink);padding:2.25rem 3rem;display:flex;align-items:cente
     </a>
   </div>
 </nav>
+
+<main id="main" tabindex="-1">
 
 <!-- ── HERO ── -->
 <section id="hero">
@@ -515,7 +536,7 @@ footer{background:var(--ink);padding:2.25rem 3rem;display:flex;align-items:cente
     </p>
   </div>
   <div class="hr">
-    <img src="images/cnc-frzka-v-provozu.jpg" alt="CNC frézka v provozu">
+    <img src="images/cnc-frzka-v-provozu.jpg" alt="CNC frézka v provozu" width="1000" height="666" fetchpriority="high" decoding="async">
     <div class="hbadges">
       <div class="hb"><span class="hb-dot"></span><span data-lang="cs" class="on">Komplexní projekty vítány</span><span data-lang="sk">Komplexné projekty vítané</span><span data-lang="en">Complex projects welcome</span><span data-lang="de">Komplexe Projekte willkommen</span></div>
       <div class="hb"><span class="hb-dot"></span><span data-lang="cs" class="on">Série od 1 kusu</span><span data-lang="sk">Série od 1 kusu</span><span data-lang="en">Runs from 1 piece</span><span data-lang="de">Serien ab 1 Stück</span></div>
@@ -938,11 +959,11 @@ footer{background:var(--ink);padding:2.25rem 3rem;display:flex;align-items:cente
     </div>
     <div class="rv d1">
       <div class="fg2">
-        <div class="form-r"><label><span data-lang="cs" class="on">Jméno</span><span data-lang="sk">Meno</span><span data-lang="en">Name</span><span data-lang="de">Name</span></label><input type="text" name="name" id="f-name" placeholder="Jan Novák"></div>
-        <div class="form-r"><label>Email</label><input type="email" name="email" id="f-email" placeholder="jan@firma.cz"></div>
+        <div class="form-r"><label for="f-name"><span data-lang="cs" class="on">Jméno</span><span data-lang="sk">Meno</span><span data-lang="en">Name</span><span data-lang="de">Name</span></label><input type="text" name="name" id="f-name" autocomplete="name" placeholder="Jan Novák"></div>
+        <div class="form-r"><label for="f-email">Email</label><input type="email" name="email" id="f-email" autocomplete="email" placeholder="jan@firma.cz"></div>
       </div>
       <div class="form-r">
-        <label><span data-lang="cs" class="on">O co jde? (volitelné)</span><span data-lang="sk">O čo ide? (voliteľné)</span><span data-lang="en">What's it about? (optional)</span><span data-lang="de">Worum geht es? (optional)</span></label>
+        <label for="svc-sel"><span data-lang="cs" class="on">O co jde? (volitelné)</span><span data-lang="sk">O čo ide? (voliteľné)</span><span data-lang="en">What's it about? (optional)</span><span data-lang="de">Worum geht es? (optional)</span></label>
         <select id="svc-sel">
           <option value="" disabled selected></option>
           <option id="s1">CNC frézování dřeva</option>
@@ -954,11 +975,11 @@ footer{background:var(--ink);padding:2.25rem 3rem;display:flex;align-items:cente
         </select>
       </div>
       <div class="form-r">
-        <label><span data-lang="cs" class="on">Řekněte nám víc</span><span data-lang="sk">Povedzte nám viac</span><span data-lang="en">Tell us more</span><span data-lang="de">Erzählen Sie uns mehr</span></label>
+        <label for="msg"><span data-lang="cs" class="on">Řekněte nám víc</span><span data-lang="sk">Povedzte nám viac</span><span data-lang="en">Tell us more</span><span data-lang="de">Erzählen Sie uns mehr</span></label>
         <textarea id="msg" placeholder="Popište projekt, materiál, rozměry, termín... nebo prostě napište, co potřebujete. Nic nemusí být dokonalé — zbytek dořešíme spolu."></textarea>
       </div>
       <div class="hp" aria-hidden="true"><label>Company<input type="text" id="f-company" name="company" tabindex="-1" autocomplete="off"></label></div>
-      <button class="fsub" id="fsub">
+      <button class="fsub" id="fsub" aria-live="polite">
         <span data-lang="cs" id="fcs" class="on">Odeslat poptávku →</span><span data-lang="sk" id="fsk">Odoslať dopyt →</span><span data-lang="en" id="fen">Send inquiry →</span><span data-lang="de" id="fde">Anfrage senden →</span>
       </button>
       <p class="form-note"><span data-lang="cs" class="on">Odpovídáme do 24 hodin. Žádné závazky.</span><span data-lang="sk">Odpovedáme do 24 hodín. Žiadne záväzky.</span><span data-lang="en">We respond within 24 hours. No obligations.</span><span data-lang="de">Wir antworten innerhalb von 24 Stunden. Keine Verpflichtungen.</span></p>
@@ -967,6 +988,8 @@ footer{background:var(--ink);padding:2.25rem 3rem;display:flex;align-items:cente
     </div>
   </div>
 </section>
+
+</main>
 
 <!-- ── FOOTER ── -->
 <footer>
@@ -1000,9 +1023,9 @@ footer{background:var(--ink);padding:2.25rem 3rem;display:flex;align-items:cente
   <button class="fp-close" onclick="fltClose()" aria-label="Close">✕</button>
   <h3><span data-lang="cs" class="on">Napišme si</span><span data-lang="sk">Napíšme si</span><span data-lang="en">Let's talk</span><span data-lang="de">Schreiben wir uns</span></h3>
   <p class="fp-sub"><span data-lang="cs" class="on">Ozveme se do 24 hodin s konkrétní nabídkou.</span><span data-lang="sk">Ozveme sa do 24 hodín s konkrétnou ponukou.</span><span data-lang="en">We'll reply within 24 hours with a concrete offer.</span><span data-lang="de">Wir melden uns innerhalb von 24 Stunden mit einem konkreten Angebot.</span></p>
-  <div class="fpr"><label><span data-lang="cs" class="on">Jméno</span><span data-lang="sk">Meno</span><span data-lang="en">Name</span><span data-lang="de">Name</span></label><input type="text" id="fp-name" placeholder="Jan Novák" autocomplete="name"></div>
-  <div class="fpr"><label>Email</label><input type="email" id="fp-email" placeholder="jan@firma.cz" autocomplete="email"></div>
-  <div class="fpr"><label><span data-lang="cs" class="on">Zpráva</span><span data-lang="sk">Správa</span><span data-lang="en">Message</span><span data-lang="de">Nachricht</span></label><textarea id="fp-msg" placeholder="Co potřebujete vyrobit?"></textarea></div>
+  <div class="fpr"><label for="fp-name"><span data-lang="cs" class="on">Jméno</span><span data-lang="sk">Meno</span><span data-lang="en">Name</span><span data-lang="de">Name</span></label><input type="text" id="fp-name" placeholder="Jan Novák" autocomplete="name"></div>
+  <div class="fpr"><label for="fp-email">Email</label><input type="email" id="fp-email" placeholder="jan@firma.cz" autocomplete="email"></div>
+  <div class="fpr"><label for="fp-msg"><span data-lang="cs" class="on">Zpráva</span><span data-lang="sk">Správa</span><span data-lang="en">Message</span><span data-lang="de">Nachricht</span></label><textarea id="fp-msg" placeholder="Co potřebujete vyrobit?"></textarea></div>
   <div class="hp" aria-hidden="true"><label>Company<input type="text" id="fp-company" name="company" tabindex="-1" autocomplete="off"></label></div>
   <button id="flt-send" onclick="fltSend()"><span data-lang="cs" class="on">Odeslat →</span><span data-lang="sk">Odoslať →</span><span data-lang="en">Send →</span><span data-lang="de">Senden →</span></button>
   <p class="fp-note"><span data-lang="cs" class="on">Žádné závazky. Odpovídáme do 24 h.</span><span data-lang="sk">Žiadne záväzky. Odpovedáme do 24 h.</span><span data-lang="en">No obligations. We reply within 24 h.</span><span data-lang="de">Keine Verpflichtungen. Wir antworten innerhalb von 24 h.</span></p>
@@ -1198,6 +1221,28 @@ function closeLb(){lbOverlay.classList.remove('active');document.body.style.over
 lbOverlay.addEventListener('click',closeLb);
 lbClose.addEventListener('click',closeLb);
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLb();});
+// ── MOBILE NAV ──
+function navToggle(){
+  var n=document.querySelector('nav');
+  var open=n.classList.toggle('open');
+  var btn=n.querySelector('.nav-toggle');
+  if(btn)btn.setAttribute('aria-expanded',open?'true':'false');
+}
+function navClose(){
+  var n=document.querySelector('nav');
+  if(!n.classList.contains('open'))return;
+  n.classList.remove('open');
+  var btn=n.querySelector('.nav-toggle');
+  if(btn)btn.setAttribute('aria-expanded','false');
+}
+// Close the menu after tapping a link, clicking outside, or Escape
+document.querySelectorAll('#nav-menu a').forEach(function(a){a.addEventListener('click',navClose);});
+document.addEventListener('click',function(e){
+  var n=document.querySelector('nav');
+  if(n.classList.contains('open')&&!n.contains(e.target))navClose();
+});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')navClose();});
+
 // Track WhatsApp clicks (FAB + contact link)
 document.addEventListener('click',function(e){
   var a=e.target.closest&&e.target.closest('a[href^="https://wa.me"]');

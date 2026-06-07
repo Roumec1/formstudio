@@ -3,6 +3,7 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://formastudio.cz/</loc>
+    <lastmod>2026-06-07</lastmod>
     <xhtml:link rel="alternate" hreflang="cs" href="https://formastudio.cz/"/>
     <xhtml:link rel="alternate" hreflang="sk" href="https://formastudio.cz/sk"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://formastudio.cz/en"/>
@@ -11,6 +12,7 @@
   </url>
   <url>
     <loc>https://formastudio.cz/de</loc>
+    <lastmod>2026-06-07</lastmod>
     <xhtml:link rel="alternate" hreflang="cs" href="https://formastudio.cz/"/>
     <xhtml:link rel="alternate" hreflang="sk" href="https://formastudio.cz/sk"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://formastudio.cz/en"/>
@@ -19,6 +21,7 @@
   </url>
   <url>
     <loc>https://formastudio.cz/en</loc>
+    <lastmod>2026-06-07</lastmod>
     <xhtml:link rel="alternate" hreflang="cs" href="https://formastudio.cz/"/>
     <xhtml:link rel="alternate" hreflang="sk" href="https://formastudio.cz/sk"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://formastudio.cz/en"/>
@@ -27,6 +30,7 @@
   </url>
   <url>
     <loc>https://formastudio.cz/sk</loc>
+    <lastmod>2026-06-07</lastmod>
     <xhtml:link rel="alternate" hreflang="cs" href="https://formastudio.cz/"/>
     <xhtml:link rel="alternate" hreflang="sk" href="https://formastudio.cz/sk"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://formastudio.cz/en"/>

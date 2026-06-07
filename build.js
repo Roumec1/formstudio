@@ -131,3 +131,19 @@ Object.keys(META).forEach(function (lang) {
   fs.writeFileSync(m.file, h, 'utf8');
   console.log('wrote ' + m.file + '  (lang=' + lang + ')');
 });
+
+// ── sitemap.xml (regenerated with current lastmod) ──
+(function () {
+  const today = new Date().toISOString().slice(0, 10);
+  const alts = ALL.map(function (p) {
+    return '    <xhtml:link rel="alternate" hreflang="' + p[0] + '" href="' + META[p[0]].url + '"/>';
+  }).join('\n') + '\n    <xhtml:link rel="alternate" hreflang="x-default" href="' + BASE + '/"/>';
+  const urls = ['cs', 'de', 'en', 'sk'].map(function (l) {
+    return '  <url>\n    <loc>' + META[l].url + '</loc>\n    <lastmod>' + today + '</lastmod>\n' + alts + '\n  </url>';
+  }).join('\n');
+  const xml = '<?xml version="1.0" encoding="UTF-8"?>\n' +
+    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n' +
+    '        xmlns:xhtml="http://www.w3.org/1999/xhtml">\n' + urls + '\n</urlset>\n';
+  fs.writeFileSync('sitemap.xml', xml, 'utf8');
+  console.log('wrote sitemap.xml  (lastmod ' + today + ')');
+})();
