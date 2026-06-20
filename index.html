@@ -598,17 +598,36 @@ h1{letter-spacing:-.03em}
       <div class="frame">
         <img src="gallery/g06.jpg" alt="Dřevěná bezdrátová nabíječka vyrobená CNC frézováním" width="1600" height="1600" fetchpriority="high" decoding="async">
         <svg viewBox="0 0 400 300" preserveAspectRatio="none" aria-hidden="true">
-          <line class="dimln" x1="64" y1="32" x2="336" y2="32"/>
-          <line class="dimln" x1="64" y1="26" x2="64" y2="38"/>
-          <line class="dimln" x1="336" y1="26" x2="336" y2="38"/>
-          <text class="dimtxt" x="176" y="29">Ø 92.0</text>
-          <rect class="wire" x="120" y="86" width="160" height="150" rx="14"/>
-          <circle class="wire thin" cx="200" cy="161" r="52"/>
-          <circle class="wire thin" cx="200" cy="161" r="33"/>
-          <circle class="wire thin" cx="200" cy="161" r="14"/>
+          <defs>
+            <marker id="ah" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto" markerUnits="userSpaceOnUse">
+              <path d="M0.5,0.5 L7,3 L0.5,5.5" fill="none" stroke="#2a2722" stroke-width="1" stroke-opacity=".55"/>
+            </marker>
+          </defs>
+          <!-- square plate, rounded corners (fillet) -->
+          <rect class="wire" x="125" y="95" width="150" height="150" rx="14"/>
+          <!-- charging coil (round) -->
+          <circle class="wire thin" cx="200" cy="170" r="42"/>
+          <circle class="wire thin" cx="200" cy="170" r="26"/>
+          <circle class="wire thin" cx="200" cy="170" r="9"/>
+          <!-- overall width 90 (linear) -->
+          <line class="dimln" x1="125" y1="89" x2="125" y2="58"/>
+          <line class="dimln" x1="275" y1="89" x2="275" y2="58"/>
+          <line class="dimln" x1="127" y1="62" x2="273" y2="62" marker-start="url(#ah)" marker-end="url(#ah)"/>
+          <text class="dimtxt" x="200" y="58" text-anchor="middle">90</text>
+          <!-- overall height 90 (square) -->
+          <line class="dimln" x1="281" y1="95" x2="312" y2="95"/>
+          <line class="dimln" x1="281" y1="245" x2="312" y2="245"/>
+          <line class="dimln" x1="308" y1="97" x2="308" y2="243" marker-start="url(#ah)" marker-end="url(#ah)"/>
+          <text class="dimtxt" x="318" y="170" text-anchor="middle" transform="rotate(90 318 170)">90</text>
+          <!-- coil diameter (round feature) -->
+          <line class="dimln" x1="170" y1="198" x2="230" y2="142" marker-start="url(#ah)" marker-end="url(#ah)"/>
+          <text class="dimtxt" x="233" y="139">Ø46</text>
+          <!-- corner fillet radius -->
+          <line class="dimln" x1="137" y1="107" x2="119" y2="93"/>
+          <text class="dimtxt" x="101" y="91">R8</text>
         </svg>
         <span class="annot a-tl">DXF · STEP · STL</span>
-        <span class="annot a-br">R3</span>
+        <span class="annot a-br">t 12 mm</span>
       </div>
       <div class="titleblock">
         <div class="tb"><div class="k"><span data-lang="cs" class="on">Projekt</span><span data-lang="sk">Projekt</span><span data-lang="en">Project</span><span data-lang="de">Projekt</span></div><div class="v">Wireless&nbsp;charger</div></div>
