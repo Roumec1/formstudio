@@ -603,28 +603,28 @@ h1{letter-spacing:-.03em}
               <path d="M0.5,0.5 L7,3 L0.5,5.5" fill="none" stroke="#2a2722" stroke-width="1" stroke-opacity=".55"/>
             </marker>
           </defs>
-          <!-- square plate, rounded corners (fillet) -->
-          <rect class="wire" x="125" y="95" width="150" height="150" rx="14"/>
-          <!-- charging coil (round) -->
-          <circle class="wire thin" cx="200" cy="170" r="42"/>
-          <circle class="wire thin" cx="200" cy="170" r="26"/>
-          <circle class="wire thin" cx="200" cy="170" r="9"/>
-          <!-- overall width 90 (linear) -->
-          <line class="dimln" x1="125" y1="89" x2="125" y2="58"/>
-          <line class="dimln" x1="275" y1="89" x2="275" y2="58"/>
-          <line class="dimln" x1="127" y1="62" x2="273" y2="62" marker-start="url(#ah)" marker-end="url(#ah)"/>
-          <text class="dimtxt" x="200" y="58" text-anchor="middle">90</text>
-          <!-- overall height 90 (square) -->
-          <line class="dimln" x1="281" y1="95" x2="312" y2="95"/>
-          <line class="dimln" x1="281" y1="245" x2="312" y2="245"/>
-          <line class="dimln" x1="308" y1="97" x2="308" y2="243" marker-start="url(#ah)" marker-end="url(#ah)"/>
-          <text class="dimtxt" x="318" y="170" text-anchor="middle" transform="rotate(90 318 170)">90</text>
-          <!-- coil diameter (round feature) -->
-          <line class="dimln" x1="170" y1="198" x2="230" y2="142" marker-start="url(#ah)" marker-end="url(#ah)"/>
-          <text class="dimtxt" x="233" y="139">Ø46</text>
-          <!-- corner fillet radius -->
-          <line class="dimln" x1="137" y1="107" x2="119" y2="93"/>
-          <text class="dimtxt" x="101" y="91">R8</text>
+          <!-- Drawing projected onto the part's top face (square seen at ~45°). -->
+          <g transform="translate(206 174) rotate(45) scale(0.97)">
+            <!-- square plate, filleted corners -->
+            <rect class="wire" x="-75" y="-75" width="150" height="150" rx="12" vector-effect="non-scaling-stroke"/>
+            <!-- charging coil (round) -->
+            <circle class="wire thin" cx="0" cy="0" r="42" vector-effect="non-scaling-stroke"/>
+            <circle class="wire thin" cx="0" cy="0" r="26" vector-effect="non-scaling-stroke"/>
+            <circle class="wire thin" cx="0" cy="0" r="9" vector-effect="non-scaling-stroke"/>
+            <!-- 90 along one top edge -->
+            <line class="dimln" x1="-58" y1="-60" x2="58" y2="-60" marker-start="url(#ah)" marker-end="url(#ah)" vector-effect="non-scaling-stroke"/>
+            <!-- 90 along the adjacent top edge -->
+            <line class="dimln" x1="-60" y1="-58" x2="-60" y2="58" marker-start="url(#ah)" marker-end="url(#ah)" vector-effect="non-scaling-stroke"/>
+            <!-- coil diameter -->
+            <line class="dimln" x1="-30" y1="30" x2="30" y2="-30" marker-start="url(#ah)" marker-end="url(#ah)" vector-effect="non-scaling-stroke"/>
+            <!-- fillet leader at a corner -->
+            <line class="dimln" x1="66" y1="-66" x2="86" y2="-86" vector-effect="non-scaling-stroke"/>
+          </g>
+          <!-- value text kept horizontal for readability -->
+          <text class="dimtxt" x="250" y="128" text-anchor="middle">90</text>
+          <text class="dimtxt" x="160" y="128" text-anchor="middle">90</text>
+          <text class="dimtxt" x="206" y="166" text-anchor="middle">Ø46</text>
+          <text class="dimtxt" x="329" y="176" text-anchor="start">R8</text>
         </svg>
         <span class="annot a-tl">DXF · STEP · STL</span>
         <span class="annot a-br">t 12 mm</span>
