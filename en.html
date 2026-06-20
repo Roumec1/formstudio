@@ -33,7 +33,8 @@
 <meta name="twitter:description" content="Custom manufacturing in the EU. Large-format CNC milling, 100W laser, 3D printing farm. From a single prototype to thousands.">
 <meta name="twitter:image" content="https://formastudio.cz/images/og-en.jpg">
 <link rel="preload" href="/fonts/inter-400-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/fonts/instrumentserif-400-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/spacegrotesk-500-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/jetbrainsmono-400-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" as="image" href="/images/cnc-frzka-v-provozu.jpg" fetchpriority="high">
 <link rel="stylesheet" href="/fonts/fonts.css">
 <!-- Vercel Web Analytics (cookieless) -->
@@ -88,17 +89,18 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:#faf9f7; --white:#fff; --ink:#111110; --mid:#65635e;
-  --light:#ede9e1; --border:#e0dbd2;
-  --accent:#c94e1e; --soft:#e8824f; --abg:#fdf2ec; --abdr:#f0c4ae;
-  --serif:'Instrument Serif',Georgia,serif;
-  --sans:'Inter',system-ui,sans-serif;
+  --bg:#efece4; --white:#f7f5ef; --ink:#171510; --mid:#6b675e;
+  --light:#e6e1d6; --border:#d8d3c6;
+  --accent:#c94e1e; --soft:#e8824f; --abg:#f6ece2; --abdr:#e7c7af;
+  --serif:'Space Grotesk',system-ui,sans-serif;   /* display */
+  --sans:'Inter',system-ui,sans-serif;             /* body */
+  --mono:'JetBrains Mono',ui-monospace,monospace;  /* labels / data */
 }
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-weight:400;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
 
 /* ─── NAV ─── */
-nav{position:sticky;top:0;z-index:200;background:rgba(250,249,247,.97);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 3rem;height:64px}
+nav{position:sticky;top:0;z-index:200;background:rgba(239,236,228,.95);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 3rem;height:64px}
 .logo{font-family:var(--serif);font-size:1.4rem;color:var(--ink);text-decoration:none;letter-spacing:-.02em}
 .logo b{color:var(--accent);font-weight:400}
 .nav-links{display:flex;gap:2rem;list-style:none}
@@ -366,6 +368,22 @@ nav.open .nav-toggle .ic-close{display:block}
   .mtrack{animation:none!important}
   .rv{opacity:1!important;transform:none!important}
 }
+
+/* ─── TYPE SYSTEM · shop-drawing redesign ─── */
+/* Monospace is the connective tissue: every label, eyebrow, data point, nav item, button */
+.nav-links a,.lbtn,.cta-nav,.stag,.cd-lbl,.svc-n,.an-l,.ds-l,.hbs-l,.dh-label,.logos-lbl,
+.form-r label,.fpr label,.btn,.svc-tag,.comp-hd,.form-note,.form-or,.fcopy,.flinks a,
+.hero-tag,.hb,.mi,.ps-n,.fp-note,.fp-sub,.hero-nudge,.hero-proof,.form-note{
+  font-family:var(--mono);
+}
+.btn,.cta-nav{text-transform:uppercase;letter-spacing:.05em}
+.svc-n,.ps-n{font-style:normal}
+/* Space Grotesk needs a hair more weight than the retired serif at display sizes */
+h1,.sh,.cta-title,.ch2,.dh-q,.about-q,.svc-title,.tcard-title,.fl,.logo,.an-q{font-weight:500}
+h1 em,.sh em,.ch2 em,.dh-q em,.about-q em,.cta-title em{font-style:normal}
+.hbs-n,.an-n,.ds-n{font-weight:600;letter-spacing:-.01em}
+/* tighten Space Grotesk display tracking */
+h1{letter-spacing:-.03em}
 
 /* ─── RESPONSIVE ─── */
 @media(max-width:980px){

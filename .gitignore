@@ -10,6 +10,9 @@ node_modules/
 package.json
 package-lock.json
 
+# Local design mockups — not for deploy
+design-preview*.html
+
 # OS / editor cruft
 .DS_Store
 Thumbs.db
