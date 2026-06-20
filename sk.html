@@ -35,7 +35,7 @@
 <link rel="preload" href="/fonts/inter-400-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/spacegrotesk-500-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/jetbrainsmono-400-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" as="image" href="/images/cnc-frzka-v-provozu.jpg" fetchpriority="high">
+<link rel="preload" as="image" href="/gallery/g06.jpg" fetchpriority="high">
 <link rel="stylesheet" href="/fonts/fonts.css">
 <!-- Vercel Web Analytics (cookieless) -->
 <script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments);};</script>
@@ -147,6 +147,38 @@ h1 em{font-style:italic;color:var(--accent)}
 .hbs:last-child{border-right:none}
 .hbs-n{font-family:var(--serif);font-size:1.5rem;color:white;line-height:1}
 .hbs-l{font-size:.57rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.38);margin-top:.2rem}
+
+/* ─── HERO DRAWING SHEET (signature) ─── */
+.specrow{display:flex;border:1px solid var(--border);border-radius:3px;overflow:hidden;max-width:33rem;margin:1.7rem 0 1.9rem;background:var(--white)}
+.sc{flex:1;padding:.72rem .9rem;border-right:1px solid var(--border)}
+.sc:last-child{border-right:none}
+.sc-n{font-family:var(--serif);font-weight:600;font-size:1.18rem;line-height:1;letter-spacing:-.01em}
+.sc-l{font-family:var(--mono);font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;color:var(--mid);margin-top:.32rem}
+.hr{position:relative;overflow:visible;background:none;display:flex;align-items:center;justify-content:center;padding:2.4rem 2rem}
+.sheet{position:relative;width:100%;max-width:438px;background:var(--white);border:1px solid var(--border);border-radius:3px;padding:1.25rem;box-shadow:0 34px 64px -38px rgba(40,30,15,.45)}
+.crop{position:absolute;width:13px;height:13px;border:1.5px solid var(--accent);opacity:.85;z-index:3}
+.crop.tl{top:-1px;left:-1px;border-right:none;border-bottom:none}
+.crop.tr{top:-1px;right:-1px;border-left:none;border-bottom:none}
+.crop.bl{bottom:-1px;left:-1px;border-right:none;border-top:none}
+.crop.br{bottom:-1px;right:-1px;border-left:none;border-top:none}
+.frame{position:relative;aspect-ratio:4/3;border-radius:3px;overflow:hidden;background:var(--light)}
+.frame img{width:100%;height:100%;object-fit:cover;display:block}
+.frame svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:2}
+.wire{fill:none;stroke:var(--accent);stroke-width:1.5;stroke-dasharray:1500;stroke-dashoffset:1500;animation:draw 2.3s .35s ease forwards}
+.wire.thin{stroke-width:1;opacity:.62;animation-delay:.55s}
+.dimln{stroke:#2a2722;stroke-width:.8;opacity:.5}
+.dimtxt{font-family:'JetBrains Mono',monospace;font-size:9px;fill:#2a2722;letter-spacing:.04em}
+.annot{position:absolute;z-index:3;font-family:var(--mono);font-size:.56rem;letter-spacing:.05em;color:var(--accent);background:var(--white);padding:1px 5px;border:1px solid var(--accent);border-radius:2px}
+.annot.a-tl{top:.45rem;left:.45rem}
+.annot.a-br{bottom:.45rem;right:.45rem}
+.titleblock{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--border);border-top:none;font-family:var(--mono);
+  border-bottom-left-radius:3px;border-bottom-right-radius:3px}
+.tb{padding:.5rem .6rem;border-right:1px solid var(--border)}
+.tb:last-child{border-right:none}
+.tb .k{font-size:.49rem;letter-spacing:.1em;text-transform:uppercase;color:var(--mid)}
+.tb .v{font-size:.72rem;color:var(--ink);margin-top:.18rem;font-weight:500;white-space:nowrap}
+.tb .v .dot{color:var(--accent)}
+@keyframes draw{to{stroke-dashoffset:0}}
 
 /* ─── MARQUEE ─── */
 .mwrap{background:var(--ink);padding:.62rem 0;overflow:hidden}
@@ -394,7 +426,7 @@ h1{letter-spacing:-.03em}
   .nav-links li{width:100%}
   .nav-links a{display:block;padding:.95rem .15rem;font-size:.92rem;border-bottom:1px solid var(--border)}
   .nav-links li:last-child a{border-bottom:none}
-  #hero{grid-template-columns:1fr}.hr{height:300px}.hl{padding:4rem 1.5rem 3rem}
+  #hero{grid-template-columns:1fr}.hr{padding:0 1.5rem 2.5rem}.hl{padding:3.5rem 1.5rem 1.5rem}.specrow{max-width:none}
   .logos{padding:1.5rem 1.5rem}
   #services,.about-grid,#comparison,#process,#testimonials,#faq,#cta,#contact{padding:4rem 1.5rem}
   #gallery{padding:4rem 1.5rem}
@@ -541,9 +573,12 @@ h1{letter-spacing:-.03em}
     <p class="hero-sub">
       <span data-lang="cs">CNC frézování, 3D tisk, laserové gravírování — <strong>od 1 kusu po tisíce.</strong> Pošlete nám soubor nebo jen nápad. Zbytek je na nás.</span><span data-lang="sk" class="on">CNC frézovanie, 3D tlač, laserové gravírovanie — <strong>od 1 kusu po tisíce.</strong> Pošlite nám súbor a my sa ozveme do 24 hodín.</span><span data-lang="en">CNC milling, 3D printing, laser engraving — <strong>from 1 piece to thousands.</strong> Send us a file and we'll get back to you within 24 hours.</span><span data-lang="de">CNC-Fräsen, 3D-Druck, Lasergravur — <strong>von 1 Stück bis zu Tausenden.</strong> Fertigung aus der EU, Angebot innerhalb von 24 Stunden. Schicken Sie uns Ihre Datei oder einfach Ihre Idee.</span>
     </p>
-    <p class="hero-proof">
-      <span data-lang="cs">Vyrobili jsme pro <strong>Cloudflare, Mastercard, Bohemia Interactive</strong> a stovky dalších.</span><span data-lang="sk" class="on">Vyrobili sme pre <strong>Cloudflare, Mastercard, Bohemia Interactive</strong> a stovky ďalších firiem.</span><span data-lang="en">We've produced for <strong>Cloudflare, Mastercard, Bohemia Interactive</strong> and hundreds of other companies.</span><span data-lang="de">Wir haben für <strong>Cloudflare, Mastercard, Bohemia Interactive</strong> und Hunderte weitere produziert.</span>
-    </p>
+    <div class="specrow">
+      <div class="sc"><div class="sc-n">500+</div><div class="sc-l"><span data-lang="cs">Projektů</span><span data-lang="sk" class="on">Projektov</span><span data-lang="en">Projects</span><span data-lang="de">Projekte</span></div></div>
+      <div class="sc"><div class="sc-n">48 h</div><div class="sc-l"><span data-lang="cs">Nabídka</span><span data-lang="sk" class="on">Ponuka</span><span data-lang="en">Quote</span><span data-lang="de">Angebot</span></div></div>
+      <div class="sc"><div class="sc-n">1–10k</div><div class="sc-l"><span data-lang="cs">Kusů</span><span data-lang="sk" class="on">Kusov</span><span data-lang="en">Pieces</span><span data-lang="de">Stück</span></div></div>
+      <div class="sc"><div class="sc-n">98 %</div><div class="sc-l"><span data-lang="cs">V termínu</span><span data-lang="sk" class="on">V termíne</span><span data-lang="en">On time</span><span data-lang="de">Termintreu</span></div></div>
+    </div>
     <div class="hero-btns">
       <a class="btn btn-ink" href="#contact">
         <span data-lang="cs">Pošlete nám projekt →</span><span data-lang="sk" class="on">Pošlite nám projekt →</span><span data-lang="en">Send us your project →</span><span data-lang="de">Senden Sie uns Ihr Projekt →</span>
@@ -557,17 +592,29 @@ h1{letter-spacing:-.03em}
     </p>
   </div>
   <div class="hr">
-    <img src="images/cnc-frzka-v-provozu.jpg" alt="CNC frézka v prevádzke" width="1000" height="666" fetchpriority="high" decoding="async">
-    <div class="hbadges">
-      <div class="hb"><span class="hb-dot"></span><span data-lang="cs">Komplexní projekty vítány</span><span data-lang="sk" class="on">Komplexné projekty vítané</span><span data-lang="en">Complex projects welcome</span><span data-lang="de">Komplexe Projekte willkommen</span></div>
-      <div class="hb"><span class="hb-dot"></span><span data-lang="cs">Série od 1 kusu</span><span data-lang="sk" class="on">Série od 1 kusu</span><span data-lang="en">Runs from 1 piece</span><span data-lang="de">Serien ab 1 Stück</span></div>
-      <div class="hb"><span class="hb-dot"></span><span data-lang="cs">Nabídka do 48 hodin</span><span data-lang="sk" class="on">Ponuka do 48 hodín</span><span data-lang="en">Quote within 48 hours</span><span data-lang="de">Angebot innerhalb von 48 Stunden</span></div>
-    </div>
-    <div class="hbar">
-      <div class="hbs"><div class="hbs-n">500+</div><div class="hbs-l"><span data-lang="cs">Projektů</span><span data-lang="sk" class="on">Projektov</span><span data-lang="en">Projects</span><span data-lang="de">Projekte</span></div></div>
-      <div class="hbs"><div class="hbs-n">5 let</div><div class="hbs-l"><span data-lang="cs">V oboru</span><span data-lang="sk" class="on">V odbore</span><span data-lang="en">In the industry</span><span data-lang="de">In der Branche</span></div></div>
-      <div class="hbs"><div class="hbs-n">48 h</div><div class="hbs-l"><span data-lang="cs">Nabídka</span><span data-lang="sk" class="on">Ponuka</span><span data-lang="en">Quote</span><span data-lang="de">Angebot</span></div></div>
-      <div class="hbs"><div class="hbs-n">98 %</div><div class="hbs-l"><span data-lang="cs">V termínu</span><span data-lang="sk" class="on">V termíne</span><span data-lang="en">On time</span><span data-lang="de">Termintreu</span></div></div>
+    <div class="sheet">
+      <span class="crop tl"></span><span class="crop tr"></span><span class="crop bl"></span><span class="crop br"></span>
+      <div class="frame">
+        <img src="gallery/g06.jpg" alt="Drevená bezdrôtová nabíjačka vyrobená CNC frézovaním" width="1600" height="1600" fetchpriority="high" decoding="async">
+        <svg viewBox="0 0 400 300" preserveAspectRatio="none" aria-hidden="true">
+          <line class="dimln" x1="64" y1="32" x2="336" y2="32"/>
+          <line class="dimln" x1="64" y1="26" x2="64" y2="38"/>
+          <line class="dimln" x1="336" y1="26" x2="336" y2="38"/>
+          <text class="dimtxt" x="176" y="29">Ø 92.0</text>
+          <rect class="wire" x="120" y="86" width="160" height="150" rx="14"/>
+          <circle class="wire thin" cx="200" cy="161" r="52"/>
+          <circle class="wire thin" cx="200" cy="161" r="33"/>
+          <circle class="wire thin" cx="200" cy="161" r="14"/>
+        </svg>
+        <span class="annot a-tl">DXF · STEP · STL</span>
+        <span class="annot a-br">R3</span>
+      </div>
+      <div class="titleblock">
+        <div class="tb"><div class="k"><span data-lang="cs">Projekt</span><span data-lang="sk" class="on">Projekt</span><span data-lang="en">Project</span><span data-lang="de">Projekt</span></div><div class="v">Wireless&nbsp;charger</div></div>
+        <div class="tb"><div class="k"><span data-lang="cs">Materiál</span><span data-lang="sk" class="on">Materiál</span><span data-lang="en">Material</span><span data-lang="de">Material</span></div><div class="v"><span data-lang="cs">Dub</span><span data-lang="sk" class="on">Dub</span><span data-lang="en">Oak</span><span data-lang="de">Eiche</span></div></div>
+        <div class="tb"><div class="k"><span data-lang="cs">Měřítko</span><span data-lang="sk" class="on">Mierka</span><span data-lang="en">Scale</span><span data-lang="de">Maßstab</span></div><div class="v">1:1</div></div>
+        <div class="tb"><div class="k"><span data-lang="cs">Stav</span><span data-lang="sk" class="on">Stav</span><span data-lang="en">Status</span><span data-lang="de">Status</span></div><div class="v"><span class="dot">●</span> <span data-lang="cs">Hotovo</span><span data-lang="sk" class="on">Hotové</span><span data-lang="en">Done</span><span data-lang="de">Fertig</span></div></div>
+      </div>
     </div>
   </div>
 </section>
