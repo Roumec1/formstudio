@@ -6,7 +6,9 @@
 const fs = require('fs');
 const sharp = require('sharp');
 
-const SERIF = "Georgia, 'Times New Roman', serif";
+// Site display face is Space Grotesk (not available to the SVG renderer), so
+// use a strong sans fallback — keeps the cards on-brand (grotesque, not serif).
+const DISP = "Arial, 'Helvetica Neue', Helvetica, sans-serif";
 const SANS = "Arial, 'Helvetica Neue', Helvetica, sans-serif";
 
 const L = {
@@ -32,12 +34,12 @@ function svg(t) {
   <rect width="1200" height="630" fill="url(#glow)"/>
   <rect x="0" y="0" width="10" height="630" fill="#c94e1e"/>
 
-  <text x="70" y="110" font-family="${SERIF}" font-size="46" fill="#ffffff">Forma<tspan fill="#c94e1e">.</tspan></text>
+  <text x="70" y="110" font-family="${DISP}" font-size="48" font-weight="700" letter-spacing="-1" fill="#ffffff">Forma<tspan fill="#c94e1e">.</tspan></text>
   <text x="70" y="140" font-family="${SANS}" font-size="18" letter-spacing="6" fill="#9a978f">STUDIO</text>
 
-  <text x="70" y="320" font-family="${SERIF}" font-size="74" fill="#ffffff">${esc(t.h1)}</text>
-  <text x="70" y="408" font-family="${SERIF}" font-size="74" font-style="italic" fill="#e8824f">${esc(t.h2)}</text>
-  <rect x="74" y="450" width="120" height="4" fill="#c94e1e"/>
+  <text x="70" y="318" font-family="${DISP}" font-size="76" font-weight="700" letter-spacing="-2" fill="#ffffff">${esc(t.h1)}</text>
+  <text x="70" y="406" font-family="${DISP}" font-size="76" font-weight="700" letter-spacing="-2" fill="#e8824f">${esc(t.h2)}</text>
+  <rect x="74" y="448" width="120" height="4" fill="#c94e1e"/>
 
   <text x="70" y="510" font-family="${SANS}" font-size="30" fill="#cfccc4">${esc(t.sub)}</text>
 
