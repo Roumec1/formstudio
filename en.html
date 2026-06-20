@@ -197,7 +197,8 @@ h1 em{font-style:italic;color:var(--accent)}
 
 /* ─── SHARED ─── */
 .w{max-width:1200px;margin:0 auto}
-.stag{font-size:.65rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:.8rem}
+.stag{font-size:.65rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:.8rem;display:inline-flex;align-items:center;gap:.6rem}
+.stag::before{content:"";width:22px;height:1px;background:var(--accent);flex-shrink:0}
 .sh{font-family:var(--serif);font-size:clamp(1.95rem,3.4vw,3rem);line-height:1.08;letter-spacing:-.025em;color:var(--ink);font-weight:400}
 .sh em{font-style:italic;color:var(--accent)}
 .sh.inv{color:white}
