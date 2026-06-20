@@ -123,8 +123,6 @@ h1{font-family:var(--serif);font-size:clamp(2.9rem,5vw,5.2rem);line-height:1.03;
 h1 em{font-style:italic;color:var(--accent)}
 .hero-sub{font-size:.97rem;color:var(--mid);line-height:1.85;max-width:440px;margin-bottom:.65rem;font-weight:300}
 .hero-sub strong{color:var(--ink);font-weight:500}
-.hero-proof{font-size:.78rem;color:var(--mid);margin-bottom:2.1rem;font-style:italic}
-.hero-proof strong{color:var(--ink);font-style:normal;font-weight:500}
 .hero-btns{display:flex;gap:.8rem;align-items:center;flex-wrap:wrap;margin-bottom:1.3rem}
 .btn{display:inline-flex;align-items:center;gap:.4rem;text-decoration:none;border-radius:2px;font-family:var(--sans);font-size:.8rem;font-weight:500;transition:background .2s,color .2s,border-color .2s,transform .15s;cursor:pointer;border:none;line-height:1}
 .btn:hover{transform:translateY(-1px)}
@@ -136,17 +134,6 @@ h1 em{font-style:italic;color:var(--accent)}
 .btn-white:hover{background:var(--accent);color:white}
 .hero-nudge{font-size:.73rem;color:var(--mid);display:flex;align-items:center;gap:.4rem}
 .hero-nudge::before{content:"👋"}
-.hr{position:relative;overflow:hidden;background:var(--light)}
-.hr img{width:100%;height:100%;object-fit:cover;object-position:center 20%}
-.hbadges{position:absolute;top:1.75rem;right:1.75rem;display:flex;flex-direction:column;gap:.5rem}
-.hb{background:rgba(255,255,255,.93);backdrop-filter:blur(8px);padding:.5rem .9rem;font-size:.71rem;font-weight:500;color:var(--ink);display:flex;align-items:center;gap:.45rem;box-shadow:0 2px 12px rgba(0,0,0,.1)}
-.hb-dot{width:6px;height:6px;border-radius:50%;background:var(--accent);flex-shrink:0;animation:pulse 2.5s ease infinite}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
-.hbar{position:absolute;bottom:0;left:0;right:0;background:rgba(17,17,16,.9);backdrop-filter:blur(10px);display:flex}
-.hbs{flex:1;padding:.95rem 1.25rem;border-right:1px solid rgba(255,255,255,.06);text-align:center}
-.hbs:last-child{border-right:none}
-.hbs-n{font-family:var(--serif);font-size:1.5rem;color:white;line-height:1}
-.hbs-l{font-size:.57rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.38);margin-top:.2rem}
 
 /* ─── HERO DRAWING SHEET (signature) ─── */
 .specrow{display:flex;border:1px solid var(--border);border-radius:3px;overflow:hidden;max-width:33rem;margin:1.7rem 0 1.9rem;background:var(--white)}
@@ -163,14 +150,6 @@ h1 em{font-style:italic;color:var(--accent)}
 .crop.br{bottom:-1px;right:-1px;border-left:none;border-top:none}
 .frame{position:relative;aspect-ratio:4/3;border-radius:3px;overflow:hidden;background:var(--light)}
 .frame img{width:100%;height:100%;object-fit:cover;display:block}
-.frame svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:2}
-.wire{fill:none;stroke:var(--accent);stroke-width:1.5;stroke-dasharray:1500;stroke-dashoffset:1500;animation:draw 2.3s .35s ease forwards}
-.wire.thin{stroke-width:1;opacity:.62;animation-delay:.55s}
-.dimln{stroke:#2a2722;stroke-width:.8;opacity:.5}
-.dimtxt{font-family:'JetBrains Mono',monospace;font-size:9px;fill:#2a2722;letter-spacing:.04em}
-.annot{position:absolute;z-index:3;font-family:var(--mono);font-size:.56rem;letter-spacing:.05em;color:var(--accent);background:var(--white);padding:1px 5px;border:1px solid var(--accent);border-radius:2px}
-.annot.a-tl{top:.45rem;left:.45rem}
-.annot.a-br{bottom:.45rem;right:.45rem}
 .titleblock{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--border);border-top:none;font-family:var(--mono);
   border-bottom-left-radius:3px;border-bottom-right-radius:3px}
 .tb{padding:.5rem .6rem;border-right:1px solid var(--border)}
@@ -178,7 +157,6 @@ h1 em{font-style:italic;color:var(--accent)}
 .tb .k{font-size:.49rem;letter-spacing:.1em;text-transform:uppercase;color:var(--mid)}
 .tb .v{font-size:.72rem;color:var(--ink);margin-top:.18rem;font-weight:500;white-space:nowrap}
 .tb .v .dot{color:var(--accent)}
-@keyframes draw{to{stroke-dashoffset:0}}
 
 /* ─── MARQUEE ─── */
 .mwrap{background:var(--ink);padding:.62rem 0;overflow:hidden}
@@ -404,9 +382,9 @@ nav.open .nav-toggle .ic-close{display:block}
 
 /* ─── TYPE SYSTEM · shop-drawing redesign ─── */
 /* Monospace is the connective tissue: every label, eyebrow, data point, nav item, button */
-.nav-links a,.lbtn,.cta-nav,.stag,.cd-lbl,.svc-n,.an-l,.ds-l,.hbs-l,.dh-label,.logos-lbl,
+.nav-links a,.lbtn,.cta-nav,.stag,.cd-lbl,.svc-n,.an-l,.ds-l,.dh-label,.logos-lbl,
 .form-r label,.fpr label,.btn,.svc-tag,.comp-hd,.form-note,.form-or,.fcopy,.flinks a,
-.hero-tag,.hb,.mi,.ps-n,.fp-note,.fp-sub,.hero-nudge,.hero-proof,.form-note{
+.hero-tag,.mi,.ps-n,.fp-note,.fp-sub,.hero-nudge{
   font-family:var(--mono);
 }
 .btn,.cta-nav{text-transform:uppercase;letter-spacing:.05em}
@@ -414,7 +392,7 @@ nav.open .nav-toggle .ic-close{display:block}
 /* Space Grotesk needs a hair more weight than the retired serif at display sizes */
 h1,.sh,.cta-title,.ch2,.dh-q,.about-q,.svc-title,.tcard-title,.fl,.logo,.an-q{font-weight:500}
 h1 em,.sh em,.ch2 em,.dh-q em,.about-q em,.cta-title em{font-style:normal}
-.hbs-n,.an-n,.ds-n{font-weight:600;letter-spacing:-.01em}
+.an-n,.ds-n{font-weight:600;letter-spacing:-.01em}
 /* tighten Space Grotesk display tracking */
 h1{letter-spacing:-.03em}
 
