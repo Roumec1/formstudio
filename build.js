@@ -88,7 +88,19 @@ const ALT = {
   'Tým Forma Studia — výrobní dílna CNC a laser Šumperk': { sk: 'Tím Forma Studia — výrobná dielňa CNC a laser Šumperk', en: 'The Forma Studio team — CNC and laser workshop, Šumperk', de: 'Das Forma-Studio-Team — CNC- und Laserwerkstatt, Šumperk' },
 };
 
-const SRC = fs.readFileSync('index.html', 'utf8');
+// Inline the @font-face rules (~2 KB) instead of linking /fonts/fonts.css — saves a render-blocking
+// round trip before fonts can even start downloading. Idempotent: replaces the link or a previous inline copy.
+const FONT_CSS = fs.readFileSync('fonts/fonts.css', 'utf8').replace(/\/\*[\s\S]*?\*\//g, '').replace(/\s*\n\s*/g, '').trim();
+function inlineFonts(html) {
+  const tag = '<style id="fontfaces">' + FONT_CSS + '</style>';
+  return html.replace(/<link rel="stylesheet" href="\/fonts\/fonts\.css">|<style id="fontfaces">[\s\S]*?<\/style>/, function () { return tag; });
+}
+// Standalone pages that aren't language-generated get the same treatment.
+['lohnfertigung.html', 'werbegeschenke.html'].forEach(function (f) {
+  fs.writeFileSync(f, inlineFonts(fs.readFileSync(f, 'utf8')), 'utf8');
+});
+
+const SRC = inlineFonts(fs.readFileSync('index.html', 'utf8'));
 
 function ogBlock(primaryLoc) {
   const lines = ['<meta property="og:locale" content="' + primaryLoc + '">'];
