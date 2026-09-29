@@ -37,4 +37,12 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://formastudio.cz/de"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://formastudio.cz/"/>
   </url>
+  <url>
+    <loc>https://formastudio.cz/lohnfertigung</loc>
+    <lastmod>2026-09-29</lastmod>
+  </url>
+  <url>
+    <loc>https://formastudio.cz/werbegeschenke</loc>
+    <lastmod>2026-09-29</lastmod>
+  </url>
 </urlset>

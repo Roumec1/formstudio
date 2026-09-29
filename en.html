@@ -32,10 +32,10 @@
 <meta name="twitter:title" content="Forma Studio — CNC, 3D Printing, Laser · Czech Republic">
 <meta name="twitter:description" content="Custom manufacturing in the EU. Large-format CNC milling, 100W laser, 3D printing farm. From a single prototype to thousands.">
 <meta name="twitter:image" content="https://formastudio.cz/images/og-en.jpg">
-<link rel="preload" href="/fonts/inter-400-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/fonts/spacegrotesk-500-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/fonts/jetbrainsmono-400-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" as="image" href="/gallery/g06.jpg" fetchpriority="high">
+<link rel="preload" href="/fonts/inter-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/spacegrotesk-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/jetbrainsmono-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" as="image" href="/gallery/g06.jpg" imagesrcset="/gallery/g06-sm.jpg 640w, /gallery/g06.jpg 1600w" imagesizes="(max-width:980px) 92vw, 480px" fetchpriority="high">
 <link rel="stylesheet" href="/fonts/fonts.css">
 <!-- Vercel Web Analytics (cookieless) -->
 <script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments);};</script>
@@ -506,6 +506,20 @@ h1{letter-spacing:-.03em}
   #flt-panel{width:calc(100vw - 2rem);right:1rem}
   #flt-toggle{right:1rem;bottom:1rem}
 }
+
+/* ─── SMALL PHONES: no sideways overflow ─── */
+#hero>*{min-width:0}
+@media(max-width:560px){
+  .cta-nav{display:none}
+  .nav-r{gap:.6rem}
+  .specrow{display:grid;grid-template-columns:1fr 1fr}
+  .sc:nth-child(2){border-right:none}
+  .sc:nth-child(-n+2){border-bottom:1px solid var(--border)}
+  .titleblock{grid-template-columns:1fr 1fr}
+  .tb:nth-child(2){border-right:none}
+  .tb:nth-child(-n+2){border-bottom:1px solid var(--border)}
+  .tb .v{white-space:normal}
+}
 </style>
 <script type="application/ld+json" data-faq>{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"I don't know which technology to choose. Can you help?","acceptedAnswer":{"@type":"Answer","text":"Of course — that's one of the things we love doing most. Send us a description or sketch and we'll hop on a call. We'll explain the differences, suggest the best solution, and advise on materials. No obligations, no jargon."}},{"@type":"Question","name":"What's the minimum order quantity?","acceptedAnswer":{"@type":"Answer","text":"No minimum. We produce from 1 piece — a prototype, a unique exhibit, or a thousand-piece run. You decide."}},{"@type":"Question","name":"What file formats do you accept?","acceptedAnswer":{"@type":"Answer","text":"DXF, STL, STEP, IGES, SolidWorks, Fusion 360, PDF — and we can handle technical drawings or even a hand sketch. Don't worry about the format — we'll figure it out."}},{"@type":"Question","name":"How long does production take?","acceptedAnswer":{"@type":"Answer","text":"Prototypes typically within 48 hours. Small series (10–200 pcs): 1–2 weeks. Larger runs: we'll set a specific schedule. We always confirm the deadline before starting."}},{"@type":"Question","name":"Can I order a sample first?","acceptedAnswer":{"@type":"Answer","text":"Yes — and for larger orders, we actively recommend it. A sample lets you verify material, finish, and dimensions before committing to full production."}},{"@type":"Question","name":"Will I get the price upfront, or a surprise invoice?","acceptedAnswer":{"@type":"Answer","text":"You always get a clear quote before production starts. No hidden fees, no surprises. If anything changes during production, we'll call you first."}}]}</script>
 </head>
@@ -574,7 +588,7 @@ h1{letter-spacing:-.03em}
     <div class="sheet">
       <span class="crop tl"></span><span class="crop tr"></span><span class="crop bl"></span><span class="crop br"></span>
       <div class="frame">
-        <img src="gallery/g06.jpg" alt="Wooden wireless charger made by CNC milling" width="1600" height="1600" fetchpriority="high" decoding="async">
+        <img srcset="gallery/g06-sm.jpg 640w, gallery/g06.jpg 1600w" sizes="(max-width:980px) 92vw, 480px" src="gallery/g06.jpg" alt="Wooden wireless charger made by CNC milling" width="1600" height="1600" fetchpriority="high" decoding="async">
       </div>
       <div class="titleblock">
         <div class="tb"><div class="k"><span data-lang="cs">Projekt</span><span data-lang="sk">Projekt</span><span data-lang="en" class="on">Project</span><span data-lang="de">Projekt</span></div><div class="v">Wireless&nbsp;charger</div></div>
@@ -633,7 +647,7 @@ h1{letter-spacing:-.03em}
     <div class="svc-grid">
 
       <div class="svc rv">
-        <img class="svc-img" src="images/cnc-frzovani-dreva.jpg" alt="CNC wood milling — large-format router at Forma Studio" loading="lazy">
+        <img srcset="images/cnc-frzovani-dreva-sm.jpg 640w, images/cnc-frzovani-dreva.jpg 1280w" sizes="(max-width:980px) 100vw, 50vw" width="1280" height="853" class="svc-img" src="images/cnc-frzovani-dreva.jpg" alt="CNC wood milling — large-format router at Forma Studio" loading="lazy">
         <div class="svc-body">
           <div class="svc-n">01</div>
           <div class="svc-title"><span data-lang="cs">CNC frézování dřeva</span><span data-lang="sk">CNC frézovanie dreva</span><span data-lang="en" class="on">CNC wood milling</span><span data-lang="de">CNC-Holzfräsen</span></div>
@@ -647,7 +661,7 @@ h1{letter-spacing:-.03em}
       </div>
 
       <div class="svc rv d1">
-        <img class="svc-img" src="images/laserov-gravirovani.jpg" alt="Laser engraving and cutting — 100W CO2 laser at Forma Studio" loading="lazy">
+        <img srcset="images/laserov-gravirovani-sm.jpg 640w, images/laserov-gravirovani.jpg 768w" sizes="(max-width:980px) 100vw, 50vw" width="768" height="1024" class="svc-img" src="images/laserov-gravirovani.jpg" alt="Laser engraving and cutting — 100W CO2 laser at Forma Studio" loading="lazy">
         <div class="svc-body">
           <div class="svc-n">02</div>
           <div class="svc-title"><span data-lang="cs">Laserové gravírování a řezání</span><span data-lang="sk">Laserové gravírovanie a rezanie</span><span data-lang="en" class="on">Laser engraving &amp; cutting</span><span data-lang="de">Lasergravur &amp; -schnitt</span></div>
@@ -664,7 +678,7 @@ h1{letter-spacing:-.03em}
       </div>
 
       <div class="svc rv">
-        <img class="svc-img" src="images/3d-tisk.jpg" alt="3D printing farm — dozens of printers at Forma Studio, Šumperk" loading="lazy">
+        <img srcset="images/3d-tisk-sm.jpg 640w, images/3d-tisk.jpg 1024w" sizes="(max-width:980px) 100vw, 50vw" width="1024" height="683" class="svc-img" src="images/3d-tisk.jpg" alt="3D printing farm — dozens of printers at Forma Studio, Šumperk" loading="lazy">
         <div class="svc-body">
           <div class="svc-n">03</div>
           <div class="svc-title"><span data-lang="cs">3D tisková farma</span><span data-lang="sk">3D tlačová farma</span><span data-lang="en" class="on">3D print farm</span><span data-lang="de">3D-Druckfarm</span></div>
@@ -678,7 +692,7 @@ h1{letter-spacing:-.03em}
       </div>
 
       <div class="svc rv d1">
-        <img class="svc-img" src="images/rapid-prototyping.jpg" alt="Rapid prototyping — from prototype to series production" loading="lazy">
+        <img srcset="images/rapid-prototyping-sm.jpg 640w, images/rapid-prototyping.jpg 853w" sizes="(max-width:980px) 100vw, 50vw" width="853" height="1280" class="svc-img" src="images/rapid-prototyping.jpg" alt="Rapid prototyping — from prototype to series production" loading="lazy">
         <div class="svc-body">
           <div class="svc-n">04</div>
           <div class="svc-title"><span data-lang="cs">Od prototypu k sérii</span><span data-lang="sk">Od prototypu k sérii</span><span data-lang="en" class="on">From prototype to series</span><span data-lang="de">Vom Prototyp zur Serie</span></div>
@@ -703,24 +717,24 @@ h1{letter-spacing:-.03em}
   </div>
   <div class="w">
     <div class="gal-grid">
-      <div class="gi span2"><img src="gallery/g08.jpg" alt="Wooden product with branded packaging made by CNC milling" loading="lazy"></div>
-      <div class="gi"><img src="gallery/g06.jpg" alt="Wooden wireless charger made by CNC milling" loading="lazy"></div>
-      <div class="gi"><img src="gallery/g09.jpg" alt="Oak wood aroma diffuser — CNC manufacturing" loading="lazy"></div>
-      <div class="gi"><img src="gallery/g01.jpg" alt="Wireless charger with a laser-engraved Cloudflare logo" loading="lazy"></div>
-      <div class="gi"><img src="gallery/g13.jpg" alt="Oak wood stand made by CNC milling" loading="lazy"></div>
-      <div class="gi"><img src="gallery/g15.jpg" alt="Wooden wireless charger with an iPhone — product showcase" loading="lazy"></div>
-      <div class="gi span2"><img src="gallery/g12.jpg" alt="Set of wooden accessories — CNC milling and laser engraving" loading="lazy"></div>
-      <div class="gi"><img src="gallery/g10.jpg" alt="Walnut wood aroma diffuser — custom CNC manufacturing" loading="lazy"></div>
-      <div class="gi"><img src="gallery/g14.jpg" alt="Walnut wood stand — custom CNC manufacturing" loading="lazy"></div>
-      <div class="gi"><img src="gallery/g02.jpg" alt="Wooden money box with a laser-engraved logo for a Cloudflare event" loading="lazy"></div>
-      <div class="gi"><img src="gallery/g16.jpg" alt="Large walnut wood aroma diffuser — series production" loading="lazy"></div>
-      <div class="gi"><img src="gallery/g11.jpg" alt="Unboxing a wooden aroma diffuser — packaging and presentation" loading="lazy"></div>
-      <div class="gi"><img src="gallery/g07.jpg" alt="Close-up of the back of a wooden product — CNC finishing quality" loading="lazy"></div>
-      <div class="gi"><img src="gallery/g03.jpg" alt="Close-up of the surface finish of a wooden product by Forma Studio" loading="lazy"></div>
-      <div class="gi"><img src="gallery/g04.jpg" alt="Custom wooden product — CNC milling, Šumperk" loading="lazy"></div>
-      <div class="gi"><img src="gallery/g05.jpg" alt="Close-up of craftsmanship — CNC and laser manufacturing" loading="lazy"></div>
-      <div class="gi"><img src="gallery/g17.jpg" alt="Inside the Forma Studio workshop — CNC machines in operation" loading="lazy"></div>
-      <div class="gi"><img src="gallery/g18.jpg" alt="Forma Studio production facilities in Šumperk" loading="lazy"></div>
+      <div class="gi span2"><img srcset="gallery/g08-sm.jpg 640w, gallery/g08.jpg 1599w" sizes="(max-width:600px) 100vw, (max-width:980px) 50vw, 33vw" width="1599" height="1600" src="gallery/g08.jpg" alt="Wooden product with branded packaging made by CNC milling" loading="lazy"></div>
+      <div class="gi"><img srcset="gallery/g06-sm.jpg 640w, gallery/g06.jpg 1600w" sizes="(max-width:600px) 100vw, (max-width:980px) 50vw, 33vw" width="1600" height="1600" src="gallery/g06.jpg" alt="Wooden wireless charger made by CNC milling" loading="lazy"></div>
+      <div class="gi"><img srcset="gallery/g09-sm.jpg 640w, gallery/g09.jpg 1600w" sizes="(max-width:600px) 100vw, (max-width:980px) 50vw, 33vw" width="1600" height="1600" src="gallery/g09.jpg" alt="Oak wood aroma diffuser — CNC manufacturing" loading="lazy"></div>
+      <div class="gi"><img srcset="gallery/g01-sm.jpg 640w, gallery/g01.jpg 1600w" sizes="(max-width:600px) 100vw, (max-width:980px) 50vw, 33vw" width="1600" height="1066" src="gallery/g01.jpg" alt="Wireless charger with a laser-engraved Cloudflare logo" loading="lazy"></div>
+      <div class="gi"><img srcset="gallery/g13-sm.jpg 640w, gallery/g13.jpg 1600w" sizes="(max-width:600px) 100vw, (max-width:980px) 50vw, 33vw" width="1600" height="1600" src="gallery/g13.jpg" alt="Oak wood stand made by CNC milling" loading="lazy"></div>
+      <div class="gi"><img srcset="gallery/g15-sm.jpg 640w, gallery/g15.jpg 1600w" sizes="(max-width:600px) 100vw, (max-width:980px) 50vw, 33vw" width="1600" height="1600" src="gallery/g15.jpg" alt="Wooden wireless charger with an iPhone — product showcase" loading="lazy"></div>
+      <div class="gi span2"><img srcset="gallery/g12-sm.jpg 640w, gallery/g12.jpg 1600w" sizes="(max-width:600px) 100vw, (max-width:980px) 50vw, 33vw" width="1600" height="1600" src="gallery/g12.jpg" alt="Set of wooden accessories — CNC milling and laser engraving" loading="lazy"></div>
+      <div class="gi"><img srcset="gallery/g10-sm.jpg 640w, gallery/g10.jpg 1600w" sizes="(max-width:600px) 100vw, (max-width:980px) 50vw, 33vw" width="1600" height="1600" src="gallery/g10.jpg" alt="Walnut wood aroma diffuser — custom CNC manufacturing" loading="lazy"></div>
+      <div class="gi"><img srcset="gallery/g14-sm.jpg 640w, gallery/g14.jpg 1600w" sizes="(max-width:600px) 100vw, (max-width:980px) 50vw, 33vw" width="1600" height="1600" src="gallery/g14.jpg" alt="Walnut wood stand — custom CNC manufacturing" loading="lazy"></div>
+      <div class="gi"><img srcset="gallery/g02-sm.jpg 640w, gallery/g02.jpg 1600w" sizes="(max-width:600px) 100vw, (max-width:980px) 50vw, 33vw" width="1600" height="1067" src="gallery/g02.jpg" alt="Wooden money box with a laser-engraved logo for a Cloudflare event" loading="lazy"></div>
+      <div class="gi"><img srcset="gallery/g16-sm.jpg 640w, gallery/g16.jpg 1600w" sizes="(max-width:600px) 100vw, (max-width:980px) 50vw, 33vw" width="1600" height="1600" src="gallery/g16.jpg" alt="Large walnut wood aroma diffuser — series production" loading="lazy"></div>
+      <div class="gi"><img srcset="gallery/g11-sm.jpg 640w, gallery/g11.jpg 1600w" sizes="(max-width:600px) 100vw, (max-width:980px) 50vw, 33vw" width="1600" height="1600" src="gallery/g11.jpg" alt="Unboxing a wooden aroma diffuser — packaging and presentation" loading="lazy"></div>
+      <div class="gi"><img srcset="gallery/g07-sm.jpg 640w, gallery/g07.jpg 1600w" sizes="(max-width:600px) 100vw, (max-width:980px) 50vw, 33vw" width="1600" height="1600" src="gallery/g07.jpg" alt="Close-up of the back of a wooden product — CNC finishing quality" loading="lazy"></div>
+      <div class="gi"><img srcset="gallery/g03-sm.jpg 640w, gallery/g03.jpg 1600w" sizes="(max-width:600px) 100vw, (max-width:980px) 50vw, 33vw" width="1600" height="1600" src="gallery/g03.jpg" alt="Close-up of the surface finish of a wooden product by Forma Studio" loading="lazy"></div>
+      <div class="gi"><img srcset="gallery/g04-sm.jpg 640w, gallery/g04.jpg 1600w" sizes="(max-width:600px) 100vw, (max-width:980px) 50vw, 33vw" width="1600" height="1067" src="gallery/g04.jpg" alt="Custom wooden product — CNC milling, Šumperk" loading="lazy"></div>
+      <div class="gi"><img srcset="gallery/g05-sm.jpg 640w, gallery/g05.jpg 1600w" sizes="(max-width:600px) 100vw, (max-width:980px) 50vw, 33vw" width="1600" height="1067" src="gallery/g05.jpg" alt="Close-up of craftsmanship — CNC and laser manufacturing" loading="lazy"></div>
+      <div class="gi"><img srcset="gallery/g17-sm.jpg 640w, gallery/g17.jpg 1600w" sizes="(max-width:600px) 100vw, (max-width:980px) 50vw, 33vw" width="1600" height="1200" src="gallery/g17.jpg" alt="Inside the Forma Studio workshop — CNC machines in operation" loading="lazy"></div>
+      <div class="gi"><img srcset="gallery/g18-sm.jpg 640w, gallery/g18.jpg 1200w" sizes="(max-width:600px) 100vw, (max-width:980px) 50vw, 33vw" width="1200" height="1600" src="gallery/g18.jpg" alt="Forma Studio production facilities in Šumperk" loading="lazy"></div>
     </div>
   </div>
 </section>
@@ -729,7 +743,7 @@ h1{letter-spacing:-.03em}
 <section id="about">
   <div class="about-grid">
     <div class="rv">
-      <img class="about-img" src="images/image-8.jpg" alt="The Forma Studio team in the workshop — CNC and 3D printing, Šumperk" loading="lazy">
+      <img srcset="images/image-8-sm.jpg 640w, images/image-8.jpg 1000w" sizes="(max-width:980px) 100vw, 50vw" width="1000" height="666" class="about-img" src="images/image-8.jpg" alt="The Forma Studio team in the workshop — CNC and 3D printing, Šumperk" loading="lazy">
       <div class="about-caption">
         <span data-lang="cs">Zleva: Mirek, Michal, Roman, Roman a Tomáš — parta, která za 5 let vybudovala jak produktovou značku Treed, tak dílnu schopnou velké série. 👋</span><span data-lang="sk">Zľava: Mirek, Michal, Roman, Roman a Tomáš — partia, čo radšej vyrába, než rozpráva.</span><span data-lang="en" class="on">From left: Mirek, Michal, Roman, Roman and Tomáš — a crew that would rather build than talk.</span><span data-lang="de">Von links: Mirek, Michal, Roman, Roman und Tomáš — ein Team, das in 5 Jahren sowohl die Produktmarke Treed als auch eine Werkstatt für Großserien aufgebaut hat. 👋</span>
       </div>
@@ -756,7 +770,7 @@ h1{letter-spacing:-.03em}
 <!-- ── DELIVERY PHOTO FEATURE ── -->
 <div id="delivery-hero">
   <div class="dh-img">
-    <img src="images/image-9.jpg" alt="Order delivery — Forma Studio, a reliable manufacturing partner" loading="lazy">
+    <img srcset="images/image-9-sm.jpg 640w, images/image-9.jpg 666w" sizes="(max-width:980px) 100vw, 50vw" width="666" height="1000" src="images/image-9.jpg" alt="Order delivery — Forma Studio, a reliable manufacturing partner" loading="lazy">
   </div>
   <div class="dh-text">
     <p class="dh-label">
@@ -786,7 +800,7 @@ h1{letter-spacing:-.03em}
         <h2 class="sh inv"><span data-lang="cs">Forma Studio vs.<br><em>zbytek trhu</em></span><span data-lang="sk">Forma Studio vs.<br><em>zvyšok trhu</em></span><span data-lang="en" class="on">Forma Studio vs.<br><em>the rest of the market</em></span><span data-lang="de">Forma Studio vs.<br><em>der Rest des Marktes</em></span></h2>
         <p class="sb" style="color:#666;margin-top:.85rem"><span data-lang="cs">Velcí výrobci nechtějí malé zakázky. Malé dílny nezvládnou velké série. My fungujeme jinak — každou zakázku, od jednoho kusu po tisíce, bereme stejně vážně.</span><span data-lang="sk">Veľkí výrobcovia nechcú malé zákazky. Malé dielne nezvládnu veľké série. My fungujeme inak — každú zákazku, od jedného kusu po tisíce, berieme rovnako vážne.</span><span data-lang="en" class="on">Big manufacturers don't want small orders. Small shops can't handle large runs. We work differently — every order, from one piece to thousands, gets the same attention.</span><span data-lang="de">Große Hersteller wollen keine kleinen Aufträge. Kleine Werkstätten bewältigen keine großen Serien. Wir arbeiten anders — jeden Auftrag, von einem Stück bis zu Tausenden, nehmen wir gleich ernst.</span></p>
       </div>
-      <img class="comp-img" src="images/image-8.jpg" alt="The Forma Studio team — CNC and laser workshop, Šumperk" loading="lazy">
+      <img srcset="images/image-8-sm.jpg 640w, images/image-8.jpg 1000w" sizes="(max-width:980px) 100vw, 50vw" width="1000" height="666" class="comp-img" src="images/image-8.jpg" alt="The Forma Studio team — CNC and laser workshop, Šumperk" loading="lazy">
     </div>
     <div class="comp-table rv">
       <div class="comp-col them">
@@ -1037,6 +1051,8 @@ h1{letter-spacing:-.03em}
     <li><a href="#contact">Kontakt</a></li>
     <li><a href="/impressum">Impressum</a></li>
     <li><a href="/datenschutz">Datenschutz</a></li>
+    <li><a href="/lohnfertigung" hreflang="de">Lohnfertigung</a></li>
+    <li><a href="/werbegeschenke" hreflang="de">Werbegeschenke</a></li>
   </ul>
   <span class="fcopy">© 2026 Forma Studio · Šumperk · CNC · 3D · Laser</span>
 </footer>

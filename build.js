@@ -197,7 +197,11 @@ Object.keys(META).forEach(function (lang) {
   }).join('\n') + '\n    <xhtml:link rel="alternate" hreflang="x-default" href="' + BASE + '/"/>';
   const urls = ['cs', 'de', 'en', 'sk'].map(function (l) {
     return '  <url>\n    <loc>' + META[l].url + '</loc>\n    <lastmod>' + today + '</lastmod>\n' + alts + '\n  </url>';
-  }).join('\n');
+  }).join('\n') + '\n' +
+    // German landing pages (standalone, not language-generated)
+    ['/lohnfertigung', '/werbegeschenke'].map(function (u) {
+      return '  <url>\n    <loc>' + BASE + u + '</loc>\n    <lastmod>' + today + '</lastmod>\n  </url>';
+    }).join('\n');
   const xml = '<?xml version="1.0" encoding="UTF-8"?>\n' +
     '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n' +
     '        xmlns:xhtml="http://www.w3.org/1999/xhtml">\n' + urls + '\n</urlset>\n';
