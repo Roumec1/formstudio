@@ -310,7 +310,7 @@ footer a{color:var(--mid);text-decoration:none;border-bottom:1px solid var(--bor
         <div class="fr"><label for="lp-email">E-Mail</label><input id="lp-email" type="email" autocomplete="email" placeholder="max@firma.de"></div>
         <div class="fr"><label for="lp-msg">Ihr Projekt (Material, Menge, Termin)</label><textarea id="lp-msg" placeholder="z. B. 50 Gehäuse aus 8 mm Acryl, CNC-gefräst, Lieferung bis KW 40. Datei reiche ich per E-Mail nach."></textarea></div>
         <div class="fr"><label for="lp-files">Zeichnung / CAD-Datei (optional)</label><input id="lp-files" type="file" multiple accept=".dxf,.dwg,.step,.stp,.stl,.iges,.igs,.3mf,.obj,.pdf,.png,.jpg,.jpeg,.svg,.ai,.eps,.zip"><p class="file-hint">DXF, STEP, STL, IGES, PDF · max. 3 MB gesamt. Größere Dateien bitte per E-Mail.</p></div>
-        <div class="hp" aria-hidden="true"><label>Company<input type="text" id="lp-company" name="company" tabindex="-1" autocomplete="off"></label></div>
+        <div class="hp" aria-hidden="true"><label>Leave empty<input type="text" id="lp-hpcheck" name="hp_check" tabindex="-1" autocomplete="off"></label></div>
         <button id="lp-send" type="submit">Angebot anfordern →</button>
         <p class="fnote">Antwort innerhalb von 24 Stunden. Keine Verpflichtungen. Größere Dateien gern per E-Mail.</p>
       </form>
@@ -339,7 +339,7 @@ document.getElementById('lpform').addEventListener('submit',function(e){
   var name=document.getElementById('lp-name').value.trim();
   var email=document.getElementById('lp-email').value.trim();
   var msg=document.getElementById('lp-msg').value.trim();
-  var hp=document.getElementById('lp-company').value;
+  var hp=document.getElementById('lp-hpcheck').value;
   var btn=document.getElementById('lp-send');
   if(hp)return;
   if(!name||!email||!msg){btn.textContent='Bitte Name, E-Mail und Nachricht ausfüllen';btn.style.background='#7a2020';setTimeout(function(){btn.textContent='Angebot anfordern →';btn.style.background='';},2800);return;}

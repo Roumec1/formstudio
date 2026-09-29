@@ -1035,7 +1035,7 @@ h1{letter-spacing:-.03em}
         <input type="file" id="f-files" multiple accept=".dxf,.dwg,.step,.stp,.stl,.iges,.igs,.3mf,.obj,.pdf,.png,.jpg,.jpeg,.svg,.ai,.eps,.zip">
         <p class="file-hint"><span data-lang="cs">DXF, STEP, STL, PDF, obrázek · max. 3 MB celkem. Větší soubory pošlete e-mailem.</span><span data-lang="sk">DXF, STEP, STL, PDF, obrázok · max. 3 MB spolu. Väčšie súbory pošlite e-mailom.</span><span data-lang="en">DXF, STEP, STL, PDF, image · max. 3 MB total. Send larger files by email.</span><span data-lang="de" class="on">DXF, STEP, STL, PDF, Bild · max. 3 MB gesamt. Größere Dateien bitte per E-Mail.</span></p>
       </div>
-      <div class="hp" aria-hidden="true"><label>Company<input type="text" id="f-company" name="company" tabindex="-1" autocomplete="off"></label></div>
+      <div class="hp" aria-hidden="true"><label>Leave empty<input type="text" id="f-hpcheck" name="hp_check" tabindex="-1" autocomplete="off"></label></div>
       <button class="fsub" id="fsub" aria-live="polite">
         <span data-lang="cs" id="fcs">Odeslat poptávku →</span><span data-lang="sk" id="fsk">Odoslať dopyt →</span><span data-lang="en" id="fen">Send inquiry →</span><span data-lang="de" id="fde" class="on">Anfrage senden →</span>
       </button>
@@ -1086,7 +1086,7 @@ h1{letter-spacing:-.03em}
   <div class="fpr"><label for="fp-name"><span data-lang="cs">Jméno</span><span data-lang="sk">Meno</span><span data-lang="en">Name</span><span data-lang="de" class="on">Name</span></label><input type="text" id="fp-name" placeholder="Jan Novák" autocomplete="name"></div>
   <div class="fpr"><label for="fp-email">Email</label><input type="email" id="fp-email" placeholder="jan@firma.cz" autocomplete="email"></div>
   <div class="fpr"><label for="fp-msg"><span data-lang="cs">Zpráva</span><span data-lang="sk">Správa</span><span data-lang="en">Message</span><span data-lang="de" class="on">Nachricht</span></label><textarea id="fp-msg" placeholder="Co potřebujete vyrobit?"></textarea></div>
-  <div class="hp" aria-hidden="true"><label>Company<input type="text" id="fp-company" name="company" tabindex="-1" autocomplete="off"></label></div>
+  <div class="hp" aria-hidden="true"><label>Leave empty<input type="text" id="fp-hpcheck" name="hp_check" tabindex="-1" autocomplete="off"></label></div>
   <button id="flt-send" onclick="fltSend()"><span data-lang="cs">Odeslat →</span><span data-lang="sk">Odoslať →</span><span data-lang="en">Send →</span><span data-lang="de" class="on">Senden →</span></button>
   <p class="fp-note"><span data-lang="cs">Žádné závazky. Odpovídáme do 24 h.</span><span data-lang="sk">Žiadne záväzky. Odpovedáme do 24 h.</span><span data-lang="en">No obligations. We reply within 24 h.</span><span data-lang="de" class="on">Keine Verpflichtungen. Wir antworten innerhalb von 24 h.</span></p>
 </div>
@@ -1148,7 +1148,7 @@ document.getElementById('cform').addEventListener('submit',function(e){
   var msgEl=document.getElementById('msg');
   var svcEl=document.getElementById('svc-sel');
   var cs=document.getElementById('fcs'),sk=document.getElementById('fsk'),en=document.getElementById('fen'),de=document.getElementById('fde');
-  var hp=document.getElementById('f-company');
+  var hp=document.getElementById('f-hpcheck');
   var btn=document.getElementById('fsub');
 
   // Honeypot: bots fill the hidden field — silently drop
@@ -1253,7 +1253,7 @@ function fltSend(){
   var nameEl=document.getElementById('fp-name');
   var emailEl=document.getElementById('fp-email');
   var msgEl=document.getElementById('fp-msg');
-  var hp=document.getElementById('fp-company');
+  var hp=document.getElementById('fp-hpcheck');
   var sendBtn=document.getElementById('flt-send');
 
   // Honeypot: bots fill the hidden field — silently drop
