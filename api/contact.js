@@ -6,11 +6,39 @@ function originAllowed(origin) {
   return !!origin && ALLOWED.some((re) => re.test(origin));
 }
 
+// Per-IP throttle (best effort — lives as long as a warm serverless instance).
+const HITS = new Map();
+const WINDOW_MS = 10 * 60 * 1000;
+const MAX_PER_WINDOW = 5;
+
+const SPAM_WORDS = /\b(seo|backlinks?|casino|crypto|bitcoin|forex|viagra|cialis|loan|guest ?post|rank(ing)? (your|on)|web ?traffic|telegram|whatsapp me|onlyfans|porn|betting)\b/i;
+
+function spamReason(b) {
+  if (b.company) return 'honeypot';
+  const elapsed = Number(b.elapsed);
+  if (!Number.isFinite(elapsed) || elapsed < 3000) return 'too-fast';
+  const text = [b.name, b.message].filter(Boolean).join(' ');
+  if (/[Ѐ-ӿ一-鿿]/.test(text)) return 'script';
+  if (/https?:\/\/|www\./i.test(b.name || '')) return 'link-in-name';
+  if (((b.message || '').match(/https?:\/\//gi) || []).length >= 2) return 'links';
+  if (SPAM_WORDS.test(text)) return 'keywords';
+  return null;
+}
+
+function rateLimited(ip) {
+  const now = Date.now();
+  const recent = (HITS.get(ip) || []).filter((t) => now - t < WINDOW_MS);
+  recent.push(now);
+  HITS.set(ip, recent);
+  return recent.length > MAX_PER_WINDOW;
+}
+
 export default async function handler(req, res) {
-  const origin = req.headers.origin;
+  let origin = req.headers.origin;
+  if (!origin) { try { origin = new URL(req.headers.referer).origin; } catch { origin = ''; } }
 
   // CORS: reflect only allowed origins (never "*")
-  if (originAllowed(origin)) {
+  if (originAllowed(req.headers.origin)) {
     res.setHeader('Access-Control-Allow-Origin', origin);
     res.setHeader('Vary', 'Origin');
   }
@@ -27,16 +55,25 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  // Block cross-site browser submissions (a present Origin must be on the allowlist;
-  // same-origin/no-Origin requests are permitted).
-  if (origin && !originAllowed(origin)) {
+  // Real browsers always send Origin/Referer on a form POST; scripts hitting the API directly don't.
+  if (!originAllowed(origin)) {
+    console.warn('contact: blocked origin', origin || '(none)');
     return res.status(403).json({ error: 'Forbidden' });
   }
 
-  const { name, email, service, message, company } = req.body || {};
+  const ip = String(req.headers['x-forwarded-for'] || '').split(',')[0].trim() || 'unknown';
+  if (rateLimited(ip)) {
+    console.warn('contact: rate limited', ip);
+    return res.status(429).json({ error: 'Too many requests' });
+  }
 
-  // Honeypot — bots fill the hidden "company" field. Pretend success, send nothing.
-  if (company) {
+  const b = req.body || {};
+  const { name, email, service, message } = b;
+
+  // Spam (honeypot, instant submit, link/keyword/script spam): pretend success, send nothing.
+  const reason = spamReason(b);
+  if (reason) {
+    console.warn('contact: spam dropped —', reason, email);
     return res.status(200).json({ success: true });
   }
 
@@ -62,7 +99,8 @@ export default async function handler(req, res) {
     return res.status(500).json({ error: 'Server configuration error' });
   }
 
-  const TO_EMAIL = process.env.CONTACT_EMAIL || 'plant@wearetreed.com';
+  // Leads go to the company mailbox (hardcoded so a stale CONTACT_EMAIL env var can't redirect them).
+  const TO_EMAIL = 'plant@wearetreed.com';
 
   try {
     const response = await fetch('https://api.resend.com/emails', {

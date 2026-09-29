@@ -1067,6 +1067,7 @@ h1{letter-spacing:-.03em}
 </div>
 
 <script>
+window.__formT0=Date.now();
 // ── LANG ──
 let L='cs';
 const TR={
@@ -1145,7 +1146,7 @@ document.getElementById('cform').addEventListener('submit',function(e){
       email:emailEl.value.trim(),
       service:svcEl.options[svcEl.selectedIndex]?svcEl.options[svcEl.selectedIndex].text:'',
       message:msgEl.value.trim(),
-      company:hp?hp.value:''
+      company:hp?hp.value:'',elapsed:Date.now()-window.__formT0
     })
   }).then(function(r){return r.json();}).then(function(data){
     if(data.success){
@@ -1222,7 +1223,7 @@ function fltSend(){
   fetch('/api/contact',{
     method:'POST',
     headers:{'Content-Type':'application/json'},
-    body:JSON.stringify({name:nameEl.value.trim(),email:emailEl.value.trim(),service:'',message:msgEl.value.trim(),company:hp?hp.value:''})
+    body:JSON.stringify({name:nameEl.value.trim(),email:emailEl.value.trim(),service:'',message:msgEl.value.trim(),company:hp?hp.value:'',elapsed:Date.now()-window.__formT0})
   }).then(function(r){return r.json();}).then(function(d){
     if(d.success){
       if(window.va)va('event',{name:'lead_form_floating',data:{lang:L}});

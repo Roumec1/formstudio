@@ -270,6 +270,7 @@ footer a:hover{color:var(--accent)}
 </footer>
 
 <script>
+window.__formT0=Date.now();
 // WhatsApp click tracking
 document.addEventListener('click',function(e){
   var a=e.target.closest&&e.target.closest('a[href^="https://wa.me"]');
@@ -289,7 +290,7 @@ document.getElementById('lpform').addEventListener('submit',function(e){
   btn.textContent='Senden...';btn.disabled=true;
   fetch('/api/contact',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({
     name:name,email:email,service:'Werbegeschenke (Landingpage)',
-    message:(firma?'Firma: '+firma+'\n\n':'')+msg,company:hp
+    message:(firma?'Firma: '+firma+'\n\n':'')+msg,company:hp,elapsed:Date.now()-window.__formT0
   })}).then(function(r){return r.json();}).then(function(d){
     if(d.success){
       if(window.va)va('event',{name:'lead_form',data:{lp:'werbegeschenke'}});

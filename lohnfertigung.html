@@ -323,6 +323,7 @@ footer a{color:var(--mid);text-decoration:none;border-bottom:1px solid var(--bor
 </footer>
 
 <script>
+window.__formT0=Date.now();
 document.addEventListener('click',function(e){
   var a=e.target.closest&&e.target.closest('a[href^="https://wa.me"]');
   if(a&&window.va)va('event',{name:'whatsapp_click',data:{lp:'lohnfertigung'}});
@@ -340,7 +341,7 @@ document.getElementById('lpform').addEventListener('submit',function(e){
   btn.textContent='Senden...';btn.disabled=true;
   fetch('/api/contact',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({
     name:name,email:email,service:'Lohnfertigung (Landingpage)',
-    message:(firma?'Firma: '+firma+'\n\n':'')+msg,company:hp
+    message:(firma?'Firma: '+firma+'\n\n':'')+msg,company:hp,elapsed:Date.now()-window.__formT0
   })}).then(function(r){return r.json();}).then(function(d){
     if(d.success){
       if(window.va)va('event',{name:'lead_form',data:{lp:'lohnfertigung'}});
