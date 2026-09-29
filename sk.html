@@ -78,7 +78,7 @@
     "@type":"OfferCatalog",
     "name":"Výrobní služby",
     "itemListElement":[
-      {"@type":"Offer","itemOffered":{"@type":"Service","name":"CNC frézování dřeva","description":"Velkoformátové CNC se dvěma 2,2kW vřeteny. Dřevo, překližka, plast, kompozity."}},
+      {"@type":"Offer","itemOffered":{"@type":"Service","name":"CNC frézování dřeva","description":"Velkoformátové CNC se dvěma 2,2kW vřeteny. Dřevo, MDF, překližka, plast, kompozity."}},
       {"@type":"Offer","itemOffered":{"@type":"Service","name":"Laserové gravírování a řezání","description":"100W CO2 laser — dřevo, akryl, kůže, sklo, kov. Od jemného loga po průřez 10mm akrylátu."}},
       {"@type":"Offer","itemOffered":{"@type":"Service","name":"3D tisková farma","description":"Desítky strojů paralelně. PLA, PETG, nylon. Prototypy do 48 hodin."}},
       {"@type":"Offer","itemOffered":{"@type":"Service","name":"Rapid prototyping a sériová výroba","description":"Od prototypu k sérii — desítky, stovky i tisíce kusů měsíčně."}}
@@ -335,6 +335,9 @@ h1 em{font-style:italic;color:var(--accent)}
 .form-r input:focus,.form-r select:focus,.form-r textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(201,78,30,.07)}
 .form-r input::placeholder,.form-r textarea::placeholder{color:#c8c4bc}
 .form-r textarea{height:100px;resize:none}
+.form-r input[type=file],.fr input[type=file]{padding:.55rem .7rem;font-size:.8rem;cursor:pointer;color:var(--mid)}
+.form-r input[type=file]::file-selector-button,.fr input[type=file]::file-selector-button{font-family:var(--mono);font-size:.7rem;letter-spacing:.04em;text-transform:uppercase;background:var(--ink);color:#fff;border:none;border-radius:2px;padding:.5rem .8rem;margin-right:.8rem;cursor:pointer}
+.file-hint{font-size:.7rem;color:var(--mid);margin-top:.35rem;font-family:var(--mono)}
 .form-r select{cursor:pointer}
 .fg2{display:grid;grid-template-columns:1fr 1fr;gap:.85rem}
 .fsub{width:100%;margin-top:.4rem;background:var(--ink);color:white;border:none;cursor:pointer;font-family:var(--sans);font-size:.82rem;font-weight:500;padding:.95rem;border-radius:2px;transition:background .2s,transform .15s;display:flex;align-items:center;justify-content:center;gap:.35rem}
@@ -558,13 +561,13 @@ h1{letter-spacing:-.03em}
 <section id="hero">
   <div class="hl">
     <div class="hero-tag">
-      <span data-lang="cs">Výroba na zakázku · Šumperk, Morava</span><span data-lang="sk" class="on">Zákazková výroba · Šumperk, Morava</span><span data-lang="en">Custom manufacturing · Šumperk, Moravia</span><span data-lang="de">Auftragsfertigung · Šumperk, Mähren</span>
+      <span data-lang="cs">Výroba na zakázku · Šumperk, Morava</span><span data-lang="sk" class="on">Zákazková výroba · Šumperk, Morava</span><span data-lang="en">Contract manufacturing · made in the EU</span><span data-lang="de">CNC-Lohnfertigung · aus der EU</span>
     </div>
     <h1>
-      <span data-lang="cs">Máte nápad.<br>My ho <em>vyrobíme.</em></span><span data-lang="sk" class="on">Máte nápad.<br>My ho <em>vyrobíme.</em></span><span data-lang="en">You have an idea.<br>We <em>make it.</em></span><span data-lang="de">Sie haben eine Idee.<br>Wir <em>fertigen sie.</em></span>
+      <span data-lang="cs">Máte nápad.<br>My ho <em>vyrobíme.</em></span><span data-lang="sk" class="on">Máte nápad.<br>My ho <em>vyrobíme.</em></span><span data-lang="en">Your drawing,<br><em>made into parts.</em></span><span data-lang="de">Aus Ihrer Zeichnung<br>wird ein <em>fertiges Teil.</em></span>
     </h1>
     <p class="hero-sub">
-      <span data-lang="cs">CNC frézování, 3D tisk, laserové gravírování — <strong>od 1 kusu po tisíce.</strong> Pošlete nám soubor nebo jen nápad. Zbytek je na nás.</span><span data-lang="sk" class="on">CNC frézovanie, 3D tlač, laserové gravírovanie — <strong>od 1 kusu po tisíce.</strong> Pošlite nám súbor a my sa ozveme do 24 hodín.</span><span data-lang="en">CNC milling, 3D printing, laser engraving — <strong>from 1 piece to thousands.</strong> Send us a file and we'll get back to you within 24 hours.</span><span data-lang="de">CNC-Fräsen, 3D-Druck, Lasergravur — <strong>von 1 Stück bis zu Tausenden.</strong> Fertigung aus der EU, Angebot innerhalb von 24 Stunden. Schicken Sie uns Ihre Datei oder einfach Ihre Idee.</span>
+      <span data-lang="cs">CNC frézování, 3D tisk, laserové gravírování — <strong>od 1 kusu po tisíce.</strong> Pošlete nám soubor nebo jen nápad. Zbytek je na nás.</span><span data-lang="sk" class="on">CNC frézovanie, 3D tlač, laserové gravírovanie — <strong>od 1 kusu po tisíce.</strong> Pošlite nám súbor a my sa ozveme do 24 hodín.</span><span data-lang="en">CNC milling, laser cutting and 3D printing in <strong>wood, MDF, plastic and acrylic</strong> — from a single sample to series of 10,000. Send us DXF, STEP or PDF: quote within 48 hours, delivered across the EU without customs.</span><span data-lang="de">CNC-Fräsen, Laserschneiden und 3D-Druck aus <strong>Holz, MDF, Kunststoff und Acryl</strong> — vom Muster bis zur Serie von 10&nbsp;000 Stück. Schicken Sie uns DXF, STEP oder PDF: Angebot innerhalb von 48 Stunden, Lieferung nach Deutschland ohne Zoll.</span>
     </p>
     <div class="specrow">
       <div class="sc"><div class="sc-n">500+</div><div class="sc-l"><span data-lang="cs">Projektů</span><span data-lang="sk" class="on">Projektov</span><span data-lang="en">Projects</span><span data-lang="de">Projekte</span></div></div>
@@ -574,7 +577,7 @@ h1{letter-spacing:-.03em}
     </div>
     <div class="hero-btns">
       <a class="btn btn-ink" href="#contact">
-        <span data-lang="cs">Pošlete nám projekt →</span><span data-lang="sk" class="on">Pošlite nám projekt →</span><span data-lang="en">Send us your project →</span><span data-lang="de">Senden Sie uns Ihr Projekt →</span>
+        <span data-lang="cs">Pošlete nám projekt →</span><span data-lang="sk" class="on">Pošlite nám projekt →</span><span data-lang="en">Send your drawing →</span><span data-lang="de">Zeichnung senden →</span>
       </a>
       <a class="btn btn-ghost" href="#gallery">
         <span data-lang="cs">Podívejte se na ukázky</span><span data-lang="sk" class="on">Pozrite sa na ukážky</span><span data-lang="en">See our work</span><span data-lang="de">Unsere Arbeiten ansehen</span>
@@ -608,7 +611,7 @@ h1{letter-spacing:-.03em}
     <span class="mi">Laserové gravírovanie <span class="md"></span></span>
     <span class="mi">Rapid prototyping <span class="md"></span></span>
     <span class="mi">Séria 1 – 10 000 ks <span class="md"></span></span>
-    <span class="mi">Drevo · Plast · Kov · Akryl <span class="md"></span></span>
+    <span class="mi">Drevo · MDF · Plast · Akryl <span class="md"></span></span>
     <span class="mi">5 rokov v odbore <span class="md"></span></span>
     <span class="mi">Šumperk, Morava <span class="md"></span></span>
     <span class="mi">CNC frézovanie dreva <span class="md"></span></span>
@@ -616,7 +619,7 @@ h1{letter-spacing:-.03em}
     <span class="mi">Laserové gravírovanie <span class="md"></span></span>
     <span class="mi">Rapid prototyping <span class="md"></span></span>
     <span class="mi">Séria 1 – 10 000 ks <span class="md"></span></span>
-    <span class="mi">Drevo · Plast · Kov · Akryl <span class="md"></span></span>
+    <span class="mi">Drevo · MDF · Plast · Akryl <span class="md"></span></span>
     <span class="mi">5 rokov v odbore <span class="md"></span></span>
     <span class="mi">Šumperk, Morava <span class="md"></span></span>
   </div>
@@ -651,7 +654,7 @@ h1{letter-spacing:-.03em}
         <div class="svc-body">
           <div class="svc-n">01</div>
           <div class="svc-title"><span data-lang="cs">CNC frézování dřeva</span><span data-lang="sk" class="on">CNC frézovanie dreva</span><span data-lang="en">CNC wood milling</span><span data-lang="de">CNC-Holzfräsen</span></div>
-          <p class="svc-desc"><span data-lang="cs">Velkoformátové CNC se dvěma 2,2kW vřeteny. Dřevo, překližka, plast, kompozity — od jednoho kusu po série tisíců měsíčně. Složité tvary, hluboké kapsy, opakované řezy — vždy se stejným výsledkem. A co stroj nedodělá, dokončíme ručně.</span><span data-lang="sk" class="on">Veľkoformátové CNC s dvoma 2,2kW vretenami. Drevo, preglejka, plast, kompozity — od jedného kusu po série tisícov mesačne. Zložité tvary, hlboké kapsy, opakované rezy — vždy s rovnakým výsledkom. A čo stroj nedorobí, dokončíme ručne.</span><span data-lang="en">Large-format CNC with dual 2.2kW spindles. Wood, plywood, plastic, composites — from one piece to thousands per month. Complex shapes, deep pockets, repeated cuts — always the same result. What the machine cannot finish, we do by hand.</span><span data-lang="de">Großformat-CNC mit zwei 2,2-kW-Spindeln. Holz, Sperrholz, Kunststoff, Verbundwerkstoffe — von einem Stück bis zu Tausenden pro Monat. Komplexe Formen, tiefe Taschen, wiederholte Schnitte — immer mit demselben Ergebnis. Was die Maschine nicht schafft, erledigen wir von Hand.</span></p>
+          <p class="svc-desc"><span data-lang="cs">Velkoformátové CNC se dvěma 2,2kW vřeteny. Dřevo, MDF, překližka, plast, kompozity — od jednoho kusu po série tisíců měsíčně. Složité tvary, hluboké kapsy, opakované řezy — vždy se stejným výsledkem. A co stroj nedodělá, dokončíme ručně.</span><span data-lang="sk" class="on">Veľkoformátové CNC s dvoma 2,2kW vretenami. Drevo, MDF, preglejka, plast, kompozity — od jedného kusu po série tisícov mesačne. Zložité tvary, hlboké kapsy, opakované rezy — vždy s rovnakým výsledkom. A čo stroj nedorobí, dokončíme ručne.</span><span data-lang="en">Large-format CNC with dual 2.2kW spindles. Wood, MDF, plywood, plastic, composites — from one piece to thousands per month. Complex shapes, deep pockets, repeated cuts — always the same result. What the machine cannot finish, we do by hand.</span><span data-lang="de">Großformat-CNC mit zwei 2,2-kW-Spindeln. Holz, MDF, Sperrholz, Kunststoff, Verbundwerkstoffe — von einem Stück bis zu Tausenden pro Monat. Komplexe Formen, tiefe Taschen, wiederholte Schnitte — immer mit demselben Ergebnis. Was die Maschine nicht schafft, erledigen wir von Hand.</span></p>
           <div class="svc-tags">
             <span class="svc-tag"><span data-lang="cs">Nábytek &amp; interiér</span><span data-lang="sk" class="on">Nábytok &amp; interiér</span><span data-lang="en">Furniture &amp; interiors</span><span data-lang="de">Möbel &amp; Interieur</span></span>
             <span class="svc-tag"><span data-lang="cs">Firemní dárky</span><span data-lang="sk" class="on">Firemné darčeky</span><span data-lang="en">Corporate gifts</span><span data-lang="de">Firmengeschenke</span></span>
@@ -1027,6 +1030,11 @@ h1{letter-spacing:-.03em}
         <label for="msg"><span data-lang="cs">Řekněte nám víc</span><span data-lang="sk" class="on">Povedzte nám viac</span><span data-lang="en">Tell us more</span><span data-lang="de">Erzählen Sie uns mehr</span></label>
         <textarea id="msg" placeholder="Popište projekt, materiál, rozměry, termín... nebo prostě napište, co potřebujete. Nic nemusí být dokonalé — zbytek dořešíme spolu."></textarea>
       </div>
+      <div class="form-r">
+        <label for="f-files"><span data-lang="cs">Výkres nebo soubor (volitelné)</span><span data-lang="sk" class="on">Výkres alebo súbor (voliteľné)</span><span data-lang="en">Drawing or file (optional)</span><span data-lang="de">Zeichnung oder Datei (optional)</span></label>
+        <input type="file" id="f-files" multiple accept=".dxf,.dwg,.step,.stp,.stl,.iges,.igs,.3mf,.obj,.pdf,.png,.jpg,.jpeg,.svg,.ai,.eps,.zip">
+        <p class="file-hint"><span data-lang="cs">DXF, STEP, STL, PDF, obrázek · max. 3 MB celkem. Větší soubory pošlete e-mailem.</span><span data-lang="sk" class="on">DXF, STEP, STL, PDF, obrázok · max. 3 MB spolu. Väčšie súbory pošlite e-mailom.</span><span data-lang="en">DXF, STEP, STL, PDF, image · max. 3 MB total. Send larger files by email.</span><span data-lang="de">DXF, STEP, STL, PDF, Bild · max. 3 MB gesamt. Größere Dateien bitte per E-Mail.</span></p>
+      </div>
       <div class="hp" aria-hidden="true"><label>Company<input type="text" id="f-company" name="company" tabindex="-1" autocomplete="off"></label></div>
       <button class="fsub" id="fsub" aria-live="polite">
         <span data-lang="cs" id="fcs">Odeslat poptávku →</span><span data-lang="sk" id="fsk" class="on">Odoslať dopyt →</span><span data-lang="en" id="fen">Send inquiry →</span><span data-lang="de" id="fde">Anfrage senden →</span>
@@ -1053,6 +1061,7 @@ h1{letter-spacing:-.03em}
     <li><a href="/datenschutz">Datenschutz</a></li>
     <li><a href="/lohnfertigung" hreflang="de">Lohnfertigung</a></li>
     <li><a href="/werbegeschenke" hreflang="de">Werbegeschenke</a></li>
+    <li><a href="/referenzen" hreflang="de">Referenzen</a></li>
   </ul>
   <span class="fcopy">© 2026 Forma Studio · Šumperk · CNC · 3D · Laser</span>
 </footer>
@@ -1123,6 +1132,15 @@ const obs=new IntersectionObserver(es=>{
 },{threshold:0.05,rootMargin:'0px 0px -20px 0px'});
 document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
 // ── FORM ──
+// Read chosen files as base64 for the contact API (max 5 files / 3 MB — Vercel caps requests at 4.5 MB).
+function readFormFiles(input){
+  var list=input&&input.files?Array.prototype.slice.call(input.files):[];
+  var total=list.reduce(function(a,f){return a+f.size;},0);
+  if(list.length>5||total>3*1024*1024)return Promise.reject('size');
+  return Promise.all(list.map(function(f){return new Promise(function(res,rej){
+    var r=new FileReader();r.onload=function(){res({name:f.name,data:String(r.result).split(',')[1]||''});};r.onerror=rej;r.readAsDataURL(f);
+  });}));
+}
 document.getElementById('cform').addEventListener('submit',function(e){
   e.preventDefault();
   var nameEl=document.getElementById('f-name');
@@ -1147,6 +1165,9 @@ document.getElementById('cform').addEventListener('submit',function(e){
     return;
   }
 
+  var fileEl=document.getElementById('f-files');
+  var resetLabel=function(){if(cs)cs.textContent='Odeslat popt\u00e1vku \u2192';if(sk)sk.textContent='Odosla\u0165 dopyt \u2192';if(en)en.textContent='Send inquiry \u2192';if(de)de.textContent='Anfrage senden \u2192';btn.style.background='';btn.disabled=false;};
+
   // Show sending state
   if(cs)cs.textContent='Odes\u00edl\u00e1m...';
   if(sk)sk.textContent='Odosielam...';
@@ -1154,16 +1175,28 @@ document.getElementById('cform').addEventListener('submit',function(e){
   if(de)de.textContent='Senden...';
   btn.disabled=true;
 
-  fetch('/api/contact',{
-    method:'POST',
-    headers:{'Content-Type':'application/json'},
-    body:JSON.stringify({
-      name:nameEl.value.trim(),
-      email:emailEl.value.trim(),
-      service:svcEl.options[svcEl.selectedIndex]?svcEl.options[svcEl.selectedIndex].text:'',
-      message:msgEl.value.trim(),
-      company:hp?hp.value:'',elapsed:Date.now()-window.__formT0
-    })
+  readFormFiles(fileEl).then(function(files){
+    return fetch('/api/contact',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({
+        name:nameEl.value.trim(),
+        email:emailEl.value.trim(),
+        service:svcEl.options[svcEl.selectedIndex]?svcEl.options[svcEl.selectedIndex].text:'',
+        message:msgEl.value.trim(),
+        files:files,
+        company:hp?hp.value:'',elapsed:Date.now()-window.__formT0
+      })
+    });
+  },function(){
+    // Too many / too large files: tell the visitor what to do instead of failing silently.
+    if(cs)cs.textContent='Soubory max. 3 MB \u2014 v\u011bt\u0161\u00ed po\u0161lete e-mailem';
+    if(sk)sk.textContent='S\u00fabory max. 3 MB \u2014 v\u00e4\u010d\u0161ie po\u0161lite e-mailom';
+    if(en)en.textContent='Files max. 3 MB \u2014 email larger ones';
+    if(de)de.textContent='Dateien max. 3 MB \u2014 gr\u00f6\u00dfere per E-Mail';
+    btn.style.background='#7a2020';
+    setTimeout(resetLabel,4000);
+    throw 'handled';
   }).then(function(r){return r.json();}).then(function(data){
     if(data.success){
       if(window.va)va('event',{name:'lead_form',data:{lang:L}});
@@ -1172,10 +1205,11 @@ document.getElementById('cform').addEventListener('submit',function(e){
       if(en)en.textContent='Sent! We\u2019ll get back within 24 h \u2713';
       if(de)de.textContent='Gesendet! Wir melden uns in 24 h \u2713';
       btn.style.background='#2a5a2a';
-      nameEl.value='';emailEl.value='';msgEl.value='';svcEl.selectedIndex=0;
-      setTimeout(function(){if(cs)cs.textContent='Odeslat popt\u00e1vku \u2192';if(sk)sk.textContent='Odosla\u0165 dopyt \u2192';if(en)en.textContent='Send inquiry \u2192';if(de)de.textContent='Anfrage senden \u2192';btn.style.background='';btn.disabled=false;},4000);
+      nameEl.value='';emailEl.value='';msgEl.value='';svcEl.selectedIndex=0;if(fileEl)fileEl.value='';
+      setTimeout(resetLabel,4000);
     }else{throw new Error(data.error);}
-  }).catch(function(){
+  }).catch(function(err){
+    if(err==='handled')return;
     if(cs)cs.textContent='Chyba \u2014 zkuste to znovu';
     if(sk)sk.textContent='Chyba \u2014 sk\u00FAste to znova';
     if(en)en.textContent='Error \u2014 please try again';

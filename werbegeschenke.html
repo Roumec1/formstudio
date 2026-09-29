@@ -128,6 +128,9 @@ nav{position:sticky;top:0;z-index:100;background:rgba(239,236,228,.95);backdrop-
 .fr input,.fr textarea{width:100%;background:var(--bg);border:1px solid var(--border);border-radius:3px;padding:.75rem 1rem;font-family:var(--sans);font-size:.9rem;color:var(--ink);outline:none;transition:border-color .2s,box-shadow .2s}
 .fr input:focus,.fr textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(201,78,30,.08)}
 .fr textarea{height:96px;resize:none}
+.fr input[type=file]{padding:.55rem .7rem;font-size:.8rem;cursor:pointer;color:var(--mid)}
+.fr input[type=file]::file-selector-button{font-family:var(--mono);font-size:.68rem;letter-spacing:.04em;text-transform:uppercase;background:var(--ink);color:#fff;border:none;border-radius:2px;padding:.5rem .8rem;margin-right:.8rem;cursor:pointer}
+.file-hint{font-family:var(--mono);font-size:.64rem;color:var(--mid);margin-top:.35rem}
 .hp{position:absolute!important;left:-9999px!important;width:1px;height:1px;overflow:hidden}
 #lp-send{width:100%;background:var(--accent);color:#fff;border:none;cursor:pointer;font-family:var(--mono);font-size:.8rem;letter-spacing:.04em;text-transform:uppercase;font-weight:500;padding:1rem;border-radius:3px;transition:background .2s,transform .15s;margin-top:.3rem}
 #lp-send:hover{transform:translateY(-1px)}
@@ -253,6 +256,7 @@ footer a:hover{color:var(--accent)}
         <div class="fr"><label for="lp-name">Name</label><input id="lp-name" type="text" autocomplete="name" placeholder="Max Mustermann"></div>
         <div class="fr"><label for="lp-email">E-Mail</label><input id="lp-email" type="email" autocomplete="email" placeholder="max@firma.de"></div>
         <div class="fr"><label for="lp-msg">Worum geht es?</label><textarea id="lp-msg" placeholder="z. B. 200 kabellose Ladegeräte aus Eiche mit Logo-Gravur, bis Ende Q3..."></textarea></div>
+        <div class="fr"><label for="lp-files">Logo oder Vorlage (optional)</label><input id="lp-files" type="file" multiple accept=".dxf,.dwg,.step,.stp,.stl,.iges,.igs,.3mf,.obj,.pdf,.png,.jpg,.jpeg,.svg,.ai,.eps,.zip"><p class="file-hint">PDF, SVG, AI, EPS, PNG, JPG · max. 3 MB gesamt.</p></div>
         <div class="hp" aria-hidden="true"><label>Company<input type="text" id="lp-company" name="company" tabindex="-1" autocomplete="off"></label></div>
         <button id="lp-send" type="submit">Angebot anfordern →</button>
         <p class="fnote">Antwort innerhalb von 24 Stunden. Keine Verpflichtungen.</p>
@@ -271,6 +275,7 @@ footer a:hover{color:var(--accent)}
 
 <script>
 window.__formT0=Date.now();
+function readFormFiles(input){var list=input&&input.files?Array.prototype.slice.call(input.files):[];var total=list.reduce(function(a,f){return a+f.size;},0);if(list.length>5||total>3*1024*1024)return Promise.reject('size');return Promise.all(list.map(function(f){return new Promise(function(res,rej){var r=new FileReader();r.onload=function(){res({name:f.name,data:String(r.result).split(',')[1]||''});};r.onerror=rej;r.readAsDataURL(f);});}));}
 // WhatsApp click tracking
 document.addEventListener('click',function(e){
   var a=e.target.closest&&e.target.closest('a[href^="https://wa.me"]');
@@ -288,17 +293,18 @@ document.getElementById('lpform').addEventListener('submit',function(e){
   if(hp)return;
   if(!name||!email||!msg){btn.textContent='Bitte Name, E-Mail und Nachricht ausfüllen';btn.style.background='#7a2020';setTimeout(function(){btn.textContent='Angebot anfordern →';btn.style.background='';},2800);return;}
   btn.textContent='Senden...';btn.disabled=true;
-  fetch('/api/contact',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({
+  readFormFiles(document.getElementById('lp-files')).then(function(files){return fetch('/api/contact',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({files:files,
     name:name,email:email,service:'Werbegeschenke (Landingpage)',
     message:(firma?'Firma: '+firma+'\n\n':'')+msg,company:hp,elapsed:Date.now()-window.__formT0
-  })}).then(function(r){return r.json();}).then(function(d){
+  })});},function(){btn.textContent='Dateien max. 3 MB — größere bitte per E-Mail';btn.style.background='#7a2020';setTimeout(function(){btn.textContent='Angebot anfordern →';btn.style.background='';btn.disabled=false;},4000);throw 'handled';}).then(function(r){return r.json();}).then(function(d){
     if(d.success){
       if(window.va)va('event',{name:'lead_form',data:{lp:'werbegeschenke'}});
       btn.textContent='Gesendet! Wir melden uns in 24 h ✓';btn.style.background='#2a5a2a';
-      document.getElementById('lp-firma').value='';name='';document.getElementById('lp-name').value='';document.getElementById('lp-email').value='';document.getElementById('lp-msg').value='';
+      document.getElementById('lp-firma').value='';name='';document.getElementById('lp-name').value='';document.getElementById('lp-email').value='';document.getElementById('lp-msg').value='';document.getElementById('lp-files').value='';
       setTimeout(function(){btn.textContent='Angebot anfordern →';btn.style.background='';btn.disabled=false;},5000);
     }else{throw new Error(d.error);}
-  }).catch(function(){
+  }).catch(function(err){
+    if(err==='handled')return;
     btn.textContent='Fehler — bitte erneut versuchen';btn.style.background='#7a2020';
     setTimeout(function(){btn.textContent='Angebot anfordern →';btn.style.background='';btn.disabled=false;},3000);
   });

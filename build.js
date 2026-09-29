@@ -26,15 +26,15 @@ const META = {
   },
   en: {
     file: 'en.html', loc: 'en_US', url: BASE + '/en',
-    title: 'Forma Studio — CNC, 3D Printing, Laser · Czech Republic',
-    desc: 'We turn your file into a finished product. Large-format CNC milling, 100W laser, 3D printing farm. Complex projects welcome, batches from a single piece. Šumperk, Czech Republic.',
+    title: 'CNC Contract Manufacturing in Wood, MDF & Plastic — Forma Studio',
+    desc: 'CNC milling, laser cutting and 3D printing as contract manufacturing in the EU: wood, MDF, plastic, acrylic. From sample to series, quote within 48 hours. Šumperk, Czech Republic.',
     social: 'Custom manufacturing in the EU. Large-format CNC milling, 100W laser, 3D printing farm. From a single prototype to thousands.',
     wa: 'Hello, I have an inquiry for Forma Studio.'
   },
   de: {
     file: 'de.html', loc: 'de_DE', url: BASE + '/de',
-    title: 'Forma Studio — CNC-Fräsen, 3D-Druck, Lasergravur · Tschechien',
-    desc: 'Wir verwandeln Ihre Datei in ein fertiges Produkt. Großformatiges CNC-Fräsen, 100-W-Laser, 3D-Druckfarm. Komplexe Projekte willkommen, Serien ab 1 Stück. Šumperk, Tschechien.',
+    title: 'CNC-Lohnfertigung aus Holz, MDF & Kunststoff — Forma Studio',
+    desc: 'CNC-Fräsen, Laserschneiden und 3D-Druck als Lohnfertigung aus der EU: Holz, MDF, Kunststoff, Acryl. Vom Muster bis zur Serie, Angebot in 48 Stunden, Lieferung nach Deutschland ohne Zoll.',
     social: 'Fertigung auf Bestellung aus der EU. Großformatiges CNC-Fräsen, 100-W-Laser, 3D-Druckfarm. Vom Prototyp bis zu Tausenden.',
     wa: 'Guten Tag, ich habe eine Anfrage an Forma Studio.'
   }
@@ -46,10 +46,10 @@ const WA_RE = /(wa\.me\/4917622791055\?text=)[^"]*/g;
 
 // Scrolling marquee items per language (regenerated each build).
 const MARQUEE = {
-  cs: ['CNC frézování dřeva', '3D tisk — FDM & resin', 'Laserové gravírování', 'Rapid prototyping', 'Série 1 – 10 000 ks', 'Dřevo · Plast · Kov · Akryl', '5 let v oboru', 'Šumperk, Morava'],
-  sk: ['CNC frézovanie dreva', '3D tlač — FDM & resin', 'Laserové gravírovanie', 'Rapid prototyping', 'Séria 1 – 10 000 ks', 'Drevo · Plast · Kov · Akryl', '5 rokov v odbore', 'Šumperk, Morava'],
-  en: ['CNC wood milling', '3D printing — FDM & resin', 'Laser engraving', 'Rapid prototyping', 'Batches 1 – 10,000 pcs', 'Wood · Plastic · Metal · Acrylic', '5 years in the field', 'Šumperk, Moravia'],
-  de: ['CNC-Holzfräsen', '3D-Druck — FDM & Resin', 'Lasergravur', 'Rapid Prototyping', 'Serien 1 – 10.000 Stück', 'Holz · Kunststoff · Metall · Acryl', '5 Jahre Erfahrung', 'Šumperk, Mähren'],
+  cs: ['CNC frézování dřeva', '3D tisk — FDM & resin', 'Laserové gravírování', 'Rapid prototyping', 'Série 1 – 10 000 ks', 'Dřevo · MDF · Plast · Akryl', '5 let v oboru', 'Šumperk, Morava'],
+  sk: ['CNC frézovanie dreva', '3D tlač — FDM & resin', 'Laserové gravírovanie', 'Rapid prototyping', 'Séria 1 – 10 000 ks', 'Drevo · MDF · Plast · Akryl', '5 rokov v odbore', 'Šumperk, Morava'],
+  en: ['CNC wood milling', '3D printing — FDM & resin', 'Laser engraving', 'Rapid prototyping', 'Batches 1 – 10,000 pcs', 'Wood · MDF · Plastic · Acrylic', '5 years in the field', 'Šumperk, Moravia'],
+  de: ['CNC-Holzfräsen', '3D-Druck — FDM & Resin', 'Lasergravur', 'Rapid Prototyping', 'Serien 1 – 10.000 Stück', 'Holz · MDF · Kunststoff · Acryl', '5 Jahre Erfahrung', 'Šumperk, Mähren'],
 };
 function marqueeTrack(items) {
   const one = items.map(function (t) {
@@ -57,6 +57,14 @@ function marqueeTrack(items) {
   }).join('\n');
   return '<div class="mtrack">\n' + one + '\n' + one + '\n  </div>';
 }
+
+// Manufacturing-focused hero for German/English pages (cs/sk keep the product hero).
+const HERO_MFG = {
+  de: [['Verfahren', 'CNC · Laser'], ['Material', 'Holz · MDF'], ['Losgröße', '1–10&nbsp;000'], ['Angebot', '48 h']],
+  en: [['Process', 'CNC · Laser'], ['Material', 'Wood · MDF'], ['Batch size', '1–10,000'], ['Quote', '48 h']],
+};
+const HERO_MFG_IMG = '<img srcset="images/cnc-frzka-v-provozu-800.jpg 800w, images/cnc-frzka-v-provozu.jpg 1000w" sizes="(max-width:980px) 92vw, 480px" src="images/cnc-frzka-v-provozu.jpg" alt="CNC frézka v provozu" width="1000" height="666" fetchpriority="high" decoding="async">';
+const HERO_MFG_PRELOAD = '<link rel="preload" as="image" href="/images/cnc-frzka-v-provozu.jpg" imagesrcset="/images/cnc-frzka-v-provozu-800.jpg 800w, /images/cnc-frzka-v-provozu.jpg 1000w" imagesizes="(max-width:980px) 92vw, 480px" fetchpriority="high">';
 
 // Image alt text, keyed by the Czech alt in index.html. Localized for image SEO.
 const ALT = {
@@ -96,7 +104,7 @@ function inlineFonts(html) {
   return html.replace(/<link rel="stylesheet" href="\/fonts\/fonts\.css">|<style id="fontfaces">[\s\S]*?<\/style>/, function () { return tag; });
 }
 // Standalone pages that aren't language-generated get the same treatment.
-['lohnfertigung.html', 'werbegeschenke.html'].forEach(function (f) {
+['lohnfertigung.html', 'werbegeschenke.html', 'referenzen.html'].forEach(function (f) {
   fs.writeFileSync(f, inlineFonts(fs.readFileSync(f, 'utf8')), 'utf8');
 });
 
@@ -172,6 +180,18 @@ Object.keys(META).forEach(function (lang) {
   // Localize the scrolling marquee
   h = h.replace(/<div class="mtrack">[\s\S]*?<\/div>/, marqueeTrack(MARQUEE[lang]));
 
+  // German/English visitors are mostly buyers of series parts: show the workshop and
+  // manufacturing specs in the hero instead of the gift product (before alt localization).
+  if (HERO_MFG[lang]) {
+    const hm = HERO_MFG[lang];
+    h = h.replace(/<img\b[^>]*fetchpriority="high"[^>]*>/, HERO_MFG_IMG);
+    h = h.replace(/<link rel="preload" as="image" href="\/gallery\/g06\.jpg"[^>]*>/, HERO_MFG_PRELOAD);
+    h = h.replace(/<div class="titleblock">[\s\S]*?<\/div>(?=\s*<\/div>\s*<\/div>\s*<\/section>)/,
+      '<div class="titleblock">\n' + hm.map(function (kv) {
+        return '        <div class="tb"><div class="k">' + kv[0] + '</div><div class="v">' + kv[1] + '</div></div>\n';
+      }).join('') + '      </div>');
+  }
+
   // Localize image alt text (cs keeps the originals)
   if (lang !== 'cs') {
     Object.keys(ALT).forEach(function (cs) {
@@ -211,7 +231,7 @@ Object.keys(META).forEach(function (lang) {
     return '  <url>\n    <loc>' + META[l].url + '</loc>\n    <lastmod>' + today + '</lastmod>\n' + alts + '\n  </url>';
   }).join('\n') + '\n' +
     // German landing pages (standalone, not language-generated)
-    ['/lohnfertigung', '/werbegeschenke'].map(function (u) {
+    ['/lohnfertigung', '/werbegeschenke', '/referenzen'].map(function (u) {
       return '  <url>\n    <loc>' + BASE + u + '</loc>\n    <lastmod>' + today + '</lastmod>\n  </url>';
     }).join('\n');
   const xml = '<?xml version="1.0" encoding="UTF-8"?>\n' +

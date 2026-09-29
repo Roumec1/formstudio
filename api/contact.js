@@ -6,6 +6,10 @@ function originAllowed(origin) {
   return !!origin && ALLOWED.some((re) => re.test(origin));
 }
 
+// Attachments customers may send with an inquiry (drawings, CAD, images, archives).
+const FILE_EXT = /\.(dxf|dwg|step|stp|stl|iges|igs|3mf|obj|pdf|png|jpe?g|svg|ai|eps|zip)$/i;
+const MAX_FILE_BYTES = 3 * 1024 * 1024;
+
 // Per-IP throttle (best effort — lives as long as a warm serverless instance).
 const HITS = new Map();
 const WINDOW_MS = 10 * 60 * 1000;
@@ -93,6 +97,23 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: 'Invalid email' });
   }
 
+  // Optional drawings/files (base64). Vercel caps the request at 4.5 MB, so the page limits the
+  // raw total to 3 MB; re-check here and only allow drawing / image / archive formats.
+  const files = Array.isArray(b.files) ? b.files : [];
+  if (files.length > 5) return res.status(400).json({ error: 'Too many files' });
+  let totalBytes = 0;
+  const attachments = [];
+  for (const f of files) {
+    const filename = String((f && f.name) || '').replace(/[^\w.\- ()]/g, '_').slice(0, 120);
+    const content = String((f && f.data) || '');
+    if (!filename || !FILE_EXT.test(filename) || !/^[A-Za-z0-9+/=]+$/.test(content)) {
+      return res.status(400).json({ error: 'File type not allowed' });
+    }
+    totalBytes += Math.floor(content.length * 3 / 4);
+    attachments.push({ filename, content });
+  }
+  if (totalBytes > MAX_FILE_BYTES) return res.status(400).json({ error: 'Files too large' });
+
   const RESEND_KEY = process.env.RESEND_API_KEY;
   if (!RESEND_KEY) {
     console.error('RESEND_API_KEY not set');
@@ -123,9 +144,11 @@ export default async function handler(req, res) {
               ${service ? `<tr><td style="padding:.5rem 0;color:#666"><strong>Služba:</strong></td><td>${escapeHtml(service)}</td></tr>` : ''}
             </table>
             <div style="margin-top:1.5rem;padding:1rem;background:#faf9f7;border-left:3px solid #c94e1e;white-space:pre-wrap">${escapeHtml(message)}</div>
+            ${attachments.length ? `<p style="margin-top:1rem"><strong>Přílohy (${attachments.length}):</strong> ${attachments.map((a) => escapeHtml(a.filename)).join(', ')}</p>` : ''}
             <p style="margin-top:2rem;font-size:.8rem;color:#999">Odesláno z kontaktního formuláře na formastudio.cz</p>
           </div>
         `,
+        ...(attachments.length ? { attachments } : {}),
       }),
     });
 
