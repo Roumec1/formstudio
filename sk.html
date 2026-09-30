@@ -210,6 +210,7 @@ h1 em{font-style:italic;color:var(--accent)}
 .gi video{width:100%;height:100%;object-fit:cover;display:block}
 .gi-vid{cursor:default}
 .svc-vid{object-position:50% 40%;background:var(--light)}
+.svc-vid-laser{object-position:30% 40%}
 .gi-cap{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,.7));padding:2.5rem .9rem .7rem;font-size:.69rem;color:rgba(255,255,255,.88);opacity:0;transition:opacity .3s;font-style:italic}
 .gi:hover .gi-cap{opacity:1}
 .lb-overlay{position:fixed;inset:0;z-index:9999;background:rgba(250,249,247,.35);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);display:none;align-items:center;justify-content:center;cursor:zoom-out;opacity:0;transition:opacity .35s ease}
@@ -713,7 +714,7 @@ nav{position:sticky}
       </div>
 
       <div class="svc rv d1">
-        <img width="768" height="1024" class="svc-img" src="images/laserov-gravirovani.jpg" alt="Laserové gravírovanie a rezanie — 100W CO2 laser Forma Studio" loading="lazy">
+        <video class="svc-img svc-vid svc-vid-laser" muted loop playsinline preload="none" poster="videos/laser-engraving.jpg" data-src="videos/laser-engraving.mp4" width="960" height="720" aria-hidden="true"></video>
         <div class="svc-body">
           <div class="svc-n">02</div>
           <div class="svc-title"><span data-lang="cs">Laserové gravírování a řezání</span><span data-lang="sk" class="on">Laserové gravírovanie a rezanie</span><span data-lang="en">Laser engraving &amp; cutting</span><span data-lang="de">Lasergravur &amp; -schnitt</span></div>
