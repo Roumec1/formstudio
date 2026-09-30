@@ -29,13 +29,15 @@ const OUT = 'fonts';
 
     const fam = (block.match(/font-family:\s*'([^']+)'/) || [])[1];
     const style = (block.match(/font-style:\s*(\w+)/) || [])[1];
-    const weight = Number((block.match(/font-weight:\s*(\d+)/) || [])[1]);
+    // Google sends either one weight ("400") or a variable range ("400 800") — keep both ends
+    const wm = block.match(/font-weight:\s*(\d+)(?:\s+(\d+))?/) || [];
+    const weights = [Number(wm[1])].concat(wm[2] ? [Number(wm[2])] : []);
     const url = (block.match(/src:\s*url\(([^)]+)\)/) || [])[1];
     const range = (block.match(/unicode-range:\s*([^;]+);/) || [])[1];
     if (!fam || !url) continue;
 
     const g = byUrl.get(url) || { fam, style, subset, range, weights: [] };
-    g.weights.push(weight);
+    g.weights.push.apply(g.weights, weights);
     byUrl.set(url, g);
   }
 
