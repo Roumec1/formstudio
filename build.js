@@ -63,12 +63,11 @@ const HERO_MFG = {
   de: [['Verfahren', 'CNC · Laser'], ['Material', 'Holz · MDF'], ['Losgröße', '1–10&nbsp;000'], ['Angebot', '48 h']],
   en: [['Process', 'CNC · Laser'], ['Material', 'Wood · MDF'], ['Batch size', '1–10,000'], ['Quote', '48 h']],
 };
-const HERO_MFG_IMG = '<img srcset="videos/hero-series-640.jpg 640w, videos/hero-series.jpg 960w" sizes="(max-width:980px) 92vw, 480px" src="videos/hero-series.jpg" alt="Sériová výroba — montáž dřevěných nabíječek" width="960" height="540" fetchpriority="high" decoding="async"><video class="hero-vid" muted loop playsinline preload="none" data-src="videos/series-assembly.mp4" width="960" height="540" aria-hidden="true"></video>';
-const HERO_MFG_PRELOAD = '<link rel="preload" as="image" href="/videos/hero-series.jpg" imagesrcset="/videos/hero-series-640.jpg 640w, /videos/hero-series.jpg 960w" imagesizes="(max-width:980px) 92vw, 480px" fetchpriority="high">';
+const HERO_MFG_IMG = '<img srcset="images/cnc-frzka-v-provozu-800.jpg 800w, images/cnc-frzka-v-provozu.jpg 1000w" sizes="(max-width:980px) 92vw, 480px" src="images/cnc-frzka-v-provozu.jpg" alt="CNC frézka v provozu" width="1000" height="666" fetchpriority="high" decoding="async">';
+const HERO_MFG_PRELOAD = '<link rel="preload" as="image" href="/images/cnc-frzka-v-provozu.jpg" imagesrcset="/images/cnc-frzka-v-provozu-800.jpg 800w, /images/cnc-frzka-v-provozu.jpg 1000w" imagesizes="(max-width:980px) 92vw, 480px" fetchpriority="high">';
 
 // Image alt text, keyed by the Czech alt in index.html. Localized for image SEO.
 const ALT = {
-  'Sériová výroba — montáž dřevěných nabíječek': { sk: 'Sériová výroba — montáž drevených nabíjačiek', en: 'Series production — assembling wooden chargers', de: 'Serienfertigung — Montage von Holz-Ladegeräten' },
   'Série CNC frézovaných dílů z masivního dřeva': { sk: 'Séria CNC frézovaných dielov z masívneho dreva', en: 'A batch of CNC-milled solid-wood parts', de: 'Serie CNC-gefräster Teile aus Massivholz' },
   'CNC frézované děrované desky z barvené překližky': { sk: 'CNC frézované dierované dosky z farbenej preglejky', en: 'CNC-milled perforated panels in coloured plywood', de: 'CNC-gefräste Lochplatten aus farbigem Sperrholz' },
   'CNC frézka v provozu': { sk: 'CNC frézka v prevádzke', en: 'CNC router in operation', de: 'CNC-Fräse im Betrieb' },
