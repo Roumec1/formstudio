@@ -118,6 +118,19 @@ nav{position:sticky;top:0;z-index:100;background:rgba(239,236,228,.95);backdrop-
 .work-grid img{width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;border-radius:4px;border:1px solid var(--border);display:block}
 @media(max-width:680px){.work-grid{grid-template-columns:1fr 1fr}}
 
+/* sample + terms */
+.hero-sample{font-family:var(--mono);font-size:.72rem;color:var(--ink);margin-top:.6rem;line-height:1.7}
+.hero-sample a{color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent)}
+.terms{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin:2rem 0 1.8rem}
+.term{background:var(--white);padding:1.4rem 1.3rem}
+.t-k{font-family:var(--mono);font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mid)}
+.t-v{font-family:var(--disp);font-weight:600;font-size:1.35rem;color:var(--accent);margin:.3rem 0 .5rem}
+.term p{font-size:.83rem;color:var(--mid);line-height:1.6;font-weight:300}
+@media(max-width:860px){.terms{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.terms{grid-template-columns:1fr}}
+.chk{display:flex;gap:.6rem;align-items:flex-start;font-size:.84rem;color:var(--ink);margin:.2rem 0 1rem;cursor:pointer;line-height:1.45}
+.chk input{margin-top:.15rem;accent-color:var(--accent);width:16px;height:16px;flex-shrink:0}
+
 /* cta + form */
 .cta-grid{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:start}
 .cta-left h2{font-size:clamp(1.9rem,3.4vw,2.7rem);margin:.8rem 0 1rem}
@@ -171,6 +184,7 @@ footer a{color:var(--mid);text-decoration:none;border-bottom:1px solid var(--bor
       <a class="btn btn-ghost" href="#faehigkeiten">Fähigkeiten ansehen</a>
     </div>
     <p class="hero-trust">✓ <b>Made in EU</b> — kein Zoll, Lieferung in 1–3&nbsp;Tagen&nbsp;&nbsp;·&nbsp;&nbsp;✓ Schon gefertigt für <b>Cloudflare, Mastercard, Bohemia&nbsp;Interactive</b> — <a href="/referenzen" style="color:var(--accent)">Referenzen ansehen →</a></p>
+    <p class="hero-sample"><b>Musterteil ab 60&nbsp;€</b> — wird bei Serienauftrag verrechnet. <a href="#anfrage" data-sample>Muster anfragen →</a></p>
   </div>
   <div class="shot">
     <span class="crop tl"></span><span class="crop tr"></span><span class="crop bl"></span><span class="crop br"></span>
@@ -292,6 +306,21 @@ footer a{color:var(--mid);text-decoration:none;border-bottom:1px solid var(--bor
   </div>
 </section>
 
+<!-- KONDITIONEN -->
+<section class="sec">
+  <div class="wrap">
+    <span class="eyebrow">Konditionen</span>
+    <h2 style="font-size:clamp(1.8rem,3.2vw,2.6rem);margin-top:.7rem">Klar geregelt, bevor Sie bestellen.</h2>
+    <div class="terms">
+      <div class="term"><div class="t-k">Musterteil</div><div class="t-v">ab 60&nbsp;€</div><p>Prüfen Sie Material, Maße und Oberfläche vorab. Der Musterpreis wird bei Serienauftrag verrechnet.</p></div>
+      <div class="term"><div class="t-k">Rechnung</div><div class="t-v">in EUR</div><p>Für Unternehmen mit USt-IdNr. in der EU: innergemeinschaftliche Lieferung ohne Umsatzsteuer (Reverse Charge).</p></div>
+      <div class="term"><div class="t-k">Zahlung</div><div class="t-v">auf Rechnung</div><p>Bequem per Überweisung nach Erhalt der Rechnung.</p></div>
+      <div class="term"><div class="t-k">Lieferung</div><div class="t-v">1–3 Tage</div><p>Versand nach Deutschland und Österreich in 1–3 Werktagen nach Fertigstellung — ohne Zoll.</p></div>
+    </div>
+    <a class="btn btn-accent" href="#anfrage" data-sample>Musterteil anfragen →</a>
+  </div>
+</section>
+
 <!-- CTA + FORM -->
 <section class="sec" id="anfrage">
   <div class="wrap cta-grid">
@@ -310,6 +339,7 @@ footer a{color:var(--mid);text-decoration:none;border-bottom:1px solid var(--bor
         <div class="fr"><label for="lp-email">E-Mail</label><input id="lp-email" type="email" autocomplete="email" placeholder="max@firma.de"></div>
         <div class="fr"><label for="lp-msg">Ihr Projekt (Material, Menge, Termin)</label><textarea id="lp-msg" placeholder="z. B. 50 Gehäuse aus 8 mm Acryl, CNC-gefräst, Lieferung bis KW 40. Datei reiche ich per E-Mail nach."></textarea></div>
         <div class="fr"><label for="lp-files">Zeichnung / CAD-Datei (optional)</label><input id="lp-files" type="file" multiple accept=".dxf,.dwg,.step,.stp,.stl,.iges,.igs,.3mf,.obj,.pdf,.png,.jpg,.jpeg,.svg,.ai,.eps,.zip"><p class="file-hint">DXF, STEP, STL, IGES, PDF · max. 3 MB gesamt. Größere Dateien bitte per E-Mail.</p></div>
+        <label class="chk"><input type="checkbox" id="lp-sample"> <span>Ich möchte zuerst ein <b>Musterteil</b> (ab 60&nbsp;€, wird bei Serienauftrag verrechnet)</span></label>
         <div class="hp" aria-hidden="true"><label>Leave empty<input type="text" id="lp-hpcheck" name="hp_check" tabindex="-1" autocomplete="off"></label></div>
         <button id="lp-send" type="submit">Angebot anfordern →</button>
         <p class="fnote">Antwort innerhalb von 24 Stunden. Keine Verpflichtungen. Größere Dateien gern per E-Mail.</p>
@@ -328,6 +358,11 @@ footer a{color:var(--mid);text-decoration:none;border-bottom:1px solid var(--bor
 
 <script>
 window.__formT0=Date.now();
+document.addEventListener('click',function(e){
+  var a=e.target.closest&&e.target.closest('[data-sample]');if(!a)return;
+  var c=document.getElementById('lp-sample');if(c)c.checked=true;
+  if(window.va)va('event',{name:'sample_click',data:{lp:'lohnfertigung'}});
+});
 function readFormFiles(input){var list=input&&input.files?Array.prototype.slice.call(input.files):[];var total=list.reduce(function(a,f){return a+f.size;},0);if(list.length>5||total>3*1024*1024)return Promise.reject('size');return Promise.all(list.map(function(f){return new Promise(function(res,rej){var r=new FileReader();r.onload=function(){res({name:f.name,data:String(r.result).split(',')[1]||''});};r.onerror=rej;r.readAsDataURL(f);});}));}
 document.addEventListener('click',function(e){
   var a=e.target.closest&&e.target.closest('a[href^="https://wa.me"]');
@@ -339,19 +374,20 @@ document.getElementById('lpform').addEventListener('submit',function(e){
   var name=document.getElementById('lp-name').value.trim();
   var email=document.getElementById('lp-email').value.trim();
   var msg=document.getElementById('lp-msg').value.trim();
+  var smp=document.getElementById('lp-sample').checked;
   var hp=document.getElementById('lp-hpcheck').value;
   var btn=document.getElementById('lp-send');
   if(hp)return;
   if(!name||!email||!msg){btn.textContent='Bitte Name, E-Mail und Nachricht ausfüllen';btn.style.background='#7a2020';setTimeout(function(){btn.textContent='Angebot anfordern →';btn.style.background='';},2800);return;}
   btn.textContent='Senden...';btn.disabled=true;
   readFormFiles(document.getElementById('lp-files')).then(function(files){return fetch('/api/contact',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({files:files,
-    name:name,email:email,service:'Lohnfertigung (Landingpage)',
-    message:(firma?'Firma: '+firma+'\n\n':'')+msg,company:hp,elapsed:Date.now()-window.__formT0
+    name:name,email:email,service:'Lohnfertigung (Landingpage)'+(smp?' — MUSTERTEIL':''),
+    message:(smp?'[Musterteil gewünscht]\n\n':'')+(firma?'Firma: '+firma+'\n\n':'')+msg,company:hp,elapsed:Date.now()-window.__formT0
   })});},function(){btn.textContent='Dateien max. 3 MB — größere bitte per E-Mail';btn.style.background='#7a2020';setTimeout(function(){btn.textContent='Angebot anfordern →';btn.style.background='';btn.disabled=false;},4000);throw 'handled';}).then(function(r){return r.json();}).then(function(d){
     if(d.success){
       if(window.va)va('event',{name:'lead_form',data:{lp:'lohnfertigung'}});
       btn.textContent='Gesendet! Wir melden uns in 24 h ✓';btn.style.background='#2a5a2a';
-      document.getElementById('lp-firma').value='';document.getElementById('lp-name').value='';document.getElementById('lp-email').value='';document.getElementById('lp-msg').value='';document.getElementById('lp-files').value='';
+      document.getElementById('lp-firma').value='';document.getElementById('lp-name').value='';document.getElementById('lp-email').value='';document.getElementById('lp-msg').value='';document.getElementById('lp-files').value='';document.getElementById('lp-sample').checked=false;
       setTimeout(function(){btn.textContent='Angebot anfordern →';btn.style.background='';btn.disabled=false;},5000);
     }else{throw new Error(d.error);}
   }).catch(function(err){
