@@ -68,6 +68,7 @@ const HERO_MFG_PRELOAD = '<link rel="preload" as="image" href="/images/cnc-frzka
 
 // Image alt text, keyed by the Czech alt in index.html. Localized for image SEO.
 const ALT = {
+  'CNC frézované děrované desky z barvené překližky': { sk: 'CNC frézované dierované dosky z farbenej preglejky', en: 'CNC-milled perforated panels in coloured plywood', de: 'CNC-gefräste Lochplatten aus farbigem Sperrholz' },
   'CNC frézka v provozu': { sk: 'CNC frézka v prevádzke', en: 'CNC router in operation', de: 'CNC-Fräse im Betrieb' },
   'CNC frézování dřeva — velkoformátová fréza Forma Studio': { sk: 'CNC frézovanie dreva — veľkoformátová fréza Forma Studio', en: 'CNC wood milling — large-format router at Forma Studio', de: 'CNC-Holzfräsen — Großformatfräse von Forma Studio' },
   'Laserové gravírování a řezání — 100W CO2 laser Forma Studio': { sk: 'Laserové gravírovanie a rezanie — 100W CO2 laser Forma Studio', en: 'Laser engraving and cutting — 100W CO2 laser at Forma Studio', de: 'Lasergravur und -schnitt — 100-W-CO2-Laser von Forma Studio' },

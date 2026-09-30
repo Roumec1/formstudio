@@ -80,6 +80,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(239,236,228,.95);backdrop-
 .caps{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:2.2rem}
 .cap{background:var(--white);border:1px solid var(--border);border-radius:4px;overflow:hidden;display:flex;flex-direction:column}
 .cap img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;display:block}
+.cap video{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;object-position:50% 40%;display:block;background:var(--border)}
 .cap-b{padding:1.3rem 1.3rem 1.5rem}
 .cap-n{font-family:var(--mono);font-size:.62rem;letter-spacing:.1em;color:var(--accent);text-transform:uppercase}
 .cap h3{font-size:1.2rem;margin:.5rem 0 .55rem}
@@ -216,7 +217,7 @@ footer a{color:var(--mid);text-decoration:none;border-bottom:1px solid var(--bor
     </div>
     <div class="caps">
       <div class="cap">
-        <img srcset="/images/cnc-frzovani-dreva-800.jpg 800w, /images/cnc-frzovani-dreva.jpg 1280w" sizes="(max-width:980px) 100vw, 50vw" width="1280" height="853" src="/images/cnc-frzovani-dreva.jpg" alt="CNC-Fräsen von Holz bei Forma Studio" loading="lazy">
+        <video muted loop playsinline preload="none" poster="/videos/cnc-milling.jpg" data-src="/videos/cnc-milling.mp4" width="720" height="900" aria-hidden="true"></video>
         <div class="cap-b">
           <div class="cap-n">01 — CNC-Fräsen</div>
           <h3>CNC-Fräsen</h3>
@@ -397,6 +398,7 @@ document.getElementById('lpform').addEventListener('submit',function(e){
     setTimeout(function(){btn.textContent='Angebot anfordern →';btn.style.background='';btn.disabled=false;},3000);
   });
 });
+(function(){var vids=document.querySelectorAll('video[data-src]');if(!vids.length||!('IntersectionObserver' in window)||matchMedia('(prefers-reduced-motion: reduce)').matches)return;var vo=new IntersectionObserver(function(es){es.forEach(function(e){var v=e.target;if(e.isIntersecting){if(!v.src){v.muted=true;v.src=v.dataset.src;}var p=v.play();if(p&&p.catch)p.catch(function(){});}else if(v.src)v.pause();});},{rootMargin:'200px 0px'});vids.forEach(function(v){vo.observe(v);});})();
 </script>
 </body>
 </html>
