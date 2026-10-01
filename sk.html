@@ -1413,7 +1413,7 @@ document.getElementById('cform').addEventListener('submit',function(e){
         service:svcEl.options[svcEl.selectedIndex]?svcEl.options[svcEl.selectedIndex].text:'',
         message:msgEl.value.trim(),
         files:files,
-        company:hp?hp.value:'',elapsed:Date.now()-window.__formT0
+        lang:document.documentElement.lang,company:hp?hp.value:'',elapsed:Date.now()-window.__formT0
       })
     });
   },function(){
@@ -1502,7 +1502,7 @@ function fltSend(){
   fetch('/api/contact',{
     method:'POST',
     headers:{'Content-Type':'application/json'},
-    body:JSON.stringify({name:nameEl.value.trim(),email:emailEl.value.trim(),service:'',message:msgEl.value.trim(),company:hp?hp.value:'',elapsed:Date.now()-window.__formT0})
+    body:JSON.stringify({name:nameEl.value.trim(),email:emailEl.value.trim(),service:'',message:msgEl.value.trim(),lang:document.documentElement.lang,company:hp?hp.value:'',elapsed:Date.now()-window.__formT0})
   }).then(function(r){return r.json();}).then(function(d){
     if(d.success){
       if(window.va)va('event',{name:'lead_form_floating',data:{lang:L}});

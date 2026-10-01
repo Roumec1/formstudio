@@ -73,6 +73,8 @@ export default async function handler(req, res) {
 
   const b = req.body || {};
   const { name, email, service, message } = b;
+  // language of the page the enquiry came from (cs/sk/en/de) — shown in the subject so it is answered in the right language
+  const LANG = /^(cs|sk|en|de)$/.test(String(b.lang || '')) ? String(b.lang).toUpperCase() : '';
 
   // Spam (honeypot, instant submit, link/keyword/script spam): pretend success, send nothing.
   const reason = spamReason(b);
@@ -134,7 +136,7 @@ export default async function handler(req, res) {
         from: 'Forma Studio Web <onboarding@resend.dev>',
         to: [TO_EMAIL],
         reply_to: email,
-        subject: `Nová poptávka — ${name}${service ? ' (' + service + ')' : ''}`,
+        subject: `${LANG ? '[' + LANG + '] ' : ''}Nová poptávka — ${name}${service ? ' (' + service + ')' : ''}`,
         html: `
           <div style="font-family:sans-serif;max-width:600px">
             <h2 style="color:#c94e1e;margin-bottom:1.5rem">Nová poptávka z webu</h2>

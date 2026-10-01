@@ -362,7 +362,7 @@ document.getElementById('lpform').addEventListener('submit',function(e){
   btn.textContent='Senden...';btn.disabled=true;
   readFormFiles(document.getElementById('lp-files')).then(function(files){return fetch('/api/contact',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({files:files,
     name:name,email:email,service:'Werbegeschenke (Landingpage)',
-    message:(firma?'Firma: '+firma+'\n\n':'')+msg,company:hp,elapsed:Date.now()-window.__formT0
+    message:(firma?'Firma: '+firma+'\n\n':'')+msg,lang:'de',company:hp,elapsed:Date.now()-window.__formT0
   })});},function(){btn.textContent='Dateien max. 3 MB — größere bitte per E-Mail';btn.style.background='#7a2020';setTimeout(function(){btn.textContent='Angebot anfordern →';btn.style.background='';btn.disabled=false;},4000);throw 'handled';}).then(function(r){return r.json();}).then(function(d){
     if(d.success){
       var _f=document.querySelector('form[id]');if(_f)setTimeout(function(){showDone(_f);},10);
