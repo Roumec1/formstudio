@@ -187,7 +187,7 @@ Object.keys(META).forEach(function (lang) {
   if (HERO_MFG[lang]) {
     const hm = HERO_MFG[lang];
     h = h.replace(/<img\b[^>]*fetchpriority="high"[^>]*>/, HERO_MFG_IMG);
-    h = h.replace(/<link rel="preload" as="image" href="\/gallery\/g06\.jpg"[^>]*>/, HERO_MFG_PRELOAD);
+    h = h.replace(/<link rel="preload" as="image" href="\/gallery\/g06\.(?:jpg|webp)"[^>]*>/, HERO_MFG_PRELOAD);
     h = h.replace(/<div class="titleblock">[\s\S]*?<\/div>(?=\s*<\/div>\s*<\/div>\s*<\/section>)/,
       '<div class="titleblock">\n' + hm.map(function (kv) {
         return '        <div class="tb"><div class="k">' + kv[0] + '</div><div class="v">' + kv[1] + '</div></div>\n';

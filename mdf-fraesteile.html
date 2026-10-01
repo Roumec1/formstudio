@@ -300,9 +300,9 @@ h1,h2,h3{font-weight:800;letter-spacing:-.04em}
       <p>Großformat-CNC mit zwei 2,2-kW-Spindeln — wiederholgenau vom Einzelteil bis zu Tausenden pro Monat.</p>
     </div>
     <div class="work-grid">
-      <video muted loop playsinline preload="none" poster="/videos/cnc-milling.webp" data-src="/videos/cnc-milling.mp4" width="720" height="900" aria-hidden="true" style="object-position:50% 40%"></video>
+      <video muted loop playsinline preload="none" data-poster="/videos/cnc-milling.webp" data-src="/videos/cnc-milling.mp4" width="720" height="900" aria-hidden="true" style="object-position:50% 40%"></video>
       <img srcset="/gallery/g20-800.webp 800w, /gallery/g20.webp 1200w" sizes="(max-width:680px) 50vw, 25vw" width="1200" height="1600" src="/gallery/g20.webp" alt="Serie CNC-gefräster Teile" loading="lazy" style="object-position:50% 60%">
-      <video muted loop playsinline preload="none" poster="/videos/series-assembly.webp" data-src="/videos/series-assembly.mp4" width="960" height="540" aria-hidden="true"></video>
+      <video muted loop playsinline preload="none" data-poster="/videos/series-assembly.webp" data-src="/videos/series-assembly.mp4" width="960" height="540" aria-hidden="true"></video>
       <img srcset="/gallery/g17-800.webp 800w, /gallery/g17-1200.webp 1200w, /gallery/g17.webp 1600w" sizes="(max-width:680px) 50vw, 25vw" width="1600" height="1200" src="/gallery/g17.webp" alt="Werkstatt von Forma Studio mit CNC-Maschinen" loading="lazy">
     </div>
   </div>
@@ -449,7 +449,7 @@ document.getElementById('lpform').addEventListener('submit',function(e){
     setTimeout(function(){btn.textContent='Angebot anfordern →';btn.style.background='';btn.disabled=false;},3000);
   });
 });
-(function(){var vids=document.querySelectorAll('video[data-src]');if(!vids.length||!('IntersectionObserver' in window)||matchMedia('(prefers-reduced-motion: reduce)').matches)return;var vo=new IntersectionObserver(function(es){es.forEach(function(e){var v=e.target;if(e.isIntersecting){if(!v.src){v.muted=true;v.src=v.dataset.src;}var p=v.play();if(p&&p.catch)p.catch(function(){});}else if(v.src)v.pause();});},{rootMargin:'200px 0px'});vids.forEach(function(v){vo.observe(v);});})();
+(function(){var vids=document.querySelectorAll('video[data-src]');function _posters(){vids.forEach(function(v){if(v.dataset.poster&&!v.poster)v.poster=v.dataset.poster;});}if(!('IntersectionObserver' in window)||matchMedia('(prefers-reduced-motion: reduce)').matches)_posters();if(!vids.length||!('IntersectionObserver' in window)||matchMedia('(prefers-reduced-motion: reduce)').matches)return;var vo=new IntersectionObserver(function(es){es.forEach(function(e){var v=e.target;if(e.isIntersecting){if(v.dataset.poster&&!v.poster)v.poster=v.dataset.poster;if(!v.src){v.muted=true;v.src=v.dataset.src;}var p=v.play();if(p&&p.catch)p.catch(function(){});}else if(v.src)v.pause();});},{rootMargin:'200px 0px'});vids.forEach(function(v){vo.observe(v);});})();
 </script>
 </body>
 </html>

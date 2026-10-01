@@ -267,7 +267,7 @@ h1,h2,h3{font-weight:800;letter-spacing:-.04em}
     </div>
     <div class="caps">
       <div class="cap">
-        <video muted loop playsinline preload="none" poster="/videos/cnc-milling.webp" data-src="/videos/cnc-milling.mp4" width="720" height="900" aria-hidden="true"></video>
+        <video muted loop playsinline preload="none" data-poster="/videos/cnc-milling.webp" data-src="/videos/cnc-milling.mp4" width="720" height="900" aria-hidden="true"></video>
         <div class="cap-b">
           <div class="cap-n">01 — CNC-Fräsen</div>
           <h3>CNC-Fräsen</h3>
@@ -276,7 +276,7 @@ h1,h2,h3{font-weight:800;letter-spacing:-.04em}
         </div>
       </div>
       <div class="cap">
-        <video muted loop playsinline preload="none" poster="/videos/laser-engraving.webp" data-src="/videos/laser-engraving.mp4" width="960" height="720" aria-hidden="true" style="object-position:30% 40%"></video>
+        <video muted loop playsinline preload="none" data-poster="/videos/laser-engraving.webp" data-src="/videos/laser-engraving.mp4" width="960" height="720" aria-hidden="true" style="object-position:30% 40%"></video>
         <div class="cap-b">
           <div class="cap-n">02 — Laser</div>
           <h3>Lasergravur &amp; -schnitt</h3>
@@ -353,7 +353,7 @@ h1,h2,h3{font-weight:800;letter-spacing:-.04em}
       <img srcset="/gallery/g06-800.webp 800w, /gallery/g06-1200.webp 1200w, /gallery/g06.webp 1600w" sizes="(max-width:600px) 100vw, (max-width:980px) 50vw, 33vw" width="1600" height="1600" src="/gallery/g06.webp" alt="Kabelloses Ladegerät aus Holz, CNC-gefräst" loading="lazy">
       <img srcset="/gallery/g08-800.webp 800w, /gallery/g08-1200.webp 1200w, /gallery/g08.webp 1599w" sizes="(max-width:600px) 100vw, (max-width:980px) 50vw, 33vw" width="1599" height="1600" src="/gallery/g08.webp" alt="Holzprodukt mit gebrandeter Verpackung" loading="lazy">
       <img srcset="/gallery/g20-800.webp 800w, /gallery/g20.webp 1200w" sizes="(max-width:680px) 50vw, 25vw" width="1200" height="1600" src="/gallery/g20.webp" alt="Serie CNC-gefräster Teile aus Massivholz" loading="lazy" style="object-position:50% 60%">
-      <video muted loop playsinline preload="none" poster="/videos/series-assembly.webp" data-src="/videos/series-assembly.mp4" width="960" height="540" aria-hidden="true"></video>
+      <video muted loop playsinline preload="none" data-poster="/videos/series-assembly.webp" data-src="/videos/series-assembly.mp4" width="960" height="540" aria-hidden="true"></video>
     </div>
   </div>
 </section>
@@ -465,7 +465,7 @@ document.getElementById('lpform').addEventListener('submit',function(e){
     setTimeout(function(){btn.textContent='Angebot anfordern →';btn.style.background='';btn.disabled=false;},3000);
   });
 });
-(function(){var vids=document.querySelectorAll('video[data-src]');if(!vids.length||!('IntersectionObserver' in window)||matchMedia('(prefers-reduced-motion: reduce)').matches)return;var vo=new IntersectionObserver(function(es){es.forEach(function(e){var v=e.target;if(e.isIntersecting){if(!v.src){v.muted=true;v.src=v.dataset.src;}var p=v.play();if(p&&p.catch)p.catch(function(){});}else if(v.src)v.pause();});},{rootMargin:'200px 0px'});vids.forEach(function(v){vo.observe(v);});})();
+(function(){var vids=document.querySelectorAll('video[data-src]');function _posters(){vids.forEach(function(v){if(v.dataset.poster&&!v.poster)v.poster=v.dataset.poster;});}if(!('IntersectionObserver' in window)||matchMedia('(prefers-reduced-motion: reduce)').matches)_posters();if(!vids.length||!('IntersectionObserver' in window)||matchMedia('(prefers-reduced-motion: reduce)').matches)return;var vo=new IntersectionObserver(function(es){es.forEach(function(e){var v=e.target;if(e.isIntersecting){if(v.dataset.poster&&!v.poster)v.poster=v.dataset.poster;if(!v.src){v.muted=true;v.src=v.dataset.src;}var p=v.play();if(p&&p.catch)p.catch(function(){});}else if(v.src)v.pause();});},{rootMargin:'200px 0px'});vids.forEach(function(v){vo.observe(v);});})();
 </script>
 </body>
 </html>
