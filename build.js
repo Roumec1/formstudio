@@ -46,10 +46,10 @@ const WA_RE = /(wa\.me\/4917622791055\?text=)[^"]*/g;
 
 // Scrolling marquee items per language (regenerated each build).
 const MARQUEE = {
-  cs: ['CNC frézování dřeva', '3D tisk — FDM & resin', 'Laserové gravírování', 'Rapid prototyping', 'Série 1 – 10 000 ks', 'Dřevo · MDF · Plast · Akryl', '5 let v oboru', 'Šumperk, Morava'],
-  sk: ['CNC frézovanie dreva', '3D tlač — FDM & resin', 'Laserové gravírovanie', 'Rapid prototyping', 'Séria 1 – 10 000 ks', 'Drevo · MDF · Plast · Akryl', '5 rokov v odbore', 'Šumperk, Morava'],
-  en: ['CNC wood milling', '3D printing — FDM & resin', 'Laser engraving', 'Rapid prototyping', 'Batches 1 – 10,000 pcs', 'Wood · MDF · Plastic · Acrylic', '5 years in the field', 'Šumperk, Moravia'],
-  de: ['CNC-Holzfräsen', '3D-Druck — FDM & Resin', 'Lasergravur', 'Rapid Prototyping', 'Serien 1 – 10.000 Stück', 'Holz · MDF · Kunststoff · Acryl', '5 Jahre Erfahrung', 'Šumperk, Mähren'],
+  cs: ['CNC frézování dřeva', '3D tisk — FDM & resin', 'Laserové gravírování', 'Rapid prototyping', 'Série 1 – 10 000 ks', 'Dřevo · MDF · Plast · Akryl', 'Od roku 2020', 'Šumperk, Morava'],
+  sk: ['CNC frézovanie dreva', '3D tlač — FDM & resin', 'Laserové gravírovanie', 'Rapid prototyping', 'Séria 1 – 10 000 ks', 'Drevo · MDF · Plast · Akryl', 'Od roku 2020', 'Šumperk, Morava'],
+  en: ['CNC wood milling', '3D printing — FDM & resin', 'Laser engraving', 'Rapid prototyping', 'Batches 1 – 10,000 pcs', 'Wood · MDF · Plastic · Acrylic', 'Since 2020', 'Šumperk, Moravia'],
+  de: ['CNC-Holzfräsen', '3D-Druck — FDM & Resin', 'Lasergravur', 'Rapid Prototyping', 'Serien 1 – 10.000 Stück', 'Holz · MDF · Kunststoff · Acryl', 'Seit 2020', 'Šumperk, Mähren'],
 };
 function marqueeTrack(items) {
   const one = items.map(function (t) {
