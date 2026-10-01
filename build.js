@@ -13,28 +13,28 @@ const META = {
   cs: {
     file: 'index.html', loc: 'cs_CZ', url: BASE + '/',
     title: 'Forma Studio — CNC, 3D tisk, Laser · Šumperk',
-    desc: 'Proměníme váš soubor v hotový výrobek. Velkoformátové CNC frézování, 100W laser, 3D tisková farma. Komplexní projekty vítány, série od 1 kusu. Šumperk, Česká republika.',
+    desc: 'Proměníme váš soubor v hotový výrobek: velkoformátové CNC frézování, 100W laser a 3D tisková farma. Série od 1 kusu. Šumperk.',
     social: 'Výroba na zakázku. Velkoformátové CNC frézování, 100W laser, 3D tisková farma. Od prototypu po tisícové série. Šumperk.',
     wa: 'Dobrý den, mám dotaz na Forma Studio.'
   },
   sk: {
     file: 'sk.html', loc: 'sk_SK', url: BASE + '/sk',
     title: 'Forma Studio — CNC, 3D tlač, Laser · Šumperk',
-    desc: 'Premeníme váš súbor na hotový výrobok. Veľkoformátové CNC frézovanie, 100W laser, 3D tlačová farma. Komplexné projekty vítané, série od 1 kusu. Šumperk, Česká republika.',
+    desc: 'Premeníme váš súbor na hotový výrobok: veľkoformátové CNC frézovanie, 100W laser a 3D tlačová farma. Série od 1 kusu. Šumperk.',
     social: 'Výroba na zákazku. Veľkoformátové CNC frézovanie, 100W laser, 3D tlačová farma. Od prototypu po tisícové série. Šumperk.',
     wa: 'Dobrý deň, mám otázku pre Forma Studio.'
   },
   en: {
     file: 'en.html', loc: 'en_US', url: BASE + '/en',
-    title: 'CNC Contract Manufacturing in Wood, MDF & Plastic — Forma Studio',
-    desc: 'CNC milling, laser cutting and 3D printing as contract manufacturing in the EU: wood, MDF, plastic, acrylic. From sample to series, quote within 48 hours. Šumperk, Czech Republic.',
+    title: 'CNC Contract Manufacturing: Wood, MDF, Plastic | Forma Studio',
+    desc: 'CNC milling, laser cutting and 3D printing in the EU: wood, MDF, plastic, acrylic. From sample to series, quote within 48 hours.',
     social: 'Custom manufacturing in the EU. Large-format CNC milling, 100W laser, 3D printing farm. From a single prototype to thousands.',
     wa: 'Hello, I have an inquiry for Forma Studio.'
   },
   de: {
     file: 'de.html', loc: 'de_DE', url: BASE + '/de',
     title: 'CNC-Lohnfertigung aus Holz, MDF & Kunststoff — Forma Studio',
-    desc: 'CNC-Fräsen, Laserschneiden und 3D-Druck als Lohnfertigung aus der EU: Holz, MDF, Kunststoff, Acryl. Vom Muster bis zur Serie, Angebot in 48 Stunden, Lieferung nach Deutschland ohne Zoll.',
+    desc: 'CNC-Fräsen, Laserschneiden und 3D-Druck aus der EU: Holz, MDF, Kunststoff, Acryl. Muster bis Serie, Angebot in 48 h, Lieferung nach DE ohne Zoll.',
     social: 'Fertigung auf Bestellung aus der EU. Großformatiges CNC-Fräsen, 100-W-Laser, 3D-Druckfarm. Vom Prototyp bis zu Tausenden.',
     wa: 'Guten Tag, ich habe eine Anfrage an Forma Studio.'
   }
