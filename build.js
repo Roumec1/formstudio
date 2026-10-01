@@ -63,8 +63,8 @@ const HERO_MFG = {
   de: [['Verfahren', 'CNC · Laser'], ['Material', 'Holz · MDF'], ['Losgröße', '1–10&nbsp;000'], ['Angebot', '48 h']],
   en: [['Process', 'CNC · Laser'], ['Material', 'Wood · MDF'], ['Batch size', '1–10,000'], ['Quote', '48 h']],
 };
-const HERO_MFG_IMG = '<img srcset="images/cnc-frzka-v-provozu-800.jpg 800w, images/cnc-frzka-v-provozu.jpg 1000w" sizes="(max-width:980px) 92vw, 480px" src="images/cnc-frzka-v-provozu.jpg" alt="CNC frézka v provozu" width="1000" height="666" fetchpriority="high" decoding="async">';
-const HERO_MFG_PRELOAD = '<link rel="preload" as="image" href="/images/cnc-frzka-v-provozu.jpg" imagesrcset="/images/cnc-frzka-v-provozu-800.jpg 800w, /images/cnc-frzka-v-provozu.jpg 1000w" imagesizes="(max-width:980px) 92vw, 480px" fetchpriority="high">';
+const HERO_MFG_IMG = '<img srcset="images/cnc-frzka-v-provozu-800.webp 800w, images/cnc-frzka-v-provozu.webp 1000w" sizes="(max-width:980px) 92vw, 480px" src="images/cnc-frzka-v-provozu.webp" alt="CNC frézka v provozu" width="1000" height="666" fetchpriority="high" decoding="async">';
+const HERO_MFG_PRELOAD = '<link rel="preload" as="image" href="/images/cnc-frzka-v-provozu.webp" imagesrcset="/images/cnc-frzka-v-provozu-800.webp 800w, /images/cnc-frzka-v-provozu.webp 1000w" imagesizes="(max-width:980px) 92vw, 480px" fetchpriority="high">';
 
 // Image alt text, keyed by the Czech alt in index.html. Localized for image SEO.
 const ALT = {
