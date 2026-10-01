@@ -201,6 +201,9 @@ Object.keys(META).forEach(function (lang) {
     });
   }
 
+  // LocalBusiness description in the page's own language (the source carries the Czech one)
+  h = h.replace(/("@type":"LocalBusiness",[\s\S]*?"description":")[^"]*(")/, function (_all, a, b) { return a + m.desc.replace(/"/g, '\\"') + b; });
+
   // FAQ rich-results structured data — strip any previously generated block, re-inject for this language
   h = h.replace(/\s*<script type="application\/ld\+json" data-faq>[\s\S]*?<\/script>/, '');
   const faq = extractFaq(SRC, lang);
