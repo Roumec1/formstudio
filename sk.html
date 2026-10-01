@@ -669,10 +669,15 @@ h1 em,.sh em,.ch2 em,.about-q em{color:inherit;background:var(--yel);padding:0 .
 .form-done .fd-again:hover{border-color:var(--ink,#221b12)}
 
 /* phones: floating buttons appear after the hero, so they never cover the main call to action */
-@media(max-width:980px){#flt-toggle,#wa-fab{transition:opacity .25s,transform .25s}html:not(.past-hero) #flt-toggle,html:not(.past-hero) #wa-fab{opacity:0;transform:translateY(24px);pointer-events:none}}
+@media(max-width:980px){#flt-toggle,#wa-fab{transition:opacity .25s,transform .25s}html:not(.past-hero) #flt-toggle,html:not(.past-hero) #wa-fab,html.at-contact #flt-toggle,html.at-contact #wa-fab{opacity:0;transform:translateY(24px);pointer-events:none}}
 
 /* phones: buttons before stats */
 @media(max-width:600px){#hero .hl{display:flex;flex-direction:column}#hero .hero-btns{order:4;margin-bottom:1.4rem}#hero .specrow{order:5;margin-top:0}#hero .hero-nudge{order:6}}
+
+/* dark sections */
+#comparison{background:var(--ink)}
+#comparison .stag,#cta .stag,#delivery-hero .stag{background:var(--yel);color:var(--ink)}
+.comp-img{border-radius:18px;object-position:center 60%}
 </style>
 <script type="application/ld+json" data-faq>{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Neviem, akú technológiu zvoliť. Pomôžete mi?","acceptedAnswer":{"@type":"Answer","text":"Samozrejme — to je jedna z vecí, ktoré robíme najradšej. Pošlite nám popis alebo náčrt a zavoláme si. Vysvetlíme rozdiely, navrhneme najlepšie riešenie a poradíme s materiálom. Bez záväzkov, bez žargónu."}},{"@type":"Question","name":"Aké je minimálne množstvo objednávky?","acceptedAnswer":{"@type":"Answer","text":"Žiadne minimum. Vyrábame od 1 kusu — prototyp, unikátnu výstavu alebo tisícovú sériu. Ku každej zákazke pristupujeme s rovnakou starostlivosťou. Cena sa samozrejme s množstvom škáluje, ale malá zákazka u nás nie je druhá kategória."}},{"@type":"Question","name":"Aké formáty súborov prijímate?","acceptedAnswer":{"@type":"Answer","text":"DXF, STL, STEP, IGES, SolidWorks, Fusion 360, PDF — a zvládneme aj technický výkres alebo fotografiu náčrtu. Ešte nikto nás neprekvapil súborom, s ktorým by sme si neporadili. Ak si nie ste istí — jednoducho pošlite, čo máte."}},{"@type":"Question","name":"Ako dlho výroba trvá?","acceptedAnswer":{"@type":"Answer","text":"Prototypy štandardne do 48 hodín. Malosériová výroba (10–200 ks): 1–2 týždne. Väčšie série: 2–4 týždne podľa zložitosti. Máte šibeničný termín? Zavolajte nám — urobíme všetko pre to, aby to vyšlo."}},{"@type":"Question","name":"Môžem si najskôr objednať vzorku?","acceptedAnswer":{"@type":"Answer","text":"Áno — a pri väčších zákazkách to sami odporúčame. Vzorka vám umožní overiť materiál, rozmery aj povrchovú úpravu ešte pred schválením série. Je to najlepší spôsob, ako predísť sklamaniu na oboch stranách."}},{"@type":"Question","name":"Dostanem cenu vopred, alebo ma prekvapíte faktúrou?","acceptedAnswer":{"@type":"Answer","text":"Vždy dostanete jasnú kalkuláciu ešte pred zahájením výroby. Žiadne skryté poplatky, žiadne záludné príplatky po dodaní. A ak sa čokoľvek v priebehu zmení — prví to viete vy."}}]}</script>
 </head>
@@ -978,7 +983,7 @@ h1 em,.sh em,.ch2 em,.about-q em{color:inherit;background:var(--yel);padding:0 .
         <h2 class="sh inv"><span data-lang="cs">Forma Studio vs.<br><em>zbytek trhu</em></span><span data-lang="sk" class="on">Forma Studio vs.<br><em>zvyšok trhu</em></span><span data-lang="en">Forma Studio vs.<br><em>the rest of the market</em></span><span data-lang="de">Forma Studio vs.<br><em>der Rest des Marktes</em></span></h2>
         <p class="sb" style="color:#666;margin-top:.85rem"><span data-lang="cs">Velcí výrobci nechtějí malé zakázky. Malé dílny nezvládnou velké série. My fungujeme jinak — každou zakázku, od jednoho kusu po tisíce, bereme stejně vážně.</span><span data-lang="sk" class="on">Veľkí výrobcovia nechcú malé zákazky. Malé dielne nezvládnu veľké série. My fungujeme inak — každú zákazku, od jedného kusu po tisíce, berieme rovnako vážne.</span><span data-lang="en">Big manufacturers don't want small orders. Small shops can't handle large runs. We work differently — every order, from one piece to thousands, gets the same attention.</span><span data-lang="de">Große Hersteller wollen keine kleinen Aufträge. Kleine Werkstätten bewältigen keine großen Serien. Wir arbeiten anders — jeden Auftrag, von einem Stück bis zu Tausenden, nehmen wir gleich ernst.</span></p>
       </div>
-      <img srcset="images/image-8-800.webp 800w, images/image-8.webp 1000w" sizes="(max-width:980px) 100vw, 50vw" width="1000" height="666" class="comp-img" src="images/image-8.webp" alt="Tím Forma Studia — výrobná dielňa CNC a laser Šumperk" loading="lazy">
+      <img srcset="gallery/g18-800.webp 800w, gallery/g18.webp 1200w" sizes="(max-width:980px) 100vw, 50vw" width="1200" height="1600" class="comp-img" src="gallery/g18.webp" alt="Výrobné priestory Forma Studia v Šumperku" loading="lazy">
     </div>
     <div class="comp-table rv">
       <div class="comp-col them">
@@ -1574,6 +1579,7 @@ lbOverlay.addEventListener('touchend',function(e){
   function upd(){var h=document.documentElement.scrollHeight-innerHeight;bar.style.transform='scaleX('+(h>0?Math.min(1,scrollY/h):0)+')';ticking=false;}
   if(bar){addEventListener('scroll',function(){if(!ticking){ticking=true;requestAnimationFrame(upd);}},{passive:true});addEventListener('load',function(){requestAnimationFrame(upd);});}
   var hero=document.getElementById('hero');function ph(){document.documentElement.classList.toggle('past-hero',!hero||scrollY>hero.offsetTop+hero.offsetHeight*0.6);}addEventListener('scroll',ph,{passive:true});requestAnimationFrame(ph);
+  var ct=document.getElementById('contact');if(ct&&'IntersectionObserver' in window){new IntersectionObserver(function(es){document.documentElement.classList.toggle('at-contact',es[0].isIntersecting);},{rootMargin:'0px 0px -30% 0px'}).observe(ct);}
   var gm=document.querySelector('.gal-more');
   // open the viewer at the first photo that is hidden on phones
   if(gm)gm.addEventListener('click',function(){var i=lbItems.findIndex(function(im){return !im.offsetParent;});openLb(i<0?0:i);});

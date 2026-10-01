@@ -669,10 +669,15 @@ h1 em,.sh em,.ch2 em,.about-q em{color:inherit;background:var(--yel);padding:0 .
 .form-done .fd-again:hover{border-color:var(--ink,#221b12)}
 
 /* phones: floating buttons appear after the hero, so they never cover the main call to action */
-@media(max-width:980px){#flt-toggle,#wa-fab{transition:opacity .25s,transform .25s}html:not(.past-hero) #flt-toggle,html:not(.past-hero) #wa-fab{opacity:0;transform:translateY(24px);pointer-events:none}}
+@media(max-width:980px){#flt-toggle,#wa-fab{transition:opacity .25s,transform .25s}html:not(.past-hero) #flt-toggle,html:not(.past-hero) #wa-fab,html.at-contact #flt-toggle,html.at-contact #wa-fab{opacity:0;transform:translateY(24px);pointer-events:none}}
 
 /* phones: buttons before stats */
 @media(max-width:600px){#hero .hl{display:flex;flex-direction:column}#hero .hero-btns{order:4;margin-bottom:1.4rem}#hero .specrow{order:5;margin-top:0}#hero .hero-nudge{order:6}}
+
+/* dark sections */
+#comparison{background:var(--ink)}
+#comparison .stag,#cta .stag,#delivery-hero .stag{background:var(--yel);color:var(--ink)}
+.comp-img{border-radius:18px;object-position:center 60%}
 </style>
 <script type="application/ld+json" data-faq>{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"I don't know which technology to choose. Can you help?","acceptedAnswer":{"@type":"Answer","text":"Of course — that's one of the things we love doing most. Send us a description or sketch and we'll hop on a call. We'll explain the differences, suggest the best solution, and advise on materials. No obligations, no jargon."}},{"@type":"Question","name":"What's the minimum order quantity?","acceptedAnswer":{"@type":"Answer","text":"No minimum. We produce from 1 piece — a prototype, a unique exhibit, or a thousand-piece run. You decide."}},{"@type":"Question","name":"What file formats do you accept?","acceptedAnswer":{"@type":"Answer","text":"DXF, STL, STEP, IGES, SolidWorks, Fusion 360, PDF — and we can handle technical drawings or even a hand sketch. Don't worry about the format — we'll figure it out."}},{"@type":"Question","name":"How long does production take?","acceptedAnswer":{"@type":"Answer","text":"Prototypes typically within 48 hours. Small series (10–200 pcs): 1–2 weeks. Larger runs: we'll set a specific schedule. We always confirm the deadline before starting."}},{"@type":"Question","name":"Can I order a sample first?","acceptedAnswer":{"@type":"Answer","text":"Yes — and for larger orders, we actively recommend it. A sample lets you verify material, finish, and dimensions before committing to full production."}},{"@type":"Question","name":"Will I get the price upfront, or a surprise invoice?","acceptedAnswer":{"@type":"Answer","text":"You always get a clear quote before production starts. No hidden fees, no surprises. If anything changes during production, we'll call you first."}}]}</script>
 </head>
@@ -978,7 +983,7 @@ h1 em,.sh em,.ch2 em,.about-q em{color:inherit;background:var(--yel);padding:0 .
         <h2 class="sh inv"><span data-lang="cs">Forma Studio vs.<br><em>zbytek trhu</em></span><span data-lang="sk">Forma Studio vs.<br><em>zvyšok trhu</em></span><span data-lang="en" class="on">Forma Studio vs.<br><em>the rest of the market</em></span><span data-lang="de">Forma Studio vs.<br><em>der Rest des Marktes</em></span></h2>
         <p class="sb" style="color:#666;margin-top:.85rem"><span data-lang="cs">Velcí výrobci nechtějí malé zakázky. Malé dílny nezvládnou velké série. My fungujeme jinak — každou zakázku, od jednoho kusu po tisíce, bereme stejně vážně.</span><span data-lang="sk">Veľkí výrobcovia nechcú malé zákazky. Malé dielne nezvládnu veľké série. My fungujeme inak — každú zákazku, od jedného kusu po tisíce, berieme rovnako vážne.</span><span data-lang="en" class="on">Big manufacturers don't want small orders. Small shops can't handle large runs. We work differently — every order, from one piece to thousands, gets the same attention.</span><span data-lang="de">Große Hersteller wollen keine kleinen Aufträge. Kleine Werkstätten bewältigen keine großen Serien. Wir arbeiten anders — jeden Auftrag, von einem Stück bis zu Tausenden, nehmen wir gleich ernst.</span></p>
       </div>
-      <img srcset="images/image-8-800.webp 800w, images/image-8.webp 1000w" sizes="(max-width:980px) 100vw, 50vw" width="1000" height="666" class="comp-img" src="images/image-8.webp" alt="The Forma Studio team — CNC and laser workshop, Šumperk" loading="lazy">
+      <img srcset="gallery/g18-800.webp 800w, gallery/g18.webp 1200w" sizes="(max-width:980px) 100vw, 50vw" width="1200" height="1600" class="comp-img" src="gallery/g18.webp" alt="Forma Studio production facilities in Šumperk" loading="lazy">
     </div>
     <div class="comp-table rv">
       <div class="comp-col them">
@@ -1574,6 +1579,7 @@ lbOverlay.addEventListener('touchend',function(e){
   function upd(){var h=document.documentElement.scrollHeight-innerHeight;bar.style.transform='scaleX('+(h>0?Math.min(1,scrollY/h):0)+')';ticking=false;}
   if(bar){addEventListener('scroll',function(){if(!ticking){ticking=true;requestAnimationFrame(upd);}},{passive:true});addEventListener('load',function(){requestAnimationFrame(upd);});}
   var hero=document.getElementById('hero');function ph(){document.documentElement.classList.toggle('past-hero',!hero||scrollY>hero.offsetTop+hero.offsetHeight*0.6);}addEventListener('scroll',ph,{passive:true});requestAnimationFrame(ph);
+  var ct=document.getElementById('contact');if(ct&&'IntersectionObserver' in window){new IntersectionObserver(function(es){document.documentElement.classList.toggle('at-contact',es[0].isIntersecting);},{rootMargin:'0px 0px -30% 0px'}).observe(ct);}
   var gm=document.querySelector('.gal-more');
   // open the viewer at the first photo that is hidden on phones
   if(gm)gm.addEventListener('click',function(){var i=lbItems.findIndex(function(im){return !im.offsetParent;});openLb(i<0?0:i);});
