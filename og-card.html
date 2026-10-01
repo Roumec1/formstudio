@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<title>OG card template (not deployed — see og-images.js)</title>
+<link rel="stylesheet" href="/fonts/fonts.css">
+<style>
+/* 1200×630 share card in the redesign style. Rendered by og-images.js via headless Chrome. */
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1200px;height:630px;overflow:hidden}
+body{background:#fbf7ee;color:#221b12;font-family:'Bricolage Grotesque',system-ui,sans-serif;position:relative}
+.bar{position:absolute;left:0;top:0;right:0;height:46px;background:#221b12;color:#cfc6b6;font-size:19px;display:flex;align-items:center;justify-content:space-between;padding:0 64px}
+.bar b{color:#f2c230;font-weight:600}
+.logo{position:absolute;left:64px;top:92px;font-weight:800;font-size:44px;letter-spacing:-.03em}
+.logo i{font-style:normal;color:#6f4f82}
+h1{position:absolute;left:64px;top:186px;width:640px;font-weight:800;font-size:76px;line-height:.98;letter-spacing:-.045em}
+h1 em{font-style:normal;background:#f2c230;padding:0 .1em;border-radius:.1em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.sub{position:absolute;left:64px;bottom:96px;font-size:28px;color:#4f473b;font-weight:500}
+.url{position:absolute;left:64px;bottom:46px;font-size:26px;font-weight:800}
+.pill{position:absolute;right:64px;bottom:44px;background:#6f4f82;color:#fff;font-weight:700;font-size:24px;padding:12px 26px;border-radius:40px}
+.print{position:absolute;right:70px;top:96px;width:400px;background:#fff;padding:12px 12px 44px;transform:rotate(3deg);box-shadow:0 26px 48px -22px rgba(34,27,18,.5)}
+.print img{display:block;width:100%;height:300px;object-fit:cover}
+.print span{position:absolute;left:16px;bottom:12px;font-size:17px;color:#6e665a}
+</style>
+</head>
+<body>
+<div class="bar"><span id="bar"></span><span>formastudio.cz</span></div>
+<div class="logo">Forma<i>.</i></div>
+<h1 id="h"></h1>
+<p class="sub" id="s"></p>
+<p class="url">formastudio.cz</p>
+<div class="print"><img id="img" src="/images/cnc-frzka-v-provozu.webp" alt=""><span id="cap"></span></div>
+<script>
+var T={
+  cs:{h:'Proměníme váš soubor <em>v hotový výrobek.</em>',s:'CNC frézování · 3D tisk · Laser — od 1 kusu',bar:'CNC · laser · 3D tisk · <b>Šumperk</b>',cap:'z naší dílny v Šumperku',img:'/gallery/g06.webp'},
+  sk:{h:'Premeníme váš súbor <em>na hotový výrobok.</em>',s:'CNC frézovanie · 3D tlač · Laser — od 1 kusu',bar:'CNC · laser · 3D tlač · <b>Šumperk</b>',cap:'z našej dielne v Šumperku',img:'/gallery/g06.webp'},
+  en:{h:'Your drawing, <em>made into parts.</em>',s:'CNC milling · Laser · 3D printing — 1 to 10,000 pcs',bar:'Contract manufacturing in the EU · <b>delivery to DE/AT in 1–3 days</b>',cap:'our workshop, Šumperk',img:'/images/cnc-frzka-v-provozu.webp'},
+  de:{h:'Aus Ihrer Zeichnung wird ein <em>fertiges Teil.</em>',s:'CNC-Fräsen · Laser · 3D-Druck — 1 bis 10.000 Stück',bar:'Lohnfertigung aus der EU · <b>Lieferung nach DE/AT in 1–3 Tagen</b>',cap:'unsere Werkstatt, Šumperk',img:'/images/cnc-frzka-v-provozu.webp'}
+};
+var l=(location.search.match(/lang=(\w+)/)||[])[1]||'de',t=T[l];
+document.documentElement.lang=l;
+document.getElementById('h').innerHTML=t.h;document.getElementById('s').textContent=t.s;
+document.getElementById('bar').innerHTML=t.bar;document.getElementById('cap').textContent=t.cap;
+document.getElementById('img').src=t.img;
+</script>
+</body>
+</html>
