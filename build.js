@@ -106,7 +106,7 @@ function inlineFonts(html) {
   return html.replace(/<link rel="stylesheet" href="\/fonts\/fonts\.css">|<style id="fontfaces">[\s\S]*?<\/style>/, function () { return tag; });
 }
 // Standalone pages that aren't language-generated get the same treatment.
-['lohnfertigung.html', 'mdf-fraesteile.html', 'werbegeschenke.html', 'referenzen.html'].forEach(function (f) {
+['lohnfertigung.html', 'mdf-fraesteile.html', 'werbegeschenke.html', 'referenzen.html', 'impressum.html', 'datenschutz.html', '404.html'].forEach(function (f) {
   fs.writeFileSync(f, inlineFonts(fs.readFileSync(f, 'utf8')), 'utf8');
 });
 
