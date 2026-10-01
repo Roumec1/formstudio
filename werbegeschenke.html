@@ -183,6 +183,15 @@ h1,h2,h3{font-weight:800;letter-spacing:-.04em}
 /* a11y contrast */
 .steps p,.steps .ops li span,.steps li span{color:#4f473b}
 .band .bh{font-family:var(--mono);font-size:.76rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);font-weight:700;margin-bottom:.9rem}
+
+/* thank-you box after sending */
+.form-done{background:#fff;border:2px solid var(--vio,#6f4f82);border-radius:18px;padding:2rem 1.8rem;text-align:center;outline:none;color:var(--ink,#221b12)}
+.form-done .fd-ic{width:52px;height:52px;border-radius:50%;background:var(--yel,#f2c230);color:var(--ink,#221b12);font-size:1.6rem;font-weight:800;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem}
+.form-done .fd-h{font-weight:800;font-size:1.35rem;letter-spacing:-.02em;margin-bottom:.5rem}
+.form-done .fd-p{color:#4f473b;line-height:1.6;margin-bottom:1.2rem}
+.form-done .fd-p a{color:var(--vio,#6f4f82);font-weight:700}
+.form-done .fd-again{background:none;border:1px solid var(--border,#e2dccd);border-radius:40px;padding:.7rem 1.3rem;font:inherit;font-weight:600;cursor:pointer;color:var(--ink,#221b12)}
+.form-done .fd-again:hover{border-color:var(--ink,#221b12)}
 </style>
 </head>
 <body>
@@ -312,6 +321,20 @@ h1,h2,h3{font-weight:800;letter-spacing:-.04em}
 
 <script>
 window.__formT0=Date.now();
+// after a successful send: swap the form for a thank-you box that stays visible
+function showDone(f){
+  var l=document.documentElement.lang,T={
+    cs:['Děkujeme, poptávka dorazila.','Ozveme se do 24 hodin. Spěcháte? Volejte <a href="tel:+420601366516">+420 601 366 516</a>.','Odeslat další poptávku'],
+    sk:['Ďakujeme, dopyt dorazil.','Ozveme sa do 24 hodín. Ponáhľate sa? Volajte <a href="tel:+420601366516">+420 601 366 516</a>.','Odoslať ďalší dopyt'],
+    en:['Thank you, your enquiry has arrived.','We will get back to you within 24 hours. In a hurry? Call <a href="tel:+4917622791055">+49 176 2279 1055</a>.','Send another enquiry'],
+    de:['Danke, Ihre Anfrage ist angekommen.','Wir melden uns innerhalb von 24 Stunden. Eilig? Rufen Sie an: <a href="tel:+4917622791055">+49 176 2279 1055</a>.','Weitere Anfrage senden']}[l]||null;
+  if(!T)T=[ 'Danke, Ihre Anfrage ist angekommen.','Wir melden uns innerhalb von 24 Stunden.','Weitere Anfrage senden'];
+  var d=document.createElement('div');d.className='form-done';d.setAttribute('role','status');d.tabIndex=-1;
+  d.innerHTML='<div class="fd-ic" aria-hidden="true">✓</div><p class="fd-h">'+T[0]+'</p><p class="fd-p">'+T[1]+'</p><button type="button" class="fd-again">'+T[2]+'</button>';
+  f.style.display='none';f.parentNode.insertBefore(d,f.nextSibling);
+  d.querySelector('.fd-again').addEventListener('click',function(){d.remove();f.style.display='';});
+  d.focus({preventScroll:true});d.scrollIntoView({block:'center',behavior:'smooth'});
+}
 function readFormFiles(input){var list=input&&input.files?Array.prototype.slice.call(input.files):[];var total=list.reduce(function(a,f){return a+f.size;},0);if(list.length>5||total>3*1024*1024)return Promise.reject('size');return Promise.all(list.map(function(f){return new Promise(function(res,rej){var r=new FileReader();r.onload=function(){res({name:f.name,data:String(r.result).split(',')[1]||''});};r.onerror=rej;r.readAsDataURL(f);});}));}
 // WhatsApp click tracking
 document.addEventListener('click',function(e){
@@ -335,6 +358,7 @@ document.getElementById('lpform').addEventListener('submit',function(e){
     message:(firma?'Firma: '+firma+'\n\n':'')+msg,company:hp,elapsed:Date.now()-window.__formT0
   })});},function(){btn.textContent='Dateien max. 3 MB — größere bitte per E-Mail';btn.style.background='#7a2020';setTimeout(function(){btn.textContent='Angebot anfordern →';btn.style.background='';btn.disabled=false;},4000);throw 'handled';}).then(function(r){return r.json();}).then(function(d){
     if(d.success){
+      var _f=document.querySelector('form[id]');if(_f)setTimeout(function(){showDone(_f);},10);
       if(window.va)va('event',{name:'lead_form',data:{lp:'werbegeschenke'}});
       btn.textContent='Gesendet! Wir melden uns in 24 h ✓';btn.style.background='#2a5a2a';
       document.getElementById('lp-firma').value='';name='';document.getElementById('lp-name').value='';document.getElementById('lp-email').value='';document.getElementById('lp-msg').value='';document.getElementById('lp-files').value='';

@@ -656,6 +656,15 @@ h1 em,.sh em,.ch2 em,.about-q em{color:inherit;background:var(--yel);padding:0 .
 .dh-label{color:var(--yel)}
 .ds-l{color:#b9ae9c;font-size:.72rem}
 .an-l{font-size:.72rem}
+
+/* thank-you box after sending */
+.form-done{background:#fff;border:2px solid var(--vio,#6f4f82);border-radius:18px;padding:2rem 1.8rem;text-align:center;outline:none;color:var(--ink,#221b12)}
+.form-done .fd-ic{width:52px;height:52px;border-radius:50%;background:var(--yel,#f2c230);color:var(--ink,#221b12);font-size:1.6rem;font-weight:800;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem}
+.form-done .fd-h{font-weight:800;font-size:1.35rem;letter-spacing:-.02em;margin-bottom:.5rem}
+.form-done .fd-p{color:#4f473b;line-height:1.6;margin-bottom:1.2rem}
+.form-done .fd-p a{color:var(--vio,#6f4f82);font-weight:700}
+.form-done .fd-again{background:none;border:1px solid var(--border,#e2dccd);border-radius:40px;padding:.7rem 1.3rem;font:inherit;font-weight:600;cursor:pointer;color:var(--ink,#221b12)}
+.form-done .fd-again:hover{border-color:var(--ink,#221b12)}
 </style>
 <script type="application/ld+json" data-faq>{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Nevím, jakou technologii zvolit. Pomůžete mi?","acceptedAnswer":{"@type":"Answer","text":"Samozřejmě — to je jedna z věcí, které děláme nejraději. Pošlete nám popis nebo náčrt a zavoláme si. Vysvětlíme rozdíly, navrhneme nejlepší řešení a poradíme s materiálem. Bez závazků, bez žargonu."}},{"@type":"Question","name":"Jaké je minimální množství objednávky?","acceptedAnswer":{"@type":"Answer","text":"Žádné minimum. Vyrábíme od 1 kusu — prototyp, unikátní výstavu nebo tisícovou sérii. Ke každé zakázce přistupujeme se stejnou péčí. Cena se samozřejmě s množstvím škáluje, ale malá zakázka u nás není druhá kategorie."}},{"@type":"Question","name":"Jaké formáty souborů přijímáte?","acceptedAnswer":{"@type":"Answer","text":"DXF, STL, STEP, IGES, SolidWorks, Fusion 360, PDF — a zvládneme i technický výkres nebo fotografii náčrtu. Ještě nikdo nás nepřekvapil souborem, se kterým bychom si neporadili. Pokud si nejste jistí — prostě pošlete, co máte."}},{"@type":"Question","name":"Jak dlouho výroba trvá?","acceptedAnswer":{"@type":"Answer","text":"Prototypy standardně do 48 hodin. Malosériová výroba (10–200 ks): 1–2 týdny. Větší série: 2–4 týdny podle složitosti. Máte šibeniční termín? Zavolejte nám — uděláme vše pro to, aby to vyšlo."}},{"@type":"Question","name":"Mohu si nejdřív objednat vzorek?","acceptedAnswer":{"@type":"Answer","text":"Ano — a u větších zakázek to sami doporučujeme. Vzorek vám umožní ověřit materiál, rozměry i povrchovou úpravu ještě před schválením série. Je to nejlepší způsob, jak předejít zklamání na obou stranách."}},{"@type":"Question","name":"Dostanu cenu předem, nebo mě překvapíte fakturou?","acceptedAnswer":{"@type":"Answer","text":"Vždy dostanete jasnou kalkulaci ještě před zahájením výroby. Žádné skryté poplatky, žádné záludné příplatky po dodání. A pokud se cokoliv v průběhu změní — první to víte vy."}}]}</script>
 </head>
@@ -1315,6 +1324,20 @@ const obs=new IntersectionObserver(es=>{
 document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
 // ── FORM ──
 // Read chosen files as base64 for the contact API (max 5 files / 3 MB — Vercel caps requests at 4.5 MB).
+// after a successful send: swap the form for a thank-you box that stays visible
+function showDone(f){
+  var l=document.documentElement.lang,T={
+    cs:['Děkujeme, poptávka dorazila.','Ozveme se do 24 hodin. Spěcháte? Volejte <a href="tel:+420601366516">+420 601 366 516</a>.','Odeslat další poptávku'],
+    sk:['Ďakujeme, dopyt dorazil.','Ozveme sa do 24 hodín. Ponáhľate sa? Volajte <a href="tel:+420601366516">+420 601 366 516</a>.','Odoslať ďalší dopyt'],
+    en:['Thank you, your enquiry has arrived.','We will get back to you within 24 hours. In a hurry? Call <a href="tel:+4917622791055">+49 176 2279 1055</a>.','Send another enquiry'],
+    de:['Danke, Ihre Anfrage ist angekommen.','Wir melden uns innerhalb von 24 Stunden. Eilig? Rufen Sie an: <a href="tel:+4917622791055">+49 176 2279 1055</a>.','Weitere Anfrage senden']}[l]||null;
+  if(!T)T=[ 'Danke, Ihre Anfrage ist angekommen.','Wir melden uns innerhalb von 24 Stunden.','Weitere Anfrage senden'];
+  var d=document.createElement('div');d.className='form-done';d.setAttribute('role','status');d.tabIndex=-1;
+  d.innerHTML='<div class="fd-ic" aria-hidden="true">✓</div><p class="fd-h">'+T[0]+'</p><p class="fd-p">'+T[1]+'</p><button type="button" class="fd-again">'+T[2]+'</button>';
+  f.style.display='none';f.parentNode.insertBefore(d,f.nextSibling);
+  d.querySelector('.fd-again').addEventListener('click',function(){d.remove();f.style.display='';});
+  d.focus({preventScroll:true});d.scrollIntoView({block:'center',behavior:'smooth'});
+}
 function readFormFiles(input){
   var list=input&&input.files?Array.prototype.slice.call(input.files):[];
   var total=list.reduce(function(a,f){return a+f.size;},0);
@@ -1389,6 +1412,7 @@ document.getElementById('cform').addEventListener('submit',function(e){
       btn.style.background='#2a5a2a';
       nameEl.value='';emailEl.value='';msgEl.value='';svcEl.selectedIndex=0;if(fileEl)fileEl.value='';
       setTimeout(resetLabel,4000);
+      showDone(document.getElementById('cform'));
     }else{throw new Error(data.error);}
   }).catch(function(err){
     if(err==='handled')return;
@@ -1540,7 +1564,7 @@ lbOverlay.addEventListener('touchend',function(e){
   }
   var bar=document.querySelector('.scroll-progress'),ticking=false;
   function upd(){var h=document.documentElement.scrollHeight-innerHeight;bar.style.transform='scaleX('+(h>0?Math.min(1,scrollY/h):0)+')';ticking=false;}
-  if(bar){addEventListener('scroll',function(){if(!ticking){ticking=true;requestAnimationFrame(upd);}},{passive:true});upd();}
+  if(bar){addEventListener('scroll',function(){if(!ticking){ticking=true;requestAnimationFrame(upd);}},{passive:true});addEventListener('load',function(){requestAnimationFrame(upd);});}
   var gm=document.querySelector('.gal-more');
   // open the viewer at the first photo that is hidden on phones
   if(gm)gm.addEventListener('click',function(){var i=lbItems.findIndex(function(im){return !im.offsetParent;});openLb(i<0?0:i);});
