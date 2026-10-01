@@ -162,6 +162,13 @@ Object.keys(META).forEach(function (lang) {
   let h = SRC;
 
   h = h.replace('<html lang="cs">', '<html lang="' + lang + '">');
+
+  // service dropdown in the page language (the inline TR map holds the texts; JS used to fill them only at runtime)
+  h = h.replace(/<option id="(s\d)">[^<]*<\/option>/g, function (all, id) {
+    const t = SRC.match(new RegExp(id + ":\\{cs:'([^']*)',sk:'([^']*)',en:'([^']*)',de:'([^']*)'\\}"));
+    return t ? '<option id="' + id + '">' + t[{ cs: 1, sk: 2, en: 3, de: 4 }[lang]] + '</option>' : all;
+  });
+  h = h.replace('<option value="" disabled selected>Vyberte…</option>', '<option value="" disabled selected>' + { cs: 'Vyberte…', sk: 'Vyberte…', en: 'Choose…', de: 'Bitte wählen…' }[lang] + '</option>');
   h = h.replace('<link rel="canonical" href="https://formastudio.cz/">', '<link rel="canonical" href="' + m.url + '">');
   h = h.replace(/<title>[\s\S]*?<\/title>/, '<title>' + m.title + '</title>');
   h = h.replace(/<meta name="description" content="[\s\S]*?">/, '<meta name="description" content="' + m.desc + '">');

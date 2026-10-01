@@ -339,7 +339,7 @@ function showDone(f){
   var d=document.createElement('div');d.className='form-done';d.setAttribute('role','status');d.tabIndex=-1;
   d.innerHTML='<div class="fd-ic" aria-hidden="true">✓</div><p class="fd-h">'+T[0]+'</p><p class="fd-p">'+T[1]+'</p><button type="button" class="fd-again">'+T[2]+'</button>';
   f.style.display='none';f.parentNode.insertBefore(d,f.nextSibling);
-  d.querySelector('.fd-again').addEventListener('click',function(){d.remove();f.style.display='';});
+  d.querySelector('.fd-again').addEventListener('click',function(){d.remove();f.style.display='';f.querySelectorAll('button').forEach(function(x){x.disabled=false;});});
   d.focus({preventScroll:true});d.scrollIntoView({block:'center',behavior:'smooth'});
 }
 function readFormFiles(input){var list=input&&input.files?Array.prototype.slice.call(input.files):[];var total=list.reduce(function(a,f){return a+f.size;},0);if(list.length>5||total>3*1024*1024)return Promise.reject('size');return Promise.all(list.map(function(f){return new Promise(function(res,rej){var r=new FileReader();r.onload=function(){res({name:f.name,data:String(r.result).split(',')[1]||''});};r.onerror=rej;r.readAsDataURL(f);});}));}

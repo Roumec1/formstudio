@@ -690,6 +690,8 @@ h1 em,.sh em,.ch2 em,.about-q em{color:inherit;background:var(--yel);padding:0 .
 
 /* skip layout of far-below sections until the visitor scrolls near them */
 #gallery,#about,#delivery-hero,#comparison,#process,#testimonials,#faq,#cta,#dach-terms,#ptable-sec,footer{content-visibility:auto;contain-intrinsic-size:auto 900px}
+
+h2.stag{margin-top:0;margin-bottom:.8rem}
 </style>
 <script type="application/ld+json" data-faq>{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Nevím, jakou technologii zvolit. Pomůžete mi?","acceptedAnswer":{"@type":"Answer","text":"Samozřejmě — to je jedna z věcí, které děláme nejraději. Pošlete nám popis nebo náčrt a zavoláme si. Vysvětlíme rozdíly, navrhneme nejlepší řešení a poradíme s materiálem. Bez závazků, bez žargonu."}},{"@type":"Question","name":"Jaké je minimální množství objednávky?","acceptedAnswer":{"@type":"Answer","text":"Žádné minimum. Vyrábíme od 1 kusu — prototyp, unikátní výstavu nebo tisícovou sérii. Ke každé zakázce přistupujeme se stejnou péčí. Cena se samozřejmě s množstvím škáluje, ale malá zakázka u nás není druhá kategorie."}},{"@type":"Question","name":"Jaké formáty souborů přijímáte?","acceptedAnswer":{"@type":"Answer","text":"DXF, STL, STEP, IGES, SolidWorks, Fusion 360, PDF — a zvládneme i technický výkres nebo fotografii náčrtu. Ještě nikdo nás nepřekvapil souborem, se kterým bychom si neporadili. Pokud si nejste jistí — prostě pošlete, co máte."}},{"@type":"Question","name":"Jak dlouho výroba trvá?","acceptedAnswer":{"@type":"Answer","text":"Prototypy standardně do 48 hodin. Malosériová výroba (10–200 ks): 1–2 týdny. Větší série: 2–4 týdny podle složitosti. Máte šibeniční termín? Zavolejte nám — uděláme vše pro to, aby to vyšlo."}},{"@type":"Question","name":"Mohu si nejdřív objednat vzorek?","acceptedAnswer":{"@type":"Answer","text":"Ano — a u větších zakázek to sami doporučujeme. Vzorek vám umožní ověřit materiál, rozměry i povrchovou úpravu ještě před schválením série. Je to nejlepší způsob, jak předejít zklamání na obou stranách."}},{"@type":"Question","name":"Doručujete i do zahraničí? Jak je to s fakturou?","acceptedAnswer":{"@type":"Answer","text":"Ano. Do Německa a Rakouska doručujeme za 1–3 pracovní dny od dokončení, bez cla — jsme v EU. Firmám s DIČ v jiné zemi EU fakturujeme v EUR v režimu přenesené daňové povinnosti (reverse charge), platí se převodem po obdržení faktury."}},{"@type":"Question","name":"Dostanu cenu předem, nebo mě překvapíte fakturou?","acceptedAnswer":{"@type":"Answer","text":"Vždy dostanete jasnou kalkulaci ještě před zahájením výroby. Žádné skryté poplatky, žádné záludné příplatky po dodání. A pokud se cokoliv v průběhu změní — první to víte vy."}}]}</script>
 </head>
@@ -944,7 +946,7 @@ h1 em,.sh em,.ch2 em,.about-q em{color:inherit;background:var(--yel);padding:0 .
       </div>
     </div>
     <div class="rv d1">
-      <p class="stag"><span data-lang="cs" class="on">Náš příběh</span><span data-lang="sk">Náš príbeh</span><span data-lang="en">Our story</span><span data-lang="de">Unsere Geschichte</span></p>
+      <h2 class="stag"><span data-lang="cs" class="on">Náš příběh</span><span data-lang="sk">Náš príbeh</span><span data-lang="en">Our story</span><span data-lang="de">Unsere Geschichte</span></h2>
       <blockquote class="about-q">
         <span data-lang="cs" class="on">Nejdřív jsme vyráběli pro sebe. Pak nám to začaly chtít i ostatní firmy. <em>A tak vzniklo Forma Studio.</em></span><span data-lang="sk">Najskôr sme vyrábali pre seba. Potom nám to začali závidieť ostatní. <em>A tak vzniklo Forma Studio.</em></span><span data-lang="en">First we made things for ourselves. Then others started wanting them too. <em>And so Forma Studio was born.</em></span><span data-lang="de">Zuerst haben wir für uns selbst gefertigt. Dann wollten auch andere Firmen unsere Produkte. <em>Und so entstand Forma Studio.</em></span>
       </blockquote>
@@ -1232,7 +1234,7 @@ h1 em,.sh em,.ch2 em,.about-q em{color:inherit;background:var(--yel);padding:0 .
       <div class="form-r">
         <label for="svc-sel"><span data-lang="cs" class="on">O co jde? (volitelné)</span><span data-lang="sk">O čo ide? (voliteľné)</span><span data-lang="en">What's it about? (optional)</span><span data-lang="de">Worum geht es? (optional)</span></label>
         <select id="svc-sel">
-          <option value="" disabled selected></option>
+          <option value="" disabled selected>Vyberte…</option>
           <option id="s1">CNC frézování dřeva</option>
           <option id="s2">3D tisk</option>
           <option id="s3">Laserové gravírování / řezání</option>
@@ -1368,7 +1370,7 @@ function showDone(f){
   var d=document.createElement('div');d.className='form-done';d.setAttribute('role','status');d.tabIndex=-1;
   d.innerHTML='<div class="fd-ic" aria-hidden="true">✓</div><p class="fd-h">'+T[0]+'</p><p class="fd-p">'+T[1]+'</p><button type="button" class="fd-again">'+T[2]+'</button>';
   f.style.display='none';f.parentNode.insertBefore(d,f.nextSibling);
-  d.querySelector('.fd-again').addEventListener('click',function(){d.remove();f.style.display='';});
+  d.querySelector('.fd-again').addEventListener('click',function(){d.remove();f.style.display='';f.querySelectorAll('button').forEach(function(x){x.disabled=false;});});
   d.focus({preventScroll:true});d.scrollIntoView({block:'center',behavior:'smooth'});
 }
 function readFormFiles(input){
@@ -1420,7 +1422,7 @@ document.getElementById('cform').addEventListener('submit',function(e){
       body:JSON.stringify({
         name:nameEl.value.trim(),
         email:emailEl.value.trim(),
-        service:svcEl.options[svcEl.selectedIndex]?svcEl.options[svcEl.selectedIndex].text:'',
+        service:svcEl.value&&svcEl.options[svcEl.selectedIndex]?svcEl.options[svcEl.selectedIndex].text:'',
         message:msgEl.value.trim(),
         files:files,
         lang:document.documentElement.lang,company:hp?hp.value:'',elapsed:Date.now()-window.__formT0
