@@ -667,6 +667,12 @@ h1 em,.sh em,.ch2 em,.about-q em{color:inherit;background:var(--yel);padding:0 .
 .form-done .fd-p a{color:var(--vio,#6f4f82);font-weight:700}
 .form-done .fd-again{background:none;border:1px solid var(--border,#e2dccd);border-radius:40px;padding:.7rem 1.3rem;font:inherit;font-weight:600;cursor:pointer;color:var(--ink,#221b12)}
 .form-done .fd-again:hover{border-color:var(--ink,#221b12)}
+
+/* phones: floating buttons appear after the hero, so they never cover the main call to action */
+@media(max-width:980px){#flt-toggle,#wa-fab{transition:opacity .25s,transform .25s}html:not(.past-hero) #flt-toggle,html:not(.past-hero) #wa-fab{opacity:0;transform:translateY(24px);pointer-events:none}}
+
+/* phones: buttons before stats */
+@media(max-width:600px){#hero .hl{display:flex;flex-direction:column}#hero .hero-btns{order:4;margin-bottom:1.4rem}#hero .specrow{order:5;margin-top:0}#hero .hero-nudge{order:6}}
 </style>
 <script type="application/ld+json" data-faq>{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"I don't know which technology to choose. Can you help?","acceptedAnswer":{"@type":"Answer","text":"Of course — that's one of the things we love doing most. Send us a description or sketch and we'll hop on a call. We'll explain the differences, suggest the best solution, and advise on materials. No obligations, no jargon."}},{"@type":"Question","name":"What's the minimum order quantity?","acceptedAnswer":{"@type":"Answer","text":"No minimum. We produce from 1 piece — a prototype, a unique exhibit, or a thousand-piece run. You decide."}},{"@type":"Question","name":"What file formats do you accept?","acceptedAnswer":{"@type":"Answer","text":"DXF, STL, STEP, IGES, SolidWorks, Fusion 360, PDF — and we can handle technical drawings or even a hand sketch. Don't worry about the format — we'll figure it out."}},{"@type":"Question","name":"How long does production take?","acceptedAnswer":{"@type":"Answer","text":"Prototypes typically within 48 hours. Small series (10–200 pcs): 1–2 weeks. Larger runs: we'll set a specific schedule. We always confirm the deadline before starting."}},{"@type":"Question","name":"Can I order a sample first?","acceptedAnswer":{"@type":"Answer","text":"Yes — and for larger orders, we actively recommend it. A sample lets you verify material, finish, and dimensions before committing to full production."}},{"@type":"Question","name":"Will I get the price upfront, or a surprise invoice?","acceptedAnswer":{"@type":"Answer","text":"You always get a clear quote before production starts. No hidden fees, no surprises. If anything changes during production, we'll call you first."}}]}</script>
 </head>
@@ -1567,6 +1573,7 @@ lbOverlay.addEventListener('touchend',function(e){
   var bar=document.querySelector('.scroll-progress'),ticking=false;
   function upd(){var h=document.documentElement.scrollHeight-innerHeight;bar.style.transform='scaleX('+(h>0?Math.min(1,scrollY/h):0)+')';ticking=false;}
   if(bar){addEventListener('scroll',function(){if(!ticking){ticking=true;requestAnimationFrame(upd);}},{passive:true});addEventListener('load',function(){requestAnimationFrame(upd);});}
+  var hero=document.getElementById('hero');function ph(){document.documentElement.classList.toggle('past-hero',!hero||scrollY>hero.offsetTop+hero.offsetHeight*0.6);}addEventListener('scroll',ph,{passive:true});requestAnimationFrame(ph);
   var gm=document.querySelector('.gal-more');
   // open the viewer at the first photo that is hidden on phones
   if(gm)gm.addEventListener('click',function(){var i=lbItems.findIndex(function(im){return !im.offsetParent;});openLb(i<0?0:i);});
