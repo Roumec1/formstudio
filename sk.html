@@ -704,6 +704,21 @@ h2.stag{margin-top:0;margin-bottom:.8rem}
 .logo-item:hover{filter:none;opacity:1}
 .logo-list{gap:2.4rem 2.8rem}
 @media(max-width:700px){.logos-in{justify-content:center;text-align:center}.logo-list{justify-content:center;gap:1.6rem 2.2rem}}
+
+/* clients band: dark, heading + facts + cream logo tiles */
+.clients{background:var(--ink);padding:4.5rem 3rem}
+.cl-in{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:.9fr 1.1fr;gap:3.5rem;align-items:center}
+.clients .stag{background:var(--yel);color:var(--ink)}
+.clients .sh{color:var(--bg);font-size:clamp(1.9rem,3.2vw,2.8rem);margin-top:.2rem}
+.cl-sub{color:#cfc6b6;margin-top:1rem;line-height:1.6;max-width:36ch}
+.cl-link{display:inline-block;margin-top:1.4rem;color:var(--yel);font-weight:700;text-decoration:none;border-bottom:2px solid var(--yel);padding-bottom:2px}
+.cl-link:hover{color:#fff;border-color:#fff}
+.cl-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.9rem}
+.cl-tile{border:1px solid #3a3226;border-radius:16px;height:104px;display:flex;align-items:center;justify-content:center;transition:background .25s,border-color .25s}
+.cl-tile:hover{background:#2c2419;border-color:#5a4e3c}
+.cl-tile img{max-width:80%;height:auto!important;opacity:.92}
+@media(max-width:900px){.clients{padding:3.5rem 1.5rem}.cl-in{grid-template-columns:1fr;gap:2rem}}
+@media(max-width:600px){.cl-grid{grid-template-columns:1fr 1fr;gap:.7rem}.cl-tile{height:84px}}
 </style>
 <script type="application/ld+json" data-faq>{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Neviem, akú technológiu zvoliť. Pomôžete mi?","acceptedAnswer":{"@type":"Answer","text":"Samozrejme — to je jedna z vecí, ktoré robíme najradšej. Pošlite nám popis alebo náčrt a zavoláme si. Vysvetlíme rozdiely, navrhneme najlepšie riešenie a poradíme s materiálom. Bez záväzkov, bez žargónu."}},{"@type":"Question","name":"Aké je minimálne množstvo objednávky?","acceptedAnswer":{"@type":"Answer","text":"Žiadne minimum. Vyrábame od 1 kusu — prototyp, unikátnu výstavu alebo tisícovú sériu. Ku každej zákazke pristupujeme s rovnakou starostlivosťou. Cena sa samozrejme s množstvom škáluje, ale malá zákazka u nás nie je druhá kategória."}},{"@type":"Question","name":"Aké formáty súborov prijímate?","acceptedAnswer":{"@type":"Answer","text":"DXF, STL, STEP, IGES, SolidWorks, Fusion 360, PDF — a zvládneme aj technický výkres alebo fotografiu náčrtu. Ešte nikto nás neprekvapil súborom, s ktorým by sme si neporadili. Ak si nie ste istí — jednoducho pošlite, čo máte."}},{"@type":"Question","name":"Ako dlho výroba trvá?","acceptedAnswer":{"@type":"Answer","text":"Prototypy štandardne do 48 hodín. Malosériová výroba (10–200 ks): 1–2 týždne. Väčšie série: 2–4 týždne podľa zložitosti. Máte šibeničný termín? Zavolajte nám — urobíme všetko pre to, aby to vyšlo."}},{"@type":"Question","name":"Môžem si najskôr objednať vzorku?","acceptedAnswer":{"@type":"Answer","text":"Áno — a pri väčších zákazkách to sami odporúčame. Vzorka vám umožní overiť materiál, rozmery aj povrchovú úpravu ešte pred schválením série. Je to najlepší spôsob, ako predísť sklamaniu na oboch stranách."}},{"@type":"Question","name":"Doručujete aj do zahraničia? Ako je to s faktúrou?","acceptedAnswer":{"@type":"Answer","text":"Áno. Do Nemecka a Rakúska doručujeme za 1–3 pracovné dni od dokončenia, bez cla — sme v EÚ. Firmám s IČ DPH v inej krajine EÚ fakturujeme v EUR v režime prenesenia daňovej povinnosti (reverse charge), platí sa prevodom po prijatí faktúry."}},{"@type":"Question","name":"Dostanem cenu vopred, alebo ma prekvapíte faktúrou?","acceptedAnswer":{"@type":"Answer","text":"Vždy dostanete jasnú kalkuláciu ešte pred zahájením výroby. Žiadne skryté poplatky, žiadne záludné príplatky po dodaní. A ak sa čokoľvek v priebehu zmení — prví to viete vy."}}]}</script>
 </head>
@@ -811,16 +826,21 @@ h2.stag{margin-top:0;margin-bottom:.8rem}
 </div>
 
 <!-- ── LOGOS ── -->
-<div class="logos rv">
-  <div class="logos-in">
-    <span class="logos-lbl"><span data-lang="cs">Pracujeme s firmami, které znáte</span><span data-lang="sk" class="on">Pracujeme s firmami, ktoré poznáte</span><span data-lang="en">We work with brands you know</span><span data-lang="de">Wir arbeiten mit Marken, die Sie kennen</span></span>
-    <div class="logo-list">
-      <img class="logo-item" src="logos/ink-mastercard.webp" alt="Mastercard" loading="lazy" width="61" height="38" style="width:61px;height:38px">
-      <img class="logo-item" src="logos/ink-cloudflare.webp" alt="Cloudflare" loading="lazy" width="100" height="33" style="width:100px;height:33px">
-      <img class="logo-item" src="logos/ink-lynkco.webp" alt="Lynk &amp; Co" loading="lazy" width="154" height="22" style="width:154px;height:22px">
-      <img class="logo-item" src="logos/ink-bohemia.webp" alt="Bohemia Interactive" loading="lazy" width="93" height="35" style="width:93px;height:35px">
-      <img class="logo-item" src="logos/ink-myco.webp" alt="Myco" loading="lazy" width="100" height="24" style="width:100px;height:24px">
-      <img class="logo-item" src="logos/ink-greencat.webp" alt="Green Cat" loading="lazy" width="75" height="44" style="width:75px;height:44px">
+<div class="clients rv">
+  <div class="cl-in">
+    <div class="cl-head">
+      <p class="stag"><span data-lang="cs">Reference</span><span data-lang="sk" class="on">Referencie</span><span data-lang="en">Clients</span><span data-lang="de">Referenzen</span></p>
+      <h2 class="sh inv"><span data-lang="cs">Pracujeme s firmami, <em>které znáte.</em></span><span data-lang="sk" class="on">Pracujeme s firmami, <em>ktoré poznáte.</em></span><span data-lang="en">We work with brands <em>you know.</em></span><span data-lang="de">Wir arbeiten mit Marken, <em>die Sie kennen.</em></span></h2>
+      <p class="cl-sub"><span data-lang="cs">Od roku 2020 přes 500 projektů — od prvního prototypu po sérii 500 kusů pro Mastercard.</span><span data-lang="sk" class="on">Od roku 2020 vyše 500 projektov — od prvého prototypu po sériu 500 kusov pre Mastercard.</span><span data-lang="en">Since 2020, over 500 projects — from a first prototype to a 500-piece run for Mastercard.</span><span data-lang="de">Seit 2020 über 500 Projekte — vom ersten Prototyp bis zur 500er-Serie für Mastercard.</span></p>
+      <a class="cl-link de-only" href="/referenzen">Alle Projekte ansehen →</a>
+    </div>
+    <div class="cl-grid">
+      <div class="cl-tile"><img src="logos/cream-mastercard.webp" alt="Mastercard" loading="lazy" width="61" height="38" style="width:61px;height:38px"></div>
+      <div class="cl-tile"><img src="logos/cream-cloudflare.webp" alt="Cloudflare" loading="lazy" width="100" height="33" style="width:100px;height:33px"></div>
+      <div class="cl-tile"><img src="logos/cream-lynkco.webp" alt="Lynk &amp; Co" loading="lazy" width="154" height="22" style="width:154px;height:22px"></div>
+      <div class="cl-tile"><img src="logos/cream-bohemia.webp" alt="Bohemia Interactive" loading="lazy" width="93" height="35" style="width:93px;height:35px"></div>
+      <div class="cl-tile"><img src="logos/cream-myco.webp" alt="Myco" loading="lazy" width="100" height="24" style="width:100px;height:24px"></div>
+      <div class="cl-tile"><img src="logos/cream-greencat.webp" alt="Green Cat" loading="lazy" width="75" height="44" style="width:75px;height:44px"></div>
     </div>
   </div>
 </div>
