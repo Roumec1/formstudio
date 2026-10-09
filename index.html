@@ -698,6 +698,12 @@ h2.stag{margin-top:0;margin-bottom:.8rem}
 .svc{border:1px solid var(--border)}
 .terms{gap:1rem;background:none;border:0;border-radius:0;overflow:visible}
 .term{border:1px solid var(--border)}
+
+/* client logos: one ink colour (files are pre-coloured), sized by visual weight via width/height */
+.logo-item{filter:none;opacity:.8;height:auto}
+.logo-item:hover{filter:none;opacity:1}
+.logo-list{gap:2.4rem 2.8rem}
+@media(max-width:700px){.logos-in{justify-content:center;text-align:center}.logo-list{justify-content:center;gap:1.6rem 2.2rem}}
 </style>
 <script type="application/ld+json" data-faq>{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Nevím, jakou technologii zvolit. Pomůžete mi?","acceptedAnswer":{"@type":"Answer","text":"Samozřejmě — to je jedna z věcí, které děláme nejraději. Pošlete nám popis nebo náčrt a zavoláme si. Vysvětlíme rozdíly, navrhneme nejlepší řešení a poradíme s materiálem. Bez závazků, bez žargonu."}},{"@type":"Question","name":"Jaké je minimální množství objednávky?","acceptedAnswer":{"@type":"Answer","text":"Žádné minimum. Vyrábíme od 1 kusu — prototyp, unikátní výstavu nebo tisícovou sérii. Ke každé zakázce přistupujeme se stejnou péčí. Cena se samozřejmě s množstvím škáluje, ale malá zakázka u nás není druhá kategorie."}},{"@type":"Question","name":"Jaké formáty souborů přijímáte?","acceptedAnswer":{"@type":"Answer","text":"DXF, STL, STEP, IGES, SolidWorks, Fusion 360, PDF — a zvládneme i technický výkres nebo fotografii náčrtu. Ještě nikdo nás nepřekvapil souborem, se kterým bychom si neporadili. Pokud si nejste jistí — prostě pošlete, co máte."}},{"@type":"Question","name":"Jak dlouho výroba trvá?","acceptedAnswer":{"@type":"Answer","text":"Prototypy standardně do 48 hodin. Malosériová výroba (10–200 ks): 1–2 týdny. Větší série: 2–4 týdny podle složitosti. Máte šibeniční termín? Zavolejte nám — uděláme vše pro to, aby to vyšlo."}},{"@type":"Question","name":"Mohu si nejdřív objednat vzorek?","acceptedAnswer":{"@type":"Answer","text":"Ano — a u větších zakázek to sami doporučujeme. Vzorek vám umožní ověřit materiál, rozměry i povrchovou úpravu ještě před schválením série. Je to nejlepší způsob, jak předejít zklamání na obou stranách."}},{"@type":"Question","name":"Doručujete i do zahraničí? Jak je to s fakturou?","acceptedAnswer":{"@type":"Answer","text":"Ano. Do Německa a Rakouska doručujeme za 1–3 pracovní dny od dokončení, bez cla — jsme v EU. Firmám s DIČ v jiné zemi EU fakturujeme v EUR v režimu přenesené daňové povinnosti (reverse charge), platí se převodem po obdržení faktury."}},{"@type":"Question","name":"Dostanu cenu předem, nebo mě překvapíte fakturou?","acceptedAnswer":{"@type":"Answer","text":"Vždy dostanete jasnou kalkulaci ještě před zahájením výroby. Žádné skryté poplatky, žádné záludné příplatky po dodání. A pokud se cokoliv v průběhu změní — první to víte vy."}}]}</script>
 </head>
@@ -809,11 +815,12 @@ h2.stag{margin-top:0;margin-bottom:.8rem}
   <div class="logos-in">
     <span class="logos-lbl"><span data-lang="cs" class="on">Pracujeme s firmami, které znáte</span><span data-lang="sk">Pracujeme s firmami, ktoré poznáte</span><span data-lang="en">We work with brands you know</span><span data-lang="de">Wir arbeiten mit Marken, die Sie kennen</span></span>
     <div class="logo-list">
-      <img class="logo-item" src="logos/cloudflare.png" alt="Cloudflare" loading="lazy" width="90" height="26">
-      <img class="logo-item" src="logos/bohemia.png" alt="Bohemia Interactive" loading="lazy" width="65" height="26">
-      <img class="logo-item" src="logos/mastercard.png" alt="Mastercard" loading="lazy" width="52" height="30">
-      <img class="logo-item" src="logos/lynkco.png" alt="Lynk &amp; Co" loading="lazy" width="36" height="20">
-      <img class="logo-item" src="logos/myco.png" alt="Myco" loading="lazy" width="30" height="30">
+      <img class="logo-item" src="logos/ink-mastercard.webp" alt="Mastercard" loading="lazy" width="61" height="38" style="width:61px;height:38px">
+      <img class="logo-item" src="logos/ink-cloudflare.webp" alt="Cloudflare" loading="lazy" width="100" height="33" style="width:100px;height:33px">
+      <img class="logo-item" src="logos/ink-lynkco.webp" alt="Lynk &amp; Co" loading="lazy" width="154" height="22" style="width:154px;height:22px">
+      <img class="logo-item" src="logos/ink-bohemia.webp" alt="Bohemia Interactive" loading="lazy" width="93" height="35" style="width:93px;height:35px">
+      <img class="logo-item" src="logos/ink-myco.webp" alt="Myco" loading="lazy" width="100" height="24" style="width:100px;height:24px">
+      <img class="logo-item" src="logos/ink-greencat.webp" alt="Green Cat" loading="lazy" width="75" height="44" style="width:75px;height:44px">
     </div>
   </div>
 </div>

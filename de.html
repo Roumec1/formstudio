@@ -698,6 +698,12 @@ h2.stag{margin-top:0;margin-bottom:.8rem}
 .svc{border:1px solid var(--border)}
 .terms{gap:1rem;background:none;border:0;border-radius:0;overflow:visible}
 .term{border:1px solid var(--border)}
+
+/* client logos: one ink colour (files are pre-coloured), sized by visual weight via width/height */
+.logo-item{filter:none;opacity:.8;height:auto}
+.logo-item:hover{filter:none;opacity:1}
+.logo-list{gap:2.4rem 2.8rem}
+@media(max-width:700px){.logos-in{justify-content:center;text-align:center}.logo-list{justify-content:center;gap:1.6rem 2.2rem}}
 </style>
 <script type="application/ld+json" data-faq>{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Ich weiß nicht, welche Technologie ich wählen soll. Können Sie mir helfen?","acceptedAnswer":{"@type":"Answer","text":"Selbstverständlich — das ist eine der Sachen, die wir am liebsten machen. Schicken Sie uns eine Beschreibung oder Skizze und wir telefonieren. Wir erklären die Unterschiede, schlagen die beste Lösung vor und beraten Sie zum Material. Ohne Verpflichtungen, ohne Fachjargon."}},{"@type":"Question","name":"Wie hoch ist die Mindestbestellmenge?","acceptedAnswer":{"@type":"Answer","text":"Keine Mindestmenge. Wir fertigen ab 1 Stück — einen Prototyp, ein einzigartiges Ausstellungsstück oder eine Tausenderserie. Jeden Auftrag behandeln wir mit derselben Sorgfalt. Der Preis skaliert natürlich mit der Menge, aber ein kleiner Auftrag ist bei uns nicht zweite Klasse."}},{"@type":"Question","name":"Welche Dateiformate akzeptieren Sie?","acceptedAnswer":{"@type":"Answer","text":"DXF, STL, STEP, IGES, SolidWorks, Fusion 360, PDF — und wir kommen auch mit einer technischen Zeichnung oder dem Foto einer Skizze zurecht. Noch niemand hat uns mit einer Datei überrascht, mit der wir nicht zurechtgekommen wären. Wenn Sie unsicher sind — schicken Sie einfach, was Sie haben."}},{"@type":"Question","name":"Wie lange dauert die Produktion?","acceptedAnswer":{"@type":"Answer","text":"Prototypen in der Regel innerhalb von 48 Stunden. Kleinserien (10–200 Stück): 1–2 Wochen. Größere Serien: 2–4 Wochen je nach Komplexität. Haben Sie einen knappen Termin? Rufen Sie uns an — wir tun alles, damit es klappt."}},{"@type":"Question","name":"Kann ich zuerst ein Muster bestellen?","acceptedAnswer":{"@type":"Answer","text":"Ja — und bei größeren Aufträgen empfehlen wir es sogar. Ein Muster ermöglicht es Ihnen, Material, Maße und Oberflächenbearbeitung zu prüfen, bevor Sie die Serie freigeben. Das ist der beste Weg, um Enttäuschungen auf beiden Seiten zu vermeiden."}},{"@type":"Question","name":"Liefern Sie nach Deutschland und Österreich? Wie läuft die Rechnung?","acceptedAnswer":{"@type":"Answer","text":"Ja. Nach Deutschland und Österreich liefern wir 1–3 Werktage nach Fertigstellung, ohne Zoll — wir sind in der EU. Unternehmen mit USt-IdNr. erhalten eine Rechnung in EUR als innergemeinschaftliche Lieferung (Reverse Charge), Zahlung per Überweisung nach Erhalt der Rechnung."}},{"@type":"Question","name":"Bekomme ich den Preis im Voraus oder eine Überraschungsrechnung?","acceptedAnswer":{"@type":"Answer","text":"Sie erhalten immer eine klare Kalkulation, bevor die Produktion beginnt. Keine versteckten Gebühren, keine bösen Aufschläge nach der Lieferung. Und sollte sich während des Prozesses etwas ändern — erfahren Sie es als Erste."}}]}</script>
 </head>
@@ -809,11 +815,12 @@ h2.stag{margin-top:0;margin-bottom:.8rem}
   <div class="logos-in">
     <span class="logos-lbl"><span data-lang="cs">Pracujeme s firmami, které znáte</span><span data-lang="sk">Pracujeme s firmami, ktoré poznáte</span><span data-lang="en">We work with brands you know</span><span data-lang="de" class="on">Wir arbeiten mit Marken, die Sie kennen</span></span>
     <div class="logo-list">
-      <img class="logo-item" src="logos/cloudflare.png" alt="Cloudflare" loading="lazy" width="90" height="26">
-      <img class="logo-item" src="logos/bohemia.png" alt="Bohemia Interactive" loading="lazy" width="65" height="26">
-      <img class="logo-item" src="logos/mastercard.png" alt="Mastercard" loading="lazy" width="52" height="30">
-      <img class="logo-item" src="logos/lynkco.png" alt="Lynk &amp; Co" loading="lazy" width="36" height="20">
-      <img class="logo-item" src="logos/myco.png" alt="Myco" loading="lazy" width="30" height="30">
+      <img class="logo-item" src="logos/ink-mastercard.webp" alt="Mastercard" loading="lazy" width="61" height="38" style="width:61px;height:38px">
+      <img class="logo-item" src="logos/ink-cloudflare.webp" alt="Cloudflare" loading="lazy" width="100" height="33" style="width:100px;height:33px">
+      <img class="logo-item" src="logos/ink-lynkco.webp" alt="Lynk &amp; Co" loading="lazy" width="154" height="22" style="width:154px;height:22px">
+      <img class="logo-item" src="logos/ink-bohemia.webp" alt="Bohemia Interactive" loading="lazy" width="93" height="35" style="width:93px;height:35px">
+      <img class="logo-item" src="logos/ink-myco.webp" alt="Myco" loading="lazy" width="100" height="24" style="width:100px;height:24px">
+      <img class="logo-item" src="logos/ink-greencat.webp" alt="Green Cat" loading="lazy" width="75" height="44" style="width:75px;height:44px">
     </div>
   </div>
 </div>
