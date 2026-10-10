@@ -339,6 +339,8 @@ h1,h2,h3{font-weight:800;letter-spacing:-.04em}
 
 <script>
 window.__formT0=Date.now();
+// Where the visitor came from (ad campaign or referring site), read from the URL when the form is sent; nothing is stored.
+window.__src=function(){var q=new URLSearchParams(location.search),o=['utm_source','utm_medium','utm_campaign','utm_term'].map(function(k){return q.get(k)}).filter(Boolean);if(q.get('gclid'))o.push('gclid');var r='';try{r=document.referrer?new URL(document.referrer).hostname:''}catch(e){}if(/formastudio\.cz$/.test(r))r='intern';return (o.length?o.join(' / '):r?r:'direct')+' | '+location.pathname};
 // after a successful send: swap the form for a thank-you box that stays visible
 function showDone(f){
   var l=document.documentElement.lang,T={
@@ -373,7 +375,7 @@ document.getElementById('lpform').addEventListener('submit',function(e){
   btn.textContent='Senden...';btn.disabled=true;
   readFormFiles(document.getElementById('lp-files')).then(function(files){return fetch('/api/contact',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({files:files,
     name:name,email:email,service:'Werbegeschenke (Landingpage)',
-    message:(firma?'Firma: '+firma+'\n\n':'')+msg,lang:'de',company:hp,elapsed:Date.now()-window.__formT0
+    message:(firma?'Firma: '+firma+'\n\n':'')+msg,lang:'de',company:hp,elapsed:Date.now()-window.__formT0,src:window.__src?window.__src():''
   })});},function(){btn.textContent='Dateien max. 3 MB — größere bitte per E-Mail';btn.style.background='#7a2020';setTimeout(function(){btn.textContent='Angebot anfordern →';btn.style.background='';btn.disabled=false;},4000);throw 'handled';}).then(function(r){return r.json();}).then(function(d){
     if(d.success){
       var _f=document.querySelector('form[id]');if(_f)setTimeout(function(){showDone(_f);},10);

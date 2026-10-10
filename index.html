@@ -1344,6 +1344,8 @@ h2.stag{margin-top:0;margin-bottom:.8rem}
 
 <script>
 window.__formT0=Date.now();
+// Where the visitor came from (ad campaign or referring site), read from the URL when the form is sent; nothing is stored.
+window.__src=function(){var q=new URLSearchParams(location.search),o=['utm_source','utm_medium','utm_campaign','utm_term'].map(function(k){return q.get(k)}).filter(Boolean);if(q.get('gclid'))o.push('gclid');var r='';try{r=document.referrer?new URL(document.referrer).hostname:''}catch(e){}if(/formastudio\.cz$/.test(r))r='intern';return (o.length?o.join(' / '):r?r:'direct')+' | '+location.pathname};
 document.addEventListener('click',function(e){
   var a=e.target.closest&&e.target.closest('[data-sample]');if(!a)return;
   var m=document.getElementById('msg');
@@ -1458,7 +1460,7 @@ document.getElementById('cform').addEventListener('submit',function(e){
         service:svcEl.value&&svcEl.options[svcEl.selectedIndex]?svcEl.options[svcEl.selectedIndex].text:'',
         message:msgEl.value.trim(),
         files:files,
-        lang:document.documentElement.lang,company:hp?hp.value:'',elapsed:Date.now()-window.__formT0
+        lang:document.documentElement.lang,company:hp?hp.value:'',elapsed:Date.now()-window.__formT0,src:window.__src?window.__src():''
       })
     });
   },function(){
@@ -1547,7 +1549,7 @@ function fltSend(){
   fetch('/api/contact',{
     method:'POST',
     headers:{'Content-Type':'application/json'},
-    body:JSON.stringify({name:nameEl.value.trim(),email:emailEl.value.trim(),service:'',message:msgEl.value.trim(),lang:document.documentElement.lang,company:hp?hp.value:'',elapsed:Date.now()-window.__formT0})
+    body:JSON.stringify({name:nameEl.value.trim(),email:emailEl.value.trim(),service:'',message:msgEl.value.trim(),lang:document.documentElement.lang,company:hp?hp.value:'',elapsed:Date.now()-window.__formT0,src:window.__src?window.__src():''})
   }).then(function(r){return r.json();}).then(function(d){
     if(d.success){
       if(window.va)va('event',{name:'lead_form_floating',data:{lang:L}});

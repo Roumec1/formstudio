@@ -75,6 +75,9 @@ export default async function handler(req, res) {
   const { name, email, service, message } = b;
   // language of the page the enquiry came from (cs/sk/en/de) — shown in the subject so it is answered in the right language
   const LANG = /^(cs|sk|en|de)$/.test(String(b.lang || '')) ? String(b.lang).toUpperCase() : '';
+  // where the visitor came from ("google / cpc / mdf | /mdf-fraesteile"); ad clicks get [Ads] in the subject
+  const SRC = String(b.src || '').replace(/[^\w .\/:|äöüÄÖÜß-]/g, '').slice(0, 200);
+  const ADS = /(^|\W)(cpc|gclid)(\W|$)/i.test(SRC);
 
   // Spam (honeypot, instant submit, link/keyword/script spam): pretend success, send nothing.
   const reason = spamReason(b);
@@ -136,7 +139,7 @@ export default async function handler(req, res) {
         from: 'Forma Studio Web <onboarding@resend.dev>',
         to: [TO_EMAIL],
         reply_to: email,
-        subject: `${LANG ? '[' + LANG + '] ' : ''}Nová poptávka — ${name}${service ? ' (' + service + ')' : ''}`,
+        subject: `${ADS ? '[Ads] ' : ''}${LANG ? '[' + LANG + '] ' : ''}Nová poptávka — ${name}${service ? ' (' + service + ')' : ''}`,
         html: `
           <div style="font-family:sans-serif;max-width:600px">
             <h2 style="color:#c94e1e;margin-bottom:1.5rem">Nová poptávka z webu</h2>
@@ -144,6 +147,7 @@ export default async function handler(req, res) {
               <tr><td style="padding:.5rem 0;color:#666;width:100px"><strong>Jméno:</strong></td><td>${escapeHtml(name)}</td></tr>
               <tr><td style="padding:.5rem 0;color:#666"><strong>Email:</strong></td><td><a href="mailto:${escapeHtml(email)}">${escapeHtml(email)}</a></td></tr>
               ${service ? `<tr><td style="padding:.5rem 0;color:#666"><strong>Služba:</strong></td><td>${escapeHtml(service)}</td></tr>` : ''}
+              ${SRC ? `<tr><td style="padding:.5rem 0;color:#666"><strong>Zdroj:</strong></td><td>${escapeHtml(SRC)}</td></tr>` : ''}
             </table>
             <div style="margin-top:1.5rem;padding:1rem;background:#faf9f7;border-left:3px solid #c94e1e;white-space:pre-wrap">${escapeHtml(message)}</div>
             ${attachments.length ? `<p style="margin-top:1rem"><strong>Přílohy (${attachments.length}):</strong> ${attachments.map((a) => escapeHtml(a.filename)).join(', ')}</p>` : ''}
