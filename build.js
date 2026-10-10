@@ -106,7 +106,7 @@ function inlineFonts(html) {
   return html.replace(/<link rel="stylesheet" href="\/fonts\/fonts\.css">|<style id="fontfaces">[\s\S]*?<\/style>/, function () { return tag; });
 }
 // Standalone pages that aren't language-generated get the same treatment.
-['lohnfertigung.html', 'mdf-fraesteile.html', 'werbegeschenke.html', 'referenzen.html', 'impressum.html', 'datenschutz.html', '404.html'].forEach(function (f) {
+['lohnfertigung.html', 'mdf-fraesteile.html', 'werbegeschenke.html', 'weihnachtskarten-holz.html', 'referenzen.html', 'impressum.html', 'datenschutz.html', '404.html'].forEach(function (f) {
   fs.writeFileSync(f, inlineFonts(fs.readFileSync(f, 'utf8')), 'utf8');
 });
 
@@ -243,7 +243,7 @@ Object.keys(META).forEach(function (lang) {
     return '  <url>\n    <loc>' + META[l].url + '</loc>\n    <lastmod>' + today + '</lastmod>\n' + alts + '\n  </url>';
   }).join('\n') + '\n' +
     // German landing pages (standalone, not language-generated)
-    ['/lohnfertigung', '/mdf-fraesteile', '/werbegeschenke', '/referenzen'].map(function (u) {
+    ['/lohnfertigung', '/mdf-fraesteile', '/werbegeschenke', '/weihnachtskarten-holz', '/referenzen'].map(function (u) {
       return '  <url>\n    <loc>' + BASE + u + '</loc>\n    <lastmod>' + today + '</lastmod>\n  </url>';
     }).join('\n');
   const xml = '<?xml version="1.0" encoding="UTF-8"?>\n' +
