@@ -278,8 +278,8 @@ body.mbar-on #wa{transform:translateY(-4.4rem)}
 </section>
 
 <script>
-// visitors from the "Holz fräsen" ads (utm_campaign=holz) see a wood-specific headline
-(function(){if(new URLSearchParams(location.search).get('utm_campaign')!=='holz')return;var s=document.querySelector('.hero'),e=s&&s.querySelector('.eyebrow'),t=s&&s.querySelector('h1'),l=s&&s.querySelector('p.lead');if(e)e.textContent='Holz fräsen lassen · CNC · Serie';if(t)t.innerHTML='Holz CNC-fräsen lassen – <span class="accent">nach Ihrer Datei.</span>';if(l)l.innerHTML='Massivholz, Multiplex, Sperrholz oder MDF: Schicken Sie uns <b>DXF, STEP oder PDF</b>, wir fräsen auf unserer Großformat-CNC ganze Platten bis 2500 × 1250 mm. Vom Einzelteil bis zur Serie, <b>Angebot in 48 Stunden</b>, aus der EU geliefert.';})();
+// visitors from the wood / plastic ads (utm_campaign=holz|kunststoff) see a matching headline
+(function(){var V={holz:['Holz fräsen lassen · CNC · Serie','Holz CNC-fräsen lassen – <span class="accent">nach Ihrer Datei.</span>','Massivholz, Multiplex, Sperrholz oder MDF: Schicken Sie uns <b>DXF, STEP oder PDF</b>, wir fräsen auf unserer Großformat-CNC ganze Platten bis 2500 × 1250 mm. Vom Einzelteil bis zur Serie, <b>Angebot in 48 Stunden</b>, aus der EU geliefert.'],kunststoff:['Kunststoff & Acryl · CNC · Laser','Kunststoff & Acryl fräsen lassen – <span class="accent">nach Ihrer Datei.</span>','Kunststoff, Plexiglas und Acryl: Schicken Sie uns <b>DXF, STEP oder PDF</b>, wir fräsen auf unserer Großformat-CNC bis 2500 × 1250 mm oder schneiden per Laser bis 6 mm. Vom Einzelteil bis zur Serie, <b>Angebot in 48 Stunden</b>, aus der EU geliefert.']}[new URLSearchParams(location.search).get('utm_campaign')];if(!V)return;var s=document.querySelector('.hero'),e=s&&s.querySelector('.eyebrow'),t=s&&s.querySelector('h1'),l=s&&s.querySelector('p.lead');if(e)e.textContent=V[0];if(t)t.innerHTML=V[1];if(l)l.innerHTML=V[2];})();
 </script>
 
 <!-- LOGOS -->

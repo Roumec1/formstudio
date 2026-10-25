@@ -45,5 +45,12 @@
         }
       ]
     }
+  ],
+  "redirects": [
+    {
+      "source": "/weihnachtskarten-holz",
+      "destination": "/lohnfertigung",
+      "permanent": true
+    }
   ]
 }
