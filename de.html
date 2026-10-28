@@ -1277,6 +1277,17 @@ h2.stag{margin-top:0;margin-bottom:.8rem}
         </select>
       </div>
       <div class="form-r">
+        <label for="found-sel"><span data-lang="cs">Jak jste nás našli? (volitelné)</span><span data-lang="sk">Ako ste nás našli? (voliteľné)</span><span data-lang="en">How did you find us? (optional)</span><span data-lang="de" class="on">Wie haben Sie uns gefunden? (optional)</span></label>
+        <select id="found-sel">
+          <option value="" disabled selected>Bitte wählen…</option>
+          <option id="h1">Google-Suche</option>
+          <option id="h2">Google-Anzeige</option>
+          <option id="h3">Empfehlung</option>
+          <option id="h4">Social Media</option>
+          <option id="h5">Andere</option>
+        </select>
+      </div>
+      <div class="form-r">
         <label for="msg"><span data-lang="cs">Řekněte nám víc</span><span data-lang="sk">Povedzte nám viac</span><span data-lang="en">Tell us more</span><span data-lang="de" class="on">Erzählen Sie uns mehr</span></label>
         <textarea id="msg" placeholder="Popište projekt, materiál, rozměry, termín... nebo prostě napište, co potřebujete. Nic nemusí být dokonalé — zbytek dořešíme spolu."></textarea>
       </div>
@@ -1363,6 +1374,11 @@ const TR={
   s4:{cs:'Rapid prototyping',sk:'Rapid prototyping',en:'Rapid prototyping',de:'Rapid Prototyping'},
   s5:{cs:'Více technologií najednou',sk:'Viac technológií naraz',en:'Multiple technologies',de:'Mehrere Technologien'},
   s6:{cs:'Nevím — poraďte mi',sk:'Neviem — poraďte mi',en:'Not sure — advise me',de:'Ich bin unsicher — beraten Sie mich'},
+  h1:{cs:'Vyhledávání Google',sk:'Vyhľadávanie Google',en:'Google search',de:'Google-Suche'},
+  h2:{cs:'Reklama na Googlu',sk:'Reklama na Google',en:'Google ad',de:'Google-Anzeige'},
+  h3:{cs:'Doporučení',sk:'Odporúčanie',en:'Recommendation',de:'Empfehlung'},
+  h4:{cs:'Sociální sítě',sk:'Sociálne siete',en:'Social media',de:'Social Media'},
+  h5:{cs:'Jinak',sk:'Inak',en:'Other',de:'Andere'},
 };
 function setL(l){
   L=l;
@@ -1458,6 +1474,7 @@ document.getElementById('cform').addEventListener('submit',function(e){
         name:nameEl.value.trim(),
         email:emailEl.value.trim(),
         service:svcEl.value&&svcEl.options[svcEl.selectedIndex]?svcEl.options[svcEl.selectedIndex].text:'',
+        found:(function(){var e=document.getElementById('found-sel');return e&&e.selectedIndex>0?e.options[e.selectedIndex].text:'';})(),
         message:msgEl.value.trim(),
         files:files,
         lang:document.documentElement.lang,company:hp?hp.value:'',elapsed:Date.now()-window.__formT0,src:window.__src?window.__src():''
@@ -1480,7 +1497,7 @@ document.getElementById('cform').addEventListener('submit',function(e){
       if(en)en.textContent='Sent! We\u2019ll get back within 24 h \u2713';
       if(de)de.textContent='Gesendet! Wir melden uns in 24 h \u2713';
       btn.style.background='#2a5a2a';
-      nameEl.value='';emailEl.value='';msgEl.value='';svcEl.selectedIndex=0;if(fileEl)fileEl.value='';
+      nameEl.value='';emailEl.value='';msgEl.value='';svcEl.selectedIndex=0;var _fs=document.getElementById('found-sel');if(_fs)_fs.selectedIndex=0;if(fileEl)fileEl.value='';
       setTimeout(resetLabel,4000);
       showDone(document.getElementById('cform'));
     }else{throw new Error(data.error);}

@@ -208,6 +208,9 @@ h1,h2,h3{font-weight:800;letter-spacing:-.04em}
 .logos img:hover{filter:none;opacity:1}
 .logos-in{gap:1.6rem 2.6rem}
 @media(max-width:700px){.logos-lbl{flex-basis:100%;text-align:center}}
+
+/* "How did you find us?" dropdown */
+.fr select{width:100%;background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:.75rem 1rem;font:inherit;font-size:.9rem;color:var(--ink)}
 </style>
 <script type="application/ld+json" data-seo-ld>{"@context":"https://schema.org","@graph":[{"@type":"Service","name":"Werbegeschenke aus Holz mit Logo","serviceType":"Werbeartikel","description":"Firmengeschenke und Werbeartikel aus Echtholz, CNC-gefräst und lasergraviert, ab 1 Stück.","provider":{"@type":"LocalBusiness","name":"Forma Studio","logo":"https://formastudio.cz/logo.png","url":"https://formastudio.cz","telephone":"+4917622791055","email":"plant@wearetreed.com","address":{"@type":"PostalAddress","streetAddress":"Uničovská 296/46","addressLocality":"Šumperk","postalCode":"78701","addressCountry":"CZ"}},"areaServed":[{"@type":"Country","name":"Deutschland"},{"@type":"Country","name":"Österreich"},{"@type":"Country","name":"Schweiz"},{"@type":"Country","name":"Tschechien"},{"@type":"Country","name":"Slowakei"}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Forma Studio","item":"https://formastudio.cz/de"},{"@type":"ListItem","position":2,"name":"Werbegeschenke","item":"https://formastudio.cz/werbegeschenke"}]}]}</script>
 </head>
@@ -317,6 +320,7 @@ h1,h2,h3{font-weight:800;letter-spacing:-.04em}
         <div class="fr"><label for="lp-firma">Firma</label><input id="lp-firma" type="text" autocomplete="organization" placeholder="Muster GmbH"></div>
         <div class="fr"><label for="lp-name">Name</label><input id="lp-name" type="text" autocomplete="name" placeholder="Max Mustermann"></div>
         <div class="fr"><label for="lp-email">E-Mail</label><input id="lp-email" type="email" autocomplete="email" placeholder="max@firma.de"></div>
+        <div class="fr"><label for="lp-found">Wie haben Sie uns gefunden? (optional)</label><select id="lp-found"><option value="">Bitte wählen…</option><option>Google-Suche</option><option>Google-Anzeige</option><option>Empfehlung</option><option>Social Media</option><option>Andere</option></select></div>
         <div class="fr"><label for="lp-msg">Worum geht es?</label><textarea id="lp-msg" placeholder="z. B. 200 kabellose Ladegeräte aus Eiche mit Logo-Gravur, bis Ende Q3..."></textarea></div>
         <div class="fr"><label for="lp-files">Logo oder Vorlage (optional)</label><input id="lp-files" type="file" multiple accept=".dxf,.dwg,.step,.stp,.stl,.iges,.igs,.3mf,.obj,.pdf,.png,.jpg,.jpeg,.svg,.ai,.eps,.zip"><p class="file-hint">PDF, SVG, AI, EPS, PNG, JPG · max. 3 MB gesamt.</p></div>
         <div class="hp" aria-hidden="true"><label>Leave empty<input type="text" id="lp-hpcheck" name="hp_check" tabindex="-1" autocomplete="off"></label></div>
@@ -375,7 +379,7 @@ document.getElementById('lpform').addEventListener('submit',function(e){
   btn.textContent='Senden...';btn.disabled=true;
   readFormFiles(document.getElementById('lp-files')).then(function(files){return fetch('/api/contact',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({files:files,
     name:name,email:email,service:'Werbegeschenke (Landingpage)',
-    message:(firma?'Firma: '+firma+'\n\n':'')+msg,lang:'de',company:hp,elapsed:Date.now()-window.__formT0,src:window.__src?window.__src():''
+    message:(firma?'Firma: '+firma+'\n\n':'')+msg,lang:'de',company:hp,elapsed:Date.now()-window.__formT0,src:window.__src?window.__src():'',found:(document.getElementById('lp-found')||{}).value||''
   })});},function(){btn.textContent='Dateien max. 3 MB — größere bitte per E-Mail';btn.style.background='#7a2020';setTimeout(function(){btn.textContent='Angebot anfordern →';btn.style.background='';btn.disabled=false;},4000);throw 'handled';}).then(function(r){return r.json();}).then(function(d){
     if(d.success){
       var _f=document.querySelector('form[id]');if(_f)setTimeout(function(){showDone(_f);},10);

@@ -78,6 +78,8 @@ export default async function handler(req, res) {
   // where the visitor came from ("google / cpc / mdf | /mdf-fraesteile"); ad clicks get [Ads] in the subject
   const SRC = String(b.src || '').replace(/[^\w .\/:|äöüÄÖÜß-]/g, '').slice(0, 200);
   const ADS = /(^|\W)(cpc|gclid)(\W|$)/i.test(SRC);
+  // visitor's own answer to "How did you find us?" (optional dropdown)
+  const FOUND = String(b.found || '').replace(/[<>"]/g, '').slice(0, 60);
 
   // Spam (honeypot, instant submit, link/keyword/script spam): pretend success, send nothing.
   const reason = spamReason(b);
@@ -148,6 +150,7 @@ export default async function handler(req, res) {
               <tr><td style="padding:.5rem 0;color:#666"><strong>Email:</strong></td><td><a href="mailto:${escapeHtml(email)}">${escapeHtml(email)}</a></td></tr>
               ${service ? `<tr><td style="padding:.5rem 0;color:#666"><strong>Služba:</strong></td><td>${escapeHtml(service)}</td></tr>` : ''}
               ${SRC ? `<tr><td style="padding:.5rem 0;color:#666"><strong>Zdroj:</strong></td><td>${escapeHtml(SRC)}</td></tr>` : ''}
+              ${FOUND ? `<tr><td style="padding:.5rem 0;color:#666"><strong>Našli nás:</strong></td><td>${escapeHtml(FOUND)}</td></tr>` : ''}
             </table>
             <div style="margin-top:1.5rem;padding:1rem;background:#faf9f7;border-left:3px solid #c94e1e;white-space:pre-wrap">${escapeHtml(message)}</div>
             ${attachments.length ? `<p style="margin-top:1rem"><strong>Přílohy (${attachments.length}):</strong> ${attachments.map((a) => escapeHtml(a.filename)).join(', ')}</p>` : ''}
