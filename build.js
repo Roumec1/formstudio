@@ -68,6 +68,12 @@ const HERO_MFG_PRELOAD = '<link rel="preload" as="image" href="/images/cnc-frzka
 
 // Image alt text, keyed by the Czech alt in index.html. Localized for image SEO.
 const ALT = {
+  "Kulatý dubový stůl s černou epoxidovou pryskyřicí": { sk: "Okrúhly dubový stôl s čiernou epoxidovou živicou", en: "Round oak table with black epoxy resin", de: "Runder Eichentisch mit schwarzem Epoxidharz" },
+  "Konferenční stolek z dubu s přírodní hranou a epoxidem": { sk: "Konferenčný stolík z duba s prírodnou hranou a epoxidom", en: "Oak coffee table with live edge and epoxy", de: "Couchtisch aus Eiche mit Baumkante und Epoxidharz" },
+  "Dubová deska river s černým epoxidem při lití": { sk: "Dubová doska river s čiernym epoxidom pri liatí", en: "Oak river tabletop being poured with black epoxy", de: "River-Tischplatte aus Eiche beim Gießen mit schwarzem Epoxidharz" },
+  "Dubový stůl s přírodní hranou na kovových nohách": { sk: "Dubový stôl s prírodnou hranou na kovových nohách", en: "Live-edge oak table on hairpin legs", de: "Eichentisch mit Baumkante auf Hairpin-Beinen" },
+  "Detail hrany kulaté dubové desky s epoxidem": { sk: "Detail hrany okrúhlej dubovej dosky s epoxidom", en: "Edge detail of a round oak top with epoxy", de: "Kantendetail einer runden Eichenplatte mit Epoxidharz" },
+  "Dubová fošna s epoxidem v naší dílně": { sk: "Dubová fošňa s epoxidom v našej dielni", en: "Oak slab with epoxy in our workshop", de: "Eichenbohle mit Epoxidharz in unserer Werkstatt" },
   'Série CNC frézovaných dílů z masivního dřeva': { sk: 'Séria CNC frézovaných dielov z masívneho dreva', en: 'A batch of CNC-milled solid-wood parts', de: 'Serie CNC-gefräster Teile aus Massivholz' },
   'CNC frézované děrované desky z barvené překližky': { sk: 'CNC frézované dierované dosky z farbenej preglejky', en: 'CNC-milled perforated panels in coloured plywood', de: 'CNC-gefräste Lochplatten aus farbigem Sperrholz' },
   'CNC frézka v provozu': { sk: 'CNC frézka v prevádzke', en: 'CNC router in operation', de: 'CNC-Fräse im Betrieb' },
