@@ -1,0 +1,34 @@
+# Forma Studio
+
+> Forma Studio is a contract manufacturing workshop in Šumperk, Czech Republic (EU), run by Wearetreed s.r.o. It makes parts and products from customer files: large-format CNC milling (wood, MDF, plywood, plastic, acrylic), CO₂ laser cutting and engraving, a 3D print farm, plus assembly and packing. From a single sample to series of 10,000+ pieces, for customers in Germany, Austria, Switzerland, Czechia and Slovakia.
+
+Key facts:
+
+- CNC: vacuum table 2500 × 1250 mm (full sheets in one setup), 3.5 kW spindle, accuracy 0.03 mm.
+- Laser: 4 CO₂ lasers with 6 heads. 2× 130 W dual-head 1600 × 1000 mm, 2× 100 W dual-head 1300 × 900 mm, 130 W 1300 × 900 mm, 100 W iRadion RF 1300 × 900 mm. Cuts wood, plywood, MDF and acrylic up to 10 mm. Engraves wood, acrylic, leather and glass, and marks metal.
+- Solid wood tables for restaurants, hotels and offices: European oak 4 cm, straight or live edge, optional epoxy resin, black steel bases, hard-wax oil, made in series to size.
+- Files accepted: DXF, DWG, STEP, STL, IGES, SVG, AI, PDF (a sketch or photo is enough to start).
+- Quote within 48 hours. Sample part from €60, credited against a series order. Small runs (10–200 pcs) typically 1–2 weeks of production, larger runs 2–4 weeks, then 1–3 working days shipping to Germany/Austria.
+- Invoicing in EUR; EU business customers with a VAT ID get reverse charge; payment on invoice; no customs within the EU (Switzerland: import duties apply).
+- Clients include Mastercard, Cloudflare, Lynk & Co, Bohemia Interactive, Myco and Green Cat; over 500 projects since 2020.
+- Contact: plant@wearetreed.com · +49 176 2279 1055 (also WhatsApp) · +420 601 366 516.
+
+## Pages (German, for DACH customers)
+
+- [CNC contract manufacturing (Lohnfertigung)](https://formastudio.cz/lohnfertigung): CNC milling, laser and 3D printing from your drawing, sample to series
+- [MDF parts (MDF-Frästeile)](https://formastudio.cz/mdf-fraesteile): CNC-milled MDF parts to drawing, up to 10,000 pcs
+- [Laser cutting & engraving (Laserschneiden)](https://formastudio.cz/laserschneiden): the laser park, large runs, wood/MDF/acrylic up to 10 mm
+- [Tables for restaurants & hotels (Gastro-Tische)](https://formastudio.cz/gastro-tische): solid oak and epoxy tables made in series to size
+- [References (Referenzen)](https://formastudio.cz/referenzen): projects for Mastercard, Cloudflare, Bohemia Interactive, Myco
+
+## Homepage in four languages
+
+- [Deutsch](https://formastudio.cz/de)
+- [English](https://formastudio.cz/en)
+- [Čeština](https://formastudio.cz/)
+- [Slovenčina](https://formastudio.cz/sk)
+
+## Optional
+
+- [Impressum](https://formastudio.cz/impressum)
+- [Datenschutz](https://formastudio.cz/datenschutz)
