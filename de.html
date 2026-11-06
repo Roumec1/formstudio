@@ -214,6 +214,16 @@ h1 em{font-style:italic;color:var(--accent)}
 .gi-vid{cursor:default}
 .svc-vid{object-position:50% 40%;background:var(--light)}
 .svc-vid-laser{object-position:30% 40%}
+/* laser card links to /laserschneiden: the whole card is clickable */
+.svc-link{position:relative;transition:background .25s,transform .25s,box-shadow .25s}
+.svc-link:hover{transform:translateY(-4px);box-shadow:0 22px 44px -28px rgba(34,27,18,.45)}
+.svc-link:hover .svc-img{transform:scale(1.09)}
+.svc-more{display:inline-flex;align-items:center;gap:.4rem;margin-top:1.2rem;font-weight:700;font-size:.9rem;color:var(--accent);text-decoration:none}
+.svc-more::after{content:"";position:absolute;inset:0;z-index:1}
+.svc-more .arr{display:inline-block;transition:transform .25s}
+.svc-link:hover .svc-more .arr{transform:translateX(5px)}
+.svc-more:focus-visible{outline:none}.svc-link:focus-within{outline:2px solid var(--accent);outline-offset:3px}
+@media(prefers-reduced-motion:reduce){.svc-link:hover{transform:none}}
 .gi-cap{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,.7));padding:2.5rem .9rem .7rem;font-size:.69rem;color:rgba(255,255,255,.88);opacity:0;transition:opacity .3s;font-style:italic}
 .gi:hover .gi-cap{opacity:1}
 .lb-overlay{position:fixed;inset:0;z-index:9999;background:rgba(250,249,247,.35);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);display:none;align-items:center;justify-content:center;cursor:zoom-out;opacity:0;transition:opacity .35s ease}
@@ -869,7 +879,7 @@ h2.stag{margin-top:0;margin-bottom:.8rem}
         </div>
       </div>
 
-      <div class="svc rv d1">
+      <div class="svc svc-link rv d1">
         <video class="svc-img svc-vid svc-vid-laser" muted loop playsinline preload="none" data-poster="videos/laser-engraving.webp" data-src="videos/laser-engraving.mp4" width="960" height="720" aria-hidden="true"></video>
         <div class="svc-body">
           <div class="svc-n">02</div>
@@ -883,6 +893,7 @@ h2.stag{margin-top:0;margin-bottom:.8rem}
             <span class="svc-tag"><span data-lang="cs">Řezání dílů</span><span data-lang="sk">Rezanie dielov</span><span data-lang="en">Laser-cut parts</span><span data-lang="de" class="on">Laserzuschnitt</span></span>
             <span class="svc-tag"><span data-lang="cs">Označení produktů</span><span data-lang="sk">Označenie produktov</span><span data-lang="en">Product labeling</span><span data-lang="de" class="on">Produktkennzeichnung</span></span>
           </div>
+          <a class="svc-more" href="/laserschneiden" hreflang="de"><span data-lang="cs">Laserový park a ukázky (DE)</span><span data-lang="sk">Laserový park a ukážky (DE)</span><span data-lang="en">See the laser park (DE)</span><span data-lang="de" class="on">Mehr zum Laserpark</span> <span class="arr" aria-hidden="true">→</span></a>
         </div>
       </div>
 
