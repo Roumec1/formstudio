@@ -254,7 +254,8 @@ Object.keys(META).forEach(function (lang) {
 
   // Keep only this language's text: drop the other languages' spans (nesting-aware, scripts untouched),
   // so Google sees one language per page
-  h = keepOneLanguage(h, lang);
+  // never for cs: index.html is both the source and the cs output, it must keep all four languages
+  if (lang !== 'cs') h = keepOneLanguage(h, lang);
 
   // Highlight the active language in the switcher
   h = h.replace('<a class="lbtn on" data-l="cs"', '<a class="lbtn" data-l="cs"');
