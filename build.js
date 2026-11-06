@@ -116,6 +116,27 @@ function inlineFonts(html) {
   fs.writeFileSync(f, inlineFonts(fs.readFileSync(f, 'utf8')), 'utf8');
 });
 
+// Removes <span data-lang="xx">…</span> for every language except keep. Handles nested spans; leaves <script> blocks alone.
+function keepOneLanguage(html, keep) {
+  let out = '', i = 0;
+  const open = /<span\b[^>]*\bdata-lang="(cs|sk|en|de)"[^>]*>/g;
+  while (i < html.length) {
+    const sc = html.indexOf('<script', i);
+    open.lastIndex = i;
+    const m = open.exec(html);
+    if (!m) { out += html.slice(i); break; }
+    if (sc !== -1 && sc < m.index) { const end = html.indexOf('</script>', sc) + 9; out += html.slice(i, end); i = end; continue; }
+    if (m[1] === keep) { out += html.slice(i, open.lastIndex); i = open.lastIndex; continue; }
+    // skip to the matching </span>
+    out += html.slice(i, m.index);
+    let depth = 1, j = open.lastIndex;
+    const tag = /<span\b[^>]*>|<\/span>/g;
+    while (depth > 0) { tag.lastIndex = j; const t = tag.exec(html); if (!t) throw new Error('unclosed lang span'); depth += t[0][1] === '/' ? -1 : 1; j = tag.lastIndex; }
+    i = j;
+  }
+  return out;
+}
+
 const SRC = inlineFonts(fs.readFileSync('index.html', 'utf8'));
 
 function ogBlock(primaryLoc) {
@@ -230,6 +251,10 @@ Object.keys(META).forEach(function (lang) {
     const on = (l === lang) ? ' class="on"' : '';
     return '<span data-lang="' + l + '"' + (attrs ? ' ' + attrs : '') + on + '>';
   });
+
+  // Keep only this language's text: drop the other languages' spans (nesting-aware, scripts untouched),
+  // so Google sees one language per page
+  h = keepOneLanguage(h, lang);
 
   // Highlight the active language in the switcher
   h = h.replace('<a class="lbtn on" data-l="cs"', '<a class="lbtn" data-l="cs"');
