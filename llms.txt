@@ -1,6 +1,6 @@
 # Forma Studio
 
-> Forma Studio is a contract manufacturing workshop in Šumperk, Czech Republic (EU), run by Wearetreed s.r.o. It makes parts and products from customer files: large-format CNC milling (wood, MDF, plywood, plastic, acrylic), CO₂ laser cutting and engraving, a 3D print farm, plus assembly and packing. From a single sample to series of 10,000+ pieces, for customers in Germany, Austria, Switzerland, Czechia and Slovakia.
+> Forma Studio is a contract manufacturing workshop in Bludov near Šumperk, Czech Republic (EU), run by Wearetreed s.r.o. It makes parts and products from customer files: large-format CNC milling (wood, MDF, plywood, plastic, acrylic), CO₂ laser cutting and engraving, a 3D print farm, plus assembly and packing. From a single sample to series of 10,000+ pieces, for customers in Germany, Austria, Switzerland, Czechia and Slovakia.
 
 Key facts:
 
