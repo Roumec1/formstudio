@@ -141,8 +141,11 @@ nav{position:sticky;top:0;z-index:100;background:rgba(239,236,228,.95);backdrop-
 #wa:hover{transform:translateY(-2px) scale(1.05)}
 #wa svg{width:28px;height:28px}
 
-footer{border-top:1px solid var(--border);padding:1.8rem 1.5rem;text-align:center}
+footer{border-top:1px solid var(--border);padding:2rem 1.5rem;text-align:center}
+footer .fnav{display:flex;flex-wrap:wrap;justify-content:center;gap:.35rem 1.4rem;max-width:760px;margin:0 auto 1.1rem;font-size:.82rem}
+footer .fnav a{padding:.3rem 0}
 footer .fl{font-family:var(--mono);font-size:.7rem;color:var(--mid)}
+@media(max-width:700px){footer{padding:1.8rem 1.25rem 6.5rem}footer .fnav{gap:.2rem 1.1rem}}
 footer a{color:var(--mid);text-decoration:none;border-bottom:1px solid var(--border)}
 footer a:hover{color:var(--accent)}
 
@@ -338,7 +341,8 @@ h1,h2,h3{font-weight:800;letter-spacing:-.04em}
 </a>
 
 <footer>
-  <p class="fl">© 2026 Forma Studio · Wearetreed s.r.o. · Šumperk, EU&nbsp;&nbsp;·&nbsp;&nbsp;<a href="/impressum">Impressum</a> · <a href="/datenschutz">Datenschutz</a> · <a href="/de">Zur Hauptseite</a></p>
+  <div class="fnav"><a href="/impressum">Impressum</a><a href="/datenschutz">Datenschutz</a><a href="/de">Zur Hauptseite</a></div>
+  <p class="fl">© 2026 Forma Studio · Wearetreed s.r.o. · Šumperk, EU</p>
 </footer>
 
 <script>
