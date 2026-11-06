@@ -214,6 +214,15 @@ h1 em{font-style:italic;color:var(--accent)}
 .gi-vid{cursor:default}
 .svc-vid{object-position:50% 40%;background:var(--light)}
 .svc-vid-laser{object-position:30% 40%}
+/* tables card: full width, photo left */
+.svc-wide{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr}
+.svc-wide .svc-img{height:100%;min-height:420px;object-position:50% 62%}
+.svc-wide .svc-body{align-self:center}
+@media(max-width:980px){.svc-wide{display:block}.svc-wide .svc-img{height:420px;min-height:0}}
+@media(max-width:600px){.svc-wide .svc-img{height:260px}}
+/* gallery viewer: link from table photos to the tables page */
+.lb-link{color:var(--accent);font-weight:700;text-decoration:none;white-space:nowrap}
+.lb-link[hidden]{display:none}
 /* laser card links to /laserschneiden: the whole card is clickable */
 .svc-link{position:relative;transition:background .25s,transform .25s,box-shadow .25s}
 .svc-link:hover{transform:translateY(-4px);box-shadow:0 22px 44px -28px rgba(34,27,18,.45)}
@@ -925,6 +934,20 @@ h2.stag{margin-top:0;margin-bottom:.8rem}
         </div>
       </div>
 
+      <div class="svc svc-link svc-wide rv">
+        <img srcset="images/tische-rund-epoxy-600.webp 600w, images/tische-rund-epoxy.webp 1122w" sizes="(max-width:980px) 100vw, 50vw" width="1122" height="1402" class="svc-img" src="images/tische-rund-epoxy.webp" alt="Okrúhly dubový stôl s čiernou epoxidovou živicou" loading="lazy">
+        <div class="svc-body">
+          <div class="svc-n">05</div>
+          <div class="svc-title"><span data-lang="cs">Stoly pro gastro a hotely</span><span data-lang="sk" class="on">Stoly pre gastro a hotely</span><span data-lang="en">Tables for restaurants &amp; hotels</span><span data-lang="de">Tische für Gastronomie &amp; Hotels</span></div>
+          <p class="svc-desc"><span data-lang="cs">Masivní dub, na přání s epoxidovou pryskyřicí, na černé ocelové podnoži. Vyrábíme 10 až 200 stolů pro restaurace, kavárny, hotely i kanceláře — každá deska frézovaná na CNC podle stejného souboru, takže dvacátý stůl vypadá jako první.</span><span data-lang="sk" class="on">Masívny dub, na želanie s epoxidovou živicou, na čiernej oceľovej podnoži. Vyrábame 10 až 200 stolov pre reštaurácie, kaviarne, hotely aj kancelárie — každá doska frézovaná na CNC podľa rovnakého súboru, takže dvadsiaty stôl vyzerá ako prvý.</span><span data-lang="en">Solid oak, optionally with epoxy resin, on black steel bases. We make 10 to 200 tables for restaurants, cafés, hotels and offices — every top CNC-milled from the same file, so the twentieth table looks like the first.</span><span data-lang="de">Massive Eiche, auf Wunsch mit Epoxidharz, auf schwarzem Stahlgestell. Wir fertigen 10 bis 200 Tische für Restaurants, Cafés, Hotels und Büros — jede Platte auf der CNC nach derselben Datei gefräst, darum sieht der zwanzigste Tisch aus wie der erste.</span></p>
+          <div class="svc-tags">
+            <span class="svc-tag"><span data-lang="cs">Restaurace</span><span data-lang="sk" class="on">Reštaurácie</span><span data-lang="en">Restaurants</span><span data-lang="de">Restaurants</span></span>
+            <span class="svc-tag"><span data-lang="cs">Hotely</span><span data-lang="sk" class="on">Hotely</span><span data-lang="en">Hotels</span><span data-lang="de">Hotels</span></span>
+            <span class="svc-tag"><span data-lang="cs">Epoxid</span><span data-lang="sk" class="on">Epoxid</span><span data-lang="en">Epoxy</span><span data-lang="de">Epoxidharz</span></span>
+          </div>
+          <a class="svc-more" href="/gastro-tische" hreflang="de"><span data-lang="cs">Stoly pro gastro (DE)</span><span data-lang="sk" class="on">Stoly pre gastro (DE)</span><span data-lang="en">See the tables (DE)</span><span data-lang="de">Mehr zu Gastro-Tischen</span> <span class="arr" aria-hidden="true">→</span></a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -960,12 +983,12 @@ h2.stag{margin-top:0;margin-bottom:.8rem}
       <div class="gi"><img srcset="gallery/g20-800.webp 800w, gallery/g20.webp 1200w" sizes="(max-width:600px) 100vw, (max-width:980px) 50vw, 33vw" width="1200" height="1600" src="gallery/g20.webp" alt="Séria CNC frézovaných dielov z masívneho dreva" loading="lazy"></div>
       <div class="gi"><img srcset="gallery/g06-800.webp 800w, gallery/g06-1200.webp 1200w, gallery/g06.webp 1600w" sizes="(max-width:600px) 100vw, (max-width:980px) 50vw, 33vw" width="1600" height="1600" src="gallery/g06.webp" alt="Drevená bezdrôtová nabíjačka vyrobená CNC frézovaním" loading="lazy"></div>
       <div class="gi"><img srcset="gallery/g09-800.webp 800w, gallery/g09-1200.webp 1200w, gallery/g09.webp 1600w" sizes="(max-width:600px) 100vw, (max-width:980px) 50vw, 33vw" width="1600" height="1600" src="gallery/g09.webp" alt="Drevený aroma difuzér z dubového dreva — CNC výroba" loading="lazy"></div>
-      <div class="gi span2"><img srcset="gallery/g21-800.webp 800w, gallery/g21.webp 1122w" sizes="(max-width:600px) 100vw, (max-width:980px) 50vw, 33vw" width="1122" height="1402" src="gallery/g21.webp" alt="Okrúhly dubový stôl s čiernou epoxidovou živicou" loading="lazy"></div>
-      <div class="gi"><img srcset="gallery/g22-800.webp 800w, gallery/g22.webp 1122w" sizes="(max-width:600px) 100vw, (max-width:980px) 50vw, 33vw" width="1122" height="1402" src="gallery/g22.webp" alt="Konferenčný stolík z duba s prírodnou hranou a epoxidom" loading="lazy"></div>
-      <div class="gi"><img srcset="gallery/g23-800.webp 800w, gallery/g23.webp 1122w" sizes="(max-width:600px) 100vw, (max-width:980px) 50vw, 33vw" width="1122" height="1402" src="gallery/g23.webp" alt="Dubová doska river s čiernym epoxidom pri liatí" loading="lazy"></div>
-      <div class="gi"><img srcset="gallery/g24-800.webp 800w, gallery/g24.webp 1200w" sizes="(max-width:600px) 100vw, (max-width:980px) 50vw, 33vw" width="1200" height="900" src="gallery/g24.webp" alt="Dubový stôl s prírodnou hranou na kovových nohách" loading="lazy"></div>
-      <div class="gi"><img srcset="gallery/g25-800.webp 800w, gallery/g25.webp 1200w" sizes="(max-width:600px) 100vw, (max-width:980px) 50vw, 33vw" width="1200" height="900" src="gallery/g25.webp" alt="Detail hrany okrúhlej dubovej dosky s epoxidom" loading="lazy"></div>
-      <div class="gi"><img srcset="gallery/g26-800.webp 800w, gallery/g26.webp 1122w" sizes="(max-width:600px) 100vw, (max-width:980px) 50vw, 33vw" width="1122" height="1402" src="gallery/g26.webp" alt="Dubová fošňa s epoxidom v našej dielni" loading="lazy"></div>
+      <div class="gi span2"><img srcset="gallery/g21-800.webp 800w, gallery/g21.webp 1122w" sizes="(max-width:600px) 100vw, (max-width:980px) 50vw, 33vw" width="1122" height="1402" src="gallery/g21.webp" data-link="/gastro-tische" alt="Okrúhly dubový stôl s čiernou epoxidovou živicou" loading="lazy"></div>
+      <div class="gi"><img srcset="gallery/g22-800.webp 800w, gallery/g22.webp 1122w" sizes="(max-width:600px) 100vw, (max-width:980px) 50vw, 33vw" width="1122" height="1402" src="gallery/g22.webp" data-link="/gastro-tische" alt="Konferenčný stolík z duba s prírodnou hranou a epoxidom" loading="lazy"></div>
+      <div class="gi"><img srcset="gallery/g23-800.webp 800w, gallery/g23.webp 1122w" sizes="(max-width:600px) 100vw, (max-width:980px) 50vw, 33vw" width="1122" height="1402" src="gallery/g23.webp" data-link="/gastro-tische" alt="Dubová doska river s čiernym epoxidom pri liatí" loading="lazy"></div>
+      <div class="gi"><img srcset="gallery/g24-800.webp 800w, gallery/g24.webp 1200w" sizes="(max-width:600px) 100vw, (max-width:980px) 50vw, 33vw" width="1200" height="900" src="gallery/g24.webp" data-link="/gastro-tische" alt="Dubový stôl s prírodnou hranou na kovových nohách" loading="lazy"></div>
+      <div class="gi"><img srcset="gallery/g25-800.webp 800w, gallery/g25.webp 1200w" sizes="(max-width:600px) 100vw, (max-width:980px) 50vw, 33vw" width="1200" height="900" src="gallery/g25.webp" data-link="/gastro-tische" alt="Detail hrany okrúhlej dubovej dosky s epoxidom" loading="lazy"></div>
+      <div class="gi"><img srcset="gallery/g26-800.webp 800w, gallery/g26.webp 1122w" sizes="(max-width:600px) 100vw, (max-width:980px) 50vw, 33vw" width="1122" height="1402" src="gallery/g26.webp" data-link="/gastro-tische" alt="Dubová fošňa s epoxidom v našej dielni" loading="lazy"></div>
       <div class="gi"><img srcset="gallery/g01-800.webp 800w, gallery/g01-1200.webp 1200w, gallery/g01.webp 1600w" sizes="(max-width:600px) 100vw, (max-width:980px) 50vw, 33vw" width="1600" height="1066" src="gallery/g01.webp" alt="Bezdrôtová nabíjačka s laserovo gravírovaným logom Cloudflare" loading="lazy"></div>
       <div class="gi"><img srcset="gallery/g13-800.webp 800w, gallery/g13-1200.webp 1200w, gallery/g13.webp 1600w" sizes="(max-width:600px) 100vw, (max-width:980px) 50vw, 33vw" width="1600" height="1600" src="gallery/g13.webp" alt="Drevený stojanček z dubu vyrobený CNC frézovaním" loading="lazy"></div>
       <div class="gi"><img srcset="gallery/g15-800.webp 800w, gallery/g15-1200.webp 1200w, gallery/g15.webp 1600w" sizes="(max-width:600px) 100vw, (max-width:980px) 50vw, 33vw" width="1600" height="1600" src="gallery/g15.webp" alt="Drevená bezdrôtová nabíjačka s iPhonom — ukážka produktu" loading="lazy"></div>
@@ -1602,19 +1625,20 @@ function fltSend(){
 }
 
 /* Lightbox — browse the gallery with arrows, keyboard and swipe */
-var lbT={cs:['zvětšit','Předchozí','Další','Zavřít'],sk:['zväčšiť','Predchádzajúca','Ďalšia','Zavrieť'],en:['enlarge','Previous','Next','Close'],de:['vergrößern','Zurück','Weiter','Schließen']};
+var lbT={cs:['zvětšit','Předchozí','Další','Zavřít','Stoly pro gastro →'],sk:['zväčšiť','Predchádzajúca','Ďalšia','Zavrieť','Stoly pre gastro →'],en:['enlarge','Previous','Next','Close','Tables for restaurants →'],de:['vergrößern','Zurück','Weiter','Schließen','Zu den Gastro-Tischen →']};
 var lbL=lbT[document.documentElement.lang]||lbT.en;
 const lbOverlay=document.createElement('div');
 lbOverlay.className='lb-overlay';
 lbOverlay.setAttribute('role','dialog');lbOverlay.setAttribute('aria-modal','true');
 lbOverlay.innerHTML='<button class="lb-close" aria-label="'+lbL[3]+'">&times;</button>'+
   '<button class="lb-nav lb-prev" aria-label="'+lbL[1]+'"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button>'+
-  '<figure class="lb-fig"><img src="" alt=""><figcaption class="lb-cap"><span class="lb-count"></span><span class="lb-alt"></span></figcaption></figure>'+
+  '<figure class="lb-fig"><img src="" alt=""><figcaption class="lb-cap"><span class="lb-count"></span><span class="lb-alt"></span><a class="lb-link" href="" hidden></a></figcaption></figure>'+
   '<button class="lb-nav lb-next" aria-label="'+lbL[2]+'"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></button>';
 document.body.appendChild(lbOverlay);
 const lbImg=lbOverlay.querySelector('img');
 const lbClose=lbOverlay.querySelector('.lb-close');
-const lbCount=lbOverlay.querySelector('.lb-count'),lbAlt=lbOverlay.querySelector('.lb-alt');
+const lbCount=lbOverlay.querySelector('.lb-count'),lbAlt=lbOverlay.querySelector('.lb-alt'),lbLink=lbOverlay.querySelector('.lb-link');
+lbLink.textContent=lbL[4];lbLink.addEventListener('click',function(e){e.stopPropagation();});
 const lbItems=Array.prototype.slice.call(document.querySelectorAll('.gi img'));
 var lbIdx=0,lbOpener=null;
 function lbShow(i){
@@ -1622,6 +1646,7 @@ function lbShow(i){
   var im=lbItems[lbIdx];
   lbImg.src=im.getAttribute('src');lbImg.alt=im.alt||'';
   lbCount.textContent=(lbIdx+1)+' / '+lbItems.length;lbAlt.textContent=im.alt||'';
+  if(im.dataset.link){lbLink.href=im.dataset.link;lbLink.hidden=false;}else lbLink.hidden=true;
   // warm up the neighbours so browsing feels instant
   [lbIdx+1,lbIdx-1].forEach(function(j){var n=lbItems[(j+lbItems.length)%lbItems.length];if(n)(new Image()).src=n.getAttribute('src');});
 }
