@@ -112,7 +112,7 @@ function inlineFonts(html) {
   return html.replace(/<link rel="stylesheet" href="\/fonts\/fonts\.css">|<style id="fontfaces">[\s\S]*?<\/style>/, function () { return tag; });
 }
 // Standalone pages that aren't language-generated get the same treatment.
-['lohnfertigung.html', 'mdf-fraesteile.html', 'laserschneiden.html', 'gastro-tische.html', 'werbegeschenke.html', 'referenzen.html', 'impressum.html', 'datenschutz.html', '404.html'].forEach(function (f) {
+['lohnfertigung.html', 'mdf-fraesteile.html', 'laserschneiden.html', 'gastro-tische.html', 'werbegeschenke.html', 'referenzen.html', 'impressum.html', 'datenschutz.html', '404.html', 'cnc-frezovani.html', 'frezovani-mdf.html', 'laserove-rezani.html', 'stoly-pro-gastro.html', 'ochrana-osobnich-udaju.html'].forEach(function (f) {
   fs.writeFileSync(f, inlineFonts(fs.readFileSync(f, 'utf8')), 'utf8');
 });
 
@@ -274,8 +274,12 @@ Object.keys(META).forEach(function (lang) {
   const urls = ['cs', 'de', 'en', 'sk'].map(function (l) {
     return '  <url>\n    <loc>' + META[l].url + '</loc>\n    <lastmod>' + today + '</lastmod>\n' + alts + '\n  </url>';
   }).join('\n') + '\n' +
-    // German landing pages (standalone, not language-generated)
-    ['/lohnfertigung', '/mdf-fraesteile', '/laserschneiden', '/gastro-tische', '/werbegeschenke', '/referenzen'].map(function (u) {
+    // landing pages: German/Czech twins (hreflang pairs), plus German-only pages
+    [['/lohnfertigung', '/cnc-frezovani'], ['/mdf-fraesteile', '/frezovani-mdf'], ['/laserschneiden', '/laserove-rezani'], ['/gastro-tische', '/stoly-pro-gastro']].map(function (pair) {
+      const alt = '    <xhtml:link rel="alternate" hreflang="de" href="' + BASE + pair[0] + '"/>\n    <xhtml:link rel="alternate" hreflang="cs" href="' + BASE + pair[1] + '"/>';
+      return pair.map(function (u) { return '  <url>\n    <loc>' + BASE + u + '</loc>\n    <lastmod>' + today + '</lastmod>\n' + alt + '\n  </url>'; }).join('\n');
+    }).join('\n') + '\n' +
+    ['/werbegeschenke', '/referenzen'].map(function (u) {
       return '  <url>\n    <loc>' + BASE + u + '</loc>\n    <lastmod>' + today + '</lastmod>\n  </url>';
     }).join('\n');
   const xml = '<?xml version="1.0" encoding="UTF-8"?>\n' +

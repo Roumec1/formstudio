@@ -559,6 +559,7 @@ html[lang="cs"] .dach-only,html[lang="sk"] .dach-only{display:none}
 /* ─── EASIER MOVING THROUGH THE PAGE ─── */
 section[id]{scroll-margin-top:72px}                       /* menu jumps land below the sticky bar */
 html:not([lang="de"]) .de-only{display:none}
+.flinks li:not(:has(> a)):not(:has(> [data-lang].on)){display:none}
 html:not([lang="de"]) .f-de::after{content:"DE";font-size:.62em;letter-spacing:.06em;margin-left:.35em;padding:.05em .3em;border:1px solid currentColor;border-radius:3px;opacity:.55;vertical-align:.15em}
 .nav-links a.active{color:var(--accent)}
 .nav-links a{white-space:nowrap}
@@ -899,7 +900,7 @@ h2.stag{margin-top:0;margin-bottom:.8rem}
             <span class="svc-tag"><span data-lang="cs" class="on">Řezání dílů</span><span data-lang="sk">Rezanie dielov</span><span data-lang="en">Laser-cut parts</span><span data-lang="de">Laserzuschnitt</span></span>
             <span class="svc-tag"><span data-lang="cs" class="on">Označení produktů</span><span data-lang="sk">Označenie produktov</span><span data-lang="en">Product labeling</span><span data-lang="de">Produktkennzeichnung</span></span>
           </div>
-          <a class="svc-more" href="/laserschneiden" hreflang="de"><span data-lang="cs" class="on">Laserový park a ukázky (DE)</span><span data-lang="sk">Laserový park a ukážky (DE)</span><span data-lang="en">See the laser park (DE)</span><span data-lang="de">Mehr zum Laserpark</span> <span class="arr" aria-hidden="true">→</span></a>
+          <span data-lang="cs" class="on"><a class="svc-more" href="/laserove-rezani">Laserový park a ukázky <span class="arr" aria-hidden="true">→</span></a></span><span data-lang="sk"><a class="svc-more" href="/laserove-rezani">Laserový park a ukážky <span class="arr" aria-hidden="true">→</span></a></span><span data-lang="en"><a class="svc-more" href="/laserschneiden" hreflang="de">See the laser park (DE) <span class="arr" aria-hidden="true">→</span></a></span><span data-lang="de"><a class="svc-more" href="/laserschneiden">Mehr zum Laserpark <span class="arr" aria-hidden="true">→</span></a></span>
         </div>
       </div>
 
@@ -942,7 +943,7 @@ h2.stag{margin-top:0;margin-bottom:.8rem}
             <span class="svc-tag"><span data-lang="cs" class="on">Hotely</span><span data-lang="sk">Hotely</span><span data-lang="en">Hotels</span><span data-lang="de">Hotels</span></span>
             <span class="svc-tag"><span data-lang="cs" class="on">Epoxid</span><span data-lang="sk">Epoxid</span><span data-lang="en">Epoxy</span><span data-lang="de">Epoxidharz</span></span>
           </div>
-          <a class="svc-more" href="/gastro-tische" hreflang="de"><span data-lang="cs" class="on">Stoly pro gastro (DE)</span><span data-lang="sk">Stoly pre gastro (DE)</span><span data-lang="en">See the tables (DE)</span><span data-lang="de">Mehr zu Gastro-Tischen</span> <span class="arr" aria-hidden="true">→</span></a>
+          <span data-lang="cs" class="on"><a class="svc-more" href="/stoly-pro-gastro">Stoly pro gastro <span class="arr" aria-hidden="true">→</span></a></span><span data-lang="sk"><a class="svc-more" href="/stoly-pro-gastro">Stoly pre gastro <span class="arr" aria-hidden="true">→</span></a></span><span data-lang="en"><a class="svc-more" href="/gastro-tische" hreflang="de">See the tables (DE) <span class="arr" aria-hidden="true">→</span></a></span><span data-lang="de"><a class="svc-more" href="/gastro-tische">Mehr zu Gastro-Tischen <span class="arr" aria-hidden="true">→</span></a></span>
         </div>
       </div>
     </div>
@@ -1355,14 +1356,14 @@ h2.stag{margin-top:0;margin-bottom:.8rem}
     <li><a href="#about"><span data-lang="cs" class="on">O nás</span><span data-lang="sk">O nás</span><span data-lang="en">About us</span><span data-lang="de">Über uns</span></a></li>
     <li><a href="#faq">FAQ</a></li>
     <li><a href="#contact"><span data-lang="cs" class="on">Kontakt</span><span data-lang="sk">Kontakt</span><span data-lang="en">Contact</span><span data-lang="de">Kontakt</span></a></li>
-    <li><a class="f-de" href="/impressum" hreflang="de"><span data-lang="cs" class="on">Impressum</span><span data-lang="sk">Impressum</span><span data-lang="en">Legal notice</span><span data-lang="de">Impressum</span></a></li>
-    <li><a class="f-de" href="/datenschutz" hreflang="de"><span data-lang="cs" class="on">Ochrana osobních údajů</span><span data-lang="sk">Ochrana osobných údajov</span><span data-lang="en">Privacy</span><span data-lang="de">Datenschutz</span></a></li>
-    <li><a class="f-de" href="/lohnfertigung" hreflang="de"><span data-lang="cs" class="on">Zakázková výroba</span><span data-lang="sk">Zákazková výroba</span><span data-lang="en">Contract manufacturing</span><span data-lang="de">Lohnfertigung</span></a></li>
-    <li><a class="f-de" href="/mdf-fraesteile" hreflang="de"><span data-lang="cs" class="on">Frézované díly z MDF</span><span data-lang="sk">Frézované diely z MDF</span><span data-lang="en">CNC-milled MDF parts</span><span data-lang="de">MDF-Frästeile</span></a></li>
-    <li><a class="f-de" href="/laserschneiden" hreflang="de"><span data-lang="cs" class="on">Laserové řezání</span><span data-lang="sk">Laserové rezanie</span><span data-lang="en">Laser cutting</span><span data-lang="de">Laserschneiden</span></a></li>
-    <li><a class="f-de" href="/gastro-tische" hreflang="de"><span data-lang="cs" class="on">Stoly pro gastro</span><span data-lang="sk">Stoly pre gastro</span><span data-lang="en">Restaurant tables</span><span data-lang="de">Gastro-Tische</span></a></li>
-    <li><a class="f-de" href="/werbegeschenke" hreflang="de"><span data-lang="cs" class="on">Firemní dárky</span><span data-lang="sk">Firemné darčeky</span><span data-lang="en">Corporate gifts</span><span data-lang="de">Werbegeschenke</span></a></li>
-    <li><a class="f-de" href="/referenzen" hreflang="de"><span data-lang="cs" class="on">Reference</span><span data-lang="sk">Referencie</span><span data-lang="en">References</span><span data-lang="de">Referenzen</span></a></li>
+    <li><span data-lang="cs" class="on"><a href="/ochrana-osobnich-udaju">Ochrana osobních údajů</a></span><span data-lang="sk"><a href="/ochrana-osobnich-udaju">Ochrana osobných údajov</a></span><span data-lang="en"><a href="/datenschutz" class="f-de" hreflang="de">Privacy</a></span><span data-lang="de"><a href="/datenschutz">Datenschutz</a></span></li>
+    <li><span data-lang="en"><a href="/impressum" class="f-de" hreflang="de">Legal notice</a></span><span data-lang="de"><a href="/impressum">Impressum</a></span></li>
+    <li><span data-lang="cs" class="on"><a href="/cnc-frezovani">CNC frézování</a></span><span data-lang="sk"><a href="/cnc-frezovani">CNC frézovanie</a></span><span data-lang="en"><a href="/lohnfertigung" class="f-de" hreflang="de">Contract manufacturing</a></span><span data-lang="de"><a href="/lohnfertigung">Lohnfertigung</a></span></li>
+    <li><span data-lang="cs" class="on"><a href="/frezovani-mdf">Frézování MDF</a></span><span data-lang="sk"><a href="/frezovani-mdf">Frézovanie MDF</a></span><span data-lang="en"><a href="/mdf-fraesteile" class="f-de" hreflang="de">CNC-milled MDF parts</a></span><span data-lang="de"><a href="/mdf-fraesteile">MDF-Frästeile</a></span></li>
+    <li><span data-lang="cs" class="on"><a href="/laserove-rezani">Laserové řezání</a></span><span data-lang="sk"><a href="/laserove-rezani">Laserové rezanie</a></span><span data-lang="en"><a href="/laserschneiden" class="f-de" hreflang="de">Laser cutting</a></span><span data-lang="de"><a href="/laserschneiden">Laserschneiden</a></span></li>
+    <li><span data-lang="cs" class="on"><a href="/stoly-pro-gastro">Stoly pro gastro</a></span><span data-lang="sk"><a href="/stoly-pro-gastro">Stoly pre gastro</a></span><span data-lang="en"><a href="/gastro-tische" class="f-de" hreflang="de">Restaurant tables</a></span><span data-lang="de"><a href="/gastro-tische">Gastro-Tische</a></span></li>
+    <li><span data-lang="en"><a href="/werbegeschenke" class="f-de" hreflang="de">Corporate gifts</a></span><span data-lang="de"><a href="/werbegeschenke">Werbegeschenke</a></span></li>
+    <li><span data-lang="en"><a href="/referenzen" class="f-de" hreflang="de">References</a></span><span data-lang="de"><a href="/referenzen">Referenzen</a></span></li>
   </ul>
   <span class="fcopy">© 2026 Forma Studio · Šumperk · CNC · 3D · Laser</span>
 </footer>
@@ -1643,7 +1644,7 @@ function lbShow(i){
   var im=lbItems[lbIdx];
   lbImg.src=im.getAttribute('src');lbImg.alt=im.alt||'';
   lbCount.textContent=(lbIdx+1)+' / '+lbItems.length;lbAlt.textContent=im.alt||'';
-  if(im.dataset.link){lbLink.href=im.dataset.link;lbLink.hidden=false;}else lbLink.hidden=true;
+  if(im.dataset.link){lbLink.href=/^(cs|sk)$/.test(document.documentElement.lang)?im.dataset.link.replace('/gastro-tische','/stoly-pro-gastro'):im.dataset.link;lbLink.hidden=false;}else lbLink.hidden=true;
   // warm up the neighbours so browsing feels instant
   [lbIdx+1,lbIdx-1].forEach(function(j){var n=lbItems[(j+lbItems.length)%lbItems.length];if(n)(new Image()).src=n.getAttribute('src');});
 }

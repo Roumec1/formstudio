@@ -559,6 +559,7 @@ html[lang="cs"] .dach-only,html[lang="sk"] .dach-only{display:none}
 /* ─── EASIER MOVING THROUGH THE PAGE ─── */
 section[id]{scroll-margin-top:72px}                       /* menu jumps land below the sticky bar */
 html:not([lang="de"]) .de-only{display:none}
+.flinks li:not(:has(> a)):not(:has(> [data-lang].on)){display:none}
 html:not([lang="de"]) .f-de::after{content:"DE";font-size:.62em;letter-spacing:.06em;margin-left:.35em;padding:.05em .3em;border:1px solid currentColor;border-radius:3px;opacity:.55;vertical-align:.15em}
 .nav-links a.active{color:var(--accent)}
 .nav-links a{white-space:nowrap}
@@ -899,7 +900,7 @@ h2.stag{margin-top:0;margin-bottom:.8rem}
             <span class="svc-tag"><span data-lang="sk" class="on">Rezanie dielov</span></span>
             <span class="svc-tag"><span data-lang="sk" class="on">Označenie produktov</span></span>
           </div>
-          <a class="svc-more" href="/laserschneiden" hreflang="de"><span data-lang="sk" class="on">Laserový park a ukážky (DE)</span> <span class="arr" aria-hidden="true">→</span></a>
+          <span data-lang="sk" class="on"><a class="svc-more" href="/laserove-rezani">Laserový park a ukážky <span class="arr" aria-hidden="true">→</span></a></span>
         </div>
       </div>
 
@@ -942,7 +943,7 @@ h2.stag{margin-top:0;margin-bottom:.8rem}
             <span class="svc-tag"><span data-lang="sk" class="on">Hotely</span></span>
             <span class="svc-tag"><span data-lang="sk" class="on">Epoxid</span></span>
           </div>
-          <a class="svc-more" href="/gastro-tische" hreflang="de"><span data-lang="sk" class="on">Stoly pre gastro (DE)</span> <span class="arr" aria-hidden="true">→</span></a>
+          <span data-lang="sk" class="on"><a class="svc-more" href="/stoly-pro-gastro">Stoly pre gastro <span class="arr" aria-hidden="true">→</span></a></span>
         </div>
       </div>
     </div>
@@ -1355,14 +1356,14 @@ h2.stag{margin-top:0;margin-bottom:.8rem}
     <li><a href="#about"><span data-lang="sk" class="on">O nás</span></a></li>
     <li><a href="#faq">FAQ</a></li>
     <li><a href="#contact"><span data-lang="sk" class="on">Kontakt</span></a></li>
-    <li><a class="f-de" href="/impressum" hreflang="de"><span data-lang="sk" class="on">Impressum</span></a></li>
-    <li><a class="f-de" href="/datenschutz" hreflang="de"><span data-lang="sk" class="on">Ochrana osobných údajov</span></a></li>
-    <li><a class="f-de" href="/lohnfertigung" hreflang="de"><span data-lang="sk" class="on">Zákazková výroba</span></a></li>
-    <li><a class="f-de" href="/mdf-fraesteile" hreflang="de"><span data-lang="sk" class="on">Frézované diely z MDF</span></a></li>
-    <li><a class="f-de" href="/laserschneiden" hreflang="de"><span data-lang="sk" class="on">Laserové rezanie</span></a></li>
-    <li><a class="f-de" href="/gastro-tische" hreflang="de"><span data-lang="sk" class="on">Stoly pre gastro</span></a></li>
-    <li><a class="f-de" href="/werbegeschenke" hreflang="de"><span data-lang="sk" class="on">Firemné darčeky</span></a></li>
-    <li><a class="f-de" href="/referenzen" hreflang="de"><span data-lang="sk" class="on">Referencie</span></a></li>
+    <li><span data-lang="sk" class="on"><a href="/ochrana-osobnich-udaju">Ochrana osobných údajov</a></span></li>
+    <li></li>
+    <li><span data-lang="sk" class="on"><a href="/cnc-frezovani">CNC frézovanie</a></span></li>
+    <li><span data-lang="sk" class="on"><a href="/frezovani-mdf">Frézovanie MDF</a></span></li>
+    <li><span data-lang="sk" class="on"><a href="/laserove-rezani">Laserové rezanie</a></span></li>
+    <li><span data-lang="sk" class="on"><a href="/stoly-pro-gastro">Stoly pre gastro</a></span></li>
+    <li></li>
+    <li></li>
   </ul>
   <span class="fcopy">© 2026 Forma Studio · Šumperk · CNC · 3D · Laser</span>
 </footer>
@@ -1643,7 +1644,7 @@ function lbShow(i){
   var im=lbItems[lbIdx];
   lbImg.src=im.getAttribute('src');lbImg.alt=im.alt||'';
   lbCount.textContent=(lbIdx+1)+' / '+lbItems.length;lbAlt.textContent=im.alt||'';
-  if(im.dataset.link){lbLink.href=im.dataset.link;lbLink.hidden=false;}else lbLink.hidden=true;
+  if(im.dataset.link){lbLink.href=/^(cs|sk)$/.test(document.documentElement.lang)?im.dataset.link.replace('/gastro-tische','/stoly-pro-gastro'):im.dataset.link;lbLink.hidden=false;}else lbLink.hidden=true;
   // warm up the neighbours so browsing feels instant
   [lbIdx+1,lbIdx-1].forEach(function(j){var n=lbItems[(j+lbItems.length)%lbItems.length];if(n)(new Image()).src=n.getAttribute('src');});
 }

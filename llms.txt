@@ -21,6 +21,15 @@ Key facts:
 - [Tables for restaurants & hotels (Gastro-Tische)](https://formastudio.cz/gastro-tische): solid oak and epoxy tables made in series to size
 - [References (Referenzen)](https://formastudio.cz/referenzen): projects for Mastercard, Cloudflare, Bohemia Interactive, Myco
 
+## Pages (Czech, for customers in Czechia and Slovakia)
+
+- [CNC frézování na zakázku](https://formastudio.cz/cnc-frezovani): CNC milling, laser and 3D printing to order, from 1 piece to series
+- [Frézování MDF](https://formastudio.cz/frezovani-mdf): CNC-milled MDF parts to drawing, up to 10,000 pcs
+- [Laserové řezání a gravírování](https://formastudio.cz/laserove-rezani): the laser park, large runs, wood/MDF/acrylic up to 10 mm
+- [Stoly pro gastro](https://formastudio.cz/stoly-pro-gastro): solid oak and epoxy tables for restaurants and hotels, made in series
+
+Czech customers: prices are quoted without VAT; sample part from CZK 1,500.
+
 ## Homepage in four languages
 
 - [Deutsch](https://formastudio.cz/de)
@@ -31,4 +40,4 @@ Key facts:
 ## Optional
 
 - [Impressum](https://formastudio.cz/impressum)
-- [Datenschutz](https://formastudio.cz/datenschutz)
+- [Datenschutz](https://formastudio.cz/datenschutz) · [Ochrana osobních údajů](https://formastudio.cz/ochrana-osobnich-udaju)
